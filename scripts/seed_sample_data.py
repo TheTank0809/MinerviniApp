@@ -113,7 +113,7 @@ def main():
     with open(os.path.join(ROOT, "docs", "data", "manifest.json"), "w") as fh:
         json.dump({"generated_at": "2026-07-05T00:00:00Z", "sample": True,
                    "screens": [{"universe": "india", "screen": "minervini-filter",
-                                "label": "Minervini filter", "universe_label": "India",
+                                "label": "Minervini Screener", "universe_label": "India",
                                 "counts": {"active": len(active), "new": 1, "dropped": 1, "errors": 0},
                                 "regime": {"label": REGIME["label"], "score": REGIME["score"]}}]}, fh, indent=1)
     print("sample data written to docs/data/")

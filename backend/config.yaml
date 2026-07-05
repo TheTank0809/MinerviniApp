@@ -20,7 +20,7 @@ universes:
     currency: "INR"
     yahoo_suffixes: [".NS", ".BO"]
     screens:
-      - name: "Minervini filter"    # must match the screen name in your screener.in account
+      - name: "Minervini Screener"  # must match the screen name in your screener.in account
         slug: "minervini-filter"
         enabled: true
       - name: "Growth filter"       # flip enabled: true when you create this screen

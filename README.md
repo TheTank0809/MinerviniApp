@@ -1,6 +1,6 @@
 # MinerviniApp
 
-Personal tracker for my screener.in **Minervini filter** screen. Every Sunday a GitHub
+Personal tracker for my screener.in **Minervini Screener** screen. Every Sunday a GitHub
 Action pulls the screen, scores every stock with the [Minervini Scorecard Engine v3](PROMPT.md),
 records who joined and who fell out, and publishes a mobile-friendly website
 (installable as an app) on GitHub Pages. Everything runs on free tiers — no domain, no server.
