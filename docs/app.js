@@ -320,7 +320,7 @@
   // Basic deterrent only. The SHA-256 of the passphrase is stored, never the plaintext.
   // To change it: open the console and run  hashPassphrase("your new phrase")  then
   // paste the result into PASS_HASH below and push. (Not real security — see README.)
-  var PASS_HASH = "86f459006efad68d5792116a0bfddbed565be50d6e443a2df5d2fdba559c6cda";
+  var PASS_HASH = "10f2cc0be9fa2cf6c64c59749e20cbd0f0e1fdd67cac6934e56380c69a24c54d";
   var UNLOCK_KEY = "mv_unlocked_v1";
 
   function sha256Hex(str) {
