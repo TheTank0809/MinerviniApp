@@ -16,6 +16,25 @@
                    E1: 2, E2: 1, E3: 1, E4: 1, F1: 7, F2: 4, F3: 2, F4: 2,
                    G1: 3, G2: 4, G3: 4, G4: 4, G5: 3, G6: 2, H1: 2, H2: 2, H3: 1 };
 
+  var C_SHORT = { c1: "below 150/200 DMA", c2: "150 DMA under 200", c3: "200 DMA not rising",
+                  c4: "50 DMA under 150/200", c5: "below 50 DMA", c6: "under +30% off low",
+                  c7: "over 25% off high", c8: "RS below 70" };
+
+  function rejectReason(sc) {
+    if (sc.status === "FAILS_TREND_TEMPLATE") {
+      var tt = ((sc.gates || {}).trend_template) || {};
+      var fails = Object.keys(C_SHORT).filter(function (k) { return tt[k] === false; })
+        .map(function (k) { return C_SHORT[k]; });
+      return "Rejected: " + (fails.join(" · ") || "trend template");
+    }
+    if (sc.status && sc.status.indexOf("FAIL_") === 0) {
+      return "Rejected: " + sc.status.replace("FAIL_", "").toLowerCase() + " gate";
+    }
+    var tot = (sc.scores || {}).total;
+    if (tot != null && tot < 60) return "Rejected: score " + tot + " below 60";
+    return null;
+  }
+
   function fmtDate(iso) {
     if (!iso) return "—";
     var d = new Date(iso + "T00:00:00");
@@ -137,14 +156,15 @@
       var bucket = sc.status === "SCORED" ? (sc.action_bucket || "") : "GATE_FAIL";
       var row = document.createElement("button");
       row.className = "row" + (state.tab === "dropped" ? " frozen" : "");
+      var reason = rejectReason(sc);
       var sub = state.tab === "dropped"
-        ? "left " + fmtDate(rec.dropped_date)
-        : (sc.quality_band || sc.status || "");
+        ? "left " + fmtDate(rec.dropped_date) + (reason ? " · " + reason : "")
+        : (reason || sc.quality_band || sc.status || "");
       var cells =
         '<span class="stockcell"><span class="ticker">' + esc(rec.ticker) + "</span>" +
         (isNew(rec) ? '<span class="newpill">NEW</span>' : "") +
         '<div class="sname">' + esc(rec.name || "") + '</div>' +
-        '<div class="sub">' + esc(sub) + "</div></span>" +
+        '<div class="sub' + (reason && state.tab !== "dropped" ? " reject" : "") + '" title="' + esc(sub) + '">' + esc(sub) + "</div></span>" +
         '<span class="score ' + scoreCls + '">' + (tot == null ? "—" : tot) + '<span class="of">/100</span></span>' +
         gatebar(sc);
       var subs = "";
@@ -184,6 +204,8 @@
     if (scores) html += '<span class="badge band">' + esc(sc.quality_band) + " · " + scores.total + "/100</span>";
     html += '<span class="badge">' + esc((sc.action_bucket || sc.status || "").replace(/_/g, " ")) + "</span>";
     if (rec.dropped_date) html += '<span class="badge frozen">left screen ' + fmtDate(rec.dropped_date) + " · frozen</span>";
+    var reason = rejectReason(sc);
+    if (reason) html += '<span class="badge flag">' + esc(reason) + "</span>";
     (sc.red_flags || []).forEach(function (f) { html += '<span class="badge flag">' + esc(f) + "</span>"; });
     if (sc.risk_level) html += '<span class="badge">risk ' + esc(sc.risk_level) + "</span>";
     html += "</div>";
