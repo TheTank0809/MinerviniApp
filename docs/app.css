@@ -27,6 +27,38 @@ body {
 }
 button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
 
+/* ---------------- passphrase gate ---------------- */
+.gate {
+  position: fixed; inset: 0; z-index: 50; display: grid; place-items: center;
+  padding: 24px; background:
+    radial-gradient(120% 80% at 50% 0%, #1c1710 0%, var(--bg) 70%);
+}
+.gate[hidden] { display: none; }
+.gate-card {
+  width: 100%; max-width: 320px; display: grid; gap: 12px; justify-items: center;
+  text-align: center;
+}
+.gate-mark { width: 52px; height: 52px; font-size: 32px; border-radius: 8px; }
+.gate-card h2 {
+  font-family: var(--display); font-size: 19px; letter-spacing: .05em;
+  text-transform: uppercase; margin: 4px 0 0;
+}
+.gate-sub { font-family: var(--mono); font-size: 12px; color: var(--muted); margin: 0 0 4px; }
+.gate-card input {
+  width: 100%; background: var(--surface); border: 1px solid var(--line);
+  border-radius: 8px; padding: 12px 14px; color: var(--text);
+  font-family: var(--mono); font-size: 15px; text-align: center; letter-spacing: .12em;
+}
+.gate-card input:focus { outline: 2px solid var(--amber); outline-offset: 1px; border-color: var(--amber); }
+.gate-btn {
+  width: 100%; background: var(--amber); color: var(--bg); border-radius: 8px; padding: 11px;
+  font-family: var(--display); font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+  font-size: 13px; box-shadow: 0 0 18px rgba(255,176,32,.3);
+}
+.gate-btn:active { transform: translateY(1px); }
+.gate-err { font-family: var(--mono); font-size: 12px; color: var(--fail); margin: 2px 0 0; }
+body.locked > *:not(.gate) { display: none !important; }
+
 /* ---------------- top bar ---------------- */
 .topbar {
   display: flex; justify-content: space-between; align-items: center; gap: 12px;
@@ -97,12 +129,12 @@ main { padding: 0 10px 30px; max-width: 1100px; margin: 0 auto; }
   .thead .wide, .row .wide { display: block; }
 }
 .thead {
-  font-family: var(--mono); font-size: 10.5px; text-transform: uppercase; letter-spacing: .08em;
+  font-family: var(--mono); font-size: 9.5px; text-transform: uppercase; letter-spacing: .02em;
   color: var(--muted); padding: 8px 12px 6px;
 }
 .thead em {
-  display: block; font-style: normal; font-size: 8px; letter-spacing: .04em;
-  color: var(--amber-dim); margin-top: 1px;
+  display: block; font-style: normal; font-size: 8.5px; letter-spacing: 0;
+  color: var(--amber-dim); margin-top: 1px; text-transform: none;
 }
 .num { text-align: right; }
 .list { display: grid; gap: 6px; }

@@ -18,6 +18,18 @@
 </head>
 <body>
 
+<div id="gate" class="gate" hidden>
+  <form id="gate-form" class="gate-card">
+    <span class="brand-mark gate-mark">M</span>
+    <h2>Minervini Tracker</h2>
+    <p class="gate-sub">Enter passphrase to continue</p>
+    <input id="gate-pass" type="password" inputmode="text" autocomplete="current-password"
+           placeholder="passphrase" aria-label="Passphrase">
+    <button type="submit" class="gate-btn">Unlock</button>
+    <p id="gate-err" class="gate-err" hidden>Wrong passphrase — try again.</p>
+  </form>
+</div>
+
 <header class="topbar">
   <div class="brand">
     <span class="brand-mark">M</span>
@@ -53,12 +65,12 @@
 
 <main>
   <div class="thead" id="thead" aria-hidden="true">
-    <span>Stock</span><span class="num">Score</span><span class="gcol">Gates</span>
+    <span>Stock</span><span class="num">Score<em>/100</em></span><span class="gcol">Gates</span>
     <span class="num wide">RS<em>pctile</em></span>
-    <span class="num wide">A<em>Earnings</em></span><span class="num wide">B<em>Sales</em></span>
-    <span class="num wide">C<em>Profit</em></span><span class="num wide">D<em>Debt</em></span>
-    <span class="num wide">E<em>Institu.</em></span><span class="num wide">F<em>Trend</em></span>
-    <span class="num wide">G<em>Base</em></span><span class="num wide">H<em>Leader</em></span>
+    <span class="num wide">Earnings<em>/25</em></span><span class="num wide">Sales<em>/15</em></span>
+    <span class="num wide">Profit<em>/10</em></span><span class="num wide">Balance<em>/5</em></span>
+    <span class="num wide">Instns<em>/5</em></span><span class="num wide">Trend<em>/15</em></span>
+    <span class="num wide">Base<em>/20</em></span><span class="num wide">Leader<em>/5</em></span>
     <span class="wide">Bucket</span><span class="wide">Joined</span>
   </div>
   <div id="list" class="list"></div>

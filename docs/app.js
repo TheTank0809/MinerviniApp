@@ -316,9 +316,55 @@
   $("#backdrop").onclick = closeSheet;
   document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeSheet(); });
 
-  if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("sw.js").catch(function () {});
+  // ---------------------------------------------------------------- passphrase gate
+  // Basic deterrent only. The SHA-256 of the passphrase is stored, never the plaintext.
+  // To change it: open the console and run  hashPassphrase("your new phrase")  then
+  // paste the result into PASS_HASH below and push. (Not real security — see README.)
+  var PASS_HASH = "86f459006efad68d5792116a0bfddbed565be50d6e443a2df5d2fdba559c6cda";
+  var UNLOCK_KEY = "mv_unlocked_v1";
+
+  function sha256Hex(str) {
+    var buf = new TextEncoder().encode(str);
+    return crypto.subtle.digest("SHA-256", buf).then(function (d) {
+      return Array.prototype.map.call(new Uint8Array(d), function (b) {
+        return ("0" + b.toString(16)).slice(-2);
+      }).join("");
+    });
+  }
+  window.hashPassphrase = function (p) { return sha256Hex(p); };
+
+  function start() {
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("sw.js").catch(function () {});
+    }
+    loadManifest();
   }
 
-  loadManifest();
+  function unlock() {
+    document.body.classList.remove("locked");
+    $("#gate").hidden = true;
+    start();
+  }
+
+  if (!PASS_HASH || localStorage.getItem(UNLOCK_KEY) === PASS_HASH) {
+    unlock();
+  } else {
+    document.body.classList.add("locked");
+    $("#gate").hidden = false;
+    var input = $("#gate-pass");
+    setTimeout(function () { input.focus(); }, 50);
+    $("#gate-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      sha256Hex(input.value).then(function (h) {
+        if (h === PASS_HASH) {
+          try { localStorage.setItem(UNLOCK_KEY, h); } catch (err) {}
+          unlock();
+        } else {
+          $("#gate-err").hidden = false;
+          input.value = "";
+          input.focus();
+        }
+      });
+    });
+  }
 })();
