@@ -20,10 +20,13 @@ universes:
     currency: "INR"
     yahoo_suffixes: [".NS", ".BO"]
     screens:
-      - name: "Minervini Screener"  # must match the screen name in your screener.in account
+      # id = the number in your screen's URL, e.g. https://www.screener.in/screens/123456/minervini-screener/ -> id: 123456
+      - name: "Minervini Screener"
+        id: 877182
         slug: "minervini-filter"
         enabled: true
-      - name: "Growth filter"       # flip enabled: true when you create this screen
+      - name: "Growth filter"       # flip enabled: true once this screen exists and id is set
+        id: 0
         slug: "growth-filter"
         enabled: false
 

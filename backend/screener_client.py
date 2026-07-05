@@ -45,25 +45,21 @@ class ScreenerClient:
 
     # ---------------------------------------------------------------- screens
 
-    def find_screen_url(self, screen_name):
-        """Locate a saved screen by its display name on the user's screens page."""
+    def fetch_screen_stocks(self, screen_id, screen_name=None):
+        """Return [{'code': 'TCS', 'name': 'Tata Consultancy...'}] for every stock
+        currently in the saved screen identified by its screener.in numeric screen id
+        (the number in https://www.screener.in/screens/<id>/<slug>/), following
+        pagination.
+
+        Screens are looked up directly by id rather than by searching a listing page:
+        screener.in's /explore/ and /screens/ pages only list its own public predefined
+        screens, never a logged-in user's personal saved screens, so name-based lookup
+        against those pages can never find a custom screen.
+        """
         if not self.session_id:
             raise ScreenerError("SCREENER_SESSIONID is not set; cannot access saved screens.")
-        html = self._get(BASE + "/explore/")
-        target = screen_name.strip().lower()
-        for page_html in (html, self._get(BASE + "/screens/")):
-            soup = BeautifulSoup(page_html, "html.parser")
-            for a in soup.find_all("a", href=re.compile(r"^/screens/\d+/")):
-                if a.get_text(strip=True).lower() == target:
-                    return BASE + a["href"]
-        raise ScreenerError(
-            "Could not find a screen named '%s' in your screener.in account. "
-            "Check the name in backend/config.yaml matches exactly." % screen_name)
-
-    def fetch_screen_stocks(self, screen_name):
-        """Return [{'code': 'TCS', 'name': 'Tata Consultancy...'}] for every stock
-        currently in the saved screen, following pagination."""
-        url = self.find_screen_url(screen_name)
+        label = screen_name or str(screen_id)
+        url = "%s/screens/%s/" % (BASE, screen_id)
         stocks, seen, page = [], set(), 1
         while True:
             sep = "&" if "?" in url else "?"
@@ -91,8 +87,9 @@ class ScreenerClient:
             page += 1
         if not stocks:
             raise ScreenerError(
-                "Screen '%s' returned zero stocks — either the screen is empty or the "
-                "page layout changed." % screen_name)
+                "Screen '%s' (id %s) returned zero stocks — either the screen is empty, "
+                "the id is wrong, the screen is private to a different account, or "
+                "SCREENER_SESSIONID has expired." % (label, screen_id))
         return stocks
 
     # ----------------------------------------------------------- company page
