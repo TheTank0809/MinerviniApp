@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-07-05T00:00:00Z",
- "sample": true,
+ "generated_at": "2026-07-05T14:44:57.633193Z",
+ "sample": false,
  "screens": [
   {
    "universe": "india",
@@ -8,14 +8,14 @@
    "label": "Minervini Screener",
    "universe_label": "India",
    "counts": {
-    "active": 4,
-    "new": 1,
-    "dropped": 1,
+    "active": 56,
+    "new": 56,
+    "dropped": 0,
     "errors": 0
    },
    "regime": {
-    "label": "CONFIRMED_UPTREND",
-    "score": 5
+    "label": "CAUTION",
+    "score": 4
    }
   }
  ]
