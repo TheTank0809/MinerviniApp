@@ -45,21 +45,25 @@ class ScreenerClient:
 
     # ---------------------------------------------------------------- screens
 
-    def fetch_screen_stocks(self, screen_id, screen_name=None):
+    def fetch_screen_stocks(self, screen_url, screen_name=None):
         """Return [{'code': 'TCS', 'name': 'Tata Consultancy...'}] for every stock
-        currently in the saved screen identified by its screener.in numeric screen id
-        (the number in https://www.screener.in/screens/<id>/<slug>/), following
-        pagination.
+        currently in the saved screen at screen_url (the exact address-bar URL of the
+        screen on screener.in, e.g. https://www.screener.in/screens/877182/minervini-screener/),
+        following pagination.
 
-        Screens are looked up directly by id rather than by searching a listing page:
-        screener.in's /explore/ and /screens/ pages only list its own public predefined
-        screens, never a logged-in user's personal saved screens, so name-based lookup
-        against those pages can never find a custom screen.
+        The full URL is used verbatim rather than reconstructed from a numeric id:
+        screener.in 404s on /screens/<id>/ without its slug, and /explore/ and /screens/
+        (the public listing pages) only ever show screener.in's own predefined screens,
+        never a logged-in user's personal saved screens — so there's no reliable page to
+        discover a custom screen's slug from.
         """
         if not self.session_id:
             raise ScreenerError("SCREENER_SESSIONID is not set; cannot access saved screens.")
-        label = screen_name or str(screen_id)
-        url = "%s/screens/%s/" % (BASE, screen_id)
+        if not screen_url:
+            raise ScreenerError(
+                "Screen '%s' has no url set in backend/config.yaml." % (screen_name or "?"))
+        label = screen_name or screen_url
+        url = screen_url.rstrip("/") + "/"
         stocks, seen, page = [], set(), 1
         while True:
             sep = "&" if "?" in url else "?"
@@ -87,9 +91,9 @@ class ScreenerClient:
             page += 1
         if not stocks:
             raise ScreenerError(
-                "Screen '%s' (id %s) returned zero stocks — either the screen is empty, "
-                "the id is wrong, the screen is private to a different account, or "
-                "SCREENER_SESSIONID has expired." % (label, screen_id))
+                "Screen '%s' (%s) returned zero stocks — either the screen is empty, "
+                "the url is wrong, the screen belongs to a different account, or "
+                "SCREENER_SESSIONID has expired." % (label, screen_url))
         return stocks
 
     # ----------------------------------------------------------- company page

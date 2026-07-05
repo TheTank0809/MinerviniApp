@@ -20,13 +20,14 @@ universes:
     currency: "INR"
     yahoo_suffixes: [".NS", ".BO"]
     screens:
-      # id = the number in your screen's URL, e.g. https://www.screener.in/screens/123456/minervini-screener/ -> id: 123456
+      # url = paste the exact address bar URL of the screen on screener.in, no edits.
+      # slug = internal folder name under docs/data/ — can be anything, unrelated to screener.in.
       - name: "Minervini Screener"
-        id: 877182
+        url: "https://www.screener.in/screens/877182/minervini-screener/"
         slug: "minervini-filter"
         enabled: true
-      - name: "Growth filter"       # flip enabled: true once this screen exists and id is set
-        id: 0
+      - name: "Growth filter"       # flip enabled: true once this screen exists and url is set
+        url: ""
         slug: "growth-filter"
         enabled: false
 

@@ -49,11 +49,10 @@ def today():
 
 
 def process_screen(client, universe_key, uni, screen, settings):
-    if not screen.get("id"):
+    if not screen.get("url"):
         raise ScreenerError(
-            "Screen '%s' has no id set in backend/config.yaml. Open the screen on "
-            "screener.in and copy the number from its URL "
-            "(https://www.screener.in/screens/<id>/<slug>/) into config.yaml." % screen["name"])
+            "Screen '%s' has no url set in backend/config.yaml. Open the screen on "
+            "screener.in and paste its exact address-bar URL into config.yaml." % screen["name"])
     slug = screen["slug"]
     sdir = os.path.join(DATA_DIR, universe_key, slug)
     active_path = os.path.join(sdir, "active.json")
@@ -69,7 +68,7 @@ def process_screen(client, universe_key, uni, screen, settings):
     prior_by_code = {s["ticker"]: s for s in active["stocks"]}
 
     print("== %s / %s ==" % (uni["label"], screen["name"]))
-    current = client.fetch_screen_stocks(screen["id"], screen_name=screen["name"])
+    current = client.fetch_screen_stocks(screen["url"], screen_name=screen["name"])
     current_codes = {s["code"] for s in current}
     print("  screen returned %d stocks" % len(current))
 

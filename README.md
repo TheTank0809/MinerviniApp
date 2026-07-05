@@ -62,10 +62,10 @@ This is the only non-free option (a few paise per new stock; capped by
 
 ## Adding the "Growth filter" screen later
 
-Open the screen on screener.in and copy the number from its URL
-(`https://www.screener.in/screens/<id>/<slug>/`). Edit [backend/config.yaml](backend/config.yaml),
-paste that number into `id:` under `Growth filter`, and set `enabled: true`. The next
-run picks it up and the website grows a new chip automatically. The `us` universe
+Open the screen on screener.in and copy the exact address-bar URL. Edit
+[backend/config.yaml](backend/config.yaml), paste it into `url:` under `Growth filter`,
+and set `enabled: true`. The next run picks it up and the website grows a new chip
+automatically. The `us` universe
 block is a placeholder for the planned US/global section — the data layout and UI
 already support multiple universes; only a US data fetcher needs to be added.
 
