@@ -1,0 +1,37 @@
+# MinerviniApp configuration
+# Add new screens or universes here; the pipeline and website pick them up automatically.
+
+settings:
+  benchmark_index: "^CRSLDX"        # Nifty 500 on Yahoo Finance
+  benchmark_fallback: "^NSEI"       # Nifty 50 (used if Nifty 500 data is unavailable)
+  min_median_daily_traded_value_cr: 5
+  max_promoter_pledge_pct: 15
+  buy_zone_extension_pct: 5
+  max_stop_pct: 10
+  history_years: 2                  # OHLCV lookback
+  request_delay_seconds: 1.2        # politeness delay between screener.in requests
+  llm_model: "claude-sonnet-5"      # used only if ANTHROPIC_API_KEY is set
+  llm_max_new_stocks_per_run: 25    # cost guard for verdict synthesis
+
+universes:
+  india:
+    label: "India"
+    enabled: true
+    currency: "INR"
+    yahoo_suffixes: [".NS", ".BO"]
+    screens:
+      - name: "Minervini filter"    # must match the screen name in your screener.in account
+        slug: "minervini-filter"
+        enabled: true
+      - name: "Growth filter"       # flip enabled: true when you create this screen
+        slug: "growth-filter"
+        enabled: false
+
+  # Placeholder for the planned US / global section. When you're ready, set enabled: true
+  # and add a source (screener.in doesn't cover US stocks; a different fetcher will be needed).
+  us:
+    label: "US / Global"
+    enabled: false
+    currency: "USD"
+    yahoo_suffixes: [""]
+    screens: []

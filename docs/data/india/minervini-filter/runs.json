@@ -1,0 +1,38 @@
+{
+ "runs": [
+  {
+   "run_date": "2026-07-05",
+   "mode": "WEEKLY",
+   "regime": {
+    "score": 5,
+    "label": "CONFIRMED_UPTREND",
+    "checks": {
+     "close_above_50dma": true,
+     "close_above_200dma": true,
+     "50dma_above_200dma": true,
+     "distribution_days_25": 3,
+     "distribution_days_ok": true,
+     "pct_universe_above_200dma": 62.0,
+     "universe_above_200dma_ok": true,
+     "net_new_highs_positive": false
+    },
+    "exposure_guidance": "New buys allowed; full risk budget."
+   },
+   "counts": {
+    "active": 4,
+    "new": 1,
+    "dropped": 1,
+    "errors": 0
+   },
+   "new_tickers": [
+    "SAMPLE-C"
+   ],
+   "dropped_tickers": [
+    "SAMPLE-X"
+   ],
+   "actionable_now": [],
+   "alerts": [],
+   "errors": []
+  }
+ ]
+}

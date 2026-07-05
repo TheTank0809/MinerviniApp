@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Minervini Tracker</title>
+<meta name="description" content="Weekly Minervini SEPA scorecards for my screener.in screens">
+<meta name="theme-color" content="#131009">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark">M</span>
+    <div>
+      <h1>Minervini Tracker</h1>
+      <div class="regime" id="regime-line"><span class="cursor">▮</span> loading…</div>
+    </div>
+  </div>
+  <div class="runstamp" id="runstamp"></div>
+</header>
+
+<div id="sample-banner" class="sample-banner" hidden>
+  Sample data — run the weekly scan once (Actions → Weekly Minervini scan) to see your screen.
+</div>
+
+<nav class="controls">
+  <div class="chips" id="screen-chips"></div>
+  <div class="tabs" role="tablist">
+    <button class="tab active" data-tab="active" role="tab">In screen</button>
+    <button class="tab" data-tab="dropped" role="tab">Left the screen</button>
+  </div>
+  <div class="sortrow">
+    <label for="sort">Sort</label>
+    <select id="sort">
+      <option value="score">Score</option>
+      <option value="rs">RS percentile</option>
+      <option value="joined">Newest first</option>
+      <option value="ticker">Ticker A–Z</option>
+    </select>
+    <span class="count" id="count"></span>
+  </div>
+</nav>
+
+<main>
+  <div class="thead" id="thead" aria-hidden="true">
+    <span>Stock</span><span class="num">Score</span><span class="gcol">Gates</span>
+    <span class="num wide">RS</span><span class="num wide">A</span><span class="num wide">B</span>
+    <span class="num wide">C</span><span class="num wide">D</span><span class="num wide">E</span>
+    <span class="num wide">F</span><span class="num wide">G</span><span class="num wide">H</span>
+    <span class="wide">Bucket</span><span class="wide">Joined</span>
+  </div>
+  <div id="list" class="list"></div>
+  <div id="empty" class="empty" hidden>Nothing here yet. The first Sunday scan fills this in.</div>
+</main>
+
+<div class="sheet-backdrop" id="backdrop" hidden></div>
+<section class="sheet" id="sheet" hidden aria-modal="true" role="dialog"></section>
+
+<footer>
+  <span id="foot-note">Scores follow the Minervini Scorecard Engine v3 · data: screener.in + Yahoo Finance</span>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

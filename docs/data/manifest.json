@@ -1,0 +1,22 @@
+{
+ "generated_at": "2026-07-05T00:00:00Z",
+ "sample": true,
+ "screens": [
+  {
+   "universe": "india",
+   "screen": "minervini-filter",
+   "label": "Minervini filter",
+   "universe_label": "India",
+   "counts": {
+    "active": 4,
+    "new": 1,
+    "dropped": 1,
+    "errors": 0
+   },
+   "regime": {
+    "label": "CONFIRMED_UPTREND",
+    "score": 5
+   }
+  }
+ ]
+}

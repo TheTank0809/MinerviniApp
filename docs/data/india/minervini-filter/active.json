@@ -1,0 +1,629 @@
+{
+ "generated_at": "2026-07-05",
+ "sample": true,
+ "stocks": [
+  {
+   "ticker": "SAMPLE-A",
+   "name": "Sample Alpha Industries",
+   "joined_date": "2026-05-10",
+   "last_updated": "2026-07-05",
+   "scorecard": {
+    "ticker": "SAMPLE-A",
+    "name": "Sample Alpha Industries",
+    "as_of": "2026-07-03",
+    "mode": "FULL",
+    "gates": {
+     "trend_template": {
+      "c1": true,
+      "c2": true,
+      "c3": true,
+      "c4": true,
+      "c5": true,
+      "c6": true,
+      "c7": true,
+      "c8": true,
+      "pass": true,
+      "near_miss_notes": ""
+     },
+     "investability": {
+      "liquidity": true,
+      "pledge": true,
+      "governance": true,
+      "pass": true
+     }
+    },
+    "scores": {
+     "earnings": {
+      "A1": 8,
+      "A2": 5,
+      "A3": 4,
+      "A4": 4,
+      "A5": 4,
+      "subtotal": 25
+     },
+     "revenue": {
+      "B1": 6,
+      "B2": 4,
+      "B3": 3,
+      "B4": 2,
+      "subtotal": 15
+     },
+     "profitability": {
+      "C1": 3,
+      "C2": 3,
+      "C3": 2,
+      "C4": 0,
+      "subtotal": 8
+     },
+     "balance_sheet": {
+      "D1": 2,
+      "D2": 1,
+      "D3": 1,
+      "D4": 1,
+      "subtotal": 5
+     },
+     "sponsorship": {
+      "E1": 2,
+      "E2": 0,
+      "E3": 0,
+      "E4": 1,
+      "subtotal": 3
+     },
+     "rs_trend": {
+      "F1": 7,
+      "F2": 4,
+      "F3": 2,
+      "F4": 2,
+      "subtotal": 15
+     },
+     "base_structure": {
+      "G1": 3,
+      "G2": 4,
+      "G3": 3,
+      "G4": 4,
+      "G5": 3,
+      "G6": 2,
+      "subtotal": 19
+     },
+     "leadership": {
+      "H1": 0,
+      "H2": 0,
+      "H3": 0,
+      "subtotal": 0
+     },
+     "total": 90
+    },
+    "quality_band": "Elite",
+    "action_bucket": "BUY_ON_BREAKOUT",
+    "red_flags": [],
+    "risk_level": "LOW",
+    "valuation_context": {
+     "pe": 44.2,
+     "peg": null,
+     "vs_own_5yr": "",
+     "note": "Valuation is context only, never a criterion."
+    },
+    "base": {
+     "pattern_label": "",
+     "pivot": 1000,
+     "pct_from_pivot": -2.0,
+     "base_count": 2,
+     "depth_pct": 18.0,
+     "weeks": 7.4
+    },
+    "trade_plan": {
+     "buy_range": [
+      1000,
+      1050.0
+     ],
+     "stop": 958.0,
+     "stop_pct": 4.2,
+     "risk_pct": 1.25,
+     "position_size_pct_equity": 25,
+     "earnings_risk": false,
+     "notes": "shares = (equity x 1.25%) / (entry - stop). Move stop to breakeven at 2R."
+    },
+    "delta": {
+     "score_change": 0,
+     "gate_flips": [],
+     "bucket_change": "",
+     "alerts": []
+    },
+    "violations": {
+     "count": 0,
+     "items": [],
+     "recommendation": ""
+    },
+    "verdict": {
+     "summary": "SAMPLE-A (90/100) \u2014 Elite / BUY_ON_BREAKOUT.",
+     "strengths": [
+      "RS percentile 94",
+      "Latest EPS YoY >=50%",
+      "Constructive base structure"
+     ],
+     "weaknesses": [
+      "8 unverified fields scored 0"
+     ],
+     "catalysts": [],
+     "biggest_risk": "None flagged",
+     "conviction_0_10": 8
+    },
+    "data_quality": {
+     "unverified_fields": [
+      "fcf",
+      "governance_events",
+      "group_leadership_rank",
+      "industry_group_rs",
+      "marquee_institution",
+      "mf_scheme_count",
+      "new_catalyst",
+      "promoter_pledge_pct"
+     ],
+     "sources": [
+      {
+       "field": "technicals",
+       "source": "Yahoo Finance OHLCV",
+       "as_of": "2026-07-03"
+      },
+      {
+       "field": "fundamentals",
+       "source": "screener.in",
+       "as_of": "2026-07-03"
+      }
+     ]
+    },
+    "technicals": {
+     "price": 980,
+     "rs_percentile": 94,
+     "pct_below_52w_high": 4.5,
+     "pct_above_52w_low": 88,
+     "dma_50": 931.0,
+     "dma_200": 823.1999999999999,
+     "up_down_volume_ratio_50d": 1.45
+    },
+    "status": "SCORED"
+   }
+  },
+  {
+   "ticker": "SAMPLE-C",
+   "name": "Sample Gamma Cables",
+   "joined_date": "2026-07-05",
+   "last_updated": "2026-07-05",
+   "scorecard": {
+    "ticker": "SAMPLE-C",
+    "name": "Sample Gamma Cables",
+    "as_of": "2026-07-03",
+    "mode": "FULL",
+    "gates": {
+     "trend_template": {
+      "c1": true,
+      "c2": true,
+      "c3": true,
+      "c4": true,
+      "c5": true,
+      "c6": true,
+      "c7": true,
+      "c8": true,
+      "pass": true,
+      "near_miss_notes": ""
+     },
+     "investability": {
+      "liquidity": true,
+      "pledge": true,
+      "governance": true,
+      "pass": true
+     }
+    },
+    "scores": {
+     "earnings": {
+      "A1": 6,
+      "A2": 5,
+      "A3": 4,
+      "A4": 4,
+      "A5": 4,
+      "subtotal": 23
+     },
+     "revenue": {
+      "B1": 6,
+      "B2": 4,
+      "B3": 3,
+      "B4": 2,
+      "subtotal": 15
+     },
+     "profitability": {
+      "C1": 3,
+      "C2": 3,
+      "C3": 2,
+      "C4": 0,
+      "subtotal": 8
+     },
+     "balance_sheet": {
+      "D1": 2,
+      "D2": 1,
+      "D3": 1,
+      "D4": 1,
+      "subtotal": 5
+     },
+     "sponsorship": {
+      "E1": 2,
+      "E2": 0,
+      "E3": 0,
+      "E4": 1,
+      "subtotal": 3
+     },
+     "rs_trend": {
+      "F1": 7,
+      "F2": 4,
+      "F3": 2,
+      "F4": 2,
+      "subtotal": 15
+     },
+     "base_structure": {
+      "G1": 3,
+      "G2": 4,
+      "G3": 0,
+      "G4": 0,
+      "G5": 0,
+      "G6": 0,
+      "subtotal": 7
+     },
+     "leadership": {
+      "H1": 0,
+      "H2": 0,
+      "H3": 0,
+      "subtotal": 0
+     },
+     "total": 76
+    },
+    "quality_band": "Watchlist A",
+    "action_bucket": "WATCH",
+    "red_flags": [],
+    "risk_level": "LOW",
+    "valuation_context": {
+     "pe": 44.2,
+     "peg": null,
+     "vs_own_5yr": "",
+     "note": "Valuation is context only, never a criterion."
+    },
+    "base": {
+     "pattern_label": "",
+     "pivot": 2050,
+     "pct_from_pivot": 4.39,
+     "base_count": 2,
+     "depth_pct": 18.0,
+     "weeks": 7.4
+    },
+    "trade_plan": null,
+    "delta": {
+     "score_change": 0,
+     "gate_flips": [],
+     "bucket_change": "",
+     "alerts": []
+    },
+    "violations": {
+     "count": 0,
+     "items": [],
+     "recommendation": ""
+    },
+    "verdict": {
+     "summary": "SAMPLE-C (76/100) \u2014 Watchlist A / WATCH.",
+     "strengths": [
+      "RS percentile 91",
+      "Latest EPS YoY >=50%"
+     ],
+     "weaknesses": [
+      "8 unverified fields scored 0"
+     ],
+     "catalysts": [],
+     "biggest_risk": "None flagged",
+     "conviction_0_10": 6
+    },
+    "data_quality": {
+     "unverified_fields": [
+      "fcf",
+      "governance_events",
+      "group_leadership_rank",
+      "industry_group_rs",
+      "marquee_institution",
+      "mf_scheme_count",
+      "new_catalyst",
+      "promoter_pledge_pct"
+     ],
+     "sources": [
+      {
+       "field": "technicals",
+       "source": "Yahoo Finance OHLCV",
+       "as_of": "2026-07-03"
+      },
+      {
+       "field": "fundamentals",
+       "source": "screener.in",
+       "as_of": "2026-07-03"
+      }
+     ]
+    },
+    "technicals": {
+     "price": 2140,
+     "rs_percentile": 91,
+     "pct_below_52w_high": 1.0,
+     "pct_above_52w_low": 130,
+     "dma_50": 2033.0,
+     "dma_200": 1797.6,
+     "up_down_volume_ratio_50d": 1.45
+    },
+    "status": "SCORED"
+   }
+  },
+  {
+   "ticker": "SAMPLE-B",
+   "name": "Sample Beta Pharma",
+   "joined_date": "2026-06-14",
+   "last_updated": "2026-07-05",
+   "scorecard": {
+    "ticker": "SAMPLE-B",
+    "name": "Sample Beta Pharma",
+    "as_of": "2026-07-03",
+    "mode": "FULL",
+    "gates": {
+     "trend_template": {
+      "c1": true,
+      "c2": true,
+      "c3": true,
+      "c4": true,
+      "c5": true,
+      "c6": true,
+      "c7": true,
+      "c8": true,
+      "pass": true,
+      "near_miss_notes": ""
+     },
+     "investability": {
+      "liquidity": true,
+      "pledge": true,
+      "governance": true,
+      "pass": true
+     }
+    },
+    "scores": {
+     "earnings": {
+      "A1": 4,
+      "A2": 3,
+      "A3": 4,
+      "A4": 4,
+      "A5": 4,
+      "subtotal": 19
+     },
+     "revenue": {
+      "B1": 2,
+      "B2": 2,
+      "B3": 3,
+      "B4": 2,
+      "subtotal": 9
+     },
+     "profitability": {
+      "C1": 3,
+      "C2": 3,
+      "C3": 2,
+      "C4": 0,
+      "subtotal": 8
+     },
+     "balance_sheet": {
+      "D1": 2,
+      "D2": 1,
+      "D3": 1,
+      "D4": 1,
+      "subtotal": 5
+     },
+     "sponsorship": {
+      "E1": 2,
+      "E2": 0,
+      "E3": 0,
+      "E4": 1,
+      "subtotal": 3
+     },
+     "rs_trend": {
+      "F1": 5,
+      "F2": 2,
+      "F3": 2,
+      "F4": 2,
+      "subtotal": 11
+     },
+     "base_structure": {
+      "G1": 3,
+      "G2": 4,
+      "G3": 3,
+      "G4": 2,
+      "G5": 1,
+      "G6": 0,
+      "subtotal": 13
+     },
+     "leadership": {
+      "H1": 0,
+      "H2": 0,
+      "H3": 0,
+      "subtotal": 0
+     },
+     "total": 68
+    },
+    "quality_band": "Watchlist B",
+    "action_bucket": "WATCH",
+    "red_flags": [],
+    "risk_level": "LOW",
+    "valuation_context": {
+     "pe": 44.2,
+     "peg": null,
+     "vs_own_5yr": "",
+     "note": "Valuation is context only, never a criterion."
+    },
+    "base": {
+     "pattern_label": "",
+     "pivot": 470,
+     "pct_from_pivot": -3.19,
+     "base_count": 2,
+     "depth_pct": 22.0,
+     "weeks": 7.4
+    },
+    "trade_plan": null,
+    "delta": {
+     "score_change": 0,
+     "gate_flips": [],
+     "bucket_change": "",
+     "alerts": []
+    },
+    "violations": {
+     "count": 0,
+     "items": [],
+     "recommendation": ""
+    },
+    "verdict": {
+     "summary": "SAMPLE-B (68/100) \u2014 Watchlist B / WATCH.",
+     "strengths": [
+      "RS percentile 86",
+      "Constructive base structure"
+     ],
+     "weaknesses": [
+      "8 unverified fields scored 0"
+     ],
+     "catalysts": [],
+     "biggest_risk": "None flagged",
+     "conviction_0_10": 5
+    },
+    "data_quality": {
+     "unverified_fields": [
+      "fcf",
+      "governance_events",
+      "group_leadership_rank",
+      "industry_group_rs",
+      "marquee_institution",
+      "mf_scheme_count",
+      "new_catalyst",
+      "promoter_pledge_pct"
+     ],
+     "sources": [
+      {
+       "field": "technicals",
+       "source": "Yahoo Finance OHLCV",
+       "as_of": "2026-07-03"
+      },
+      {
+       "field": "fundamentals",
+       "source": "screener.in",
+       "as_of": "2026-07-03"
+      }
+     ]
+    },
+    "technicals": {
+     "price": 455,
+     "rs_percentile": 86,
+     "pct_below_52w_high": 8.0,
+     "pct_above_52w_low": 55,
+     "dma_50": 432.25,
+     "dma_200": 382.2,
+     "up_down_volume_ratio_50d": 1.45
+    },
+    "status": "SCORED"
+   }
+  },
+  {
+   "ticker": "SAMPLE-D",
+   "name": "Sample Delta Finance",
+   "joined_date": "2026-04-05",
+   "last_updated": "2026-07-05",
+   "scorecard": {
+    "ticker": "SAMPLE-D",
+    "name": "Sample Delta Finance",
+    "as_of": "2026-07-03",
+    "mode": "FULL",
+    "gates": {
+     "trend_template": {
+      "c1": true,
+      "c2": true,
+      "c3": true,
+      "c4": true,
+      "c5": true,
+      "c6": true,
+      "c7": true,
+      "c8": false,
+      "pass": false,
+      "near_miss_notes": ""
+     },
+     "investability": {
+      "liquidity": true,
+      "pledge": true,
+      "governance": true,
+      "pass": true
+     }
+    },
+    "scores": null,
+    "quality_band": "Reject",
+    "action_bucket": "AVOID",
+    "red_flags": [],
+    "risk_level": null,
+    "valuation_context": {
+     "pe": 44.2,
+     "peg": null,
+     "vs_own_5yr": "",
+     "note": "Valuation is context only, never a criterion."
+    },
+    "base": {
+     "pattern_label": "",
+     "pivot": 340,
+     "pct_from_pivot": -8.82,
+     "base_count": 2,
+     "depth_pct": 18.0,
+     "weeks": 7.4
+    },
+    "trade_plan": null,
+    "delta": {
+     "score_change": 0,
+     "gate_flips": [],
+     "bucket_change": "",
+     "alerts": []
+    },
+    "violations": {
+     "count": 0,
+     "items": [],
+     "recommendation": ""
+    },
+    "verdict": {
+     "summary": "Fails Trend Template (c8). Analysis terminated per Gate 1.",
+     "strengths": [],
+     "weaknesses": [],
+     "catalysts": [],
+     "biggest_risk": "",
+     "conviction_0_10": 0
+    },
+    "data_quality": {
+     "unverified_fields": [
+      "fcf",
+      "governance_events",
+      "mf_scheme_count",
+      "promoter_pledge_pct"
+     ],
+     "sources": [
+      {
+       "field": "technicals",
+       "source": "Yahoo Finance OHLCV",
+       "as_of": "2026-07-03"
+      },
+      {
+       "field": "fundamentals",
+       "source": "screener.in",
+       "as_of": "2026-07-03"
+      }
+     ]
+    },
+    "technicals": {
+     "price": 310,
+     "rs_percentile": 58,
+     "pct_below_52w_high": 12.0,
+     "pct_above_52w_low": 42,
+     "dma_50": 294.5,
+     "dma_200": 260.4,
+     "up_down_volume_ratio_50d": 1.45
+    },
+    "status": "FAILS_TREND_TEMPLATE"
+   }
+  }
+ ]
+}
