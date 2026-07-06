@@ -15,6 +15,16 @@
                    C1: 3, C2: 3, C3: 2, C4: 2, D1: 2, D2: 1, D3: 1, D4: 1,
                    E1: 2, E2: 1, E3: 1, E4: 1, F1: 7, F2: 4, F3: 2, F4: 2,
                    G1: 3, G2: 4, G3: 4, G4: 4, G5: 3, G6: 2, H1: 2, H2: 2, H3: 1 };
+  var ITEM_LABEL = {
+    A1: "EPS", A2: "Accel", A3: "Annual", A4: "CAGR", A5: "Quality",
+    B1: "Sales", B2: "Accel", B3: "CAGR", B4: "Backed",
+    C1: "ROE", C2: "Margin", C3: "Cash", C4: "FCF",
+    D1: "Debt", D2: "Coverage", D3: "Dilution", D4: "Pledge",
+    E1: "Holding", E2: "Schemes", E3: "Marquee", E4: "Promoter",
+    F1: "RS", F2: "Proximity", F3: "DMA50", F4: "Volume",
+    G1: "Stage", G2: "Count", G3: "Depth", G4: "VCP", G5: "DryUp", G6: "Tight",
+    H1: "Group", H2: "Rank", H3: "Catalyst",
+  };
 
   var C_SHORT = { c1: "below 150/200 DMA", c2: "150 DMA under 200", c3: "200 DMA not rising",
                   c4: "50 DMA under 150/200", c5: "below 50 DMA", c6: "under +30% off low",
@@ -189,7 +199,7 @@
   function itemRows(sec) {
     var keys = Object.keys(sec).filter(function (k) { return k !== "subtotal"; });
     return keys.map(function (k) {
-      return "<b>" + k + "</b> " + sec[k] + "/" + (ITEM_MAX[k] || "?");
+      return "<b>" + (ITEM_LABEL[k] || k) + "</b> " + sec[k] + "/" + (ITEM_MAX[k] || "?");
     }).join(" · ");
   }
 
