@@ -32,11 +32,73 @@
       "pass": true
      }
     },
-    "scores": null,
+    "scores": {
+     "earnings": {
+      "A1": 0,
+      "A2": 0,
+      "A3": 4,
+      "A4": 4,
+      "A5": 4,
+      "subtotal": 12
+     },
+     "revenue": {
+      "B1": 0,
+      "B2": 0,
+      "B3": 3,
+      "B4": 0,
+      "subtotal": 3
+     },
+     "profitability": {
+      "C1": 0,
+      "C2": 3,
+      "C3": 2,
+      "C4": 0,
+      "subtotal": 5
+     },
+     "balance_sheet": {
+      "D1": 2,
+      "D2": 1,
+      "D3": 1,
+      "D4": 1,
+      "subtotal": 5
+     },
+     "sponsorship": {
+      "E1": 2,
+      "E2": 0,
+      "E3": 0,
+      "E4": 1,
+      "subtotal": 3
+     },
+     "rs_trend": {
+      "F1": 0,
+      "F2": 0,
+      "F3": 2,
+      "F4": 2,
+      "subtotal": 4
+     },
+     "base_structure": {
+      "G1": 0,
+      "G2": 4,
+      "G3": 0,
+      "G4": 0,
+      "G5": 0,
+      "G6": 0,
+      "subtotal": 4
+     },
+     "leadership": {
+      "H1": 0,
+      "H2": 0,
+      "H3": 0,
+      "subtotal": 0
+     },
+     "total": 36
+    },
     "quality_band": "Reject",
     "action_bucket": "AVOID",
-    "red_flags": [],
-    "risk_level": null,
+    "red_flags": [
+     "EPS_DECELERATION"
+    ],
+    "risk_level": "LOW",
     "valuation_context": {
      "pe": 44.2,
      "peg": null,
@@ -64,18 +126,26 @@
      "recommendation": ""
     },
     "verdict": {
-     "summary": "Fails Trend Template (c6, c7, c8). Analysis terminated per Gate 1.",
+     "summary": "SAMPLE-X (36/100) \u2014 Reject / AVOID. Score is informational only \u2014 Gate 1 not confirmed, so not an actionable setup yet.",
      "strengths": [],
-     "weaknesses": [],
+     "weaknesses": [
+      "Fails Trend Template: c6, c7, c8",
+      "No valid base yet (4/20)",
+      "8 unverified fields scored 0"
+     ],
      "catalysts": [],
-     "biggest_risk": "",
+     "biggest_risk": "EPS_DECELERATION",
      "conviction_0_10": 0
     },
     "data_quality": {
      "unverified_fields": [
       "fcf",
       "governance_events",
+      "group_leadership_rank",
+      "industry_group_rs",
+      "marquee_institution",
       "mf_scheme_count",
+      "new_catalyst",
       "promoter_pledge_pct"
      ],
      "sources": [
@@ -100,7 +170,7 @@
      "dma_200": 638.4,
      "up_down_volume_ratio_50d": 1.45
     },
-    "status": "FAILS_TREND_TEMPLATE"
+    "status": "SCORED_NO_TREND"
    }
   }
  ]

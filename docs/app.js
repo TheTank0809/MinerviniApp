@@ -21,11 +21,12 @@
                   c7: "over 25% off high", c8: "RS below 70" };
 
   function rejectReason(sc) {
-    if (sc.status === "FAILS_TREND_TEMPLATE") {
-      var tt = ((sc.gates || {}).trend_template) || {};
+    var tt = (sc.gates || {}).trend_template;
+    if (tt && tt.pass === false) {
       var fails = Object.keys(C_SHORT).filter(function (k) { return tt[k] === false; })
         .map(function (k) { return C_SHORT[k]; });
-      return "Rejected: " + (fails.join(" · ") || "trend template");
+      var prefix = sc.scores ? "No trend (Gate 1): " : "Rejected: ";
+      return prefix + (fails.join(" · ") || "trend template");
     }
     if (sc.status && sc.status.indexOf("FAIL_") === 0) {
       return "Rejected: " + sc.status.replace("FAIL_", "").toLowerCase() + " gate";
@@ -153,7 +154,7 @@
       var scores = sc.scores || null;
       var tot = scores ? scores.total : null;
       var scoreCls = tot == null ? "low" : tot >= 80 ? "" : tot >= 60 ? "mid" : "low";
-      var bucket = sc.status === "SCORED" ? (sc.action_bucket || "") : "GATE_FAIL";
+      var bucket = scores ? (sc.action_bucket || "") : "GATE_FAIL";
       var row = document.createElement("button");
       row.className = "row" + (state.tab === "dropped" ? " frozen" : "");
       var reason = rejectReason(sc);

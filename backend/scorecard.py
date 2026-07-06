@@ -368,16 +368,6 @@ def evaluate(ticker, name, tech, fund, regime, cfg, mode="FULL", prior=None, llm
         },
     }
 
-    if not tt["pass"]:
-        card["status"] = "FAILS_TREND_TEMPLATE"
-        card["quality_band"] = "Reject"
-        card["action_bucket"] = "AVOID"
-        card["verdict"]["summary"] = ("Fails Trend Template (%s). Analysis terminated per Gate 1." %
-                                      ", ".join(k for k in ("c1","c2","c3","c4","c5","c6","c7","c8") if not tt[k]))
-        card["data_quality"]["unverified_fields"] = sorted(set(unverified))
-        _apply_delta(card, prior)
-        return card
-
     if not inv["pass"]:
         fails = [k.upper() for k in ("liquidity", "pledge", "governance") if not inv[k]]
         card["status"] = "FAIL_" + fails[0] if fails else "FAIL_INVESTABILITY"
@@ -388,7 +378,12 @@ def evaluate(ticker, name, tech, fund, regime, cfg, mode="FULL", prior=None, llm
         _apply_delta(card, prior)
         return card
 
-    card["status"] = "SCORED"
+    # Gate 1 (Trend Template) no longer terminates scoring — a stock that hasn't
+    # confirmed Stage 2 yet (e.g. RS still below 70) still gets a full A-H score, so
+    # fundamentally strong names stay visible while their technical setup develops.
+    # The gate still blocks the buy/breakout buckets and the trade plan outright —
+    # a high score never overrides a failed gate.
+    card["status"] = "SCORED" if tt["pass"] else "SCORED_NO_TREND"
     s = {
         "earnings": _score_A(fund, unverified, flags),
         "revenue": _score_B(fund, unverified, flags),
@@ -406,9 +401,12 @@ def evaluate(ticker, name, tech, fund, regime, cfg, mode="FULL", prior=None, llm
     card["red_flags"] = sorted(set(flags))
     card["risk_level"] = assess_risk(fund, tech, card["red_flags"])
     card["quality_band"] = quality_band(total)
-    card["action_bucket"] = action_bucket(total, tech, regime["label"], card["risk_level"], cfg)
-    if card["action_bucket"] in ("ACTIONABLE_NOW", "BUY_ON_BREAKOUT"):
-        card["trade_plan"] = trade_plan(tech, total, regime["label"], cfg)
+    if not tt["pass"]:
+        card["action_bucket"] = "AVOID"
+    else:
+        card["action_bucket"] = action_bucket(total, tech, regime["label"], card["risk_level"], cfg)
+        if card["action_bucket"] in ("ACTIONABLE_NOW", "BUY_ON_BREAKOUT"):
+            card["trade_plan"] = trade_plan(tech, total, regime["label"], cfg)
     card["data_quality"]["unverified_fields"] = sorted(set(unverified))
 
     # rule-derived verdict (LLM may overwrite with richer text)
@@ -423,6 +421,7 @@ def evaluate(ticker, name, tech, fund, regime, cfg, mode="FULL", prior=None, llm
 
 def _auto_verdict(card, tech, fund):
     s = card["scores"]
+    tt = card["gates"]["trend_template"]
     strengths, weaknesses = [], []
     if s["rs_trend"]["F1"] >= 5: strengths.append("RS percentile %s" % tech.get("rs_percentile"))
     if s["earnings"]["A1"] >= 6: strengths.append("Latest EPS YoY >=50%")
@@ -431,9 +430,13 @@ def _auto_verdict(card, tech, fund):
     if s["base_structure"]["subtotal"] <= 6: weaknesses.append("No valid base yet (%d/20)" % s["base_structure"]["subtotal"])
     uv = card["data_quality"]["unverified_fields"]
     if uv: weaknesses.append("%d unverified fields scored 0" % len(uv))
-    conviction = max(0, min(10, round((s["total"] - 40) / 6)))
-    return {"summary": "%s (%d/100) — %s / %s." % (card["ticker"], s["total"],
-                                                    card["quality_band"], card["action_bucket"]),
+    summary = "%s (%d/100) — %s / %s." % (card["ticker"], s["total"], card["quality_band"], card["action_bucket"])
+    if not tt["pass"]:
+        failed = ", ".join(k for k in ("c1", "c2", "c3", "c4", "c5", "c6", "c7", "c8") if not tt[k])
+        weaknesses.insert(0, "Fails Trend Template: %s" % failed)
+        summary += " Score is informational only — Gate 1 not confirmed, so not an actionable setup yet."
+    conviction = 0 if not tt["pass"] else max(0, min(10, round((s["total"] - 40) / 6)))
+    return {"summary": summary,
             "strengths": strengths, "weaknesses": weaknesses, "catalysts": [],
             "biggest_risk": card["red_flags"][0] if card["red_flags"] else "None flagged",
             "conviction_0_10": conviction}
