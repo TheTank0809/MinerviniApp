@@ -86,10 +86,14 @@ h1 {
 @keyframes blink { 50% { opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { .cursor { animation: none; } }
 .runstamp { font-family: var(--mono); font-size: 11px; color: var(--muted); text-align: right; flex: none; }
+.llmline { font-family: var(--mono); font-size: 10.5px; color: var(--muted); margin-top: 2px; letter-spacing: .02em; }
 
 .sample-banner {
   margin: 0 16px 8px; padding: 8px 12px; border: 1px dashed var(--amber-dim);
   border-radius: 6px; font-size: 12.5px; color: var(--amber-soft); background: var(--surface);
+}
+.error-banner {
+  border: 1px solid var(--fail); border-style: solid; color: var(--fail); background: rgba(224,86,63,.08);
 }
 
 /* ---------------- controls ---------------- */
@@ -100,6 +104,8 @@ h1 {
   border: 1px solid var(--line); border-radius: 999px; color: var(--muted);
 }
 .chip.active { border-color: var(--amber); color: var(--amber); background: rgba(255,176,32,.07); }
+.filterchips .chip { font-size: 11px; padding: 4px 10px; }
+.filterchips .chip.active { border-color: var(--pass); color: var(--pass); background: rgba(155,215,112,.08); }
 .tabs { display: flex; border-bottom: 1px solid var(--line); }
 .tab {
   font-family: var(--display); font-size: 13px; letter-spacing: .05em; text-transform: uppercase;

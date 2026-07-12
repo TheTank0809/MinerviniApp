@@ -6,7 +6,7 @@
   "use strict";
 
   var state = { manifest: null, universeKey: null, universes: {}, screens: [],
-                tab: "active", sort: "score", data: { active: [], dropped: [] } };
+                tab: "active", sort: "score", filter: null, data: { active: [], dropped: [] } };
   var $ = function (sel) { return document.querySelector(sel); };
 
   var SECTION_MAX = { earnings: 25, revenue: 15, profitability: 10, balance_sheet: 5,
@@ -76,11 +76,12 @@
   // ---------------------------------------------------------------- loading
 
   function loadManifest() {
-    return fetch("data/manifest.json", { cache: "no-cache" })
+    return fetch("data/manifest.json", { cache: "no-store" })
       .then(function (r) { if (!r.ok) throw new Error("no manifest"); return r.json(); })
       .then(function (m) {
         state.manifest = m;
         $("#sample-banner").hidden = !m.sample;
+        renderErrorBanner(m);
         var byUniverse = {};
         (m.screens || []).forEach(function (s) {
           if (!byUniverse[s.universe]) byUniverse[s.universe] = [];
@@ -97,9 +98,23 @@
       });
   }
 
+  function renderErrorBanner(m) {
+    var failed = (m.screens || []).filter(function (s) { return s.error; });
+    var el = $("#error-banner");
+    if (!failed.length) { el.hidden = true; return; }
+    var isAuth = failed.some(function (s) { return /SCREENER_SESSIONID|401|403/i.test(s.error || ""); });
+    var lines = failed.map(function (s) { return "• " + s.label + ": " + s.error; });
+    el.innerHTML = "⚠ " + failed.length + " screen" + (failed.length > 1 ? "s" : "") +
+      " failed on the last run" +
+      (isAuth ? " — your screener.in session has likely expired. Grab a fresh sessionid cookie and update the SCREENER_SESSIONID secret on GitHub." : ".") +
+      "<br><span style=\"opacity:.75\">" + lines.map(esc).join("<br>") + "</span>";
+    el.hidden = false;
+  }
+
   function loadUniverse(universeKey) {
     var screens = (state.universes[universeKey] || []).filter(function (s) { return !s.error; });
     state.screens = screens;
+    renderFilterChips();
     if (!screens.length) {
       state.data.active = []; state.data.dropped = [];
       renderList();
@@ -108,9 +123,9 @@
     return Promise.all(screens.map(function (s) {
       var base = "data/" + s.universe + "/" + s.screen + "/";
       return Promise.all([
-        fetch(base + "active.json", { cache: "no-cache" }).then(function (r) { return r.ok ? r.json() : { stocks: [] }; }),
-        fetch(base + "dropped.json", { cache: "no-cache" }).then(function (r) { return r.ok ? r.json() : { stocks: [] }; }),
-        fetch(base + "runs.json", { cache: "no-cache" }).then(function (r) { return r.ok ? r.json() : { runs: [] }; })
+        fetch(base + "active.json", { cache: "no-store" }).then(function (r) { return r.ok ? r.json() : { stocks: [] }; }),
+        fetch(base + "dropped.json", { cache: "no-store" }).then(function (r) { return r.ok ? r.json() : { stocks: [] }; }),
+        fetch(base + "runs.json", { cache: "no-store" }).then(function (r) { return r.ok ? r.json() : { runs: [] }; })
       ]).then(function (res) {
         return { slug: s.screen, active: res[0].stocks || [], dropped: res[1].stocks || [], run: (res[2].runs || [])[0] };
       });
@@ -175,12 +190,25 @@
 
   function renderRegime(run) {
     var el = $("#regime-line");
-    if (!run) { el.innerHTML = '<span class="cursor">▮</span> awaiting first scan'; return; }
+    var llmEl = $("#llm-line");
+    if (!run) {
+      el.innerHTML = '<span class="cursor">▮</span> awaiting first scan';
+      llmEl.hidden = true;
+      return;
+    }
     var r = run.regime || {};
     el.className = "regime " + (r.label === "CORRECTION" ? "correction" : r.label === "CAUTION" ? "caution" : "");
     el.innerHTML = '<span class="cursor">▮</span> MKT ' + esc(r.label || "?") +
       " " + (r.score != null ? r.score + "/6" : "");
     $("#runstamp").textContent = "scan " + fmtDate(run.run_date);
+
+    var llm = run.llm;
+    if (llm && llm.model) {
+      llmEl.textContent = "verdicts: " + (llm.enabled ? llm.model : "rule-based (no LLM key set)");
+      llmEl.hidden = false;
+    } else {
+      llmEl.hidden = true;
+    }
   }
 
   function renderChips() {
@@ -193,7 +221,27 @@
       var b = document.createElement("button");
       b.className = "chip" + (uk === state.universeKey ? " active" : "");
       b.textContent = label + (hasError ? " ⚠" : "");
-      b.onclick = function () { state.universeKey = uk; renderChips(); loadUniverse(uk); };
+      b.onclick = function () { state.universeKey = uk; state.filter = null; renderChips(); loadUniverse(uk); };
+      box.appendChild(b);
+    });
+  }
+
+  function renderFilterChips() {
+    var box = $("#screen-filter");
+    box.innerHTML = "";
+    if (state.screens.length < 2) { box.hidden = true; return; }
+    box.hidden = false;
+    var allBtn = document.createElement("button");
+    allBtn.className = "chip" + (!state.filter ? " active" : "");
+    allBtn.textContent = "All";
+    allBtn.onclick = function () { state.filter = null; renderFilterChips(); renderList(); };
+    box.appendChild(allBtn);
+    state.screens.forEach(function (raw) {
+      var s = screenMeta(raw.screen);
+      var b = document.createElement("button");
+      b.className = "chip" + (state.filter === s.screen ? " active" : "");
+      b.textContent = s.short + " only";
+      b.onclick = function () { state.filter = s.screen; renderFilterChips(); renderList(); };
       box.appendChild(b);
     });
   }
@@ -237,6 +285,9 @@
 
   function renderList() {
     var list = state.data[state.tab] || [];
+    if (state.filter) {
+      list = list.filter(function (e) { return e.activeRecs[state.filter] || e.droppedRecs[state.filter]; });
+    }
     var box = $("#list");
     $("#thead").style.display = list.length ? "" : "none";
     $("#empty").hidden = !!list.length;
@@ -254,7 +305,7 @@
       row.className = "row" + (state.tab === "dropped" ? " frozen" : "");
       var reason = rejectReason(sc);
       var sub = state.tab === "dropped"
-        ? "left " + fmtDate(entry.dropped_date) + (reason ? " · " + reason : "")
+        ? "joined " + fmtDate(entry.joined_date) + " · left " + fmtDate(entry.dropped_date) + (reason ? " · " + reason : "")
         : (reason || sc.quality_band || sc.status || "");
       var cells =
         '<span class="stockcell"><span class="ticker">' + esc(entry.ticker) + "</span>" +

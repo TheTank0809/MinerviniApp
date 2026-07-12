@@ -194,6 +194,7 @@ def process_screen(client, universe_key, uni, screen, settings):
         "actionable_now": [r["ticker"] for r in out_stocks
                            if r["scorecard"]["action_bucket"] == "ACTIONABLE_NOW"],
         "alerts": alerts, "errors": errors,
+        "llm": {"enabled": LLM.llm_available(), "model": settings.get("llm_model")},
     }
     runs["runs"] = [run_summary] + runs["runs"][:51]
 

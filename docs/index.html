@@ -36,6 +36,7 @@
     <div>
       <h1>Minervini Tracker</h1>
       <div class="regime" id="regime-line"><span class="cursor">▮</span> loading…</div>
+      <div class="llmline" id="llm-line" hidden></div>
     </div>
   </div>
   <div class="runstamp" id="runstamp"></div>
@@ -44,9 +45,11 @@
 <div id="sample-banner" class="sample-banner" hidden>
   Sample data — run the weekly scan once (Actions → Weekly Minervini scan) to see your screen.
 </div>
+<div id="error-banner" class="sample-banner error-banner" hidden></div>
 
 <nav class="controls">
   <div class="chips" id="screen-chips"></div>
+  <div class="chips filterchips" id="screen-filter"></div>
   <div class="tabs" role="tablist">
     <button class="tab active" data-tab="active" role="tab">In screen</button>
     <button class="tab" data-tab="dropped" role="tab">Left the screen</button>
