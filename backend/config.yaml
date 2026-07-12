@@ -22,14 +22,17 @@ universes:
     screens:
       # url = paste the exact address bar URL of the screen on screener.in, no edits.
       # slug = internal folder name under docs/data/ — can be anything, unrelated to screener.in.
+      # short = the tick-badge code shown per stock on the website when it's in this screen.
       - name: "Minervini Screener"
         url: "https://www.screener.in/screens/877182/minervini-screener/"
         slug: "minervini-filter"
+        short: "MV"
         enabled: true
-      - name: "Growth filter"       # flip enabled: true once this screen exists and url is set
-        url: ""
+      - name: "Growth Screener"
+        url: "https://www.screener.in/screens/873628/growth-screener/"
         slug: "growth-filter"
-        enabled: false
+        short: "GR"
+        enabled: true
 
   # Placeholder for the planned US / global section. When you're ready, set enabled: true
   # and add a source (screener.in doesn't cover US stocks; a different fetcher will be needed).

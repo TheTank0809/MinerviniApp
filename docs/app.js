@@ -1,8 +1,12 @@
-/* Minervini Tracker front-end — reads static JSON written by the weekly pipeline. */
+/* Minervini Tracker front-end — reads static JSON written by the weekly pipeline.
+   Multiple screens within a universe (e.g. Minervini Screener + Growth Screener) are
+   merged into one list by ticker; each stock shows a tick badge per screen it's
+   currently in, and the detail sheet can switch between each screen's own scorecard. */
 (function () {
   "use strict";
 
-  var state = { manifest: null, screen: null, tab: "active", sort: "score", data: { active: [], dropped: [] } };
+  var state = { manifest: null, universeKey: null, universes: {}, screens: [],
+                tab: "active", sort: "score", data: { active: [], dropped: [] } };
   var $ = function (sel) { return document.querySelector(sel); };
 
   var SECTION_MAX = { earnings: 25, revenue: 15, profitability: 10, balance_sheet: 5,
@@ -56,9 +60,17 @@
       return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
     });
   }
-  function total(rec) {
-    var sc = rec.scorecard || {};
+  function total(entry) {
+    var sc = (entry.primary || {}).scorecard || {};
     return (sc.scores && sc.scores.total) || 0;
+  }
+  function screenMeta(slug) {
+    var found = null;
+    for (var i = 0; i < state.screens.length; i++) {
+      if (state.screens[i].screen === slug) { found = state.screens[i]; break; }
+    }
+    var base = found || { screen: slug, label: slug };
+    return { screen: base.screen, label: base.label, short: base.short || slug.slice(0, 2).toUpperCase() };
   }
 
   // ---------------------------------------------------------------- loading
@@ -69,31 +81,94 @@
       .then(function (m) {
         state.manifest = m;
         $("#sample-banner").hidden = !m.sample;
-        var screens = (m.screens || []).filter(function (s) { return !s.error; });
-        if (!screens.length) screens = m.screens || [];
-        state.screen = screens[0] || null;
+        var byUniverse = {};
+        (m.screens || []).forEach(function (s) {
+          if (!byUniverse[s.universe]) byUniverse[s.universe] = [];
+          byUniverse[s.universe].push(s);
+        });
+        state.universes = byUniverse;
+        var keys = Object.keys(byUniverse);
+        state.universeKey = keys[0] || null;
         renderChips();
-        return state.screen ? loadScreen() : renderList();
+        return state.universeKey ? loadUniverse(state.universeKey) : renderList();
       })
       .catch(function () {
         $("#regime-line").textContent = "no data yet — run the weekly scan";
       });
   }
 
-  function loadScreen() {
-    if (!state.screen) return;
-    var base = "data/" + state.screen.universe + "/" + state.screen.screen + "/";
-    return Promise.all([
-      fetch(base + "active.json", { cache: "no-cache" }).then(function (r) { return r.ok ? r.json() : { stocks: [] }; }),
-      fetch(base + "dropped.json", { cache: "no-cache" }).then(function (r) { return r.ok ? r.json() : { stocks: [] }; }),
-      fetch(base + "runs.json", { cache: "no-cache" }).then(function (r) { return r.ok ? r.json() : { runs: [] }; })
-    ]).then(function (res) {
-      state.data.active = res[0].stocks || [];
-      state.data.dropped = res[1].stocks || [];
-      var run = (res[2].runs || [])[0];
-      renderRegime(run);
+  function loadUniverse(universeKey) {
+    var screens = (state.universes[universeKey] || []).filter(function (s) { return !s.error; });
+    state.screens = screens;
+    if (!screens.length) {
+      state.data.active = []; state.data.dropped = [];
+      renderList();
+      return;
+    }
+    return Promise.all(screens.map(function (s) {
+      var base = "data/" + s.universe + "/" + s.screen + "/";
+      return Promise.all([
+        fetch(base + "active.json", { cache: "no-cache" }).then(function (r) { return r.ok ? r.json() : { stocks: [] }; }),
+        fetch(base + "dropped.json", { cache: "no-cache" }).then(function (r) { return r.ok ? r.json() : { stocks: [] }; }),
+        fetch(base + "runs.json", { cache: "no-cache" }).then(function (r) { return r.ok ? r.json() : { runs: [] }; })
+      ]).then(function (res) {
+        return { slug: s.screen, active: res[0].stocks || [], dropped: res[1].stocks || [], run: (res[2].runs || [])[0] };
+      });
+    })).then(function (results) {
+      var merged = mergeScreens(results);
+      state.data.active = merged.active;
+      state.data.dropped = merged.dropped;
+      renderRegime(results[0] && results[0].run);
       renderList();
     });
+  }
+
+  // ------------------------------------------------------------ cross-screen merge
+
+  function pickPrimary(recMap) {
+    var recs = Object.keys(recMap).map(function (k) { return recMap[k]; });
+    recs.sort(function (a, b) {
+      var ta = ((a.scorecard || {}).scores || {}).total; ta = ta == null ? -1 : ta;
+      var tb = ((b.scorecard || {}).scores || {}).total; tb = tb == null ? -1 : tb;
+      return tb - ta;
+    });
+    return recs[0];
+  }
+  function extremeDate(recMap, field, wantLatest) {
+    var vals = Object.keys(recMap).map(function (k) { return recMap[k][field]; }).filter(Boolean).sort();
+    if (!vals.length) return null;
+    return wantLatest ? vals[vals.length - 1] : vals[0];
+  }
+
+  function mergeScreens(results) {
+    var byTicker = {};
+    results.forEach(function (res) {
+      res.active.forEach(function (rec) {
+        var e = byTicker[rec.ticker] || (byTicker[rec.ticker] =
+          { ticker: rec.ticker, name: rec.name, activeRecs: {}, droppedRecs: {} });
+        e.activeRecs[res.slug] = rec;
+      });
+      res.dropped.forEach(function (rec) {
+        var e = byTicker[rec.ticker] || (byTicker[rec.ticker] =
+          { ticker: rec.ticker, name: rec.name, activeRecs: {}, droppedRecs: {} });
+        e.droppedRecs[res.slug] = rec;
+      });
+    });
+    var active = [], dropped = [];
+    Object.keys(byTicker).forEach(function (t) {
+      var e = byTicker[t];
+      var activeSlugs = Object.keys(e.activeRecs);
+      var pool = activeSlugs.length ? e.activeRecs : e.droppedRecs;
+      e.primary = pickPrimary(pool);
+      e.joined_date = extremeDate(pool, "joined_date", false);
+      e.dropped_date = extremeDate(e.droppedRecs, "dropped_date", true);
+      e.isNew = activeSlugs.some(function (s) {
+        var r = e.activeRecs[s];
+        return r.joined_date && r.last_updated === r.joined_date;
+      });
+      if (activeSlugs.length) active.push(e); else if (Object.keys(e.droppedRecs).length) dropped.push(e);
+    });
+    return { active: active, dropped: dropped };
   }
 
   // ---------------------------------------------------------------- header
@@ -111,11 +186,14 @@
   function renderChips() {
     var box = $("#screen-chips");
     box.innerHTML = "";
-    ((state.manifest && state.manifest.screens) || []).forEach(function (s) {
+    Object.keys(state.universes).forEach(function (uk) {
+      var screensHere = state.universes[uk];
+      var label = (screensHere[0] && screensHere[0].universe_label) || uk;
+      var hasError = screensHere.some(function (s) { return s.error; });
       var b = document.createElement("button");
-      b.className = "chip" + (state.screen && s.screen === state.screen.screen && s.universe === state.screen.universe ? " active" : "");
-      b.textContent = (s.universe_label ? s.universe_label + " · " : "") + s.label + (s.error ? " ⚠" : "");
-      b.onclick = function () { state.screen = s; renderChips(); loadScreen(); };
+      b.className = "chip" + (uk === state.universeKey ? " active" : "");
+      b.textContent = label + (hasError ? " ⚠" : "");
+      b.onclick = function () { state.universeKey = uk; renderChips(); loadUniverse(uk); };
       box.appendChild(b);
     });
   }
@@ -126,8 +204,8 @@
     var arr = list.slice();
     if (state.sort === "score") arr.sort(function (a, b) { return total(b) - total(a); });
     if (state.sort === "rs") arr.sort(function (a, b) {
-      var ra = ((a.scorecard || {}).technicals || {}).rs_percentile || -1;
-      var rb = ((b.scorecard || {}).technicals || {}).rs_percentile || -1;
+      var ra = ((a.primary.scorecard || {}).technicals || {}).rs_percentile || -1;
+      var rb = ((b.primary.scorecard || {}).technicals || {}).rs_percentile || -1;
       return rb - ra;
     });
     if (state.sort === "joined") arr.sort(function (a, b) {
@@ -147,18 +225,25 @@
     return html + "</span>";
   }
 
+  function membershipPills(entry) {
+    return state.screens.map(function (raw) {
+      var s = screenMeta(raw.screen);
+      var on = !!entry.activeRecs[s.screen];
+      var droppedRec = entry.droppedRecs[s.screen];
+      var title = s.label + (on ? " — active" : droppedRec ? " — left " + fmtDate(droppedRec.dropped_date) : " — not in this screen");
+      return '<span class="mship' + (on ? " on" : "") + '" title="' + esc(title) + '">' + esc(s.short) + "</span>";
+    }).join("");
+  }
+
   function renderList() {
     var list = state.data[state.tab] || [];
     var box = $("#list");
     $("#thead").style.display = list.length ? "" : "none";
     $("#empty").hidden = !!list.length;
-    $("#count").textContent = list.length + (state.tab === "active" ? " in screen" : " left");
+    $("#count").textContent = list.length + (state.tab === "active" ? " tracked" : " left");
     box.innerHTML = "";
-    var isNew = function (rec) {
-      return state.tab === "active" && rec.joined_date && rec.last_updated === rec.joined_date &&
-             state.data.active.length !== 0;
-    };
-    sorted(list).forEach(function (rec) {
+    sorted(list).forEach(function (entry) {
+      var rec = entry.primary;
       var sc = rec.scorecard || {};
       var t = sc.technicals || {};
       var scores = sc.scores || null;
@@ -169,12 +254,13 @@
       row.className = "row" + (state.tab === "dropped" ? " frozen" : "");
       var reason = rejectReason(sc);
       var sub = state.tab === "dropped"
-        ? "left " + fmtDate(rec.dropped_date) + (reason ? " · " + reason : "")
+        ? "left " + fmtDate(entry.dropped_date) + (reason ? " · " + reason : "")
         : (reason || sc.quality_band || sc.status || "");
       var cells =
-        '<span class="stockcell"><span class="ticker">' + esc(rec.ticker) + "</span>" +
-        (isNew(rec) ? '<span class="newpill">NEW</span>' : "") +
-        '<div class="sname">' + esc(rec.name || "") + '</div>' +
+        '<span class="stockcell"><span class="ticker">' + esc(entry.ticker) + "</span>" +
+        membershipPills(entry) +
+        (entry.isNew ? '<span class="newpill">NEW</span>' : "") +
+        '<div class="sname">' + esc(entry.name || "") + '</div>' +
         '<div class="sub' + (reason && state.tab !== "dropped" ? " reject" : "") + '" title="' + esc(sub) + '">' + esc(sub) + "</div></span>" +
         '<span class="score ' + scoreCls + '">' + (tot == null ? "—" : tot) + '<span class="of">/100</span></span>' +
         gatebar(sc);
@@ -187,9 +273,9 @@
       cells += '<span class="cellnum wide' + (t.rs_percentile == null ? " dim" : "") + '">' +
                (t.rs_percentile == null ? "·" : t.rs_percentile) + "</span>" + subs +
                '<span class="bucket wide ' + esc(bucket) + '">' + esc(bucket.replace(/_/g, " ")) + "</span>" +
-               '<span class="datecell wide">' + fmtDate(rec.joined_date) + "</span>";
+               '<span class="datecell wide">' + fmtDate(entry.joined_date) + "</span>";
       row.innerHTML = cells;
-      row.onclick = function () { openSheet(rec); };
+      row.onclick = function () { openSheet(entry); };
       box.appendChild(row);
     });
   }
@@ -203,13 +289,33 @@
     }).join(" · ");
   }
 
-  function openSheet(rec) {
+  function openSheet(entry) {
+    var slug = null;
+    var pool = Object.keys(entry.activeRecs).length ? entry.activeRecs : entry.droppedRecs;
+    for (var k in pool) { if (pool[k] === entry.primary) { slug = k; break; } }
+    renderSheet(entry, slug || Object.keys(pool)[0]);
+  }
+
+  function renderSheet(entry, slug) {
+    var rec = entry.activeRecs[slug] || entry.droppedRecs[slug];
     var sc = rec.scorecard || {};
     var t = sc.technicals || {};
     var scores = sc.scores;
-    var html = '<div class="sheet-head"><div><h2>' + esc(rec.ticker) + "</h2>" +
-      '<div class="sname">' + esc(rec.name || "") + "</div></div>" +
+
+    var html = '<div class="sheet-head"><div><h2>' + esc(entry.ticker) + "</h2>" +
+      '<div class="sname">' + esc(entry.name || "") + "</div></div>" +
       '<button class="close" aria-label="Close">✕</button></div>';
+
+    var allSlugs = Object.keys(entry.activeRecs).concat(
+      Object.keys(entry.droppedRecs).filter(function (s) { return !entry.activeRecs[s]; }));
+    if (allSlugs.length > 1) {
+      html += '<div class="screentoggle">' + allSlugs.map(function (s2) {
+        var meta = screenMeta(s2);
+        var isDropped = !entry.activeRecs[s2];
+        return '<button class="stbtn' + (s2 === slug ? " active" : "") + (isDropped ? " dropped" : "") +
+          '" data-slug="' + esc(s2) + '">' + esc(meta.short) + (isDropped ? " ✕" : "") + "</button>";
+      }).join("") + "</div>";
+    }
 
     html += '<div class="badges">';
     if (scores) html += '<span class="badge band">' + esc(sc.quality_band) + " · " + scores.total + "/100</span>";
@@ -299,11 +405,20 @@
     if (vc.pe) html += '<p class="uv">Context only: P/E ' + vc.pe + " — never a criterion.</p>";
 
     var sheet = $("#sheet");
+    var prevScroll = sheet.scrollTop;
     sheet.innerHTML = html;
     sheet.hidden = false;
     $("#backdrop").hidden = false;
     sheet.querySelector(".close").onclick = closeSheet;
-    sheet.querySelector(".close").focus();
+    var toggleBtns = sheet.querySelectorAll(".stbtn");
+    if (toggleBtns.length) {
+      toggleBtns.forEach(function (btn) {
+        btn.onclick = function () { renderSheet(entry, btn.dataset.slug); };
+      });
+      sheet.scrollTop = prevScroll;
+    } else {
+      sheet.querySelector(".close").focus();
+    }
   }
 
   function kv(k, v) { return "<div><div class=\"k\">" + k + "</div><div class=\"v\">" + v + "</div></div>"; }

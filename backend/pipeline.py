@@ -201,6 +201,7 @@ def process_screen(client, universe_key, uni, screen, settings):
     save_json(dropped_path, dropped)
     save_json(runs_path, runs)
     return {"universe": universe_key, "screen": slug, "label": screen["name"],
+            "short": screen.get("short") or screen["name"][:2].upper(),
             "universe_label": uni["label"], "counts": run_summary["counts"],
             "regime": {"label": regime["label"], "score": regime["score"]}}
 

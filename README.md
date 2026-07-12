@@ -1,9 +1,16 @@
 # MinerviniApp
 
-Personal tracker for my screener.in **Minervini Screener** screen. Every Sunday a GitHub
-Action pulls the screen, scores every stock with the [Minervini Scorecard Engine v3](PROMPT.md),
-records who joined and who fell out, and publishes a mobile-friendly website
-(installable as an app) on GitHub Pages. Everything runs on free tiers — no domain, no server.
+Personal tracker for my screener.in **Minervini Screener** and **Growth Screener** screens.
+Every Sunday a GitHub Action pulls both screens, scores every stock with the
+[Minervini Scorecard Engine v3](PROMPT.md), records who joined and who fell out, and
+publishes a mobile-friendly website (installable as an app) on GitHub Pages. Everything
+runs on free tiers — no domain, no server.
+
+Stocks that appear in more than one screen are merged into a single row on the website,
+with a tick badge per screen (`MV` / `GR`) showing which one(s) it's currently in. If a
+stock's score differs between screens (each screen ranks RS within its own tracked
+universe, so a score can genuinely differ), the row shows the higher of the two and the
+stock's detail sheet has a small toggle to switch and see either screen's full scorecard.
 
 ## How it works
 
@@ -60,14 +67,15 @@ prompt. Without the key everything still works — verdicts are rule-generated.
 This is the only non-free option (a few paise per new stock; capped by
 `llm_max_new_stocks_per_run` in the config).
 
-## Adding the "Growth filter" screen later
+## Adding another screen later
 
-Open the screen on screener.in and copy the exact address-bar URL. Edit
-[backend/config.yaml](backend/config.yaml), paste it into `url:` under `Growth filter`,
-and set `enabled: true`. The next run picks it up and the website grows a new chip
-automatically. The `us` universe
-block is a placeholder for the planned US/global section — the data layout and UI
-already support multiple universes; only a US data fetcher needs to be added.
+Open the screen on screener.in and copy the exact address-bar URL. Add a new entry
+under `screens:` in [backend/config.yaml](backend/config.yaml) with that `url`, a `slug`
+(any unique folder name), a `short` tick-badge code (e.g. `"GR"`), and `enabled: true`.
+The next run picks it up automatically — the website merges it into the same list as a
+new tick-badge column, no code changes needed. The `us` universe block is a placeholder
+for the planned US/global section — the data layout and UI already support multiple
+universes; only a US data fetcher needs to be added.
 
 ## Repo layout
 
