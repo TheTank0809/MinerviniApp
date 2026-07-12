@@ -1,6 +1,107 @@
 {
  "runs": [
   {
+   "run_date": "2026-07-12",
+   "mode": "WEEKLY",
+   "regime": {
+    "score": 4,
+    "label": "CAUTION",
+    "checks": {
+     "close_above_50dma": true,
+     "close_above_200dma": true,
+     "50dma_above_200dma": false,
+     "distribution_days_25": 6,
+     "distribution_days_ok": false,
+     "pct_universe_above_200dma": 100.0,
+     "universe_above_200dma_ok": true,
+     "net_new_highs_positive": true
+    },
+    "exposure_guidance": "New buys at half risk; only score >=85 setups."
+   },
+   "counts": {
+    "active": 54,
+    "new": 5,
+    "dropped": 7,
+    "errors": 0
+   },
+   "new_tickers": [
+    "GOKULAGRO",
+    "QPOWER",
+    "CHOICEIN",
+    "HOMEFIRST",
+    "AEGISVOPAK"
+   ],
+   "dropped_tickers": [
+    "ICICIAMC",
+    "GRSE",
+    "NETWEB",
+    "SUZLON",
+    "POLYCAB",
+    "TRENT",
+    "V2RETAIL"
+   ],
+   "actionable_now": [],
+   "alerts": [
+    {
+     "ticker": "SJS",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "OLECTRA",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "SKIPPER",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "IKS",
+     "alert": "EPS_DECELERATION"
+    },
+    {
+     "ticker": "APOLLO",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "YATHARTH",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "YATHARTH",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "CGCL",
+     "alert": "EPS_DECELERATION"
+    },
+    {
+     "ticker": "GENUSPOWER",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "526433",
+     "alert": "EPS_DECELERATION"
+    },
+    {
+     "ticker": "EMMVEE",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "GROWW",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "NEPHROPLUS",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "DATAPATTNS",
+     "alert": "RS_DOWNGRADE"
+    }
+   ],
+   "errors": []
+  },
+  {
    "run_date": "2026-07-05",
    "mode": "WEEKLY",
    "regime": {

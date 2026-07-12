@@ -2,6 +2,745 @@
  "sample": true,
  "stocks": [
   {
+   "ticker": "V2RETAIL",
+   "name": "V2 Retail",
+   "joined_date": "2026-07-05",
+   "last_updated": "2026-07-05",
+   "scorecard": {
+    "ticker": "V2RETAIL",
+    "name": "V2 Retail",
+    "as_of": "2026-07-03",
+    "mode": "FULL",
+    "gates": {
+     "trend_template": {
+      "c1": true,
+      "c2": false,
+      "c3": true,
+      "c4": true,
+      "c5": true,
+      "c6": true,
+      "c7": true,
+      "c8": false,
+      "pass": false,
+      "near_miss_notes": ""
+     },
+     "investability": {
+      "liquidity": true,
+      "pledge": true,
+      "governance": true,
+      "pass": true
+     }
+    },
+    "scores": null,
+    "quality_band": "Reject",
+    "action_bucket": "AVOID",
+    "red_flags": [],
+    "risk_level": null,
+    "valuation_context": {
+     "pe": 59.4,
+     "peg": null,
+     "vs_own_5yr": "",
+     "note": "Valuation is context only, never a criterion."
+    },
+    "base": {
+     "pattern_label": "",
+     "pivot": 259.25,
+     "pct_from_pivot": -11.14,
+     "base_count": 2,
+     "depth_pct": 17.5,
+     "weeks": 4.4
+    },
+    "trade_plan": null,
+    "delta": {
+     "score_change": 0,
+     "gate_flips": [],
+     "bucket_change": "",
+     "alerts": []
+    },
+    "violations": {
+     "count": 0,
+     "items": [],
+     "recommendation": ""
+    },
+    "verdict": {
+     "summary": "Fails Trend Template (c2, c8). Analysis terminated per Gate 1.",
+     "strengths": [],
+     "weaknesses": [],
+     "catalysts": [],
+     "biggest_risk": "",
+     "conviction_0_10": 0
+    },
+    "data_quality": {
+     "unverified_fields": [
+      "fcf",
+      "governance_events",
+      "promoter_pledge_pct"
+     ],
+     "sources": [
+      {
+       "field": "technicals",
+       "source": "Yahoo Finance OHLCV",
+       "as_of": "2026-07-03"
+      },
+      {
+       "field": "fundamentals",
+       "source": "screener.in",
+       "as_of": "2026-07-03"
+      }
+     ]
+    },
+    "technicals": {
+     "price": 230.37,
+     "rs_percentile": 16,
+     "pct_below_52w_high": 11.1,
+     "pct_above_52w_low": 45.3,
+     "dma_50": 226.62,
+     "dma_200": 215.96,
+     "up_down_volume_ratio_50d": 1.12
+    },
+    "status": "FAILS_TREND_TEMPLATE"
+   },
+   "dropped_date": "2026-07-12",
+   "frozen": true
+  },
+  {
+   "ticker": "TRENT",
+   "name": "Trent",
+   "joined_date": "2026-07-05",
+   "last_updated": "2026-07-05",
+   "scorecard": {
+    "ticker": "TRENT",
+    "name": "Trent",
+    "as_of": "2026-07-03",
+    "mode": "FULL",
+    "gates": {
+     "trend_template": {
+      "c1": false,
+      "c2": false,
+      "c3": false,
+      "c4": false,
+      "c5": true,
+      "c6": true,
+      "c7": false,
+      "c8": false,
+      "pass": false,
+      "near_miss_notes": ""
+     },
+     "investability": {
+      "liquidity": true,
+      "pledge": true,
+      "governance": true,
+      "pass": true
+     }
+    },
+    "scores": null,
+    "quality_band": "Reject",
+    "action_bucket": "AVOID",
+    "red_flags": [],
+    "risk_level": null,
+    "valuation_context": {
+     "pe": 103.0,
+     "peg": null,
+     "vs_own_5yr": "",
+     "note": "Valuation is context only, never a criterion."
+    },
+    "base": {
+     "pattern_label": "",
+     "pivot": 6248.77,
+     "pct_from_pivot": -46.54,
+     "base_count": null,
+     "depth_pct": 65.1,
+     "weeks": 50.0
+    },
+    "trade_plan": null,
+    "delta": {
+     "score_change": 0,
+     "gate_flips": [],
+     "bucket_change": "",
+     "alerts": []
+    },
+    "violations": {
+     "count": 0,
+     "items": [],
+     "recommendation": ""
+    },
+    "verdict": {
+     "summary": "Fails Trend Template (c1, c2, c3, c4, c7, c8). Analysis terminated per Gate 1.",
+     "strengths": [],
+     "weaknesses": [],
+     "catalysts": [],
+     "biggest_risk": "",
+     "conviction_0_10": 0
+    },
+    "data_quality": {
+     "unverified_fields": [
+      "fcf",
+      "governance_events",
+      "promoter_pledge_pct"
+     ],
+     "sources": [
+      {
+       "field": "technicals",
+       "source": "Yahoo Finance OHLCV",
+       "as_of": "2026-07-03"
+      },
+      {
+       "field": "fundamentals",
+       "source": "screener.in",
+       "as_of": "2026-07-03"
+      }
+     ]
+    },
+    "technicals": {
+     "price": 3340.6,
+     "rs_percentile": 0,
+     "pct_below_52w_high": 46.5,
+     "pct_above_52w_low": 53.2,
+     "dma_50": 2902.79,
+     "dma_200": 3380.56,
+     "up_down_volume_ratio_50d": 1.58
+    },
+    "status": "FAILS_TREND_TEMPLATE"
+   },
+   "dropped_date": "2026-07-12",
+   "frozen": true
+  },
+  {
+   "ticker": "POLYCAB",
+   "name": "Polycab India",
+   "joined_date": "2026-07-05",
+   "last_updated": "2026-07-05",
+   "scorecard": {
+    "ticker": "POLYCAB",
+    "name": "Polycab India",
+    "as_of": "2026-07-03",
+    "mode": "FULL",
+    "gates": {
+     "trend_template": {
+      "c1": true,
+      "c2": true,
+      "c3": true,
+      "c4": true,
+      "c5": true,
+      "c6": true,
+      "c7": true,
+      "c8": false,
+      "pass": false,
+      "near_miss_notes": ""
+     },
+     "investability": {
+      "liquidity": true,
+      "pledge": true,
+      "governance": true,
+      "pass": true
+     }
+    },
+    "scores": null,
+    "quality_band": "Reject",
+    "action_bucket": "AVOID",
+    "red_flags": [],
+    "risk_level": null,
+    "valuation_context": {
+     "pe": 57.2,
+     "peg": null,
+     "vs_own_5yr": "",
+     "note": "Valuation is context only, never a criterion."
+    },
+    "base": {
+     "pattern_label": "",
+     "pivot": 10126.0,
+     "pct_from_pivot": -5.7,
+     "base_count": 1,
+     "depth_pct": 7.0,
+     "weeks": 2.0
+    },
+    "trade_plan": null,
+    "delta": {
+     "score_change": 0,
+     "gate_flips": [],
+     "bucket_change": "",
+     "alerts": []
+    },
+    "violations": {
+     "count": 0,
+     "items": [],
+     "recommendation": ""
+    },
+    "verdict": {
+     "summary": "Fails Trend Template (c8). Analysis terminated per Gate 1.",
+     "strengths": [],
+     "weaknesses": [],
+     "catalysts": [],
+     "biggest_risk": "",
+     "conviction_0_10": 0
+    },
+    "data_quality": {
+     "unverified_fields": [
+      "fcf",
+      "governance_events",
+      "promoter_pledge_pct"
+     ],
+     "sources": [
+      {
+       "field": "technicals",
+       "source": "Yahoo Finance OHLCV",
+       "as_of": "2026-07-03"
+      },
+      {
+       "field": "fundamentals",
+       "source": "screener.in",
+       "as_of": "2026-07-03"
+      }
+     ]
+    },
+    "technicals": {
+     "price": 9548.5,
+     "rs_percentile": 49,
+     "pct_below_52w_high": 5.7,
+     "pct_above_52w_low": 46.2,
+     "dma_50": 9266.38,
+     "dma_200": 7944.52,
+     "up_down_volume_ratio_50d": 1.72
+    },
+    "status": "FAILS_TREND_TEMPLATE"
+   },
+   "dropped_date": "2026-07-12",
+   "frozen": true
+  },
+  {
+   "ticker": "SUZLON",
+   "name": "Suzlon Energy",
+   "joined_date": "2026-07-05",
+   "last_updated": "2026-07-05",
+   "scorecard": {
+    "ticker": "SUZLON",
+    "name": "Suzlon Energy",
+    "as_of": "2026-07-03",
+    "mode": "FULL",
+    "gates": {
+     "trend_template": {
+      "c1": true,
+      "c2": false,
+      "c3": false,
+      "c4": true,
+      "c5": true,
+      "c6": true,
+      "c7": true,
+      "c8": false,
+      "pass": false,
+      "near_miss_notes": ""
+     },
+     "investability": {
+      "liquidity": true,
+      "pledge": true,
+      "governance": true,
+      "pass": true
+     }
+    },
+    "scores": null,
+    "quality_band": "Reject",
+    "action_bucket": "AVOID",
+    "red_flags": [],
+    "risk_level": null,
+    "valuation_context": {
+     "pe": 24.5,
+     "peg": null,
+     "vs_own_5yr": "",
+     "note": "Valuation is context only, never a criterion."
+    },
+    "base": {
+     "pattern_label": "",
+     "pivot": 68.3,
+     "pct_from_pivot": -16.73,
+     "base_count": 1,
+     "depth_pct": 44.1,
+     "weeks": 48.2
+    },
+    "trade_plan": null,
+    "delta": {
+     "score_change": 0,
+     "gate_flips": [],
+     "bucket_change": "",
+     "alerts": []
+    },
+    "violations": {
+     "count": 0,
+     "items": [],
+     "recommendation": ""
+    },
+    "verdict": {
+     "summary": "Fails Trend Template (c2, c3, c8). Analysis terminated per Gate 1.",
+     "strengths": [],
+     "weaknesses": [],
+     "catalysts": [],
+     "biggest_risk": "",
+     "conviction_0_10": 0
+    },
+    "data_quality": {
+     "unverified_fields": [
+      "fcf",
+      "governance_events",
+      "promoter_pledge_pct"
+     ],
+     "sources": [
+      {
+       "field": "technicals",
+       "source": "Yahoo Finance OHLCV",
+       "as_of": "2026-07-03"
+      },
+      {
+       "field": "fundamentals",
+       "source": "screener.in",
+       "as_of": "2026-07-03"
+      }
+     ]
+    },
+    "technicals": {
+     "price": 56.87,
+     "rs_percentile": 14,
+     "pct_below_52w_high": 16.7,
+     "pct_above_52w_low": 48.9,
+     "dma_50": 55.67,
+     "dma_200": 51.81,
+     "up_down_volume_ratio_50d": 1.26
+    },
+    "status": "FAILS_TREND_TEMPLATE"
+   },
+   "dropped_date": "2026-07-12",
+   "frozen": true
+  },
+  {
+   "ticker": "NETWEB",
+   "name": "Netweb Technol.",
+   "joined_date": "2026-07-05",
+   "last_updated": "2026-07-05",
+   "scorecard": {
+    "ticker": "NETWEB",
+    "name": "Netweb Technol.",
+    "as_of": "2026-07-03",
+    "mode": "FULL",
+    "gates": {
+     "trend_template": {
+      "c1": true,
+      "c2": true,
+      "c3": true,
+      "c4": true,
+      "c5": true,
+      "c6": true,
+      "c7": true,
+      "c8": false,
+      "pass": false,
+      "near_miss_notes": "c8 near miss: RS 68"
+     },
+     "investability": {
+      "liquidity": true,
+      "pledge": true,
+      "governance": true,
+      "pass": true
+     }
+    },
+    "scores": null,
+    "quality_band": "Reject",
+    "action_bucket": "AVOID",
+    "red_flags": [],
+    "risk_level": null,
+    "valuation_context": {
+     "pe": null,
+     "peg": null,
+     "vs_own_5yr": "",
+     "note": "Valuation is context only, never a criterion."
+    },
+    "base": {
+     "pattern_label": "",
+     "pivot": 5244.0,
+     "pct_from_pivot": -15.57,
+     "base_count": 6,
+     "depth_pct": 16.4,
+     "weeks": 2.2
+    },
+    "trade_plan": null,
+    "delta": {
+     "score_change": 0,
+     "gate_flips": [],
+     "bucket_change": "",
+     "alerts": []
+    },
+    "violations": {
+     "count": 0,
+     "items": [],
+     "recommendation": ""
+    },
+    "verdict": {
+     "summary": "Fails Trend Template (c8). Analysis terminated per Gate 1.",
+     "strengths": [],
+     "weaknesses": [],
+     "catalysts": [],
+     "biggest_risk": "",
+     "conviction_0_10": 0
+    },
+    "data_quality": {
+     "unverified_fields": [
+      "debt_to_equity",
+      "eps_annual_growth",
+      "eps_cagr_3y",
+      "fcf",
+      "governance_events",
+      "interest_coverage",
+      "net_margin_trend",
+      "ocf_to_pat_3y",
+      "other_income_pct_pbt",
+      "promoter_pledge_pct",
+      "roe",
+      "sales_cagr_3y",
+      "share_count_growth"
+     ],
+     "sources": [
+      {
+       "field": "technicals",
+       "source": "Yahoo Finance OHLCV",
+       "as_of": "2026-07-03"
+      },
+      {
+       "field": "fundamentals",
+       "source": "screener.in",
+       "as_of": "2026-07-03"
+      }
+     ]
+    },
+    "technicals": {
+     "price": 4427.4,
+     "rs_percentile": 68,
+     "pct_below_52w_high": 15.6,
+     "pct_above_52w_low": 149.7,
+     "dma_50": 4364.55,
+     "dma_200": 3647.52,
+     "up_down_volume_ratio_50d": 1.43
+    },
+    "status": "FAILS_TREND_TEMPLATE"
+   },
+   "dropped_date": "2026-07-12",
+   "frozen": true
+  },
+  {
+   "ticker": "GRSE",
+   "name": "Garden Reach Sh.",
+   "joined_date": "2026-07-05",
+   "last_updated": "2026-07-05",
+   "scorecard": {
+    "ticker": "GRSE",
+    "name": "Garden Reach Sh.",
+    "as_of": "2026-07-03",
+    "mode": "FULL",
+    "gates": {
+     "trend_template": {
+      "c1": true,
+      "c2": false,
+      "c3": true,
+      "c4": true,
+      "c5": false,
+      "c6": true,
+      "c7": true,
+      "c8": false,
+      "pass": false,
+      "near_miss_notes": ""
+     },
+     "investability": {
+      "liquidity": true,
+      "pledge": true,
+      "governance": true,
+      "pass": true
+     }
+    },
+    "scores": null,
+    "quality_band": "Reject",
+    "action_bucket": "AVOID",
+    "red_flags": [],
+    "risk_level": null,
+    "valuation_context": {
+     "pe": null,
+     "peg": null,
+     "vs_own_5yr": "",
+     "note": "Valuation is context only, never a criterion."
+    },
+    "base": {
+     "pattern_label": "",
+     "pivot": 2934.7,
+     "pct_from_pivot": -6.34,
+     "base_count": 2,
+     "depth_pct": 24.2,
+     "weeks": 9.6
+    },
+    "trade_plan": null,
+    "delta": {
+     "score_change": 0,
+     "gate_flips": [],
+     "bucket_change": "",
+     "alerts": []
+    },
+    "violations": {
+     "count": 0,
+     "items": [],
+     "recommendation": ""
+    },
+    "verdict": {
+     "summary": "Fails Trend Template (c2, c5, c8). Analysis terminated per Gate 1.",
+     "strengths": [],
+     "weaknesses": [],
+     "catalysts": [],
+     "biggest_risk": "",
+     "conviction_0_10": 0
+    },
+    "data_quality": {
+     "unverified_fields": [
+      "debt_to_equity",
+      "eps_annual_growth",
+      "eps_cagr_3y",
+      "fcf",
+      "governance_events",
+      "interest_coverage",
+      "net_margin_trend",
+      "ocf_to_pat_3y",
+      "other_income_pct_pbt",
+      "promoter_pledge_pct",
+      "roe",
+      "sales_cagr_3y",
+      "share_count_growth"
+     ],
+     "sources": [
+      {
+       "field": "technicals",
+       "source": "Yahoo Finance OHLCV",
+       "as_of": "2026-07-03"
+      },
+      {
+       "field": "fundamentals",
+       "source": "screener.in",
+       "as_of": "2026-07-03"
+      }
+     ]
+    },
+    "technicals": {
+     "price": 2748.5,
+     "rs_percentile": 4,
+     "pct_below_52w_high": 17.7,
+     "pct_above_52w_low": 40.0,
+     "dma_50": 2752.64,
+     "dma_200": 2572.49,
+     "up_down_volume_ratio_50d": 1.55
+    },
+    "status": "FAILS_TREND_TEMPLATE"
+   },
+   "dropped_date": "2026-07-12",
+   "frozen": true
+  },
+  {
+   "ticker": "ICICIAMC",
+   "name": "ICICI AMC",
+   "joined_date": "2026-07-05",
+   "last_updated": "2026-07-05",
+   "scorecard": {
+    "ticker": "ICICIAMC",
+    "name": "ICICI AMC",
+    "as_of": "2026-07-03",
+    "mode": "FULL",
+    "gates": {
+     "trend_template": {
+      "c1": false,
+      "c2": false,
+      "c3": false,
+      "c4": false,
+      "c5": true,
+      "c6": true,
+      "c7": true,
+      "c8": false,
+      "pass": false,
+      "near_miss_notes": ""
+     },
+     "investability": {
+      "liquidity": true,
+      "pledge": true,
+      "governance": true,
+      "pass": true
+     }
+    },
+    "scores": null,
+    "quality_band": "Reject",
+    "action_bucket": "AVOID",
+    "red_flags": [],
+    "risk_level": null,
+    "valuation_context": {
+     "pe": 56.0,
+     "peg": null,
+     "vs_own_5yr": "",
+     "note": "Valuation is context only, never a criterion."
+    },
+    "base": {
+     "pattern_label": "",
+     "pivot": 3597.03,
+     "pct_from_pivot": -7.29,
+     "base_count": null,
+     "depth_pct": 11.5,
+     "weeks": 5.2
+    },
+    "trade_plan": null,
+    "delta": {
+     "score_change": 0,
+     "gate_flips": [],
+     "bucket_change": "",
+     "alerts": []
+    },
+    "violations": {
+     "count": 0,
+     "items": [],
+     "recommendation": ""
+    },
+    "verdict": {
+     "summary": "Fails Trend Template (c1, c2, c3, c4, c8). Analysis terminated per Gate 1.",
+     "strengths": [],
+     "weaknesses": [],
+     "catalysts": [],
+     "biggest_risk": "",
+     "conviction_0_10": 0
+    },
+    "data_quality": {
+     "unverified_fields": [
+      "dma_150",
+      "dma_200",
+      "fcf",
+      "governance_events",
+      "net_margin_trend",
+      "promoter_pledge_pct",
+      "roe",
+      "share_count_growth"
+     ],
+     "sources": [
+      {
+       "field": "technicals",
+       "source": "Yahoo Finance OHLCV",
+       "as_of": "2026-07-03"
+      },
+      {
+       "field": "fundamentals",
+       "source": "screener.in",
+       "as_of": "2026-07-03"
+      }
+     ]
+    },
+    "technicals": {
+     "price": 3334.8,
+     "rs_percentile": 29,
+     "pct_below_52w_high": 7.3,
+     "pct_above_52w_low": 33.0,
+     "dma_50": 3285.86,
+     "dma_200": null,
+     "up_down_volume_ratio_50d": 0.96
+    },
+    "status": "FAILS_TREND_TEMPLATE"
+   },
+   "dropped_date": "2026-07-12",
+   "frozen": true
+  },
+  {
    "ticker": "SAMPLE-X",
    "name": "Sample Exit Motors",
    "joined_date": "2026-02-01",
