@@ -8,6 +8,7 @@
   var state = { manifest: null, universeKey: null, universes: {}, screens: [],
                 tab: "active", sort: "score", filter: null, data: { active: [], dropped: [] } };
   var $ = function (sel) { return document.querySelector(sel); };
+  var lastFetchAt = 0;
 
   var SECTION_MAX = { earnings: 25, revenue: 15, profitability: 10, balance_sheet: 5,
                       sponsorship: 5, rs_trend: 15, base_structure: 20, leadership: 5 };
@@ -76,6 +77,7 @@
   // ---------------------------------------------------------------- loading
 
   function loadManifest() {
+    lastFetchAt = Date.now();
     return fetch("data/manifest.json", { cache: "no-store" })
       .then(function (r) { if (!r.ok) throw new Error("no manifest"); return r.json(); })
       .then(function (m) {
@@ -513,6 +515,21 @@
   $("#sort").onchange = function () { state.sort = this.value; renderList(); };
   $("#backdrop").onclick = closeSheet;
   document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeSheet(); });
+
+  // Installed PWAs are often just resumed from a suspended/frozen state when reopened
+  // (no real page load), so a fetch made hours or days ago can sit on screen indefinitely
+  // looking current. Re-fetch whenever the app comes back to the foreground, throttled so
+  // quick app-switches don't refetch needlessly.
+  function refreshIfStale() {
+    if (document.body.classList.contains("locked")) return;
+    if (Date.now() - lastFetchAt < 60000) return;
+    loadManifest();
+  }
+  document.addEventListener("visibilitychange", function () {
+    if (document.visibilityState === "visible") refreshIfStale();
+  });
+  window.addEventListener("pageshow", function (e) { if (e.persisted) refreshIfStale(); });
+  window.addEventListener("focus", refreshIfStale);
 
   // ---------------------------------------------------------------- passphrase gate
   // Basic deterrent only. The SHA-256 of the passphrase is stored, never the plaintext.
