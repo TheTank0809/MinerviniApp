@@ -304,9 +304,10 @@
       var row = document.createElement("button");
       row.className = "row" + (state.tab === "dropped" ? " frozen" : "");
       var reason = rejectReason(sc);
+      var statusText = reason || sc.quality_band || sc.status || "";
       var sub = state.tab === "dropped"
         ? "joined " + fmtDate(entry.joined_date) + " · left " + fmtDate(entry.dropped_date) + (reason ? " · " + reason : "")
-        : (reason || sc.quality_band || sc.status || "");
+        : "joined " + fmtDate(entry.joined_date) + (statusText ? " · " + statusText : "");
       var cells =
         '<span class="stockcell"><span class="ticker">' + esc(entry.ticker) + "</span>" +
         membershipPills(entry) +
@@ -340,7 +341,26 @@
     }).join(" · ");
   }
 
+  // iOS Safari/PWA doesn't reliably honor `overflow:hidden` on body to stop background
+  // scroll behind a fixed modal — a touch-drag inside the sheet can instead scroll the
+  // page underneath it, making sheet content look "missing". Locking with position:fixed
+  // and restoring scrollY on close is the standard cross-browser workaround.
+  var savedScrollY = 0;
+  function lockBodyScroll() {
+    savedScrollY = window.scrollY || window.pageYOffset || 0;
+    document.body.style.position = "fixed";
+    document.body.style.top = "-" + savedScrollY + "px";
+    document.body.style.width = "100%";
+  }
+  function unlockBodyScroll() {
+    document.body.style.position = "";
+    document.body.style.top = "";
+    document.body.style.width = "";
+    window.scrollTo(0, savedScrollY);
+  }
+
   function openSheet(entry) {
+    lockBodyScroll();
     var slug = null;
     var pool = Object.keys(entry.activeRecs).length ? entry.activeRecs : entry.droppedRecs;
     for (var k in pool) { if (pool[k] === entry.primary) { slug = k; break; } }
@@ -477,6 +497,7 @@
   function closeSheet() {
     $("#sheet").hidden = true;
     $("#backdrop").hidden = true;
+    unlockBodyScroll();
   }
 
   // ---------------------------------------------------------------- wiring
