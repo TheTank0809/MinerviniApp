@@ -65,6 +65,8 @@ def process_screen(client, universe_key, uni, screen, settings):
     # discard any sample/demo data from the initial commit
     if active.get("sample"):
         active = {"stocks": []}
+    if dropped.get("sample"):
+        dropped = {"stocks": []}
     prior_by_code = {s["ticker"]: s for s in active["stocks"]}
 
     print("== %s / %s ==" % (uni["label"], screen["name"]))
