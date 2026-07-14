@@ -1,17 +1,35 @@
 {
- "generated_at": "2026-07-12T06:39:12.642343Z",
+ "generated_at": "2026-07-14T11:10:47.316593Z",
  "sample": false,
  "screens": [
   {
    "universe": "india",
    "screen": "minervini-filter",
    "label": "Minervini Screener",
+   "short": "MV",
    "universe_label": "India",
    "counts": {
-    "active": 54,
+    "active": 55,
     "new": 5,
-    "dropped": 7,
+    "dropped": 4,
     "errors": 0
+   },
+   "regime": {
+    "label": "CAUTION",
+    "score": 4
+   }
+  },
+  {
+   "universe": "india",
+   "screen": "growth-filter",
+   "label": "Growth Screener",
+   "short": "GR",
+   "universe_label": "India",
+   "counts": {
+    "active": 112,
+    "new": 114,
+    "dropped": 0,
+    "errors": 2
    },
    "regime": {
     "label": "CAUTION",

@@ -1,6 +1,51 @@
 {
  "runs": [
   {
+   "run_date": "2026-07-14",
+   "mode": "WEEKLY",
+   "regime": {
+    "score": 4,
+    "label": "CAUTION",
+    "checks": {
+     "close_above_50dma": true,
+     "close_above_200dma": true,
+     "50dma_above_200dma": false,
+     "distribution_days_25": 6,
+     "distribution_days_ok": false,
+     "pct_universe_above_200dma": 100.0,
+     "universe_above_200dma_ok": true,
+     "net_new_highs_positive": true
+    },
+    "exposure_guidance": "New buys at half risk; only score >=85 setups."
+   },
+   "counts": {
+    "active": 55,
+    "new": 5,
+    "dropped": 4,
+    "errors": 0
+   },
+   "new_tickers": [
+    "MCX",
+    "NETWEB",
+    "POLYCAB",
+    "SAATVIKGL",
+    "ENTERO"
+   ],
+   "dropped_tickers": [
+    "PTCIL",
+    "GOKULAGRO",
+    "NEPHROPLUS",
+    "DATAPATTNS"
+   ],
+   "actionable_now": [],
+   "alerts": [],
+   "errors": [],
+   "llm": {
+    "enabled": true,
+    "model": "claude-sonnet-5"
+   }
+  },
+  {
    "run_date": "2026-07-12",
    "mode": "WEEKLY",
    "regime": {

@@ -1,15 +1,187 @@
 {
- "generated_at": "2026-07-12",
+ "generated_at": "2026-07-14",
  "stocks": [
+  {
+   "ticker": "PARAS",
+   "name": "Paras Defence",
+   "joined_date": "2026-07-05",
+   "last_updated": "2026-07-14",
+   "scorecard": {
+    "ticker": "PARAS",
+    "name": "Paras Defence",
+    "as_of": "2026-07-14",
+    "mode": "WEEKLY",
+    "gates": {
+     "trend_template": {
+      "c1": true,
+      "c2": true,
+      "c3": true,
+      "c4": true,
+      "c5": true,
+      "c6": true,
+      "c7": true,
+      "c8": true,
+      "pass": true,
+      "near_miss_notes": ""
+     },
+     "investability": {
+      "liquidity": true,
+      "pledge": true,
+      "governance": true,
+      "pass": true
+     }
+    },
+    "scores": {
+     "earnings": {
+      "A1": 6,
+      "A2": 3,
+      "A3": 4,
+      "A4": 4,
+      "A5": 4,
+      "subtotal": 21
+     },
+     "revenue": {
+      "B1": 6,
+      "B2": 4,
+      "B3": 3,
+      "B4": 2,
+      "subtotal": 15
+     },
+     "profitability": {
+      "C1": 1,
+      "C2": 3,
+      "C3": 0,
+      "C4": 0,
+      "subtotal": 4
+     },
+     "balance_sheet": {
+      "D1": 2,
+      "D2": 1,
+      "D3": 1,
+      "D4": 1,
+      "subtotal": 5
+     },
+     "sponsorship": {
+      "E1": 2,
+      "E2": 0,
+      "E3": 0,
+      "E4": 1,
+      "subtotal": 3
+     },
+     "rs_trend": {
+      "F1": 3,
+      "F2": 1,
+      "F3": 2,
+      "F4": 2,
+      "subtotal": 8
+     },
+     "base_structure": {
+      "G1": 3,
+      "G2": 4,
+      "G3": 3,
+      "G4": 0,
+      "G5": 3,
+      "G6": 0,
+      "subtotal": 13
+     },
+     "leadership": {
+      "H1": 0,
+      "H2": 0,
+      "H3": 0,
+      "subtotal": 0
+     },
+     "total": 69
+    },
+    "quality_band": "Watchlist B",
+    "action_bucket": "WATCH",
+    "red_flags": [
+     "POOR_CASH_CONVERSION"
+    ],
+    "risk_level": "MEDIUM",
+    "valuation_context": {
+     "pe": 113.0,
+     "peg": null,
+     "vs_own_5yr": "",
+     "note": "Valuation is context only, never a criterion."
+    },
+    "base": {
+     "pattern_label": "",
+     "pivot": 1443.0,
+     "pct_from_pivot": -16.68,
+     "base_count": 2,
+     "depth_pct": 18.8,
+     "weeks": 3.6
+    },
+    "trade_plan": null,
+    "delta": {
+     "score_change": 1,
+     "gate_flips": [],
+     "bucket_change": "",
+     "alerts": []
+    },
+    "violations": {
+     "count": 0,
+     "items": [],
+     "recommendation": ""
+    },
+    "verdict": {
+     "summary": "PARAS (69/100) \u2014 Watchlist B / WATCH.",
+     "strengths": [
+      "Latest EPS YoY >=50%",
+      "Constructive base structure"
+     ],
+     "weaknesses": [
+      "8 unverified fields scored 0"
+     ],
+     "catalysts": [],
+     "biggest_risk": "POOR_CASH_CONVERSION",
+     "conviction_0_10": 5
+    },
+    "data_quality": {
+     "unverified_fields": [
+      "fcf",
+      "governance_events",
+      "group_leadership_rank",
+      "industry_group_rs",
+      "marquee_institution",
+      "mf_scheme_count",
+      "new_catalyst",
+      "promoter_pledge_pct"
+     ],
+     "sources": [
+      {
+       "field": "technicals",
+       "source": "Yahoo Finance OHLCV",
+       "as_of": "2026-07-14"
+      },
+      {
+       "field": "fundamentals",
+       "source": "screener.in",
+       "as_of": "2026-07-14"
+      }
+     ]
+    },
+    "technicals": {
+     "price": 1202.3,
+     "rs_percentile": 71,
+     "pct_below_52w_high": 16.7,
+     "pct_above_52w_low": 107.1,
+     "dma_50": 1040.18,
+     "dma_200": 777.81,
+     "up_down_volume_ratio_50d": 2.45
+    },
+    "status": "SCORED"
+   }
+  },
   {
    "ticker": "CEMPRO",
    "name": "Cemindia Project",
    "joined_date": "2026-07-05",
-   "last_updated": "2026-07-12",
+   "last_updated": "2026-07-14",
    "scorecard": {
     "ticker": "CEMPRO",
     "name": "Cemindia Project",
-    "as_of": "2026-07-10",
+    "as_of": "2026-07-14",
     "mode": "WEEKLY",
     "gates": {
      "trend_template": {
@@ -97,26 +269,24 @@
     "red_flags": [],
     "risk_level": "LOW",
     "valuation_context": {
-     "pe": 45.7,
+     "pe": 46.6,
      "peg": null,
      "vs_own_5yr": "",
      "note": "Valuation is context only, never a criterion."
     },
     "base": {
      "pattern_label": "",
-     "pivot": 1597.4,
-     "pct_from_pivot": -1.92,
+     "pivot": 1647.3,
+     "pct_from_pivot": -3.08,
      "base_count": 2,
-     "depth_pct": 9.5,
-     "weeks": 0.8
+     "depth_pct": 5.4,
+     "weeks": 0.2
     },
     "trade_plan": null,
     "delta": {
-     "score_change": 68,
-     "gate_flips": [
-      "c2: False -> True"
-     ],
-     "bucket_change": "AVOID -> WATCH",
+     "score_change": 0,
+     "gate_flips": [],
+     "bucket_change": "",
      "alerts": []
     },
     "violations": {
@@ -152,194 +322,23 @@
       {
        "field": "technicals",
        "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       },
       {
        "field": "fundamentals",
        "source": "screener.in",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       }
      ]
     },
     "technicals": {
-     "price": 1566.8,
+     "price": 1596.6,
      "rs_percentile": 95,
-     "pct_below_52w_high": 1.9,
-     "pct_above_52w_low": 212.1,
-     "dma_50": 1122.81,
-     "dma_200": 813.23,
-     "up_down_volume_ratio_50d": 3.08
-    },
-    "status": "SCORED"
-   }
-  },
-  {
-   "ticker": "PARAS",
-   "name": "Paras Defence",
-   "joined_date": "2026-07-05",
-   "last_updated": "2026-07-12",
-   "scorecard": {
-    "ticker": "PARAS",
-    "name": "Paras Defence",
-    "as_of": "2026-07-10",
-    "mode": "WEEKLY",
-    "gates": {
-     "trend_template": {
-      "c1": true,
-      "c2": true,
-      "c3": true,
-      "c4": true,
-      "c5": true,
-      "c6": true,
-      "c7": true,
-      "c8": true,
-      "pass": true,
-      "near_miss_notes": ""
-     },
-     "investability": {
-      "liquidity": true,
-      "pledge": true,
-      "governance": true,
-      "pass": true
-     }
-    },
-    "scores": {
-     "earnings": {
-      "A1": 6,
-      "A2": 3,
-      "A3": 4,
-      "A4": 4,
-      "A5": 4,
-      "subtotal": 21
-     },
-     "revenue": {
-      "B1": 6,
-      "B2": 4,
-      "B3": 3,
-      "B4": 2,
-      "subtotal": 15
-     },
-     "profitability": {
-      "C1": 1,
-      "C2": 3,
-      "C3": 0,
-      "C4": 0,
-      "subtotal": 4
-     },
-     "balance_sheet": {
-      "D1": 2,
-      "D2": 1,
-      "D3": 1,
-      "D4": 1,
-      "subtotal": 5
-     },
-     "sponsorship": {
-      "E1": 2,
-      "E2": 0,
-      "E3": 0,
-      "E4": 1,
-      "subtotal": 3
-     },
-     "rs_trend": {
-      "F1": 3,
-      "F2": 2,
-      "F3": 2,
-      "F4": 2,
-      "subtotal": 9
-     },
-     "base_structure": {
-      "G1": 3,
-      "G2": 4,
-      "G3": 3,
-      "G4": 0,
-      "G5": 1,
-      "G6": 0,
-      "subtotal": 11
-     },
-     "leadership": {
-      "H1": 0,
-      "H2": 0,
-      "H3": 0,
-      "subtotal": 0
-     },
-     "total": 68
-    },
-    "quality_band": "Watchlist B",
-    "action_bucket": "WATCH",
-    "red_flags": [
-     "POOR_CASH_CONVERSION"
-    ],
-    "risk_level": "MEDIUM",
-    "valuation_context": {
-     "pe": 117.0,
-     "peg": null,
-     "vs_own_5yr": "",
-     "note": "Valuation is context only, never a criterion."
-    },
-    "base": {
-     "pattern_label": "",
-     "pivot": 1443.0,
-     "pct_from_pivot": -13.16,
-     "base_count": 2,
-     "depth_pct": 18.8,
-     "weeks": 3.2
-    },
-    "trade_plan": null,
-    "delta": {
-     "score_change": 4,
-     "gate_flips": [],
-     "bucket_change": "",
-     "alerts": []
-    },
-    "violations": {
-     "count": 0,
-     "items": [],
-     "recommendation": ""
-    },
-    "verdict": {
-     "summary": "PARAS (68/100) \u2014 Watchlist B / WATCH.",
-     "strengths": [
-      "Latest EPS YoY >=50%"
-     ],
-     "weaknesses": [
-      "8 unverified fields scored 0"
-     ],
-     "catalysts": [],
-     "biggest_risk": "POOR_CASH_CONVERSION",
-     "conviction_0_10": 5
-    },
-    "data_quality": {
-     "unverified_fields": [
-      "fcf",
-      "governance_events",
-      "group_leadership_rank",
-      "industry_group_rs",
-      "marquee_institution",
-      "mf_scheme_count",
-      "new_catalyst",
-      "promoter_pledge_pct"
-     ],
-     "sources": [
-      {
-       "field": "technicals",
-       "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-07-10"
-      },
-      {
-       "field": "fundamentals",
-       "source": "screener.in",
-       "as_of": "2026-07-10"
-      }
-     ]
-    },
-    "technicals": {
-     "price": 1253.1,
-     "rs_percentile": 75,
-     "pct_below_52w_high": 13.2,
-     "pct_above_52w_low": 115.9,
-     "dma_50": 1023.18,
-     "dma_200": 772.91,
-     "up_down_volume_ratio_50d": 2.5
+     "pct_below_52w_high": 3.1,
+     "pct_above_52w_low": 218.0,
+     "dma_50": 1149.13,
+     "dma_200": 821.03,
+     "up_down_volume_ratio_50d": 2.15
     },
     "status": "SCORED"
    }
@@ -348,11 +347,11 @@
    "ticker": "CUPID",
    "name": "Cupid",
    "joined_date": "2026-07-05",
-   "last_updated": "2026-07-12",
+   "last_updated": "2026-07-14",
    "scorecard": {
     "ticker": "CUPID",
     "name": "Cupid",
-    "as_of": "2026-07-10",
+    "as_of": "2026-07-14",
     "mode": "WEEKLY",
     "gates": {
      "trend_template": {
@@ -413,10 +412,10 @@
      },
      "rs_trend": {
       "F1": 7,
-      "F2": 2,
+      "F2": 4,
       "F3": 2,
       "F4": 2,
-      "subtotal": 13
+      "subtotal": 15
      },
      "base_structure": {
       "G1": 3,
@@ -433,7 +432,7 @@
       "H3": 0,
       "subtotal": 0
      },
-     "total": 65
+     "total": 67
     },
     "quality_band": "Watchlist B",
     "action_bucket": "WATCH",
@@ -444,7 +443,7 @@
     ],
     "risk_level": "MEDIUM",
     "valuation_context": {
-     "pe": 264.0,
+     "pe": 269.0,
      "peg": null,
      "vs_own_5yr": "",
      "note": "Valuation is context only, never a criterion."
@@ -452,14 +451,14 @@
     "base": {
      "pattern_label": "",
      "pivot": 226.0,
-     "pct_from_pivot": -6.09,
+     "pct_from_pivot": -4.08,
      "base_count": 4,
      "depth_pct": 21.7,
-     "weeks": 0.6
+     "weeks": 1.0
     },
     "trade_plan": null,
     "delta": {
-     "score_change": -4,
+     "score_change": 2,
      "gate_flips": [],
      "bucket_change": "",
      "alerts": []
@@ -470,7 +469,7 @@
      "recommendation": ""
     },
     "verdict": {
-     "summary": "CUPID (65/100) \u2014 Watchlist B / WATCH.",
+     "summary": "CUPID (67/100) \u2014 Watchlist B / WATCH.",
      "strengths": [
       "RS percentile 99",
       "Latest EPS YoY >=50%"
@@ -498,36 +497,206 @@
       {
        "field": "technicals",
        "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       },
       {
        "field": "fundamentals",
        "source": "screener.in",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       }
      ]
     },
     "technicals": {
-     "price": 212.24,
+     "price": 216.77,
      "rs_percentile": 99,
-     "pct_below_52w_high": 6.1,
-     "pct_above_52w_low": 896.9,
-     "dma_50": 153.47,
-     "dma_200": 95.59,
-     "up_down_volume_ratio_50d": 4.18
+     "pct_below_52w_high": 4.1,
+     "pct_above_52w_low": 901.2,
+     "dma_50": 156.79,
+     "dma_200": 97.27,
+     "up_down_volume_ratio_50d": 3.42
     },
     "status": "SCORED"
+   }
+  },
+  {
+   "ticker": "PRICOLLTD",
+   "name": "Pricol Ltd",
+   "joined_date": "2026-07-05",
+   "last_updated": "2026-07-14",
+   "scorecard": {
+    "ticker": "PRICOLLTD",
+    "name": "Pricol Ltd",
+    "as_of": "2026-07-14",
+    "mode": "WEEKLY",
+    "gates": {
+     "trend_template": {
+      "c1": true,
+      "c2": true,
+      "c3": true,
+      "c4": false,
+      "c5": true,
+      "c6": true,
+      "c7": true,
+      "c8": false,
+      "pass": false,
+      "near_miss_notes": ""
+     },
+     "investability": {
+      "liquidity": true,
+      "pledge": true,
+      "governance": true,
+      "pass": true
+     }
+    },
+    "scores": {
+     "earnings": {
+      "A1": 8,
+      "A2": 5,
+      "A3": 4,
+      "A4": 4,
+      "A5": 4,
+      "subtotal": 25
+     },
+     "revenue": {
+      "B1": 6,
+      "B2": 2,
+      "B3": 3,
+      "B4": 2,
+      "subtotal": 13
+     },
+     "profitability": {
+      "C1": 3,
+      "C2": 3,
+      "C3": 2,
+      "C4": 0,
+      "subtotal": 8
+     },
+     "balance_sheet": {
+      "D1": 2,
+      "D2": 1,
+      "D3": 1,
+      "D4": 1,
+      "subtotal": 5
+     },
+     "sponsorship": {
+      "E1": 0,
+      "E2": 0,
+      "E3": 0,
+      "E4": 1,
+      "subtotal": 1
+     },
+     "rs_trend": {
+      "F1": 0,
+      "F2": 2,
+      "F3": 2,
+      "F4": 2,
+      "subtotal": 6
+     },
+     "base_structure": {
+      "G1": 0,
+      "G2": 4,
+      "G3": 1,
+      "G4": 0,
+      "G5": 3,
+      "G6": 0,
+      "subtotal": 8
+     },
+     "leadership": {
+      "H1": 0,
+      "H2": 0,
+      "H3": 0,
+      "subtotal": 0
+     },
+     "total": 66
+    },
+    "quality_band": "Watchlist B",
+    "action_bucket": "AVOID",
+    "red_flags": [],
+    "risk_level": "LOW",
+    "valuation_context": {
+     "pe": 30.0,
+     "peg": null,
+     "vs_own_5yr": "",
+     "note": "Valuation is context only, never a criterion."
+    },
+    "base": {
+     "pattern_label": "",
+     "pivot": 632.75,
+     "pct_from_pivot": -2.55,
+     "base_count": 1,
+     "depth_pct": 26.7,
+     "weeks": 26.0
+    },
+    "trade_plan": null,
+    "delta": {
+     "score_change": 2,
+     "gate_flips": [],
+     "bucket_change": "",
+     "alerts": []
+    },
+    "violations": {
+     "count": 0,
+     "items": [],
+     "recommendation": ""
+    },
+    "verdict": {
+     "summary": "PRICOLLTD (66/100) \u2014 Watchlist B / AVOID. Score is informational only \u2014 Gate 1 not confirmed, so not an actionable setup yet.",
+     "strengths": [
+      "Latest EPS YoY >=50%"
+     ],
+     "weaknesses": [
+      "Fails Trend Template: c4, c8",
+      "8 unverified fields scored 0"
+     ],
+     "catalysts": [],
+     "biggest_risk": "None flagged",
+     "conviction_0_10": 0
+    },
+    "data_quality": {
+     "unverified_fields": [
+      "fcf",
+      "governance_events",
+      "group_leadership_rank",
+      "industry_group_rs",
+      "marquee_institution",
+      "mf_scheme_count",
+      "new_catalyst",
+      "promoter_pledge_pct"
+     ],
+     "sources": [
+      {
+       "field": "technicals",
+       "source": "Yahoo Finance OHLCV",
+       "as_of": "2026-07-14"
+      },
+      {
+       "field": "fundamentals",
+       "source": "screener.in",
+       "as_of": "2026-07-14"
+      }
+     ]
+    },
+    "technicals": {
+     "price": 616.6,
+     "rs_percentile": 16,
+     "pct_below_52w_high": 11.2,
+     "pct_above_52w_low": 49.0,
+     "dma_50": 581.35,
+     "dma_200": 582.41,
+     "up_down_volume_ratio_50d": 2.29
+    },
+    "status": "SCORED_NO_TREND"
    }
   },
   {
    "ticker": "SKYGOLD",
    "name": "Sky Gold & Diam.",
    "joined_date": "2026-07-05",
-   "last_updated": "2026-07-12",
+   "last_updated": "2026-07-14",
    "scorecard": {
     "ticker": "SKYGOLD",
     "name": "Sky Gold & Diam.",
-    "as_of": "2026-07-10",
+    "as_of": "2026-07-14",
     "mode": "WEEKLY",
     "gates": {
      "trend_template": {
@@ -618,22 +787,22 @@
     ],
     "risk_level": "MEDIUM",
     "valuation_context": {
-     "pe": 35.1,
+     "pe": 34.8,
      "peg": null,
      "vs_own_5yr": "",
      "note": "Valuation is context only, never a criterion."
     },
     "base": {
      "pattern_label": "",
-     "pivot": 638.0,
-     "pct_from_pivot": -2.22,
+     "pivot": 644.35,
+     "pct_from_pivot": -4.09,
      "base_count": 2,
-     "depth_pct": 4.2,
+     "depth_pct": 4.4,
      "weeks": 0.2
     },
     "trade_plan": null,
     "delta": {
-     "score_change": 1,
+     "score_change": 0,
      "gate_flips": [],
      "bucket_change": "",
      "alerts": []
@@ -671,23 +840,23 @@
       {
        "field": "technicals",
        "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       },
       {
        "field": "fundamentals",
        "source": "screener.in",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       }
      ]
     },
     "technicals": {
-     "price": 623.85,
+     "price": 618.0,
      "rs_percentile": 81,
-     "pct_below_52w_high": 2.2,
-     "pct_above_52w_low": 153.5,
-     "dma_50": 510.79,
-     "dma_200": 385.38,
-     "up_down_volume_ratio_50d": 1.47
+     "pct_below_52w_high": 4.1,
+     "pct_above_52w_low": 151.2,
+     "dma_50": 517.35,
+     "dma_200": 388.68,
+     "up_down_volume_ratio_50d": 1.4
     },
     "status": "SCORED"
    }
@@ -696,11 +865,11 @@
    "ticker": "ACUTAAS",
    "name": "Acutaas Chemical",
    "joined_date": "2026-07-05",
-   "last_updated": "2026-07-12",
+   "last_updated": "2026-07-14",
    "scorecard": {
     "ticker": "ACUTAAS",
     "name": "Acutaas Chemical",
-    "as_of": "2026-07-10",
+    "as_of": "2026-07-14",
     "mode": "WEEKLY",
     "gates": {
      "trend_template": {
@@ -790,7 +959,7 @@
     ],
     "risk_level": "LOW",
     "valuation_context": {
-     "pe": 78.2,
+     "pe": 79.5,
      "peg": null,
      "vs_own_5yr": "",
      "note": "Valuation is context only, never a criterion."
@@ -798,14 +967,14 @@
     "base": {
      "pattern_label": "",
      "pivot": 3740.0,
-     "pct_from_pivot": -9.07,
+     "pct_from_pivot": -7.49,
      "base_count": 7,
      "depth_pct": 10.5,
-     "weeks": 1.0
+     "weeks": 1.4
     },
     "trade_plan": null,
     "delta": {
-     "score_change": -2,
+     "score_change": 0,
      "gate_flips": [],
      "bucket_change": "",
      "alerts": []
@@ -844,207 +1013,36 @@
       {
        "field": "technicals",
        "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       },
       {
        "field": "fundamentals",
        "source": "screener.in",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       }
      ]
     },
     "technicals": {
-     "price": 3400.8,
+     "price": 3459.7,
      "rs_percentile": 93,
-     "pct_below_52w_high": 9.1,
-     "pct_above_52w_low": 210.8,
-     "dma_50": 3114.94,
-     "dma_200": 2200.13,
-     "up_down_volume_ratio_50d": 2.0
+     "pct_below_52w_high": 7.5,
+     "pct_above_52w_low": 209.9,
+     "dma_50": 3147.38,
+     "dma_200": 2220.35,
+     "up_down_volume_ratio_50d": 1.98
     },
     "status": "SCORED"
-   }
-  },
-  {
-   "ticker": "PRICOLLTD",
-   "name": "Pricol Ltd",
-   "joined_date": "2026-07-05",
-   "last_updated": "2026-07-12",
-   "scorecard": {
-    "ticker": "PRICOLLTD",
-    "name": "Pricol Ltd",
-    "as_of": "2026-07-10",
-    "mode": "WEEKLY",
-    "gates": {
-     "trend_template": {
-      "c1": true,
-      "c2": true,
-      "c3": true,
-      "c4": false,
-      "c5": true,
-      "c6": true,
-      "c7": true,
-      "c8": false,
-      "pass": false,
-      "near_miss_notes": ""
-     },
-     "investability": {
-      "liquidity": true,
-      "pledge": true,
-      "governance": true,
-      "pass": true
-     }
-    },
-    "scores": {
-     "earnings": {
-      "A1": 8,
-      "A2": 5,
-      "A3": 4,
-      "A4": 4,
-      "A5": 4,
-      "subtotal": 25
-     },
-     "revenue": {
-      "B1": 6,
-      "B2": 2,
-      "B3": 3,
-      "B4": 2,
-      "subtotal": 13
-     },
-     "profitability": {
-      "C1": 3,
-      "C2": 3,
-      "C3": 2,
-      "C4": 0,
-      "subtotal": 8
-     },
-     "balance_sheet": {
-      "D1": 2,
-      "D2": 1,
-      "D3": 1,
-      "D4": 1,
-      "subtotal": 5
-     },
-     "sponsorship": {
-      "E1": 0,
-      "E2": 0,
-      "E3": 0,
-      "E4": 1,
-      "subtotal": 1
-     },
-     "rs_trend": {
-      "F1": 0,
-      "F2": 2,
-      "F3": 2,
-      "F4": 2,
-      "subtotal": 6
-     },
-     "base_structure": {
-      "G1": 0,
-      "G2": 4,
-      "G3": 1,
-      "G4": 0,
-      "G5": 1,
-      "G6": 0,
-      "subtotal": 6
-     },
-     "leadership": {
-      "H1": 0,
-      "H2": 0,
-      "H3": 0,
-      "subtotal": 0
-     },
-     "total": 64
-    },
-    "quality_band": "Watchlist B",
-    "action_bucket": "AVOID",
-    "red_flags": [],
-    "risk_level": "LOW",
-    "valuation_context": {
-     "pe": 30.5,
-     "peg": null,
-     "vs_own_5yr": "",
-     "note": "Valuation is context only, never a criterion."
-    },
-    "base": {
-     "pattern_label": "",
-     "pivot": 632.75,
-     "pct_from_pivot": -0.87,
-     "base_count": 1,
-     "depth_pct": 26.7,
-     "weeks": 25.6
-    },
-    "trade_plan": null,
-    "delta": {
-     "score_change": 64,
-     "gate_flips": [],
-     "bucket_change": "",
-     "alerts": []
-    },
-    "violations": {
-     "count": 0,
-     "items": [],
-     "recommendation": ""
-    },
-    "verdict": {
-     "summary": "PRICOLLTD (64/100) \u2014 Watchlist B / AVOID. Score is informational only \u2014 Gate 1 not confirmed, so not an actionable setup yet.",
-     "strengths": [
-      "Latest EPS YoY >=50%"
-     ],
-     "weaknesses": [
-      "Fails Trend Template: c4, c8",
-      "No valid base yet (6/20)",
-      "8 unverified fields scored 0"
-     ],
-     "catalysts": [],
-     "biggest_risk": "None flagged",
-     "conviction_0_10": 0
-    },
-    "data_quality": {
-     "unverified_fields": [
-      "fcf",
-      "governance_events",
-      "group_leadership_rank",
-      "industry_group_rs",
-      "marquee_institution",
-      "mf_scheme_count",
-      "new_catalyst",
-      "promoter_pledge_pct"
-     ],
-     "sources": [
-      {
-       "field": "technicals",
-       "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-07-10"
-      },
-      {
-       "field": "fundamentals",
-       "source": "screener.in",
-       "as_of": "2026-07-10"
-      }
-     ]
-    },
-    "technicals": {
-     "price": 627.25,
-     "rs_percentile": 16,
-     "pct_below_52w_high": 9.6,
-     "pct_above_52w_low": 51.6,
-     "dma_50": 579.82,
-     "dma_200": 581.6,
-     "up_down_volume_ratio_50d": 2.5
-    },
-    "status": "SCORED_NO_TREND"
    }
   },
   {
    "ticker": "LLOYDSME",
    "name": "Lloyds Metals",
    "joined_date": "2026-07-05",
-   "last_updated": "2026-07-12",
+   "last_updated": "2026-07-14",
    "scorecard": {
     "ticker": "LLOYDSME",
     "name": "Lloyds Metals",
-    "as_of": "2026-07-10",
+    "as_of": "2026-07-14",
     "mode": "WEEKLY",
     "gates": {
      "trend_template": {
@@ -1107,17 +1105,17 @@
       "F1": 0,
       "F2": 4,
       "F3": 2,
-      "F4": 0,
-      "subtotal": 6
+      "F4": 2,
+      "subtotal": 8
      },
      "base_structure": {
       "G1": 0,
       "G2": 4,
       "G3": 4,
       "G4": 0,
-      "G5": 0,
+      "G5": 1,
       "G6": 0,
-      "subtotal": 8
+      "subtotal": 9
      },
      "leadership": {
       "H1": 0,
@@ -1125,14 +1123,14 @@
       "H3": 0,
       "subtotal": 0
      },
-     "total": 61
+     "total": 64
     },
     "quality_band": "Watchlist B",
     "action_bucket": "AVOID",
     "red_flags": [],
     "risk_level": "LOW",
     "valuation_context": {
-     "pe": 27.2,
+     "pe": 27.6,
      "peg": null,
      "vs_own_5yr": "",
      "note": "Valuation is context only, never a criterion."
@@ -1140,14 +1138,14 @@
     "base": {
      "pattern_label": "",
      "pivot": 1848.0,
-     "pct_from_pivot": -2.62,
+     "pct_from_pivot": -1.22,
      "base_count": 1,
      "depth_pct": 11.6,
-     "weeks": 6.6
+     "weeks": 7.0
     },
     "trade_plan": null,
     "delta": {
-     "score_change": 61,
+     "score_change": 3,
      "gate_flips": [],
      "bucket_change": "",
      "alerts": []
@@ -1158,7 +1156,7 @@
      "recommendation": ""
     },
     "verdict": {
-     "summary": "LLOYDSME (61/100) \u2014 Watchlist B / AVOID. Score is informational only \u2014 Gate 1 not confirmed, so not an actionable setup yet.",
+     "summary": "LLOYDSME (64/100) \u2014 Watchlist B / AVOID. Score is informational only \u2014 Gate 1 not confirmed, so not an actionable setup yet.",
      "strengths": [
       "Latest EPS YoY >=50%"
      ],
@@ -1186,23 +1184,23 @@
       {
        "field": "technicals",
        "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       },
       {
        "field": "fundamentals",
        "source": "screener.in",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       }
      ]
     },
     "technicals": {
-     "price": 1799.6,
-     "rs_percentile": 40,
-     "pct_below_52w_high": 4.7,
-     "pct_above_52w_low": 72.7,
-     "dma_50": 1759.36,
-     "dma_200": 1416.2,
-     "up_down_volume_ratio_50d": 1.17
+     "price": 1825.5,
+     "rs_percentile": 44,
+     "pct_below_52w_high": 3.3,
+     "pct_above_52w_low": 75.1,
+     "dma_50": 1760.83,
+     "dma_200": 1421.31,
+     "up_down_volume_ratio_50d": 1.23
     },
     "status": "SCORED_NO_TREND"
    }
@@ -1211,11 +1209,11 @@
    "ticker": "PAISALO",
    "name": "Paisalo Digital",
    "joined_date": "2026-07-05",
-   "last_updated": "2026-07-12",
+   "last_updated": "2026-07-14",
    "scorecard": {
     "ticker": "PAISALO",
     "name": "Paisalo Digital",
-    "as_of": "2026-07-10",
+    "as_of": "2026-07-14",
     "mode": "WEEKLY",
     "gates": {
      "trend_template": {
@@ -1275,524 +1273,6 @@
       "subtotal": 1
      },
      "rs_trend": {
-      "F1": 7,
-      "F2": 4,
-      "F3": 2,
-      "F4": 2,
-      "subtotal": 15
-     },
-     "base_structure": {
-      "G1": 3,
-      "G2": 4,
-      "G3": 0,
-      "G4": 0,
-      "G5": 0,
-      "G6": 0,
-      "subtotal": 7
-     },
-     "leadership": {
-      "H1": 0,
-      "H2": 0,
-      "H3": 0,
-      "subtotal": 0
-     },
-     "total": 61
-    },
-    "quality_band": "Watchlist B",
-    "action_bucket": "WATCH",
-    "red_flags": [
-     "POOR_CASH_CONVERSION"
-    ],
-    "risk_level": "MEDIUM",
-    "valuation_context": {
-     "pe": 28.0,
-     "peg": null,
-     "vs_own_5yr": "",
-     "note": "Valuation is context only, never a criterion."
-    },
-    "base": {
-     "pattern_label": "",
-     "pivot": 74.9,
-     "pct_from_pivot": -2.22,
-     "base_count": 1,
-     "depth_pct": 8.3,
-     "weeks": 1.4
-    },
-    "trade_plan": null,
-    "delta": {
-     "score_change": 2,
-     "gate_flips": [],
-     "bucket_change": "AVOID -> WATCH",
-     "alerts": []
-    },
-    "violations": {
-     "count": 0,
-     "items": [],
-     "recommendation": ""
-    },
-    "verdict": {
-     "summary": "PAISALO (61/100) \u2014 Watchlist B / WATCH.",
-     "strengths": [
-      "RS percentile 91",
-      "Latest EPS YoY >=50%"
-     ],
-     "weaknesses": [
-      "10 unverified fields scored 0"
-     ],
-     "catalysts": [],
-     "biggest_risk": "POOR_CASH_CONVERSION",
-     "conviction_0_10": 4
-    },
-    "data_quality": {
-     "unverified_fields": [
-      "debt_to_equity",
-      "fcf",
-      "governance_events",
-      "group_leadership_rank",
-      "industry_group_rs",
-      "interest_coverage",
-      "marquee_institution",
-      "mf_scheme_count",
-      "new_catalyst",
-      "promoter_pledge_pct"
-     ],
-     "sources": [
-      {
-       "field": "technicals",
-       "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-07-10"
-      },
-      {
-       "field": "fundamentals",
-       "source": "screener.in",
-       "as_of": "2026-07-10"
-      }
-     ]
-    },
-    "technicals": {
-     "price": 73.24,
-     "rs_percentile": 91,
-     "pct_below_52w_high": 2.2,
-     "pct_above_52w_low": 145.9,
-     "dma_50": 56.42,
-     "dma_200": 41.68,
-     "up_down_volume_ratio_50d": 2.66
-    },
-    "status": "SCORED"
-   }
-  },
-  {
-   "ticker": "PTCIL",
-   "name": "PTC Industries",
-   "joined_date": "2026-07-05",
-   "last_updated": "2026-07-12",
-   "scorecard": {
-    "ticker": "PTCIL",
-    "name": "PTC Industries",
-    "as_of": "2026-07-10",
-    "mode": "WEEKLY",
-    "gates": {
-     "trend_template": {
-      "c1": true,
-      "c2": true,
-      "c3": true,
-      "c4": false,
-      "c5": true,
-      "c6": true,
-      "c7": true,
-      "c8": false,
-      "pass": false,
-      "near_miss_notes": ""
-     },
-     "investability": {
-      "liquidity": true,
-      "pledge": true,
-      "governance": true,
-      "pass": true
-     }
-    },
-    "scores": {
-     "earnings": {
-      "A1": 8,
-      "A2": 5,
-      "A3": 4,
-      "A4": 4,
-      "A5": 2,
-      "subtotal": 23
-     },
-     "revenue": {
-      "B1": 6,
-      "B2": 0,
-      "B3": 3,
-      "B4": 2,
-      "subtotal": 11
-     },
-     "profitability": {
-      "C1": 0,
-      "C2": 3,
-      "C3": 0,
-      "C4": 0,
-      "subtotal": 3
-     },
-     "balance_sheet": {
-      "D1": 2,
-      "D2": 1,
-      "D3": 0,
-      "D4": 1,
-      "subtotal": 4
-     },
-     "sponsorship": {
-      "E1": 2,
-      "E2": 0,
-      "E3": 0,
-      "E4": 1,
-      "subtotal": 3
-     },
-     "rs_trend": {
-      "F1": 0,
-      "F2": 2,
-      "F3": 2,
-      "F4": 2,
-      "subtotal": 6
-     },
-     "base_structure": {
-      "G1": 0,
-      "G2": 4,
-      "G3": 3,
-      "G4": 0,
-      "G5": 3,
-      "G6": 0,
-      "subtotal": 10
-     },
-     "leadership": {
-      "H1": 0,
-      "H2": 0,
-      "H3": 0,
-      "subtotal": 0
-     },
-     "total": 60
-    },
-    "quality_band": "Watchlist B",
-    "action_bucket": "AVOID",
-    "red_flags": [
-     "OTHER_INCOME_DRIVEN",
-     "POOR_CASH_CONVERSION"
-    ],
-    "risk_level": "MEDIUM",
-    "valuation_context": {
-     "pe": 260.0,
-     "peg": null,
-     "vs_own_5yr": "",
-     "note": "Valuation is context only, never a criterion."
-    },
-    "base": {
-     "pattern_label": "",
-     "pivot": 19851.0,
-     "pct_from_pivot": -11.33,
-     "base_count": 1,
-     "depth_pct": 15.1,
-     "weeks": 5.6
-    },
-    "trade_plan": null,
-    "delta": {
-     "score_change": 60,
-     "gate_flips": [],
-     "bucket_change": "",
-     "alerts": []
-    },
-    "violations": {
-     "count": 0,
-     "items": [],
-     "recommendation": ""
-    },
-    "verdict": {
-     "summary": "PTCIL (60/100) \u2014 Watchlist B / AVOID. Score is informational only \u2014 Gate 1 not confirmed, so not an actionable setup yet.",
-     "strengths": [
-      "Latest EPS YoY >=50%"
-     ],
-     "weaknesses": [
-      "Fails Trend Template: c4, c8",
-      "8 unverified fields scored 0"
-     ],
-     "catalysts": [],
-     "biggest_risk": "OTHER_INCOME_DRIVEN",
-     "conviction_0_10": 0
-    },
-    "data_quality": {
-     "unverified_fields": [
-      "fcf",
-      "governance_events",
-      "group_leadership_rank",
-      "industry_group_rs",
-      "marquee_institution",
-      "mf_scheme_count",
-      "new_catalyst",
-      "promoter_pledge_pct"
-     ],
-     "sources": [
-      {
-       "field": "technicals",
-       "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-07-10"
-      },
-      {
-       "field": "fundamentals",
-       "source": "screener.in",
-       "as_of": "2026-07-10"
-      }
-     ]
-    },
-    "technicals": {
-     "price": 17602.0,
-     "rs_percentile": 10,
-     "pct_below_52w_high": 11.3,
-     "pct_above_52w_low": 32.8,
-     "dma_50": 17373.9,
-     "dma_200": 17251.99,
-     "up_down_volume_ratio_50d": 1.59
-    },
-    "status": "SCORED_NO_TREND"
-   }
-  },
-  {
-   "ticker": "SJS",
-   "name": "SJS Enterprises",
-   "joined_date": "2026-07-05",
-   "last_updated": "2026-07-12",
-   "scorecard": {
-    "ticker": "SJS",
-    "name": "SJS Enterprises",
-    "as_of": "2026-07-10",
-    "mode": "WEEKLY",
-    "gates": {
-     "trend_template": {
-      "c1": true,
-      "c2": true,
-      "c3": true,
-      "c4": true,
-      "c5": true,
-      "c6": true,
-      "c7": true,
-      "c8": false,
-      "pass": false,
-      "near_miss_notes": ""
-     },
-     "investability": {
-      "liquidity": true,
-      "pledge": true,
-      "governance": true,
-      "pass": true
-     }
-    },
-    "scores": {
-     "earnings": {
-      "A1": 4,
-      "A2": 3,
-      "A3": 4,
-      "A4": 4,
-      "A5": 4,
-      "subtotal": 19
-     },
-     "revenue": {
-      "B1": 6,
-      "B2": 2,
-      "B3": 3,
-      "B4": 2,
-      "subtotal": 13
-     },
-     "profitability": {
-      "C1": 3,
-      "C2": 3,
-      "C3": 2,
-      "C4": 0,
-      "subtotal": 8
-     },
-     "balance_sheet": {
-      "D1": 2,
-      "D2": 1,
-      "D3": 1,
-      "D4": 1,
-      "subtotal": 5
-     },
-     "sponsorship": {
-      "E1": 1,
-      "E2": 0,
-      "E3": 0,
-      "E4": 1,
-      "subtotal": 2
-     },
-     "rs_trend": {
-      "F1": 0,
-      "F2": 4,
-      "F3": 2,
-      "F4": 2,
-      "subtotal": 8
-     },
-     "base_structure": {
-      "G1": 0,
-      "G2": 4,
-      "G3": 0,
-      "G4": 0,
-      "G5": 0,
-      "G6": 0,
-      "subtotal": 4
-     },
-     "leadership": {
-      "H1": 0,
-      "H2": 0,
-      "H3": 0,
-      "subtotal": 0
-     },
-     "total": 59
-    },
-    "quality_band": "Reject",
-    "action_bucket": "AVOID",
-    "red_flags": [],
-    "risk_level": "LOW",
-    "valuation_context": {
-     "pe": 41.2,
-     "peg": null,
-     "vs_own_5yr": "",
-     "note": "Valuation is context only, never a criterion."
-    },
-    "base": {
-     "pattern_label": "",
-     "pivot": 2288.9,
-     "pct_from_pivot": -4.61,
-     "base_count": 1,
-     "depth_pct": 5.3,
-     "weeks": 0.4
-    },
-    "trade_plan": null,
-    "delta": {
-     "score_change": 59,
-     "gate_flips": [],
-     "bucket_change": "",
-     "alerts": [
-      "RS_DOWNGRADE"
-     ]
-    },
-    "violations": {
-     "count": 0,
-     "items": [],
-     "recommendation": ""
-    },
-    "verdict": {
-     "summary": "SJS (59/100) \u2014 Reject / AVOID. Score is informational only \u2014 Gate 1 not confirmed, so not an actionable setup yet.",
-     "strengths": [],
-     "weaknesses": [
-      "Fails Trend Template: c8",
-      "No valid base yet (4/20)",
-      "8 unverified fields scored 0"
-     ],
-     "catalysts": [],
-     "biggest_risk": "None flagged",
-     "conviction_0_10": 0
-    },
-    "data_quality": {
-     "unverified_fields": [
-      "fcf",
-      "governance_events",
-      "group_leadership_rank",
-      "industry_group_rs",
-      "marquee_institution",
-      "mf_scheme_count",
-      "new_catalyst",
-      "promoter_pledge_pct"
-     ],
-     "sources": [
-      {
-       "field": "technicals",
-       "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-07-10"
-      },
-      {
-       "field": "fundamentals",
-       "source": "screener.in",
-       "as_of": "2026-07-10"
-      }
-     ]
-    },
-    "technicals": {
-     "price": 2183.4,
-     "rs_percentile": 48,
-     "pct_below_52w_high": 4.6,
-     "pct_above_52w_low": 93.3,
-     "dma_50": 2073.32,
-     "dma_200": 1766.51,
-     "up_down_volume_ratio_50d": 2.18
-    },
-    "status": "SCORED_NO_TREND"
-   }
-  },
-  {
-   "ticker": "SYRMA",
-   "name": "Syrma SGS Tech.",
-   "joined_date": "2026-07-05",
-   "last_updated": "2026-07-12",
-   "scorecard": {
-    "ticker": "SYRMA",
-    "name": "Syrma SGS Tech.",
-    "as_of": "2026-07-10",
-    "mode": "WEEKLY",
-    "gates": {
-     "trend_template": {
-      "c1": true,
-      "c2": true,
-      "c3": true,
-      "c4": true,
-      "c5": true,
-      "c6": true,
-      "c7": true,
-      "c8": true,
-      "pass": true,
-      "near_miss_notes": ""
-     },
-     "investability": {
-      "liquidity": true,
-      "pledge": true,
-      "governance": true,
-      "pass": true
-     }
-    },
-    "scores": {
-     "earnings": {
-      "A1": 4,
-      "A2": 1,
-      "A3": 4,
-      "A4": 4,
-      "A5": 2,
-      "subtotal": 15
-     },
-     "revenue": {
-      "B1": 6,
-      "B2": 4,
-      "B3": 3,
-      "B4": 2,
-      "subtotal": 15
-     },
-     "profitability": {
-      "C1": 1,
-      "C2": 1,
-      "C3": 2,
-      "C4": 0,
-      "subtotal": 4
-     },
-     "balance_sheet": {
-      "D1": 2,
-      "D2": 1,
-      "D3": 0,
-      "D4": 1,
-      "subtotal": 4
-     },
-     "sponsorship": {
-      "E1": 1,
-      "E2": 0,
-      "E3": 0,
-      "E4": 0,
-      "subtotal": 1
-     },
-     "rs_trend": {
       "F1": 5,
       "F2": 4,
       "F3": 2,
@@ -1819,28 +1299,28 @@
     "quality_band": "Reject",
     "action_bucket": "AVOID",
     "red_flags": [
-     "OTHER_INCOME_DRIVEN"
+     "POOR_CASH_CONVERSION"
     ],
     "risk_level": "MEDIUM",
     "valuation_context": {
-     "pe": 87.2,
+     "pe": 27.8,
      "peg": null,
      "vs_own_5yr": "",
      "note": "Valuation is context only, never a criterion."
     },
     "base": {
      "pattern_label": "",
-     "pivot": 1517.7,
-     "pct_from_pivot": -4.34,
+     "pivot": 74.9,
+     "pct_from_pivot": -3.27,
      "base_count": 1,
-     "depth_pct": 12.2,
-     "weeks": 2.4
+     "depth_pct": 8.3,
+     "weeks": 1.8
     },
     "trade_plan": null,
     "delta": {
-     "score_change": 2,
+     "score_change": -2,
      "gate_flips": [],
-     "bucket_change": "",
+     "bucket_change": "WATCH -> AVOID",
      "alerts": []
     },
     "violations": {
@@ -1849,23 +1329,26 @@
      "recommendation": ""
     },
     "verdict": {
-     "summary": "SYRMA (59/100) \u2014 Reject / AVOID.",
+     "summary": "PAISALO (59/100) \u2014 Reject / AVOID.",
      "strengths": [
-      "RS percentile 83"
+      "RS percentile 87",
+      "Latest EPS YoY >=50%"
      ],
      "weaknesses": [
-      "8 unverified fields scored 0"
+      "10 unverified fields scored 0"
      ],
      "catalysts": [],
-     "biggest_risk": "OTHER_INCOME_DRIVEN",
+     "biggest_risk": "POOR_CASH_CONVERSION",
      "conviction_0_10": 3
     },
     "data_quality": {
      "unverified_fields": [
+      "debt_to_equity",
       "fcf",
       "governance_events",
       "group_leadership_rank",
       "industry_group_rs",
+      "interest_coverage",
       "marquee_institution",
       "mf_scheme_count",
       "new_catalyst",
@@ -1875,23 +1358,23 @@
       {
        "field": "technicals",
        "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       },
       {
        "field": "fundamentals",
        "source": "screener.in",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       }
      ]
     },
     "technicals": {
-     "price": 1451.9,
-     "rs_percentile": 83,
-     "pct_below_52w_high": 4.3,
-     "pct_above_52w_low": 138.9,
-     "dma_50": 1211.85,
-     "dma_200": 905.93,
-     "up_down_volume_ratio_50d": 1.75
+     "price": 72.45,
+     "rs_percentile": 87,
+     "pct_below_52w_high": 3.3,
+     "pct_above_52w_low": 143.3,
+     "dma_50": 57.35,
+     "dma_200": 42.01,
+     "up_down_volume_ratio_50d": 2.91
     },
     "status": "SCORED"
    }
@@ -1900,11 +1383,11 @@
    "ticker": "OLECTRA",
    "name": "Olectra Greentec",
    "joined_date": "2026-07-05",
-   "last_updated": "2026-07-12",
+   "last_updated": "2026-07-14",
    "scorecard": {
     "ticker": "OLECTRA",
     "name": "Olectra Greentec",
-    "as_of": "2026-07-10",
+    "as_of": "2026-07-14",
     "mode": "WEEKLY",
     "gates": {
      "trend_template": {
@@ -1992,7 +1475,7 @@
     "red_flags": [],
     "risk_level": "LOW",
     "valuation_context": {
-     "pe": 65.8,
+     "pe": 63.7,
      "peg": null,
      "vs_own_5yr": "",
      "note": "Valuation is context only, never a criterion."
@@ -2000,19 +1483,17 @@
     "base": {
      "pattern_label": "",
      "pivot": 1714.2,
-     "pct_from_pivot": -16.95,
+     "pct_from_pivot": -19.6,
      "base_count": 1,
      "depth_pct": 49.4,
-     "weeks": 39.8
+     "weeks": 40.2
     },
     "trade_plan": null,
     "delta": {
-     "score_change": 58,
+     "score_change": 0,
      "gate_flips": [],
      "bucket_change": "",
-     "alerts": [
-      "RS_DOWNGRADE"
-     ]
+     "alerts": []
     },
     "violations": {
      "count": 0,
@@ -2048,23 +1529,23 @@
       {
        "field": "technicals",
        "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       },
       {
        "field": "fundamentals",
        "source": "screener.in",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       }
      ]
     },
     "technicals": {
-     "price": 1423.6,
-     "rs_percentile": 12,
-     "pct_below_52w_high": 17.0,
-     "pct_above_52w_low": 64.3,
-     "dma_50": 1335.2,
-     "dma_200": 1246.79,
-     "up_down_volume_ratio_50d": 2.67
+     "price": 1378.2,
+     "rs_percentile": 10,
+     "pct_below_52w_high": 19.6,
+     "pct_above_52w_low": 59.0,
+     "dma_50": 1340.87,
+     "dma_200": 1244.02,
+     "up_down_volume_ratio_50d": 2.56
     },
     "status": "SCORED_NO_TREND"
    }
@@ -2073,11 +1554,11 @@
    "ticker": "SENORES",
    "name": "Senores Pharma.",
    "joined_date": "2026-07-05",
-   "last_updated": "2026-07-12",
+   "last_updated": "2026-07-14",
    "scorecard": {
     "ticker": "SENORES",
     "name": "Senores Pharma.",
-    "as_of": "2026-07-10",
+    "as_of": "2026-07-14",
     "mode": "WEEKLY",
     "gates": {
      "trend_template": {
@@ -2168,7 +1649,7 @@
     ],
     "risk_level": "MEDIUM",
     "valuation_context": {
-     "pe": 56.6,
+     "pe": 57.9,
      "peg": null,
      "vs_own_5yr": "",
      "note": "Valuation is context only, never a criterion."
@@ -2176,10 +1657,10 @@
     "base": {
      "pattern_label": "",
      "pivot": 1487.9,
-     "pct_from_pivot": -4.71,
+     "pct_from_pivot": -2.43,
      "base_count": 1,
-     "depth_pct": 5.5,
-     "weeks": 0.4
+     "depth_pct": 7.5,
+     "weeks": 0.8
     },
     "trade_plan": null,
     "delta": {
@@ -2221,44 +1702,44 @@
       {
        "field": "technicals",
        "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       },
       {
        "field": "fundamentals",
        "source": "screener.in",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       }
      ]
     },
     "technicals": {
-     "price": 1417.8,
+     "price": 1451.8,
      "rs_percentile": 85,
-     "pct_below_52w_high": 4.7,
-     "pct_above_52w_low": 148.7,
-     "dma_50": 1159.65,
-     "dma_200": 882.04,
-     "up_down_volume_ratio_50d": 1.89
+     "pct_below_52w_high": 2.4,
+     "pct_above_52w_low": 152.2,
+     "dma_50": 1181.87,
+     "dma_200": 889.36,
+     "up_down_volume_ratio_50d": 2.02
     },
     "status": "SCORED"
    }
   },
   {
-   "ticker": "GOKULAGRO",
-   "name": "Gokul Agro",
-   "joined_date": "2026-07-12",
-   "last_updated": "2026-07-12",
+   "ticker": "SJS",
+   "name": "SJS Enterprises",
+   "joined_date": "2026-07-05",
+   "last_updated": "2026-07-14",
    "scorecard": {
-    "ticker": "GOKULAGRO",
-    "name": "Gokul Agro",
-    "as_of": "2026-07-10",
-    "mode": "FULL",
+    "ticker": "SJS",
+    "name": "SJS Enterprises",
+    "as_of": "2026-07-14",
+    "mode": "WEEKLY",
     "gates": {
      "trend_template": {
       "c1": true,
       "c2": true,
       "c3": true,
       "c4": true,
-      "c5": false,
+      "c5": true,
       "c6": true,
       "c7": true,
       "c8": false,
@@ -2274,19 +1755,19 @@
     },
     "scores": {
      "earnings": {
-      "A1": 8,
+      "A1": 4,
       "A2": 3,
       "A3": 4,
       "A4": 4,
       "A5": 4,
-      "subtotal": 23
+      "subtotal": 19
      },
      "revenue": {
-      "B1": 2,
-      "B2": 0,
+      "B1": 6,
+      "B2": 2,
       "B3": 3,
       "B4": 2,
-      "subtotal": 7
+      "subtotal": 13
      },
      "profitability": {
       "C1": 3,
@@ -2297,33 +1778,33 @@
      },
      "balance_sheet": {
       "D1": 2,
-      "D2": 0,
+      "D2": 1,
       "D3": 1,
       "D4": 1,
-      "subtotal": 4
+      "subtotal": 5
      },
      "sponsorship": {
-      "E1": 2,
+      "E1": 1,
       "E2": 0,
       "E3": 0,
       "E4": 1,
-      "subtotal": 3
+      "subtotal": 2
      },
      "rs_trend": {
       "F1": 0,
       "F2": 2,
-      "F3": 0,
-      "F4": 0,
-      "subtotal": 2
+      "F3": 2,
+      "F4": 2,
+      "subtotal": 6
      },
      "base_structure": {
       "G1": 0,
       "G2": 4,
-      "G3": 3,
+      "G3": 0,
       "G4": 0,
-      "G5": 3,
+      "G5": 0,
       "G6": 0,
-      "subtotal": 10
+      "subtotal": 4
      },
      "leadership": {
       "H1": 0,
@@ -2338,22 +1819,22 @@
     "red_flags": [],
     "risk_level": "LOW",
     "valuation_context": {
-     "pe": 17.4,
+     "pe": 40.7,
      "peg": null,
      "vs_own_5yr": "",
      "note": "Valuation is context only, never a criterion."
     },
     "base": {
      "pattern_label": "",
-     "pivot": 240.0,
-     "pct_from_pivot": -9.29,
+     "pivot": 2288.9,
+     "pct_from_pivot": -5.67,
      "base_count": 1,
-     "depth_pct": 20.0,
-     "weeks": 9.8
+     "depth_pct": 7.0,
+     "weeks": 0.8
     },
     "trade_plan": null,
     "delta": {
-     "score_change": 0,
+     "score_change": -2,
      "gate_flips": [],
      "bucket_change": "",
      "alerts": []
@@ -2364,12 +1845,11 @@
      "recommendation": ""
     },
     "verdict": {
-     "summary": "GOKULAGRO (57/100) \u2014 Reject / AVOID. Score is informational only \u2014 Gate 1 not confirmed, so not an actionable setup yet.",
-     "strengths": [
-      "Latest EPS YoY >=50%"
-     ],
+     "summary": "SJS (57/100) \u2014 Reject / AVOID. Score is informational only \u2014 Gate 1 not confirmed, so not an actionable setup yet.",
+     "strengths": [],
      "weaknesses": [
-      "Fails Trend Template: c5, c8",
+      "Fails Trend Template: c8",
+      "No valid base yet (4/20)",
       "8 unverified fields scored 0"
      ],
      "catalysts": [],
@@ -2391,36 +1871,207 @@
       {
        "field": "technicals",
        "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       },
       {
        "field": "fundamentals",
        "source": "screener.in",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       }
      ]
     },
     "technicals": {
-     "price": 217.71,
-     "rs_percentile": 28,
-     "pct_below_52w_high": 12.9,
-     "pct_above_52w_low": 52.8,
-     "dma_50": 226.25,
-     "dma_200": 194.53,
-     "up_down_volume_ratio_50d": 1.11
+     "price": 2159.2,
+     "rs_percentile": 50,
+     "pct_below_52w_high": 5.7,
+     "pct_above_52w_low": 91.2,
+     "dma_50": 2084.56,
+     "dma_200": 1773.17,
+     "up_down_volume_ratio_50d": 2.01
     },
     "status": "SCORED_NO_TREND"
+   }
+  },
+  {
+   "ticker": "SYRMA",
+   "name": "Syrma SGS Tech.",
+   "joined_date": "2026-07-05",
+   "last_updated": "2026-07-14",
+   "scorecard": {
+    "ticker": "SYRMA",
+    "name": "Syrma SGS Tech.",
+    "as_of": "2026-07-14",
+    "mode": "WEEKLY",
+    "gates": {
+     "trend_template": {
+      "c1": true,
+      "c2": true,
+      "c3": true,
+      "c4": true,
+      "c5": true,
+      "c6": true,
+      "c7": true,
+      "c8": true,
+      "pass": true,
+      "near_miss_notes": ""
+     },
+     "investability": {
+      "liquidity": true,
+      "pledge": true,
+      "governance": true,
+      "pass": true
+     }
+    },
+    "scores": {
+     "earnings": {
+      "A1": 4,
+      "A2": 1,
+      "A3": 4,
+      "A4": 4,
+      "A5": 2,
+      "subtotal": 15
+     },
+     "revenue": {
+      "B1": 6,
+      "B2": 4,
+      "B3": 3,
+      "B4": 2,
+      "subtotal": 15
+     },
+     "profitability": {
+      "C1": 1,
+      "C2": 1,
+      "C3": 2,
+      "C4": 0,
+      "subtotal": 4
+     },
+     "balance_sheet": {
+      "D1": 2,
+      "D2": 1,
+      "D3": 0,
+      "D4": 1,
+      "subtotal": 4
+     },
+     "sponsorship": {
+      "E1": 1,
+      "E2": 0,
+      "E3": 0,
+      "E4": 0,
+      "subtotal": 1
+     },
+     "rs_trend": {
+      "F1": 5,
+      "F2": 2,
+      "F3": 2,
+      "F4": 2,
+      "subtotal": 11
+     },
+     "base_structure": {
+      "G1": 3,
+      "G2": 4,
+      "G3": 0,
+      "G4": 0,
+      "G5": 0,
+      "G6": 0,
+      "subtotal": 7
+     },
+     "leadership": {
+      "H1": 0,
+      "H2": 0,
+      "H3": 0,
+      "subtotal": 0
+     },
+     "total": 57
+    },
+    "quality_band": "Reject",
+    "action_bucket": "AVOID",
+    "red_flags": [
+     "OTHER_INCOME_DRIVEN"
+    ],
+    "risk_level": "MEDIUM",
+    "valuation_context": {
+     "pe": 85.4,
+     "peg": null,
+     "vs_own_5yr": "",
+     "note": "Valuation is context only, never a criterion."
+    },
+    "base": {
+     "pattern_label": "",
+     "pivot": 1517.7,
+     "pct_from_pivot": -6.32,
+     "base_count": 1,
+     "depth_pct": 12.2,
+     "weeks": 2.8
+    },
+    "trade_plan": null,
+    "delta": {
+     "score_change": -2,
+     "gate_flips": [],
+     "bucket_change": "",
+     "alerts": []
+    },
+    "violations": {
+     "count": 0,
+     "items": [],
+     "recommendation": ""
+    },
+    "verdict": {
+     "summary": "SYRMA (57/100) \u2014 Reject / AVOID.",
+     "strengths": [
+      "RS percentile 83"
+     ],
+     "weaknesses": [
+      "8 unverified fields scored 0"
+     ],
+     "catalysts": [],
+     "biggest_risk": "OTHER_INCOME_DRIVEN",
+     "conviction_0_10": 3
+    },
+    "data_quality": {
+     "unverified_fields": [
+      "fcf",
+      "governance_events",
+      "group_leadership_rank",
+      "industry_group_rs",
+      "marquee_institution",
+      "mf_scheme_count",
+      "new_catalyst",
+      "promoter_pledge_pct"
+     ],
+     "sources": [
+      {
+       "field": "technicals",
+       "source": "Yahoo Finance OHLCV",
+       "as_of": "2026-07-14"
+      },
+      {
+       "field": "fundamentals",
+       "source": "screener.in",
+       "as_of": "2026-07-14"
+      }
+     ]
+    },
+    "technicals": {
+     "price": 1421.8,
+     "rs_percentile": 83,
+     "pct_below_52w_high": 6.3,
+     "pct_above_52w_low": 124.1,
+     "dma_50": 1227.38,
+     "dma_200": 912.03,
+     "up_down_volume_ratio_50d": 1.55
+    },
+    "status": "SCORED"
    }
   },
   {
    "ticker": "SKIPPER",
    "name": "Skipper",
    "joined_date": "2026-07-05",
-   "last_updated": "2026-07-12",
+   "last_updated": "2026-07-14",
    "scorecard": {
     "ticker": "SKIPPER",
     "name": "Skipper",
-    "as_of": "2026-07-10",
+    "as_of": "2026-07-14",
     "mode": "WEEKLY",
     "gates": {
      "trend_template": {
@@ -2508,7 +2159,7 @@
     "red_flags": [],
     "risk_level": "LOW",
     "valuation_context": {
-     "pe": 27.9,
+     "pe": 28.2,
      "peg": null,
      "vs_own_5yr": "",
      "note": "Valuation is context only, never a criterion."
@@ -2516,19 +2167,17 @@
     "base": {
      "pattern_label": "",
      "pivot": 593.0,
-     "pct_from_pivot": -7.84,
+     "pct_from_pivot": -6.87,
      "base_count": 1,
      "depth_pct": 11.3,
-     "weeks": 1.0
+     "weeks": 1.4
     },
     "trade_plan": null,
     "delta": {
-     "score_change": 56,
+     "score_change": 0,
      "gate_flips": [],
      "bucket_change": "",
-     "alerts": [
-      "RS_DOWNGRADE"
-     ]
+     "alerts": []
     },
     "violations": {
      "count": 0,
@@ -2564,23 +2213,23 @@
       {
        "field": "technicals",
        "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       },
       {
        "field": "fundamentals",
        "source": "screener.in",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       }
      ]
     },
     "technicals": {
-     "price": 546.5,
-     "rs_percentile": 36,
-     "pct_below_52w_high": 7.8,
-     "pct_above_52w_low": 67.1,
-     "dma_50": 519.66,
-     "dma_200": 453.73,
-     "up_down_volume_ratio_50d": 1.29
+     "price": 552.25,
+     "rs_percentile": 40,
+     "pct_below_52w_high": 6.9,
+     "pct_above_52w_low": 68.9,
+     "dma_50": 522.33,
+     "dma_200": 453.85,
+     "up_down_volume_ratio_50d": 1.28
     },
     "status": "SCORED_NO_TREND"
    }
@@ -2589,11 +2238,11 @@
    "ticker": "PREMIERENE",
    "name": "Premier Energies",
    "joined_date": "2026-07-05",
-   "last_updated": "2026-07-12",
+   "last_updated": "2026-07-14",
    "scorecard": {
     "ticker": "PREMIERENE",
     "name": "Premier Energies",
-    "as_of": "2026-07-10",
+    "as_of": "2026-07-14",
     "mode": "WEEKLY",
     "gates": {
      "trend_template": {
@@ -2681,7 +2330,7 @@
     "red_flags": [],
     "risk_level": "LOW",
     "valuation_context": {
-     "pe": 33.6,
+     "pe": 33.0,
      "peg": null,
      "vs_own_5yr": "",
      "note": "Valuation is context only, never a criterion."
@@ -2689,14 +2338,14 @@
     "base": {
      "pattern_label": "",
      "pivot": 1134.72,
-     "pct_from_pivot": -1.54,
+     "pct_from_pivot": -2.98,
      "base_count": 1,
      "depth_pct": 41.3,
-     "weeks": 49.4
+     "weeks": 49.8
     },
     "trade_plan": null,
     "delta": {
-     "score_change": 55,
+     "score_change": 0,
      "gate_flips": [],
      "bucket_change": "",
      "alerts": []
@@ -2736,23 +2385,196 @@
       {
        "field": "technicals",
        "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       },
       {
        "field": "fundamentals",
        "source": "screener.in",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       }
      ]
     },
     "technicals": {
-     "price": 1117.2,
+     "price": 1100.9,
      "rs_percentile": 26,
-     "pct_below_52w_high": 1.5,
-     "pct_above_52w_low": 67.6,
-     "dma_50": 1038.88,
-     "dma_200": 936.62,
-     "up_down_volume_ratio_50d": 1.81
+     "pct_below_52w_high": 3.0,
+     "pct_above_52w_low": 65.2,
+     "dma_50": 1041.56,
+     "dma_200": 937.48,
+     "up_down_volume_ratio_50d": 1.61
+    },
+    "status": "SCORED_NO_TREND"
+   }
+  },
+  {
+   "ticker": "MCX",
+   "name": "Multi Comm. Exc.",
+   "joined_date": "2026-07-14",
+   "last_updated": "2026-07-14",
+   "scorecard": {
+    "ticker": "MCX",
+    "name": "Multi Comm. Exc.",
+    "as_of": "2026-07-14",
+    "mode": "FULL",
+    "gates": {
+     "trend_template": {
+      "c1": true,
+      "c2": true,
+      "c3": true,
+      "c4": true,
+      "c5": false,
+      "c6": true,
+      "c7": true,
+      "c8": false,
+      "pass": false,
+      "near_miss_notes": ""
+     },
+     "investability": {
+      "liquidity": true,
+      "pledge": true,
+      "governance": true,
+      "pass": true
+     }
+    },
+    "scores": {
+     "earnings": {
+      "A1": 8,
+      "A2": 3,
+      "A3": 4,
+      "A4": 4,
+      "A5": 4,
+      "subtotal": 23
+     },
+     "revenue": {
+      "B1": 6,
+      "B2": 2,
+      "B3": 3,
+      "B4": 2,
+      "subtotal": 13
+     },
+     "profitability": {
+      "C1": 3,
+      "C2": 3,
+      "C3": 2,
+      "C4": 0,
+      "subtotal": 8
+     },
+     "balance_sheet": {
+      "D1": 2,
+      "D2": 0,
+      "D3": 1,
+      "D4": 1,
+      "subtotal": 4
+     },
+     "sponsorship": {
+      "E1": 2,
+      "E2": 0,
+      "E3": 0,
+      "E4": 0,
+      "subtotal": 2
+     },
+     "rs_trend": {
+      "F1": 0,
+      "F2": 1,
+      "F3": 0,
+      "F4": 0,
+      "subtotal": 1
+     },
+     "base_structure": {
+      "G1": 0,
+      "G2": 2,
+      "G3": 1,
+      "G4": 0,
+      "G5": 0,
+      "G6": 0,
+      "subtotal": 3
+     },
+     "leadership": {
+      "H1": 0,
+      "H2": 0,
+      "H3": 0,
+      "subtotal": 0
+     },
+     "total": 54
+    },
+    "quality_band": "Reject",
+    "action_bucket": "AVOID",
+    "red_flags": [],
+    "risk_level": "LOW",
+    "valuation_context": {
+     "pe": 55.3,
+     "peg": null,
+     "vs_own_5yr": "",
+     "note": "Valuation is context only, never a criterion."
+    },
+    "base": {
+     "pattern_label": "",
+     "pivot": 3038.0,
+     "pct_from_pivot": -4.83,
+     "base_count": 3,
+     "depth_pct": 25.9,
+     "weeks": 7.8
+    },
+    "trade_plan": null,
+    "delta": {
+     "score_change": 0,
+     "gate_flips": [],
+     "bucket_change": "",
+     "alerts": []
+    },
+    "violations": {
+     "count": 0,
+     "items": [],
+     "recommendation": ""
+    },
+    "verdict": {
+     "summary": "MCX (54/100) \u2014 Reject / AVOID. Score is informational only \u2014 Gate 1 not confirmed, so not an actionable setup yet.",
+     "strengths": [
+      "Latest EPS YoY >=50%"
+     ],
+     "weaknesses": [
+      "Fails Trend Template: c5, c8",
+      "No valid base yet (3/20)",
+      "10 unverified fields scored 0"
+     ],
+     "catalysts": [],
+     "biggest_risk": "None flagged",
+     "conviction_0_10": 0
+    },
+    "data_quality": {
+     "unverified_fields": [
+      "fcf",
+      "governance_events",
+      "group_leadership_rank",
+      "industry_group_rs",
+      "interest_coverage",
+      "marquee_institution",
+      "mf_scheme_count",
+      "new_catalyst",
+      "promoter_holding_trend",
+      "promoter_pledge_pct"
+     ],
+     "sources": [
+      {
+       "field": "technicals",
+       "source": "Yahoo Finance OHLCV",
+       "as_of": "2026-07-14"
+      },
+      {
+       "field": "fundamentals",
+       "source": "screener.in",
+       "as_of": "2026-07-14"
+      }
+     ]
+    },
+    "technicals": {
+     "price": 2891.3,
+     "rs_percentile": 48,
+     "pct_below_52w_high": 16.9,
+     "pct_above_52w_low": 97.9,
+     "dma_50": 2973.04,
+     "dma_200": 2426.64,
+     "up_down_volume_ratio_50d": 0.87
     },
     "status": "SCORED_NO_TREND"
    }
@@ -2761,11 +2583,11 @@
    "ticker": "IKS",
    "name": "Inventurus Knowl",
    "joined_date": "2026-07-05",
-   "last_updated": "2026-07-12",
+   "last_updated": "2026-07-14",
    "scorecard": {
     "ticker": "IKS",
     "name": "Inventurus Knowl",
-    "as_of": "2026-07-10",
+    "as_of": "2026-07-14",
     "mode": "WEEKLY",
     "gates": {
      "trend_template": {
@@ -2855,7 +2677,7 @@
     ],
     "risk_level": "LOW",
     "valuation_context": {
-     "pe": 45.9,
+     "pe": 44.7,
      "peg": null,
      "vs_own_5yr": "",
      "note": "Valuation is context only, never a criterion."
@@ -2863,19 +2685,17 @@
     "base": {
      "pattern_label": "",
      "pivot": 1933.0,
-     "pct_from_pivot": -0.25,
+     "pct_from_pivot": -2.77,
      "base_count": 1,
      "depth_pct": 4.2,
-     "weeks": 0.2
+     "weeks": 0.6
     },
     "trade_plan": null,
     "delta": {
-     "score_change": 53,
+     "score_change": 0,
      "gate_flips": [],
      "bucket_change": "",
-     "alerts": [
-      "EPS_DECELERATION"
-     ]
+     "alerts": []
     },
     "violations": {
      "count": 0,
@@ -2909,23 +2729,23 @@
       {
        "field": "technicals",
        "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       },
       {
        "field": "fundamentals",
        "source": "screener.in",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       }
      ]
     },
     "technicals": {
-     "price": 1928.1,
-     "rs_percentile": 30,
-     "pct_below_52w_high": 0.3,
-     "pct_above_52w_low": 52.8,
-     "dma_50": 1697.58,
-     "dma_200": 1593.7,
-     "up_down_volume_ratio_50d": 2.21
+     "price": 1879.4,
+     "rs_percentile": 32,
+     "pct_below_52w_high": 2.8,
+     "pct_above_52w_low": 48.9,
+     "dma_50": 1705.93,
+     "dma_200": 1597.35,
+     "up_down_volume_ratio_50d": 1.9
     },
     "status": "SCORED_NO_TREND"
    }
@@ -2934,11 +2754,11 @@
    "ticker": "EBGNG",
    "name": "GNG Electronics",
    "joined_date": "2026-07-05",
-   "last_updated": "2026-07-12",
+   "last_updated": "2026-07-14",
    "scorecard": {
     "ticker": "EBGNG",
     "name": "GNG Electronics",
-    "as_of": "2026-07-10",
+    "as_of": "2026-07-14",
     "mode": "WEEKLY",
     "gates": {
      "trend_template": {
@@ -3028,7 +2848,7 @@
     ],
     "risk_level": "MEDIUM",
     "valuation_context": {
-     "pe": 54.7,
+     "pe": 50.7,
      "peg": null,
      "vs_own_5yr": "",
      "note": "Valuation is context only, never a criterion."
@@ -3036,14 +2856,14 @@
     "base": {
      "pattern_label": "",
      "pivot": 689.5,
-     "pct_from_pivot": -8.07,
+     "pct_from_pivot": -14.87,
      "base_count": null,
-     "depth_pct": 10.8,
-     "weeks": 1.4
+     "depth_pct": 15.6,
+     "weeks": 1.8
     },
     "trade_plan": null,
     "delta": {
-     "score_change": 53,
+     "score_change": 0,
      "gate_flips": [],
      "bucket_change": "",
      "alerts": []
@@ -3083,23 +2903,23 @@
       {
        "field": "technicals",
        "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       },
       {
        "field": "fundamentals",
        "source": "screener.in",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       }
      ]
     },
     "technicals": {
-     "price": 633.85,
-     "rs_percentile": 79,
-     "pct_below_52w_high": 8.1,
-     "pct_above_52w_low": 165.2,
-     "dma_50": 486.4,
-     "dma_200": 374.17,
-     "up_down_volume_ratio_50d": 2.39
+     "price": 586.95,
+     "rs_percentile": 75,
+     "pct_below_52w_high": 14.9,
+     "pct_above_52w_low": 145.6,
+     "dma_50": 492.24,
+     "dma_200": 376.37,
+     "up_down_volume_ratio_50d": 2.23
     },
     "status": "SCORED_NO_TREND"
    }
@@ -3108,11 +2928,11 @@
    "ticker": "VIYASH",
    "name": "Viyash Scientific",
    "joined_date": "2026-07-05",
-   "last_updated": "2026-07-12",
+   "last_updated": "2026-07-14",
    "scorecard": {
     "ticker": "VIYASH",
     "name": "Viyash Scientific",
-    "as_of": "2026-07-10",
+    "as_of": "2026-07-14",
     "mode": "WEEKLY",
     "gates": {
      "trend_template": {
@@ -3200,7 +3020,7 @@
     "red_flags": [],
     "risk_level": "LOW",
     "valuation_context": {
-     "pe": 60.8,
+     "pe": 61.0,
      "peg": null,
      "vs_own_5yr": "",
      "note": "Valuation is context only, never a criterion."
@@ -3208,14 +3028,14 @@
     "base": {
      "pattern_label": "",
      "pivot": 298.0,
-     "pct_from_pivot": -6.78,
+     "pct_from_pivot": -6.41,
      "base_count": 1,
      "depth_pct": 10.3,
-     "weeks": 1.0
+     "weeks": 1.4
     },
     "trade_plan": null,
     "delta": {
-     "score_change": 51,
+     "score_change": 0,
      "gate_flips": [],
      "bucket_change": "",
      "alerts": []
@@ -3256,23 +3076,23 @@
       {
        "field": "technicals",
        "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       },
       {
        "field": "fundamentals",
        "source": "screener.in",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       }
      ]
     },
     "technicals": {
-     "price": 277.8,
-     "rs_percentile": 55,
-     "pct_below_52w_high": 6.8,
-     "pct_above_52w_low": 67.3,
-     "dma_50": 251.95,
-     "dma_200": 218.85,
-     "up_down_volume_ratio_50d": 1.75
+     "price": 278.9,
+     "rs_percentile": 51,
+     "pct_below_52w_high": 6.4,
+     "pct_above_52w_low": 68.0,
+     "dma_50": 255.11,
+     "dma_200": 219.63,
+     "up_down_volume_ratio_50d": 1.76
     },
     "status": "SCORED_NO_TREND"
    }
@@ -3281,11 +3101,11 @@
    "ticker": "APOLLO",
    "name": "Apollo Micro Sys",
    "joined_date": "2026-07-05",
-   "last_updated": "2026-07-12",
+   "last_updated": "2026-07-14",
    "scorecard": {
     "ticker": "APOLLO",
     "name": "Apollo Micro Sys",
-    "as_of": "2026-07-10",
+    "as_of": "2026-07-14",
     "mode": "WEEKLY",
     "gates": {
      "trend_template": {
@@ -3376,7 +3196,7 @@
     ],
     "risk_level": "MEDIUM",
     "valuation_context": {
-     "pe": 135.0,
+     "pe": 134.0,
      "peg": null,
      "vs_own_5yr": "",
      "note": "Valuation is context only, never a criterion."
@@ -3384,19 +3204,17 @@
     "base": {
      "pattern_label": "",
      "pivot": 466.5,
-     "pct_from_pivot": -12.36,
+     "pct_from_pivot": -12.99,
      "base_count": 4,
      "depth_pct": 17.0,
-     "weeks": 1.2
+     "weeks": 1.6
     },
     "trade_plan": null,
     "delta": {
-     "score_change": 51,
+     "score_change": 0,
      "gate_flips": [],
      "bucket_change": "",
-     "alerts": [
-      "RS_DOWNGRADE"
-     ]
+     "alerts": []
     },
     "violations": {
      "count": 0,
@@ -3432,23 +3250,23 @@
       {
        "field": "technicals",
        "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       },
       {
        "field": "fundamentals",
        "source": "screener.in",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       }
      ]
     },
     "technicals": {
-     "price": 408.85,
-     "rs_percentile": 73,
-     "pct_below_52w_high": 12.4,
-     "pct_above_52w_low": 152.1,
-     "dma_50": 385.51,
-     "dma_200": 289.96,
-     "up_down_volume_ratio_50d": 2.6
+     "price": 405.9,
+     "rs_percentile": 79,
+     "pct_below_52w_high": 13.0,
+     "pct_above_52w_low": 150.2,
+     "dma_50": 389.61,
+     "dma_200": 290.65,
+     "up_down_volume_ratio_50d": 2.59
     },
     "status": "SCORED_NO_TREND"
    }
@@ -3457,11 +3275,11 @@
    "ticker": "RATEGAIN",
    "name": "Rategain Travel",
    "joined_date": "2026-07-05",
-   "last_updated": "2026-07-12",
+   "last_updated": "2026-07-14",
    "scorecard": {
     "ticker": "RATEGAIN",
     "name": "Rategain Travel",
-    "as_of": "2026-07-10",
+    "as_of": "2026-07-14",
     "mode": "WEEKLY",
     "gates": {
      "trend_template": {
@@ -3551,7 +3369,7 @@
     ],
     "risk_level": "MEDIUM",
     "valuation_context": {
-     "pe": 50.6,
+     "pe": 51.0,
      "peg": null,
      "vs_own_5yr": "",
      "note": "Valuation is context only, never a criterion."
@@ -3559,14 +3377,14 @@
     "base": {
      "pattern_label": "",
      "pivot": 970.0,
-     "pct_from_pivot": -2.61,
+     "pct_from_pivot": -1.83,
      "base_count": 1,
      "depth_pct": 6.1,
-     "weeks": 0.6
+     "weeks": 1.0
     },
     "trade_plan": null,
     "delta": {
-     "score_change": 51,
+     "score_change": 0,
      "gate_flips": [],
      "bucket_change": "",
      "alerts": []
@@ -3603,23 +3421,193 @@
       {
        "field": "technicals",
        "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       },
       {
        "field": "fundamentals",
        "source": "screener.in",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       }
      ]
     },
     "technicals": {
-     "price": 944.7,
-     "rs_percentile": 71,
-     "pct_below_52w_high": 2.6,
-     "pct_above_52w_low": 126.2,
-     "dma_50": 775.98,
-     "dma_200": 656.18,
-     "up_down_volume_ratio_50d": 2.96
+     "price": 952.25,
+     "rs_percentile": 73,
+     "pct_below_52w_high": 1.8,
+     "pct_above_52w_low": 128.0,
+     "dma_50": 789.76,
+     "dma_200": 659.19,
+     "up_down_volume_ratio_50d": 3.05
+    },
+    "status": "SCORED_NO_TREND"
+   }
+  },
+  {
+   "ticker": "POLYCAB",
+   "name": "Polycab India",
+   "joined_date": "2026-07-14",
+   "last_updated": "2026-07-14",
+   "scorecard": {
+    "ticker": "POLYCAB",
+    "name": "Polycab India",
+    "as_of": "2026-07-14",
+    "mode": "FULL",
+    "gates": {
+     "trend_template": {
+      "c1": true,
+      "c2": true,
+      "c3": true,
+      "c4": true,
+      "c5": true,
+      "c6": true,
+      "c7": true,
+      "c8": false,
+      "pass": false,
+      "near_miss_notes": ""
+     },
+     "investability": {
+      "liquidity": true,
+      "pledge": true,
+      "governance": true,
+      "pass": true
+     }
+    },
+    "scores": {
+     "earnings": {
+      "A1": 0,
+      "A2": 0,
+      "A3": 4,
+      "A4": 4,
+      "A5": 4,
+      "subtotal": 12
+     },
+     "revenue": {
+      "B1": 6,
+      "B2": 0,
+      "B3": 3,
+      "B4": 2,
+      "subtotal": 11
+     },
+     "profitability": {
+      "C1": 3,
+      "C2": 0,
+      "C3": 2,
+      "C4": 0,
+      "subtotal": 5
+     },
+     "balance_sheet": {
+      "D1": 2,
+      "D2": 1,
+      "D3": 1,
+      "D4": 1,
+      "subtotal": 5
+     },
+     "sponsorship": {
+      "E1": 2,
+      "E2": 0,
+      "E3": 0,
+      "E4": 0,
+      "subtotal": 2
+     },
+     "rs_trend": {
+      "F1": 0,
+      "F2": 2,
+      "F3": 2,
+      "F4": 2,
+      "subtotal": 6
+     },
+     "base_structure": {
+      "G1": 0,
+      "G2": 4,
+      "G3": 4,
+      "G4": 0,
+      "G5": 1,
+      "G6": 0,
+      "subtotal": 9
+     },
+     "leadership": {
+      "H1": 0,
+      "H2": 0,
+      "H3": 0,
+      "subtotal": 0
+     },
+     "total": 50
+    },
+    "quality_band": "Reject",
+    "action_bucket": "AVOID",
+    "red_flags": [
+     "EPS_DECELERATION"
+    ],
+    "risk_level": "LOW",
+    "valuation_context": {
+     "pe": 57.0,
+     "peg": null,
+     "vs_own_5yr": "",
+     "note": "Valuation is context only, never a criterion."
+    },
+    "base": {
+     "pattern_label": "",
+     "pivot": 10126.0,
+     "pct_from_pivot": -5.86,
+     "base_count": 1,
+     "depth_pct": 11.1,
+     "weeks": 3.4
+    },
+    "trade_plan": null,
+    "delta": {
+     "score_change": 0,
+     "gate_flips": [],
+     "bucket_change": "",
+     "alerts": []
+    },
+    "violations": {
+     "count": 0,
+     "items": [],
+     "recommendation": ""
+    },
+    "verdict": {
+     "summary": "POLYCAB (50/100) \u2014 Reject / AVOID. Score is informational only \u2014 Gate 1 not confirmed, so not an actionable setup yet.",
+     "strengths": [],
+     "weaknesses": [
+      "Fails Trend Template: c8",
+      "8 unverified fields scored 0"
+     ],
+     "catalysts": [],
+     "biggest_risk": "EPS_DECELERATION",
+     "conviction_0_10": 0
+    },
+    "data_quality": {
+     "unverified_fields": [
+      "fcf",
+      "governance_events",
+      "group_leadership_rank",
+      "industry_group_rs",
+      "marquee_institution",
+      "mf_scheme_count",
+      "new_catalyst",
+      "promoter_pledge_pct"
+     ],
+     "sources": [
+      {
+       "field": "technicals",
+       "source": "Yahoo Finance OHLCV",
+       "as_of": "2026-07-14"
+      },
+      {
+       "field": "fundamentals",
+       "source": "screener.in",
+       "as_of": "2026-07-14"
+      }
+     ]
+    },
+    "technicals": {
+     "price": 9532.5,
+     "rs_percentile": 42,
+     "pct_below_52w_high": 5.9,
+     "pct_above_52w_low": 44.7,
+     "dma_50": 9431.23,
+     "dma_200": 8011.11,
+     "up_down_volume_ratio_50d": 1.82
     },
     "status": "SCORED_NO_TREND"
    }
@@ -3628,11 +3616,11 @@
    "ticker": "RUBICON",
    "name": "Rubicon Research",
    "joined_date": "2026-07-05",
-   "last_updated": "2026-07-12",
+   "last_updated": "2026-07-14",
    "scorecard": {
     "ticker": "RUBICON",
     "name": "Rubicon Research",
-    "as_of": "2026-07-10",
+    "as_of": "2026-07-14",
     "mode": "WEEKLY",
     "gates": {
      "trend_template": {
@@ -3720,22 +3708,22 @@
     "red_flags": [],
     "risk_level": "LOW",
     "valuation_context": {
-     "pe": 95.9,
+     "pe": 99.9,
      "peg": null,
      "vs_own_5yr": "",
      "note": "Valuation is context only, never a criterion."
     },
     "base": {
      "pattern_label": "",
-     "pivot": 1468.7,
-     "pct_from_pivot": -2.54,
+     "pivot": 1527.0,
+     "pct_from_pivot": -2.34,
      "base_count": null,
-     "depth_pct": 12.4,
-     "weeks": 2.6
+     "depth_pct": 6.0,
+     "weeks": 0.2
     },
     "trade_plan": null,
     "delta": {
-     "score_change": 50,
+     "score_change": 0,
      "gate_flips": [],
      "bucket_change": "",
      "alerts": []
@@ -3748,7 +3736,7 @@
     "verdict": {
      "summary": "RUBICON (50/100) \u2014 Reject / AVOID. Score is informational only \u2014 Gate 1 not confirmed, so not an actionable setup yet.",
      "strengths": [
-      "RS percentile 87",
+      "RS percentile 89",
       "Latest EPS YoY >=50%"
      ],
      "weaknesses": [
@@ -3780,49 +3768,49 @@
       {
        "field": "technicals",
        "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       },
       {
        "field": "fundamentals",
        "source": "screener.in",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       }
      ]
     },
     "technicals": {
-     "price": 1431.4,
-     "rs_percentile": 87,
-     "pct_below_52w_high": 2.5,
-     "pct_above_52w_low": 150.8,
-     "dma_50": 1185.52,
+     "price": 1491.3,
+     "rs_percentile": 89,
+     "pct_below_52w_high": 2.3,
+     "pct_above_52w_low": 161.3,
+     "dma_50": 1205.27,
      "dma_200": null,
-     "up_down_volume_ratio_50d": 3.56
+     "up_down_volume_ratio_50d": 3.74
     },
     "status": "SCORED_NO_TREND"
    }
   },
   {
-   "ticker": "YATHARTH",
-   "name": "Yatharth Hospit.",
+   "ticker": "CARTRADE",
+   "name": "Cartrade Tech",
    "joined_date": "2026-07-05",
-   "last_updated": "2026-07-12",
+   "last_updated": "2026-07-14",
    "scorecard": {
-    "ticker": "YATHARTH",
-    "name": "Yatharth Hospit.",
-    "as_of": "2026-07-10",
+    "ticker": "CARTRADE",
+    "name": "Cartrade Tech",
+    "as_of": "2026-07-14",
     "mode": "WEEKLY",
     "gates": {
      "trend_template": {
       "c1": true,
       "c2": false,
       "c3": true,
-      "c4": true,
-      "c5": false,
+      "c4": false,
+      "c5": true,
       "c6": true,
       "c7": true,
       "c8": false,
       "pass": false,
-      "near_miss_notes": ""
+      "near_miss_notes": "c8 near miss: RS 63"
      },
      "investability": {
       "liquidity": true,
@@ -3833,56 +3821,56 @@
     },
     "scores": {
      "earnings": {
-      "A1": 2,
-      "A2": 1,
+      "A1": 6,
+      "A2": 3,
       "A3": 4,
-      "A4": 2,
-      "A5": 4,
-      "subtotal": 13
+      "A4": 4,
+      "A5": 2,
+      "subtotal": 19
      },
      "revenue": {
-      "B1": 6,
-      "B2": 4,
+      "B1": 2,
+      "B2": 2,
       "B3": 3,
       "B4": 2,
-      "subtotal": 15
+      "subtotal": 9
      },
      "profitability": {
       "C1": 0,
-      "C2": 0,
+      "C2": 3,
       "C3": 2,
       "C4": 0,
-      "subtotal": 2
+      "subtotal": 5
      },
      "balance_sheet": {
       "D1": 2,
       "D2": 1,
-      "D3": 0,
+      "D3": 1,
       "D4": 1,
-      "subtotal": 4
+      "subtotal": 5
      },
      "sponsorship": {
-      "E1": 2,
+      "E1": 0,
       "E2": 0,
       "E3": 0,
       "E4": 0,
-      "subtotal": 2
+      "subtotal": 0
      },
      "rs_trend": {
       "F1": 0,
       "F2": 2,
-      "F3": 0,
-      "F4": 0,
-      "subtotal": 2
+      "F3": 2,
+      "F4": 2,
+      "subtotal": 6
      },
      "base_structure": {
       "G1": 0,
       "G2": 4,
-      "G3": 4,
+      "G3": 0,
       "G4": 0,
-      "G5": 3,
+      "G5": 0,
       "G6": 0,
-      "subtotal": 11
+      "subtotal": 4
      },
      "leadership": {
       "H1": 0,
@@ -3890,37 +3878,34 @@
       "H3": 0,
       "subtotal": 0
      },
-     "total": 49
+     "total": 48
     },
     "quality_band": "Reject",
     "action_bucket": "AVOID",
-    "red_flags": [],
-    "risk_level": "LOW",
+    "red_flags": [
+     "OTHER_INCOME_DRIVEN"
+    ],
+    "risk_level": "MEDIUM",
     "valuation_context": {
-     "pe": 45.6,
+     "pe": 61.0,
      "peg": null,
      "vs_own_5yr": "",
      "note": "Valuation is context only, never a criterion."
     },
     "base": {
      "pattern_label": "",
-     "pivot": 889.9,
-     "pct_from_pivot": -6.76,
-     "base_count": 2,
-     "depth_pct": 12.8,
-     "weeks": 7.0
+     "pivot": 3290.5,
+     "pct_from_pivot": -12.02,
+     "base_count": 1,
+     "depth_pct": 51.4,
+     "weeks": 33.0
     },
     "trade_plan": null,
     "delta": {
-     "score_change": 49,
-     "gate_flips": [
-      "c5: True -> False"
-     ],
+     "score_change": 4,
+     "gate_flips": [],
      "bucket_change": "",
-     "alerts": [
-      "RS_DOWNGRADE",
-      "CLOSED_BELOW_50DMA"
-     ]
+     "alerts": []
     },
     "violations": {
      "count": 0,
@@ -3928,14 +3913,17 @@
      "recommendation": ""
     },
     "verdict": {
-     "summary": "YATHARTH (49/100) \u2014 Reject / AVOID. Score is informational only \u2014 Gate 1 not confirmed, so not an actionable setup yet.",
-     "strengths": [],
+     "summary": "CARTRADE (48/100) \u2014 Reject / AVOID. Score is informational only \u2014 Gate 1 not confirmed, so not an actionable setup yet.",
+     "strengths": [
+      "Latest EPS YoY >=50%"
+     ],
      "weaknesses": [
-      "Fails Trend Template: c2, c5, c8",
-      "8 unverified fields scored 0"
+      "Fails Trend Template: c2, c4, c8",
+      "No valid base yet (4/20)",
+      "9 unverified fields scored 0"
      ],
      "catalysts": [],
-     "biggest_risk": "None flagged",
+     "biggest_risk": "OTHER_INCOME_DRIVEN",
      "conviction_0_10": 0
     },
     "data_quality": {
@@ -3947,29 +3935,30 @@
       "marquee_institution",
       "mf_scheme_count",
       "new_catalyst",
+      "promoter_holding_trend",
       "promoter_pledge_pct"
      ],
      "sources": [
       {
        "field": "technicals",
        "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       },
       {
        "field": "fundamentals",
        "source": "screener.in",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       }
      ]
     },
     "technicals": {
-     "price": 829.75,
-     "rs_percentile": 18,
-     "pct_below_52w_high": 6.8,
-     "pct_above_52w_low": 54.2,
-     "dma_50": 831.58,
-     "dma_200": 741.83,
-     "up_down_volume_ratio_50d": 0.9
+     "price": 2895.0,
+     "rs_percentile": 63,
+     "pct_below_52w_high": 12.0,
+     "pct_above_52w_low": 80.9,
+     "dma_50": 2247.77,
+     "dma_200": 2350.82,
+     "up_down_volume_ratio_50d": 3.43
     },
     "status": "SCORED_NO_TREND"
    }
@@ -3978,11 +3967,11 @@
    "ticker": "DIACABS",
    "name": "Diamond Power",
    "joined_date": "2026-07-05",
-   "last_updated": "2026-07-12",
+   "last_updated": "2026-07-14",
    "scorecard": {
     "ticker": "DIACABS",
     "name": "Diamond Power",
-    "as_of": "2026-07-10",
+    "as_of": "2026-07-14",
     "mode": "WEEKLY",
     "gates": {
      "trend_template": {
@@ -4070,7 +4059,7 @@
     "red_flags": [],
     "risk_level": "LOW",
     "valuation_context": {
-     "pe": 76.3,
+     "pe": 75.0,
      "peg": null,
      "vs_own_5yr": "",
      "note": "Valuation is context only, never a criterion."
@@ -4078,14 +4067,14 @@
     "base": {
      "pattern_label": "",
      "pivot": 251.8,
-     "pct_from_pivot": -9.05,
+     "pct_from_pivot": -10.66,
      "base_count": 1,
-     "depth_pct": 11.4,
-     "weeks": 0.4
+     "depth_pct": 11.7,
+     "weeks": 0.8
     },
     "trade_plan": null,
     "delta": {
-     "score_change": 47,
+     "score_change": 0,
      "gate_flips": [],
      "bucket_change": "",
      "alerts": []
@@ -4128,36 +4117,36 @@
       {
        "field": "technicals",
        "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       },
       {
        "field": "fundamentals",
        "source": "screener.in",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       }
      ]
     },
     "technicals": {
-     "price": 229.01,
+     "price": 224.97,
      "rs_percentile": 69,
-     "pct_below_52w_high": 9.1,
-     "pct_above_52w_low": 98.2,
-     "dma_50": 198.38,
-     "dma_200": 154.98,
-     "up_down_volume_ratio_50d": 1.84
+     "pct_below_52w_high": 10.7,
+     "pct_above_52w_low": 94.7,
+     "dma_50": 200.76,
+     "dma_200": 155.62,
+     "up_down_volume_ratio_50d": 1.69
     },
     "status": "SCORED_NO_TREND"
    }
   },
   {
-   "ticker": "CGCL",
-   "name": "Capri Global",
+   "ticker": "YATHARTH",
+   "name": "Yatharth Hospit.",
    "joined_date": "2026-07-05",
-   "last_updated": "2026-07-12",
+   "last_updated": "2026-07-14",
    "scorecard": {
-    "ticker": "CGCL",
-    "name": "Capri Global",
-    "as_of": "2026-07-10",
+    "ticker": "YATHARTH",
+    "name": "Yatharth Hospit.",
+    "as_of": "2026-07-14",
     "mode": "WEEKLY",
     "gates": {
      "trend_template": {
@@ -4165,7 +4154,7 @@
       "c2": false,
       "c3": true,
       "c4": true,
-      "c5": true,
+      "c5": false,
       "c6": true,
       "c7": true,
       "c8": false,
@@ -4181,56 +4170,56 @@
     },
     "scores": {
      "earnings": {
-      "A1": 4,
-      "A2": 0,
+      "A1": 2,
+      "A2": 1,
       "A3": 4,
-      "A4": 4,
+      "A4": 2,
       "A5": 4,
-      "subtotal": 16
+      "subtotal": 13
      },
      "revenue": {
       "B1": 6,
-      "B2": 0,
+      "B2": 4,
       "B3": 3,
       "B4": 2,
-      "subtotal": 11
+      "subtotal": 15
      },
      "profitability": {
-      "C1": 1,
-      "C2": 3,
-      "C3": 0,
+      "C1": 0,
+      "C2": 0,
+      "C3": 2,
       "C4": 0,
-      "subtotal": 4
+      "subtotal": 2
      },
      "balance_sheet": {
-      "D1": 0,
-      "D2": 0,
+      "D1": 2,
+      "D2": 1,
       "D3": 0,
       "D4": 1,
-      "subtotal": 1
+      "subtotal": 4
      },
      "sponsorship": {
       "E1": 2,
       "E2": 0,
       "E3": 0,
-      "E4": 1,
-      "subtotal": 3
+      "E4": 0,
+      "subtotal": 2
      },
      "rs_trend": {
       "F1": 0,
-      "F2": 4,
-      "F3": 2,
-      "F4": 2,
-      "subtotal": 8
+      "F2": 2,
+      "F3": 0,
+      "F4": 0,
+      "subtotal": 2
      },
      "base_structure": {
       "G1": 0,
       "G2": 4,
-      "G3": 0,
+      "G3": 4,
       "G4": 0,
-      "G5": 0,
+      "G5": 1,
       "G6": 0,
-      "subtotal": 4
+      "subtotal": 9
      },
      "leadership": {
       "H1": 0,
@@ -4242,33 +4231,28 @@
     },
     "quality_band": "Reject",
     "action_bucket": "AVOID",
-    "red_flags": [
-     "EPS_DECELERATION",
-     "POOR_CASH_CONVERSION"
-    ],
-    "risk_level": "MEDIUM",
+    "red_flags": [],
+    "risk_level": "LOW",
     "valuation_context": {
-     "pe": 25.6,
+     "pe": 45.6,
      "peg": null,
      "vs_own_5yr": "",
      "note": "Valuation is context only, never a criterion."
     },
     "base": {
      "pattern_label": "",
-     "pivot": 264.53,
-     "pct_from_pivot": -4.65,
-     "base_count": 1,
-     "depth_pct": 5.3,
-     "weeks": 0.2
+     "pivot": 889.9,
+     "pct_from_pivot": -6.82,
+     "base_count": 2,
+     "depth_pct": 12.8,
+     "weeks": 7.4
     },
     "trade_plan": null,
     "delta": {
-     "score_change": 47,
+     "score_change": -2,
      "gate_flips": [],
      "bucket_change": "",
-     "alerts": [
-      "EPS_DECELERATION"
-     ]
+     "alerts": []
     },
     "violations": {
      "count": 0,
@@ -4276,25 +4260,22 @@
      "recommendation": ""
     },
     "verdict": {
-     "summary": "CGCL (47/100) \u2014 Reject / AVOID. Score is informational only \u2014 Gate 1 not confirmed, so not an actionable setup yet.",
+     "summary": "YATHARTH (47/100) \u2014 Reject / AVOID. Score is informational only \u2014 Gate 1 not confirmed, so not an actionable setup yet.",
      "strengths": [],
      "weaknesses": [
-      "Fails Trend Template: c2, c8",
-      "No valid base yet (4/20)",
-      "10 unverified fields scored 0"
+      "Fails Trend Template: c2, c5, c8",
+      "8 unverified fields scored 0"
      ],
      "catalysts": [],
-     "biggest_risk": "EPS_DECELERATION",
+     "biggest_risk": "None flagged",
      "conviction_0_10": 0
     },
     "data_quality": {
      "unverified_fields": [
-      "debt_to_equity",
       "fcf",
       "governance_events",
       "group_leadership_rank",
       "industry_group_rs",
-      "interest_coverage",
       "marquee_institution",
       "mf_scheme_count",
       "new_catalyst",
@@ -4304,23 +4285,23 @@
       {
        "field": "technicals",
        "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       },
       {
        "field": "fundamentals",
        "source": "screener.in",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       }
      ]
     },
     "technicals": {
-     "price": 252.22,
-     "rs_percentile": 57,
-     "pct_below_52w_high": 4.7,
-     "pct_above_52w_low": 66.9,
-     "dma_50": 207.17,
-     "dma_200": 188.28,
-     "up_down_volume_ratio_50d": 1.21
+     "price": 829.2,
+     "rs_percentile": 24,
+     "pct_below_52w_high": 6.8,
+     "pct_above_52w_low": 54.1,
+     "dma_50": 832.21,
+     "dma_200": 742.4,
+     "up_down_volume_ratio_50d": 0.84
     },
     "status": "SCORED_NO_TREND"
    }
@@ -4329,11 +4310,11 @@
    "ticker": "ANANDRATHI",
    "name": "Anand Rathi Wea.",
    "joined_date": "2026-07-05",
-   "last_updated": "2026-07-12",
+   "last_updated": "2026-07-14",
    "scorecard": {
     "ticker": "ANANDRATHI",
     "name": "Anand Rathi Wea.",
-    "as_of": "2026-07-10",
+    "as_of": "2026-07-14",
     "mode": "WEEKLY",
     "gates": {
      "trend_template": {
@@ -4346,7 +4327,7 @@
       "c7": true,
       "c8": false,
       "pass": false,
-      "near_miss_notes": "c8 near miss: RS 63"
+      "near_miss_notes": ""
      },
      "investability": {
       "liquidity": true,
@@ -4423,7 +4404,7 @@
     ],
     "risk_level": "MEDIUM",
     "valuation_context": {
-     "pe": 76.7,
+     "pe": 74.3,
      "peg": null,
      "vs_own_5yr": "",
      "note": "Valuation is context only, never a criterion."
@@ -4431,14 +4412,14 @@
     "base": {
      "pattern_label": "",
      "pivot": 2176.2,
-     "pct_from_pivot": -1.35,
+     "pct_from_pivot": -4.38,
      "base_count": 2,
      "depth_pct": 5.3,
-     "weeks": 0.2
+     "weeks": 0.6
     },
     "trade_plan": null,
     "delta": {
-     "score_change": 45,
+     "score_change": 0,
      "gate_flips": [],
      "bucket_change": "",
      "alerts": []
@@ -4477,23 +4458,23 @@
       {
        "field": "technicals",
        "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       },
       {
        "field": "fundamentals",
        "source": "screener.in",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       }
      ]
     },
     "technicals": {
-     "price": 2146.8,
-     "rs_percentile": 63,
-     "pct_below_52w_high": 1.4,
-     "pct_above_52w_low": 108.9,
-     "dma_50": 1846.31,
-     "dma_200": 1617.77,
-     "up_down_volume_ratio_50d": 1.45
+     "price": 2080.8,
+     "rs_percentile": 55,
+     "pct_below_52w_high": 4.4,
+     "pct_above_52w_low": 98.1,
+     "dma_50": 1858.23,
+     "dma_200": 1623.81,
+     "up_down_volume_ratio_50d": 1.32
     },
     "status": "SCORED_NO_TREND"
    }
@@ -4502,12 +4483,12 @@
    "ticker": "QPOWER",
    "name": "Quality Power El",
    "joined_date": "2026-07-12",
-   "last_updated": "2026-07-12",
+   "last_updated": "2026-07-14",
    "scorecard": {
     "ticker": "QPOWER",
     "name": "Quality Power El",
-    "as_of": "2026-07-10",
-    "mode": "FULL",
+    "as_of": "2026-07-14",
+    "mode": "WEEKLY",
     "gates": {
      "trend_template": {
       "c1": true,
@@ -4596,7 +4577,7 @@
     ],
     "risk_level": "MEDIUM",
     "valuation_context": {
-     "pe": 77.4,
+     "pe": 76.2,
      "peg": null,
      "vs_own_5yr": "",
      "note": "Valuation is context only, never a criterion."
@@ -4604,10 +4585,10 @@
     "base": {
      "pattern_label": "",
      "pivot": 1335.5,
-     "pct_from_pivot": -9.23,
+     "pct_from_pivot": -10.53,
      "base_count": 1,
      "depth_pct": 32.7,
-     "weeks": 10.8
+     "weeks": 11.2
     },
     "trade_plan": null,
     "delta": {
@@ -4649,43 +4630,43 @@
       {
        "field": "technicals",
        "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       },
       {
        "field": "fundamentals",
        "source": "screener.in",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       }
      ]
     },
     "technicals": {
-     "price": 1212.3,
+     "price": 1194.9,
      "rs_percentile": 46,
-     "pct_below_52w_high": 15.9,
-     "pct_above_52w_low": 108.7,
-     "dma_50": 1172.4,
-     "dma_200": 947.21,
-     "up_down_volume_ratio_50d": 0.43
+     "pct_below_52w_high": 17.1,
+     "pct_above_52w_low": 105.7,
+     "dma_50": 1166.88,
+     "dma_200": 949.05,
+     "up_down_volume_ratio_50d": 0.48
     },
     "status": "SCORED_NO_TREND"
    }
   },
   {
-   "ticker": "CARTRADE",
-   "name": "Cartrade Tech",
+   "ticker": "CGCL",
+   "name": "Capri Global",
    "joined_date": "2026-07-05",
-   "last_updated": "2026-07-12",
+   "last_updated": "2026-07-14",
    "scorecard": {
-    "ticker": "CARTRADE",
-    "name": "Cartrade Tech",
-    "as_of": "2026-07-10",
+    "ticker": "CGCL",
+    "name": "Capri Global",
+    "as_of": "2026-07-14",
     "mode": "WEEKLY",
     "gates": {
      "trend_template": {
       "c1": true,
       "c2": false,
       "c3": true,
-      "c4": false,
+      "c4": true,
       "c5": true,
       "c6": true,
       "c7": true,
@@ -4702,56 +4683,56 @@
     },
     "scores": {
      "earnings": {
-      "A1": 6,
-      "A2": 3,
+      "A1": 4,
+      "A2": 0,
       "A3": 4,
       "A4": 4,
-      "A5": 2,
-      "subtotal": 19
+      "A5": 4,
+      "subtotal": 16
      },
      "revenue": {
-      "B1": 2,
-      "B2": 2,
+      "B1": 6,
+      "B2": 0,
       "B3": 3,
       "B4": 2,
-      "subtotal": 9
+      "subtotal": 11
      },
      "profitability": {
-      "C1": 0,
+      "C1": 1,
       "C2": 3,
-      "C3": 2,
+      "C3": 0,
       "C4": 0,
-      "subtotal": 5
+      "subtotal": 4
      },
      "balance_sheet": {
-      "D1": 2,
-      "D2": 1,
-      "D3": 1,
+      "D1": 0,
+      "D2": 0,
+      "D3": 0,
       "D4": 1,
-      "subtotal": 5
+      "subtotal": 1
      },
      "sponsorship": {
-      "E1": 0,
+      "E1": 2,
       "E2": 0,
       "E3": 0,
-      "E4": 0,
-      "subtotal": 0
+      "E4": 1,
+      "subtotal": 3
      },
      "rs_trend": {
       "F1": 0,
-      "F2": 2,
+      "F2": 4,
       "F3": 2,
-      "F4": 2,
+      "F4": 0,
       "subtotal": 6
      },
      "base_structure": {
       "G1": 0,
-      "G2": 0,
+      "G2": 4,
       "G3": 0,
       "G4": 0,
       "G5": 0,
       "G6": 0,
-      "subtotal": 0
+      "subtotal": 4
      },
      "leadership": {
       "H1": 0,
@@ -4759,32 +4740,32 @@
       "H3": 0,
       "subtotal": 0
      },
-     "total": 44
+     "total": 45
     },
     "quality_band": "Reject",
     "action_bucket": "AVOID",
     "red_flags": [
-     "LATE_STAGE_BASE",
-     "OTHER_INCOME_DRIVEN"
+     "EPS_DECELERATION",
+     "POOR_CASH_CONVERSION"
     ],
     "risk_level": "MEDIUM",
     "valuation_context": {
-     "pe": 59.2,
+     "pe": 26.1,
      "peg": null,
      "vs_own_5yr": "",
      "note": "Valuation is context only, never a criterion."
     },
     "base": {
      "pattern_label": "",
-     "pivot": 3290.5,
-     "pct_from_pivot": -14.61,
-     "base_count": 5,
-     "depth_pct": 51.4,
-     "weeks": 32.6
+     "pivot": 264.53,
+     "pct_from_pivot": -2.73,
+     "base_count": 1,
+     "depth_pct": 5.3,
+     "weeks": 0.6
     },
     "trade_plan": null,
     "delta": {
-     "score_change": 44,
+     "score_change": -2,
      "gate_flips": [],
      "bucket_change": "",
      "alerts": []
@@ -4795,52 +4776,51 @@
      "recommendation": ""
     },
     "verdict": {
-     "summary": "CARTRADE (44/100) \u2014 Reject / AVOID. Score is informational only \u2014 Gate 1 not confirmed, so not an actionable setup yet.",
-     "strengths": [
-      "Latest EPS YoY >=50%"
-     ],
+     "summary": "CGCL (45/100) \u2014 Reject / AVOID. Score is informational only \u2014 Gate 1 not confirmed, so not an actionable setup yet.",
+     "strengths": [],
      "weaknesses": [
-      "Fails Trend Template: c2, c4, c8",
-      "No valid base yet (0/20)",
-      "9 unverified fields scored 0"
+      "Fails Trend Template: c2, c8",
+      "No valid base yet (4/20)",
+      "10 unverified fields scored 0"
      ],
      "catalysts": [],
-     "biggest_risk": "LATE_STAGE_BASE",
+     "biggest_risk": "EPS_DECELERATION",
      "conviction_0_10": 0
     },
     "data_quality": {
      "unverified_fields": [
+      "debt_to_equity",
       "fcf",
       "governance_events",
       "group_leadership_rank",
       "industry_group_rs",
+      "interest_coverage",
       "marquee_institution",
       "mf_scheme_count",
       "new_catalyst",
-      "promoter_holding_trend",
       "promoter_pledge_pct"
      ],
      "sources": [
       {
        "field": "technicals",
        "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       },
       {
        "field": "fundamentals",
        "source": "screener.in",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       }
      ]
     },
     "technicals": {
-     "price": 2809.9,
-     "rs_percentile": 51,
-     "pct_below_52w_high": 14.6,
-     "pct_above_52w_low": 75.6,
-     "dma_50": 2199.83,
-     "dma_200": 2346.32,
-     "up_down_volume_ratio_50d": 3.25
+     "price": 257.32,
+     "rs_percentile": 59,
+     "pct_below_52w_high": 2.7,
+     "pct_above_52w_low": 70.3,
+     "dma_50": 209.65,
+     "dma_200": 188.91,
+     "up_down_volume_ratio_50d": 1.19
     },
     "status": "SCORED_NO_TREND"
    }
@@ -4849,11 +4829,11 @@
    "ticker": "AZAD",
    "name": "Azad Engineering",
    "joined_date": "2026-07-05",
-   "last_updated": "2026-07-12",
+   "last_updated": "2026-07-14",
    "scorecard": {
     "ticker": "AZAD",
     "name": "Azad Engineering",
-    "as_of": "2026-07-10",
+    "as_of": "2026-07-14",
     "mode": "WEEKLY",
     "gates": {
      "trend_template": {
@@ -4866,7 +4846,7 @@
       "c7": true,
       "c8": false,
       "pass": false,
-      "near_miss_notes": "c8 near miss: RS 65"
+      "near_miss_notes": ""
      },
      "investability": {
       "liquidity": true,
@@ -4914,10 +4894,10 @@
      },
      "rs_trend": {
       "F1": 0,
-      "F2": 4,
+      "F2": 2,
       "F3": 2,
       "F4": 2,
-      "subtotal": 8
+      "subtotal": 6
      },
      "base_structure": {
       "G1": 0,
@@ -4934,7 +4914,7 @@
       "H3": 0,
       "subtotal": 0
      },
-     "total": 42
+     "total": 40
     },
     "quality_band": "Reject",
     "action_bucket": "AVOID",
@@ -4944,22 +4924,22 @@
     ],
     "risk_level": "MEDIUM",
     "valuation_context": {
-     "pe": 121.0,
+     "pe": 116.0,
      "peg": null,
      "vs_own_5yr": "",
      "note": "Valuation is context only, never a criterion."
     },
     "base": {
      "pattern_label": "",
-     "pivot": 2520.0,
-     "pct_from_pivot": -1.61,
+     "pivot": 2530.0,
+     "pct_from_pivot": -5.43,
      "base_count": 1,
-     "depth_pct": 4.6,
-     "weeks": 0.2
+     "depth_pct": 9.2,
+     "weeks": 0.4
     },
     "trade_plan": null,
     "delta": {
-     "score_change": 42,
+     "score_change": -2,
      "gate_flips": [],
      "bucket_change": "",
      "alerts": []
@@ -4970,7 +4950,7 @@
      "recommendation": ""
     },
     "verdict": {
-     "summary": "AZAD (42/100) \u2014 Reject / AVOID. Score is informational only \u2014 Gate 1 not confirmed, so not an actionable setup yet.",
+     "summary": "AZAD (40/100) \u2014 Reject / AVOID. Score is informational only \u2014 Gate 1 not confirmed, so not an actionable setup yet.",
      "strengths": [],
      "weaknesses": [
       "Fails Trend Template: c8",
@@ -4996,196 +4976,23 @@
       {
        "field": "technicals",
        "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       },
       {
        "field": "fundamentals",
        "source": "screener.in",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       }
      ]
     },
     "technicals": {
-     "price": 2479.5,
-     "rs_percentile": 65,
-     "pct_below_52w_high": 1.6,
-     "pct_above_52w_low": 82.3,
-     "dma_50": 2122.08,
-     "dma_200": 1763.75,
-     "up_down_volume_ratio_50d": 1.68
-    },
-    "status": "SCORED_NO_TREND"
-   }
-  },
-  {
-   "ticker": "CHOLAFIN",
-   "name": "Cholaman.Inv.&Fn",
-   "joined_date": "2026-07-05",
-   "last_updated": "2026-07-12",
-   "scorecard": {
-    "ticker": "CHOLAFIN",
-    "name": "Cholaman.Inv.&Fn",
-    "as_of": "2026-07-10",
-    "mode": "WEEKLY",
-    "gates": {
-     "trend_template": {
-      "c1": true,
-      "c2": false,
-      "c3": true,
-      "c4": false,
-      "c5": true,
-      "c6": true,
-      "c7": true,
-      "c8": false,
-      "pass": false,
-      "near_miss_notes": ""
-     },
-     "investability": {
-      "liquidity": true,
-      "pledge": true,
-      "governance": true,
-      "pass": true
-     }
-    },
-    "scores": {
-     "earnings": {
-      "A1": 4,
-      "A2": 1,
-      "A3": 2,
-      "A4": 2,
-      "A5": 4,
-      "subtotal": 13
-     },
-     "revenue": {
-      "B1": 2,
-      "B2": 0,
-      "B3": 3,
-      "B4": 2,
-      "subtotal": 7
-     },
-     "profitability": {
-      "C1": 3,
-      "C2": 3,
-      "C3": 0,
-      "C4": 0,
-      "subtotal": 6
-     },
-     "balance_sheet": {
-      "D1": 0,
-      "D2": 0,
-      "D3": 1,
-      "D4": 1,
-      "subtotal": 2
-     },
-     "sponsorship": {
-      "E1": 1,
-      "E2": 0,
-      "E3": 0,
-      "E4": 0,
-      "subtotal": 1
-     },
-     "rs_trend": {
-      "F1": 0,
-      "F2": 4,
-      "F3": 2,
-      "F4": 2,
-      "subtotal": 8
-     },
-     "base_structure": {
-      "G1": 0,
-      "G2": 4,
-      "G3": 0,
-      "G4": 0,
-      "G5": 0,
-      "G6": 0,
-      "subtotal": 4
-     },
-     "leadership": {
-      "H1": 0,
-      "H2": 0,
-      "H3": 0,
-      "subtotal": 0
-     },
-     "total": 41
-    },
-    "quality_band": "Reject",
-    "action_bucket": "AVOID",
-    "red_flags": [
-     "POOR_CASH_CONVERSION"
-    ],
-    "risk_level": "MEDIUM",
-    "valuation_context": {
-     "pe": 29.4,
-     "peg": null,
-     "vs_own_5yr": "",
-     "note": "Valuation is context only, never a criterion."
-    },
-    "base": {
-     "pattern_label": "",
-     "pivot": 1875.0,
-     "pct_from_pivot": -3.58,
-     "base_count": 1,
-     "depth_pct": 6.4,
-     "weeks": 0.8
-    },
-    "trade_plan": null,
-    "delta": {
-     "score_change": 41,
-     "gate_flips": [],
-     "bucket_change": "",
-     "alerts": []
-    },
-    "violations": {
-     "count": 0,
-     "items": [],
-     "recommendation": ""
-    },
-    "verdict": {
-     "summary": "CHOLAFIN (41/100) \u2014 Reject / AVOID. Score is informational only \u2014 Gate 1 not confirmed, so not an actionable setup yet.",
-     "strengths": [],
-     "weaknesses": [
-      "Fails Trend Template: c2, c4, c8",
-      "No valid base yet (4/20)",
-      "10 unverified fields scored 0"
-     ],
-     "catalysts": [],
-     "biggest_risk": "POOR_CASH_CONVERSION",
-     "conviction_0_10": 0
-    },
-    "data_quality": {
-     "unverified_fields": [
-      "debt_to_equity",
-      "fcf",
-      "governance_events",
-      "group_leadership_rank",
-      "industry_group_rs",
-      "interest_coverage",
-      "marquee_institution",
-      "mf_scheme_count",
-      "new_catalyst",
-      "promoter_pledge_pct"
-     ],
-     "sources": [
-      {
-       "field": "technicals",
-       "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-07-10"
-      },
-      {
-       "field": "fundamentals",
-       "source": "screener.in",
-       "as_of": "2026-07-10"
-      }
-     ]
-    },
-    "technicals": {
-     "price": 1807.8,
-     "rs_percentile": 14,
-     "pct_below_52w_high": 3.6,
-     "pct_above_52w_low": 39.1,
-     "dma_50": 1636.69,
-     "dma_200": 1643.56,
-     "up_down_volume_ratio_50d": 1.62
+     "price": 2392.6,
+     "rs_percentile": 57,
+     "pct_below_52w_high": 5.4,
+     "pct_above_52w_low": 75.9,
+     "dma_50": 2131.19,
+     "dma_200": 1771.36,
+     "up_down_volume_ratio_50d": 1.65
     },
     "status": "SCORED_NO_TREND"
    }
@@ -5194,11 +5001,11 @@
    "ticker": "GENUSPOWER",
    "name": "Genus Power",
    "joined_date": "2026-07-05",
-   "last_updated": "2026-07-12",
+   "last_updated": "2026-07-14",
    "scorecard": {
     "ticker": "GENUSPOWER",
     "name": "Genus Power",
-    "as_of": "2026-07-10",
+    "as_of": "2026-07-14",
     "mode": "WEEKLY",
     "gates": {
      "trend_template": {
@@ -5289,7 +5096,7 @@
     ],
     "risk_level": "MEDIUM",
     "valuation_context": {
-     "pe": 16.3,
+     "pe": 16.1,
      "peg": null,
      "vs_own_5yr": "",
      "note": "Valuation is context only, never a criterion."
@@ -5297,21 +5104,17 @@
     "base": {
      "pattern_label": "",
      "pivot": 391.18,
-     "pct_from_pivot": -18.95,
+     "pct_from_pivot": -20.09,
      "base_count": 2,
      "depth_pct": 47.2,
-     "weeks": 46.4
+     "weeks": 46.8
     },
     "trade_plan": null,
     "delta": {
-     "score_change": 39,
-     "gate_flips": [
-      "c5: True -> False"
-     ],
+     "score_change": 0,
+     "gate_flips": [],
      "bucket_change": "",
-     "alerts": [
-      "CLOSED_BELOW_50DMA"
-     ]
+     "alerts": []
     },
     "violations": {
      "count": 0,
@@ -5345,23 +5148,376 @@
       {
        "field": "technicals",
        "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       },
       {
        "field": "fundamentals",
        "source": "screener.in",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       }
      ]
     },
     "technicals": {
-     "price": 317.05,
+     "price": 312.6,
      "rs_percentile": 2,
-     "pct_below_52w_high": 19.0,
-     "pct_above_52w_low": 53.6,
-     "dma_50": 317.6,
-     "dma_200": 296.41,
+     "pct_below_52w_high": 20.1,
+     "pct_above_52w_low": 51.5,
+     "dma_50": 317.51,
+     "dma_200": 296.27,
      "up_down_volume_ratio_50d": 0.81
+    },
+    "status": "SCORED_NO_TREND"
+   }
+  },
+  {
+   "ticker": "CHOLAFIN",
+   "name": "Cholaman.Inv.&Fn",
+   "joined_date": "2026-07-05",
+   "last_updated": "2026-07-14",
+   "scorecard": {
+    "ticker": "CHOLAFIN",
+    "name": "Cholaman.Inv.&Fn",
+    "as_of": "2026-07-14",
+    "mode": "WEEKLY",
+    "gates": {
+     "trend_template": {
+      "c1": true,
+      "c2": false,
+      "c3": true,
+      "c4": false,
+      "c5": true,
+      "c6": true,
+      "c7": true,
+      "c8": false,
+      "pass": false,
+      "near_miss_notes": ""
+     },
+     "investability": {
+      "liquidity": true,
+      "pledge": true,
+      "governance": true,
+      "pass": true
+     }
+    },
+    "scores": {
+     "earnings": {
+      "A1": 4,
+      "A2": 1,
+      "A3": 2,
+      "A4": 2,
+      "A5": 4,
+      "subtotal": 13
+     },
+     "revenue": {
+      "B1": 2,
+      "B2": 0,
+      "B3": 3,
+      "B4": 2,
+      "subtotal": 7
+     },
+     "profitability": {
+      "C1": 3,
+      "C2": 3,
+      "C3": 0,
+      "C4": 0,
+      "subtotal": 6
+     },
+     "balance_sheet": {
+      "D1": 0,
+      "D2": 0,
+      "D3": 1,
+      "D4": 1,
+      "subtotal": 2
+     },
+     "sponsorship": {
+      "E1": 1,
+      "E2": 0,
+      "E3": 0,
+      "E4": 0,
+      "subtotal": 1
+     },
+     "rs_trend": {
+      "F1": 0,
+      "F2": 2,
+      "F3": 2,
+      "F4": 2,
+      "subtotal": 6
+     },
+     "base_structure": {
+      "G1": 0,
+      "G2": 4,
+      "G3": 0,
+      "G4": 0,
+      "G5": 0,
+      "G6": 0,
+      "subtotal": 4
+     },
+     "leadership": {
+      "H1": 0,
+      "H2": 0,
+      "H3": 0,
+      "subtotal": 0
+     },
+     "total": 39
+    },
+    "quality_band": "Reject",
+    "action_bucket": "AVOID",
+    "red_flags": [
+     "POOR_CASH_CONVERSION"
+    ],
+    "risk_level": "MEDIUM",
+    "valuation_context": {
+     "pe": 28.9,
+     "peg": null,
+     "vs_own_5yr": "",
+     "note": "Valuation is context only, never a criterion."
+    },
+    "base": {
+     "pattern_label": "",
+     "pivot": 1875.0,
+     "pct_from_pivot": -5.52,
+     "base_count": 1,
+     "depth_pct": 7.1,
+     "weeks": 1.2
+    },
+    "trade_plan": null,
+    "delta": {
+     "score_change": -2,
+     "gate_flips": [],
+     "bucket_change": "",
+     "alerts": []
+    },
+    "violations": {
+     "count": 0,
+     "items": [],
+     "recommendation": ""
+    },
+    "verdict": {
+     "summary": "CHOLAFIN (39/100) \u2014 Reject / AVOID. Score is informational only \u2014 Gate 1 not confirmed, so not an actionable setup yet.",
+     "strengths": [],
+     "weaknesses": [
+      "Fails Trend Template: c2, c4, c8",
+      "No valid base yet (4/20)",
+      "10 unverified fields scored 0"
+     ],
+     "catalysts": [],
+     "biggest_risk": "POOR_CASH_CONVERSION",
+     "conviction_0_10": 0
+    },
+    "data_quality": {
+     "unverified_fields": [
+      "debt_to_equity",
+      "fcf",
+      "governance_events",
+      "group_leadership_rank",
+      "industry_group_rs",
+      "interest_coverage",
+      "marquee_institution",
+      "mf_scheme_count",
+      "new_catalyst",
+      "promoter_pledge_pct"
+     ],
+     "sources": [
+      {
+       "field": "technicals",
+       "source": "Yahoo Finance OHLCV",
+       "as_of": "2026-07-14"
+      },
+      {
+       "field": "fundamentals",
+       "source": "screener.in",
+       "as_of": "2026-07-14"
+      }
+     ]
+    },
+    "technicals": {
+     "price": 1771.5,
+     "rs_percentile": 14,
+     "pct_below_52w_high": 5.5,
+     "pct_above_52w_low": 36.3,
+     "dma_50": 1642.4,
+     "dma_200": 1645.22,
+     "up_down_volume_ratio_50d": 1.34
+    },
+    "status": "SCORED_NO_TREND"
+   }
+  },
+  {
+   "ticker": "ENTERO",
+   "name": "Entero Healthcar",
+   "joined_date": "2026-07-14",
+   "last_updated": "2026-07-14",
+   "scorecard": {
+    "ticker": "ENTERO",
+    "name": "Entero Healthcar",
+    "as_of": "2026-07-14",
+    "mode": "FULL",
+    "gates": {
+     "trend_template": {
+      "c1": true,
+      "c2": true,
+      "c3": false,
+      "c4": true,
+      "c5": true,
+      "c6": true,
+      "c7": true,
+      "c8": false,
+      "pass": false,
+      "near_miss_notes": ""
+     },
+     "investability": {
+      "liquidity": true,
+      "pledge": true,
+      "governance": true,
+      "pass": true
+     }
+    },
+    "scores": {
+     "earnings": {
+      "A1": 0,
+      "A2": 1,
+      "A3": 2,
+      "A4": 0,
+      "A5": 2,
+      "subtotal": 5
+     },
+     "revenue": {
+      "B1": 6,
+      "B2": 2,
+      "B3": 3,
+      "B4": 2,
+      "subtotal": 13
+     },
+     "profitability": {
+      "C1": 0,
+      "C2": 1,
+      "C3": 0,
+      "C4": 0,
+      "subtotal": 1
+     },
+     "balance_sheet": {
+      "D1": 2,
+      "D2": 0,
+      "D3": 1,
+      "D4": 1,
+      "subtotal": 4
+     },
+     "sponsorship": {
+      "E1": 0,
+      "E2": 0,
+      "E3": 0,
+      "E4": 1,
+      "subtotal": 1
+     },
+     "rs_trend": {
+      "F1": 0,
+      "F2": 2,
+      "F3": 2,
+      "F4": 0,
+      "subtotal": 4
+     },
+     "base_structure": {
+      "G1": 0,
+      "G2": 4,
+      "G3": 3,
+      "G4": 0,
+      "G5": 3,
+      "G6": 0,
+      "subtotal": 10
+     },
+     "leadership": {
+      "H1": 0,
+      "H2": 0,
+      "H3": 0,
+      "subtotal": 0
+     },
+     "total": 38
+    },
+    "quality_band": "Reject",
+    "action_bucket": "AVOID",
+    "red_flags": [
+     "OTHER_INCOME_DRIVEN",
+     "POOR_CASH_CONVERSION"
+    ],
+    "risk_level": "MEDIUM",
+    "valuation_context": {
+     "pe": 45.3,
+     "peg": null,
+     "vs_own_5yr": "",
+     "note": "Valuation is context only, never a criterion."
+    },
+    "base": {
+     "pattern_label": "",
+     "pivot": 1253.3,
+     "pct_from_pivot": -0.93,
+     "base_count": 2,
+     "depth_pct": 22.2,
+     "weeks": 7.4
+    },
+    "trade_plan": null,
+    "delta": {
+     "score_change": 0,
+     "gate_flips": [],
+     "bucket_change": "",
+     "alerts": []
+    },
+    "violations": {
+     "count": 0,
+     "items": [],
+     "recommendation": ""
+    },
+    "verdict": {
+     "summary": "ENTERO scores 38/100 and, more importantly, fails the Trend Template gate (200 DMA not confirmed rising \u22651 month, RS percentile only 4). Per Prime Directive 4, gate failure terminates candidacy regardless of any fundamental positives \u2014 this is a hard AVOID, not a 'weak buy'. Revenue trends are decent but earnings quality is compromised by other-income contribution and negative operating cash conversion, and institutional sponsorship is actively declining.",
+     "strengths": [
+      "Sales growth strong and accelerating (25-43% YoY range, 3-yr CAGR ~26%)",
+      "Debt levels moderate (D/E 0.40) and dilution minimal (share count +2.3% over 2yrs)",
+      "Promoter holding stable at 52.42% across 4 quarters"
+     ],
+     "weaknesses": [
+      "Trend Template fails on c3 (200 DMA not confirmed rising) and c8 (RS percentile 4, deeply weak) \u2014 stock is a laggard, not a leader",
+      "Earnings quality poor: OCF/PAT 3yr ratio negative (-0.13), indicating profits not converting to cash",
+      "Other income contributed 17-48% of PBT in 6 of last 8 quarters \u2014 reported EPS growth partly non-operating",
+      "ROE (6.99%) and ROCE (10.6%) both well below Minervini quality thresholds",
+      "Institutional holding declining every quarter for 4 straight quarters (27.4% \u2192 20.65%) \u2014 sponsorship exiting, not building",
+      "RS percentile of 4 places this stock near the bottom of the entire universe on relative strength"
+     ],
+     "catalysts": [],
+     "biggest_risk": "OTHER_INCOME_DRIVEN \u2014 reported earnings acceleration is materially inflated by non-operating income, and combined with negative cash conversion (POOR_CASH_CONVERSION), the earnings quality is not investment-grade even before considering the technical failure",
+     "conviction_0_10": 0
+    },
+    "data_quality": {
+     "unverified_fields": [
+      "eps_cagr_3y",
+      "fcf",
+      "governance_events",
+      "group_leadership_rank",
+      "industry_group_rs",
+      "marquee_institution",
+      "mf_scheme_count",
+      "new_catalyst",
+      "promoter_pledge_pct"
+     ],
+     "sources": [
+      {
+       "field": "technicals",
+       "source": "Yahoo Finance OHLCV",
+       "as_of": "2026-07-14"
+      },
+      {
+       "field": "fundamentals",
+       "source": "screener.in",
+       "as_of": "2026-07-14"
+      }
+     ]
+    },
+    "technicals": {
+     "price": 1241.6,
+     "rs_percentile": 4,
+     "pct_below_52w_high": 10.7,
+     "pct_above_52w_low": 31.5,
+     "dma_50": 1185.48,
+     "dma_200": 1130.77,
+     "up_down_volume_ratio_50d": 1.01
     },
     "status": "SCORED_NO_TREND"
    }
@@ -5370,12 +5526,12 @@
    "ticker": "CHOICEIN",
    "name": "Choice Intl.",
    "joined_date": "2026-07-12",
-   "last_updated": "2026-07-12",
+   "last_updated": "2026-07-14",
    "scorecard": {
     "ticker": "CHOICEIN",
     "name": "Choice Intl.",
-    "as_of": "2026-07-10",
-    "mode": "FULL",
+    "as_of": "2026-07-14",
+    "mode": "WEEKLY",
     "gates": {
      "trend_template": {
       "c1": true,
@@ -5435,10 +5591,10 @@
      },
      "rs_trend": {
       "F1": 0,
-      "F2": 4,
+      "F2": 2,
       "F3": 2,
       "F4": 2,
-      "subtotal": 8
+      "subtotal": 6
      },
      "base_structure": {
       "G1": 0,
@@ -5455,7 +5611,7 @@
       "H3": 0,
       "subtotal": 0
      },
-     "total": 39
+     "total": 37
     },
     "quality_band": "Reject",
     "action_bucket": "AVOID",
@@ -5464,7 +5620,7 @@
     ],
     "risk_level": "MEDIUM",
     "valuation_context": {
-     "pe": 85.5,
+     "pe": 83.0,
      "peg": null,
      "vs_own_5yr": "",
      "note": "Valuation is context only, never a criterion."
@@ -5472,14 +5628,14 @@
     "base": {
      "pattern_label": "",
      "pivot": 846.0,
-     "pct_from_pivot": -1.3,
+     "pct_from_pivot": -4.16,
      "base_count": 2,
      "depth_pct": 33.9,
-     "weeks": 25.6
+     "weeks": 26.0
     },
     "trade_plan": null,
     "delta": {
-     "score_change": 0,
+     "score_change": -2,
      "gate_flips": [],
      "bucket_change": "",
      "alerts": []
@@ -5490,7 +5646,7 @@
      "recommendation": ""
     },
     "verdict": {
-     "summary": "CHOICEIN (39/100) \u2014 Reject / AVOID. Score is informational only \u2014 Gate 1 not confirmed, so not an actionable setup yet.",
+     "summary": "CHOICEIN (37/100) \u2014 Reject / AVOID. Score is informational only \u2014 Gate 1 not confirmed, so not an actionable setup yet.",
      "strengths": [],
      "weaknesses": [
       "Fails Trend Template: c2, c3, c4, c8",
@@ -5516,200 +5672,23 @@
       {
        "field": "technicals",
        "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       },
       {
        "field": "fundamentals",
        "source": "screener.in",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       }
      ]
     },
     "technicals": {
-     "price": 835.0,
-     "rs_percentile": 6,
-     "pct_below_52w_high": 3.0,
-     "pct_above_52w_low": 46.8,
-     "dma_50": 702.03,
-     "dma_200": 745.71,
-     "up_down_volume_ratio_50d": 2.93
-    },
-    "status": "SCORED_NO_TREND"
-   }
-  },
-  {
-   "ticker": "MANORAMA",
-   "name": "Manorama Indust.",
-   "joined_date": "2026-07-05",
-   "last_updated": "2026-07-12",
-   "scorecard": {
-    "ticker": "MANORAMA",
-    "name": "Manorama Indust.",
-    "as_of": "2026-07-10",
-    "mode": "WEEKLY",
-    "gates": {
-     "trend_template": {
-      "c1": true,
-      "c2": true,
-      "c3": true,
-      "c4": true,
-      "c5": true,
-      "c6": true,
-      "c7": true,
-      "c8": false,
-      "pass": false,
-      "near_miss_notes": ""
-     },
-     "investability": {
-      "liquidity": true,
-      "pledge": true,
-      "governance": true,
-      "pass": true
-     }
-    },
-    "scores": {
-     "earnings": {
-      "A1": 4,
-      "A2": 0,
-      "A3": 4,
-      "A4": 0,
-      "A5": 2,
-      "subtotal": 10
-     },
-     "revenue": {
-      "B1": 6,
-      "B2": 0,
-      "B3": 0,
-      "B4": 2,
-      "subtotal": 8
-     },
-     "profitability": {
-      "C1": 3,
-      "C2": 0,
-      "C3": 2,
-      "C4": 0,
-      "subtotal": 5
-     },
-     "balance_sheet": {
-      "D1": 1,
-      "D2": 1,
-      "D3": 0,
-      "D4": 1,
-      "subtotal": 3
-     },
-     "sponsorship": {
-      "E1": 0,
-      "E2": 0,
-      "E3": 0,
-      "E4": 1,
-      "subtotal": 1
-     },
-     "rs_trend": {
-      "F1": 0,
-      "F2": 2,
-      "F3": 2,
-      "F4": 2,
-      "subtotal": 6
-     },
-     "base_structure": {
-      "G1": 0,
-      "G2": 4,
-      "G3": 0,
-      "G4": 0,
-      "G5": 0,
-      "G6": 0,
-      "subtotal": 4
-     },
-     "leadership": {
-      "H1": 0,
-      "H2": 0,
-      "H3": 0,
-      "subtotal": 0
-     },
-     "total": 37
-    },
-    "quality_band": "Reject",
-    "action_bucket": "AVOID",
-    "red_flags": [],
-    "risk_level": "LOW",
-    "valuation_context": {
-     "pe": 45.0,
-     "peg": null,
-     "vs_own_5yr": "",
-     "note": "Valuation is context only, never a criterion."
-    },
-    "base": {
-     "pattern_label": "",
-     "pivot": 1676.7,
-     "pct_from_pivot": -4.37,
-     "base_count": 1,
-     "depth_pct": 39.7,
-     "weeks": 47.6
-    },
-    "trade_plan": null,
-    "delta": {
-     "score_change": 37,
-     "gate_flips": [
-      "c2: False -> True"
-     ],
-     "bucket_change": "",
-     "alerts": []
-    },
-    "violations": {
-     "count": 0,
-     "items": [],
-     "recommendation": ""
-    },
-    "verdict": {
-     "summary": "MANORAMA (37/100) \u2014 Reject / AVOID. Score is informational only \u2014 Gate 1 not confirmed, so not an actionable setup yet.",
-     "strengths": [],
-     "weaknesses": [
-      "Fails Trend Template: c8",
-      "Earnings block weak (10/25)",
-      "No valid base yet (4/20)",
-      "13 unverified fields scored 0"
-     ],
-     "catalysts": [],
-     "biggest_risk": "None flagged",
-     "conviction_0_10": 0
-    },
-    "data_quality": {
-     "unverified_fields": [
-      "eps_acceleration",
-      "eps_cagr_3y",
-      "fcf",
-      "governance_events",
-      "group_leadership_rank",
-      "industry_group_rs",
-      "marquee_institution",
-      "mf_scheme_count",
-      "new_catalyst",
-      "promoter_pledge_pct",
-      "sales_acceleration",
-      "sales_cagr_3y",
-      "share_count_growth"
-     ],
-     "sources": [
-      {
-       "field": "technicals",
-       "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-07-10"
-      },
-      {
-       "field": "fundamentals",
-       "source": "screener.in",
-       "as_of": "2026-07-10"
-      }
-     ]
-    },
-    "technicals": {
-     "price": 1603.4,
-     "rs_percentile": 20,
-     "pct_below_52w_high": 8.9,
-     "pct_above_52w_low": 51.2,
-     "dma_50": 1503.72,
-     "dma_200": 1393.49,
-     "up_down_volume_ratio_50d": 1.22
+     "price": 810.8,
+     "rs_percentile": 8,
+     "pct_below_52w_high": 5.8,
+     "pct_above_52w_low": 42.6,
+     "dma_50": 708.07,
+     "dma_200": 745.79,
+     "up_down_volume_ratio_50d": 2.66
     },
     "status": "SCORED_NO_TREND"
    }
@@ -5718,11 +5697,11 @@
    "ticker": "526433",
    "name": "ASM Technologies",
    "joined_date": "2026-07-05",
-   "last_updated": "2026-07-12",
+   "last_updated": "2026-07-14",
    "scorecard": {
     "ticker": "526433",
     "name": "ASM Technologies",
-    "as_of": "2026-07-10",
+    "as_of": "2026-07-13",
     "mode": "WEEKLY",
     "gates": {
      "trend_template": {
@@ -5735,7 +5714,7 @@
       "c7": true,
       "c8": false,
       "pass": false,
-      "near_miss_notes": ""
+      "near_miss_notes": "c8 near miss: RS 61"
      },
      "investability": {
       "liquidity": true,
@@ -5813,7 +5792,7 @@
     ],
     "risk_level": "MEDIUM",
     "valuation_context": {
-     "pe": 99.1,
+     "pe": 105.0,
      "peg": null,
      "vs_own_5yr": "",
      "note": "Valuation is context only, never a criterion."
@@ -5821,19 +5800,17 @@
     "base": {
      "pattern_label": "",
      "pivot": 4590.27,
-     "pct_from_pivot": -8.38,
+     "pct_from_pivot": -5.93,
      "base_count": 1,
      "depth_pct": 54.3,
-     "weeks": 39.4
+     "weeks": 39.6
     },
     "trade_plan": null,
     "delta": {
-     "score_change": 36,
+     "score_change": 0,
      "gate_flips": [],
      "bucket_change": "",
-     "alerts": [
-      "EPS_DECELERATION"
-     ]
+     "alerts": []
     },
     "violations": {
      "count": 0,
@@ -5868,23 +5845,23 @@
       {
        "field": "technicals",
        "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-13"
       },
       {
        "field": "fundamentals",
        "source": "screener.in",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-13"
       }
      ]
     },
     "technicals": {
-     "price": 4205.45,
-     "rs_percentile": 53,
-     "pct_below_52w_high": 8.4,
-     "pct_above_52w_low": 100.3,
-     "dma_50": 3514.38,
-     "dma_200": 3243.36,
-     "up_down_volume_ratio_50d": 1.8
+     "price": 4318.25,
+     "rs_percentile": 61,
+     "pct_below_52w_high": 5.9,
+     "pct_above_52w_low": 105.6,
+     "dma_50": 3537.61,
+     "dma_200": 3244.19,
+     "up_down_volume_ratio_50d": 1.9
     },
     "status": "SCORED_NO_TREND"
    }
@@ -5893,11 +5870,11 @@
    "ticker": "OMNI",
    "name": "Omnitech Engg.",
    "joined_date": "2026-07-05",
-   "last_updated": "2026-07-12",
+   "last_updated": "2026-07-14",
    "scorecard": {
     "ticker": "OMNI",
     "name": "Omnitech Engg.",
-    "as_of": "2026-07-10",
+    "as_of": "2026-07-14",
     "mode": "WEEKLY",
     "gates": {
      "trend_template": {
@@ -5988,7 +5965,7 @@
     ],
     "risk_level": "MEDIUM",
     "valuation_context": {
-     "pe": 81.5,
+     "pe": 85.7,
      "peg": null,
      "vs_own_5yr": "",
      "note": "Valuation is context only, never a criterion."
@@ -5996,14 +5973,14 @@
     "base": {
      "pattern_label": "",
      "pivot": 590.1,
-     "pct_from_pivot": -11.33,
+     "pct_from_pivot": -6.67,
      "base_count": null,
      "depth_pct": 18.2,
-     "weeks": 1.6
+     "weeks": 2.0
     },
     "trade_plan": null,
     "delta": {
-     "score_change": 36,
+     "score_change": 0,
      "gate_flips": [],
      "bucket_change": "",
      "alerts": []
@@ -6048,36 +6025,36 @@
       {
        "field": "technicals",
        "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       },
       {
        "field": "fundamentals",
        "source": "screener.in",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       }
      ]
     },
     "technicals": {
-     "price": 523.25,
+     "price": 550.75,
      "rs_percentile": null,
-     "pct_below_52w_high": 11.3,
-     "pct_above_52w_low": 196.9,
-     "dma_50": 471.0,
+     "pct_below_52w_high": 6.7,
+     "pct_above_52w_low": 212.5,
+     "dma_50": 476.93,
      "dma_200": null,
-     "up_down_volume_ratio_50d": 1.62
+     "up_down_volume_ratio_50d": 1.56
     },
     "status": "SCORED_NO_TREND"
    }
   },
   {
-   "ticker": "NUVAMA",
-   "name": "Nuvama Wealth",
+   "ticker": "MANORAMA",
+   "name": "Manorama Indust.",
    "joined_date": "2026-07-05",
-   "last_updated": "2026-07-12",
+   "last_updated": "2026-07-14",
    "scorecard": {
-    "ticker": "NUVAMA",
-    "name": "Nuvama Wealth",
-    "as_of": "2026-07-10",
+    "ticker": "MANORAMA",
+    "name": "Manorama Indust.",
+    "as_of": "2026-07-14",
     "mode": "WEEKLY",
     "gates": {
      "trend_template": {
@@ -6090,7 +6067,532 @@
       "c7": true,
       "c8": false,
       "pass": false,
-      "near_miss_notes": "c8 near miss: RS 61"
+      "near_miss_notes": ""
+     },
+     "investability": {
+      "liquidity": true,
+      "pledge": true,
+      "governance": true,
+      "pass": true
+     }
+    },
+    "scores": {
+     "earnings": {
+      "A1": 4,
+      "A2": 0,
+      "A3": 4,
+      "A4": 0,
+      "A5": 2,
+      "subtotal": 10
+     },
+     "revenue": {
+      "B1": 6,
+      "B2": 0,
+      "B3": 0,
+      "B4": 2,
+      "subtotal": 8
+     },
+     "profitability": {
+      "C1": 3,
+      "C2": 0,
+      "C3": 2,
+      "C4": 0,
+      "subtotal": 5
+     },
+     "balance_sheet": {
+      "D1": 1,
+      "D2": 1,
+      "D3": 0,
+      "D4": 1,
+      "subtotal": 3
+     },
+     "sponsorship": {
+      "E1": 0,
+      "E2": 0,
+      "E3": 0,
+      "E4": 1,
+      "subtotal": 1
+     },
+     "rs_trend": {
+      "F1": 0,
+      "F2": 2,
+      "F3": 2,
+      "F4": 0,
+      "subtotal": 4
+     },
+     "base_structure": {
+      "G1": 0,
+      "G2": 4,
+      "G3": 0,
+      "G4": 0,
+      "G5": 0,
+      "G6": 0,
+      "subtotal": 4
+     },
+     "leadership": {
+      "H1": 0,
+      "H2": 0,
+      "H3": 0,
+      "subtotal": 0
+     },
+     "total": 35
+    },
+    "quality_band": "Reject",
+    "action_bucket": "AVOID",
+    "red_flags": [],
+    "risk_level": "LOW",
+    "valuation_context": {
+     "pe": 44.3,
+     "peg": null,
+     "vs_own_5yr": "",
+     "note": "Valuation is context only, never a criterion."
+    },
+    "base": {
+     "pattern_label": "",
+     "pivot": 1676.7,
+     "pct_from_pivot": -5.91,
+     "base_count": 1,
+     "depth_pct": 39.7,
+     "weeks": 48.0
+    },
+    "trade_plan": null,
+    "delta": {
+     "score_change": -2,
+     "gate_flips": [],
+     "bucket_change": "",
+     "alerts": []
+    },
+    "violations": {
+     "count": 0,
+     "items": [],
+     "recommendation": ""
+    },
+    "verdict": {
+     "summary": "MANORAMA (35/100) \u2014 Reject / AVOID. Score is informational only \u2014 Gate 1 not confirmed, so not an actionable setup yet.",
+     "strengths": [],
+     "weaknesses": [
+      "Fails Trend Template: c8",
+      "Earnings block weak (10/25)",
+      "No valid base yet (4/20)",
+      "13 unverified fields scored 0"
+     ],
+     "catalysts": [],
+     "biggest_risk": "None flagged",
+     "conviction_0_10": 0
+    },
+    "data_quality": {
+     "unverified_fields": [
+      "eps_acceleration",
+      "eps_cagr_3y",
+      "fcf",
+      "governance_events",
+      "group_leadership_rank",
+      "industry_group_rs",
+      "marquee_institution",
+      "mf_scheme_count",
+      "new_catalyst",
+      "promoter_pledge_pct",
+      "sales_acceleration",
+      "sales_cagr_3y",
+      "share_count_growth"
+     ],
+     "sources": [
+      {
+       "field": "technicals",
+       "source": "Yahoo Finance OHLCV",
+       "as_of": "2026-07-14"
+      },
+      {
+       "field": "fundamentals",
+       "source": "screener.in",
+       "as_of": "2026-07-14"
+      }
+     ]
+    },
+    "technicals": {
+     "price": 1577.6,
+     "rs_percentile": 18,
+     "pct_below_52w_high": 10.3,
+     "pct_above_52w_low": 48.7,
+     "dma_50": 1505.32,
+     "dma_200": 1395.23,
+     "up_down_volume_ratio_50d": 1.09
+    },
+    "status": "SCORED_NO_TREND"
+   }
+  },
+  {
+   "ticker": "AEGISVOPAK",
+   "name": "Aegis Vopak Term",
+   "joined_date": "2026-07-12",
+   "last_updated": "2026-07-14",
+   "scorecard": {
+    "ticker": "AEGISVOPAK",
+    "name": "Aegis Vopak Term",
+    "as_of": "2026-07-14",
+    "mode": "WEEKLY",
+    "gates": {
+     "trend_template": {
+      "c1": true,
+      "c2": false,
+      "c3": true,
+      "c4": false,
+      "c5": true,
+      "c6": true,
+      "c7": true,
+      "c8": false,
+      "pass": false,
+      "near_miss_notes": ""
+     },
+     "investability": {
+      "liquidity": true,
+      "pledge": true,
+      "governance": true,
+      "pass": true
+     }
+    },
+    "scores": {
+     "earnings": {
+      "A1": 0,
+      "A2": 0,
+      "A3": 4,
+      "A4": 0,
+      "A5": 4,
+      "subtotal": 8
+     },
+     "revenue": {
+      "B1": 4,
+      "B2": 2,
+      "B3": 3,
+      "B4": 2,
+      "subtotal": 11
+     },
+     "profitability": {
+      "C1": 0,
+      "C2": 0,
+      "C3": 2,
+      "C4": 0,
+      "subtotal": 2
+     },
+     "balance_sheet": {
+      "D1": 1,
+      "D2": 1,
+      "D3": 0,
+      "D4": 1,
+      "subtotal": 3
+     },
+     "sponsorship": {
+      "E1": 0,
+      "E2": 0,
+      "E3": 0,
+      "E4": 1,
+      "subtotal": 1
+     },
+     "rs_trend": {
+      "F1": 0,
+      "F2": 2,
+      "F3": 2,
+      "F4": 2,
+      "subtotal": 6
+     },
+     "base_structure": {
+      "G1": 0,
+      "G2": 4,
+      "G3": 0,
+      "G4": 0,
+      "G5": 0,
+      "G6": 0,
+      "subtotal": 4
+     },
+     "leadership": {
+      "H1": 0,
+      "H2": 0,
+      "H3": 0,
+      "subtotal": 0
+     },
+     "total": 35
+    },
+    "quality_band": "Reject",
+    "action_bucket": "AVOID",
+    "red_flags": [
+     "EPS_DECELERATION"
+    ],
+    "risk_level": "LOW",
+    "valuation_context": {
+     "pe": 100.0,
+     "peg": null,
+     "vs_own_5yr": "",
+     "note": "Valuation is context only, never a criterion."
+    },
+    "base": {
+     "pattern_label": "",
+     "pivot": 311.49,
+     "pct_from_pivot": -9.9,
+     "base_count": 1,
+     "depth_pct": 12.6,
+     "weeks": 0.4
+    },
+    "trade_plan": null,
+    "delta": {
+     "score_change": 4,
+     "gate_flips": [
+      "c3: False -> True"
+     ],
+     "bucket_change": "",
+     "alerts": []
+    },
+    "violations": {
+     "count": 0,
+     "items": [],
+     "recommendation": ""
+    },
+    "verdict": {
+     "summary": "AEGISVOPAK (35/100) \u2014 Reject / AVOID. Score is informational only \u2014 Gate 1 not confirmed, so not an actionable setup yet.",
+     "strengths": [],
+     "weaknesses": [
+      "Fails Trend Template: c2, c4, c8",
+      "Earnings block weak (8/25)",
+      "No valid base yet (4/20)",
+      "9 unverified fields scored 0"
+     ],
+     "catalysts": [],
+     "biggest_risk": "EPS_DECELERATION",
+     "conviction_0_10": 0
+    },
+    "data_quality": {
+     "unverified_fields": [
+      "eps_cagr_3y",
+      "fcf",
+      "governance_events",
+      "group_leadership_rank",
+      "industry_group_rs",
+      "marquee_institution",
+      "mf_scheme_count",
+      "new_catalyst",
+      "promoter_pledge_pct"
+     ],
+     "sources": [
+      {
+       "field": "technicals",
+       "source": "Yahoo Finance OHLCV",
+       "as_of": "2026-07-14"
+      },
+      {
+       "field": "fundamentals",
+       "source": "screener.in",
+       "as_of": "2026-07-14"
+      }
+     ]
+    },
+    "technicals": {
+     "price": 280.64,
+     "rs_percentile": 36,
+     "pct_below_52w_high": 9.9,
+     "pct_above_52w_low": 77.7,
+     "dma_50": 223.42,
+     "dma_200": 229.67,
+     "up_down_volume_ratio_50d": 3.21
+    },
+    "status": "SCORED_NO_TREND"
+   }
+  },
+  {
+   "ticker": "GROWW",
+   "name": "Billionbrains",
+   "joined_date": "2026-07-05",
+   "last_updated": "2026-07-14",
+   "scorecard": {
+    "ticker": "GROWW",
+    "name": "Billionbrains",
+    "as_of": "2026-07-14",
+    "mode": "WEEKLY",
+    "gates": {
+     "trend_template": {
+      "c1": false,
+      "c2": false,
+      "c3": false,
+      "c4": false,
+      "c5": true,
+      "c6": true,
+      "c7": true,
+      "c8": false,
+      "pass": false,
+      "near_miss_notes": ""
+     },
+     "investability": {
+      "liquidity": true,
+      "pledge": true,
+      "governance": true,
+      "pass": true
+     }
+    },
+    "scores": {
+     "earnings": {
+      "A1": 0,
+      "A2": 0,
+      "A3": 0,
+      "A4": 0,
+      "A5": 2,
+      "subtotal": 2
+     },
+     "revenue": {
+      "B1": 6,
+      "B2": 0,
+      "B3": 3,
+      "B4": 0,
+      "subtotal": 9
+     },
+     "profitability": {
+      "C1": 3,
+      "C2": 3,
+      "C3": 0,
+      "C4": 0,
+      "subtotal": 6
+     },
+     "balance_sheet": {
+      "D1": 2,
+      "D2": 1,
+      "D3": 0,
+      "D4": 1,
+      "subtotal": 4
+     },
+     "sponsorship": {
+      "E1": 2,
+      "E2": 0,
+      "E3": 0,
+      "E4": 0,
+      "subtotal": 2
+     },
+     "rs_trend": {
+      "F1": 0,
+      "F2": 2,
+      "F3": 0,
+      "F4": 0,
+      "subtotal": 2
+     },
+     "base_structure": {
+      "G1": 0,
+      "G2": 0,
+      "G3": 3,
+      "G4": 0,
+      "G5": 3,
+      "G6": 2,
+      "subtotal": 8
+     },
+     "leadership": {
+      "H1": 0,
+      "H2": 0,
+      "H3": 0,
+      "subtotal": 0
+     },
+     "total": 33
+    },
+    "quality_band": "Reject",
+    "action_bucket": "AVOID",
+    "red_flags": [
+     "POOR_CASH_CONVERSION"
+    ],
+    "risk_level": "MEDIUM",
+    "valuation_context": {
+     "pe": 61.3,
+     "peg": null,
+     "vs_own_5yr": "",
+     "note": "Valuation is context only, never a criterion."
+    },
+    "base": {
+     "pattern_label": "",
+     "pivot": 210.28,
+     "pct_from_pivot": -3.09,
+     "base_count": null,
+     "depth_pct": 20.8,
+     "weeks": 11.0
+    },
+    "trade_plan": null,
+    "delta": {
+     "score_change": 2,
+     "gate_flips": [],
+     "bucket_change": "",
+     "alerts": []
+    },
+    "violations": {
+     "count": 0,
+     "items": [],
+     "recommendation": ""
+    },
+    "verdict": {
+     "summary": "GROWW (33/100) \u2014 Reject / AVOID. Score is informational only \u2014 Gate 1 not confirmed, so not an actionable setup yet.",
+     "strengths": [],
+     "weaknesses": [
+      "Fails Trend Template: c1, c2, c3, c4, c8",
+      "Earnings block weak (2/25)",
+      "12 unverified fields scored 0"
+     ],
+     "catalysts": [],
+     "biggest_risk": "POOR_CASH_CONVERSION",
+     "conviction_0_10": 0
+    },
+    "data_quality": {
+     "unverified_fields": [
+      "base_count",
+      "dma_200",
+      "eps_acceleration",
+      "fcf",
+      "governance_events",
+      "group_leadership_rank",
+      "industry_group_rs",
+      "marquee_institution",
+      "mf_scheme_count",
+      "new_catalyst",
+      "promoter_pledge_pct",
+      "sales_acceleration"
+     ],
+     "sources": [
+      {
+       "field": "technicals",
+       "source": "Yahoo Finance OHLCV",
+       "as_of": "2026-07-14"
+      },
+      {
+       "field": "fundamentals",
+       "source": "screener.in",
+       "as_of": "2026-07-14"
+      }
+     ]
+    },
+    "technicals": {
+     "price": 203.79,
+     "rs_percentile": 28,
+     "pct_below_52w_high": 10.3,
+     "pct_above_52w_low": 82.0,
+     "dma_50": 195.57,
+     "dma_200": null,
+     "up_down_volume_ratio_50d": 0.67
+    },
+    "status": "SCORED_NO_TREND"
+   }
+  },
+  {
+   "ticker": "NUVAMA",
+   "name": "Nuvama Wealth",
+   "joined_date": "2026-07-05",
+   "last_updated": "2026-07-14",
+   "scorecard": {
+    "ticker": "NUVAMA",
+    "name": "Nuvama Wealth",
+    "as_of": "2026-07-14",
+    "mode": "WEEKLY",
+    "gates": {
+     "trend_template": {
+      "c1": true,
+      "c2": true,
+      "c3": true,
+      "c4": true,
+      "c5": true,
+      "c6": true,
+      "c7": true,
+      "c8": false,
+      "pass": false,
+      "near_miss_notes": ""
      },
      "investability": {
       "liquidity": true,
@@ -6167,7 +6669,7 @@
     ],
     "risk_level": "MEDIUM",
     "valuation_context": {
-     "pe": 34.7,
+     "pe": 33.9,
      "peg": null,
      "vs_own_5yr": "",
      "note": "Valuation is context only, never a criterion."
@@ -6175,14 +6677,14 @@
     "base": {
      "pattern_label": "",
      "pivot": 1993.7,
-     "pct_from_pivot": -0.81,
+     "pct_from_pivot": -3.0,
      "base_count": 1,
-     "depth_pct": 2.5,
-     "weeks": 0.2
+     "depth_pct": 5.4,
+     "weeks": 0.6
     },
     "trade_plan": null,
     "delta": {
-     "score_change": 33,
+     "score_change": 0,
      "gate_flips": [],
      "bucket_change": "",
      "alerts": []
@@ -6221,23 +6723,23 @@
       {
        "field": "technicals",
        "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       },
       {
        "field": "fundamentals",
        "source": "screener.in",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       }
      ]
     },
     "technicals": {
-     "price": 1977.6,
-     "rs_percentile": 61,
-     "pct_below_52w_high": 0.8,
-     "pct_above_52w_low": 82.0,
-     "dma_50": 1621.03,
-     "dma_200": 1414.13,
-     "up_down_volume_ratio_50d": 2.78
+     "price": 1933.9,
+     "rs_percentile": 53,
+     "pct_below_52w_high": 3.0,
+     "pct_above_52w_low": 78.0,
+     "dma_50": 1645.0,
+     "dma_200": 1421.12,
+     "up_down_volume_ratio_50d": 2.58
     },
     "status": "SCORED_NO_TREND"
    }
@@ -6246,11 +6748,11 @@
    "ticker": "ZENTEC",
    "name": "Zen Technologies",
    "joined_date": "2026-07-05",
-   "last_updated": "2026-07-12",
+   "last_updated": "2026-07-14",
    "scorecard": {
     "ticker": "ZENTEC",
     "name": "Zen Technologies",
-    "as_of": "2026-07-10",
+    "as_of": "2026-07-14",
     "mode": "WEEKLY",
     "gates": {
      "trend_template": {
@@ -6341,7 +6843,7 @@
     ],
     "risk_level": "MEDIUM",
     "valuation_context": {
-     "pe": 88.0,
+     "pe": 84.5,
      "peg": null,
      "vs_own_5yr": "",
      "note": "Valuation is context only, never a criterion."
@@ -6349,14 +6851,14 @@
     "base": {
      "pattern_label": "",
      "pivot": 2024.0,
-     "pct_from_pivot": -7.09,
+     "pct_from_pivot": -10.93,
      "base_count": 2,
      "depth_pct": 15.0,
-     "weeks": 3.0
+     "weeks": 3.4
     },
     "trade_plan": null,
     "delta": {
-     "score_change": 33,
+     "score_change": 0,
      "gate_flips": [],
      "bucket_change": "",
      "alerts": []
@@ -6393,23 +6895,23 @@
       {
        "field": "technicals",
        "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       },
       {
        "field": "fundamentals",
        "source": "screener.in",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       }
      ]
     },
     "technicals": {
-     "price": 1880.4,
-     "rs_percentile": 32,
-     "pct_below_52w_high": 7.1,
-     "pct_above_52w_low": 53.8,
-     "dma_50": 1722.83,
-     "dma_200": 1485.01,
-     "up_down_volume_ratio_50d": 1.72
+     "price": 1802.7,
+     "rs_percentile": 30,
+     "pct_below_52w_high": 10.9,
+     "pct_above_52w_low": 47.4,
+     "dma_50": 1734.48,
+     "dma_200": 1487.14,
+     "up_down_volume_ratio_50d": 2.11
     },
     "status": "SCORED_NO_TREND"
    }
@@ -6418,11 +6920,11 @@
    "ticker": "EMMVEE",
    "name": "Emmvee Photovol.",
    "joined_date": "2026-07-05",
-   "last_updated": "2026-07-12",
+   "last_updated": "2026-07-14",
    "scorecard": {
     "ticker": "EMMVEE",
     "name": "Emmvee Photovol.",
-    "as_of": "2026-07-10",
+    "as_of": "2026-07-14",
     "mode": "WEEKLY",
     "gates": {
      "trend_template": {
@@ -6510,7 +7012,7 @@
     "red_flags": [],
     "risk_level": "LOW",
     "valuation_context": {
-     "pe": 21.3,
+     "pe": 21.4,
      "peg": null,
      "vs_own_5yr": "",
      "note": "Valuation is context only, never a criterion."
@@ -6518,21 +7020,17 @@
     "base": {
      "pattern_label": "",
      "pivot": 369.8,
-     "pct_from_pivot": -9.88,
+     "pct_from_pivot": -9.64,
      "base_count": null,
      "depth_pct": 12.1,
-     "weeks": 1.2
+     "weeks": 1.6
     },
     "trade_plan": null,
     "delta": {
-     "score_change": 32,
-     "gate_flips": [
-      "c8: True -> False"
-     ],
+     "score_change": 0,
+     "gate_flips": [],
      "bucket_change": "",
-     "alerts": [
-      "RS_DOWNGRADE"
-     ]
+     "alerts": []
     },
     "violations": {
      "count": 0,
@@ -6571,375 +7069,23 @@
       {
        "field": "technicals",
        "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       },
       {
        "field": "fundamentals",
        "source": "screener.in",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       }
      ]
     },
     "technicals": {
-     "price": 333.25,
+     "price": 334.15,
      "rs_percentile": 67,
-     "pct_below_52w_high": 9.9,
-     "pct_above_52w_low": 94.3,
-     "dma_50": 310.32,
+     "pct_below_52w_high": 9.6,
+     "pct_above_52w_low": 94.8,
+     "dma_50": 313.22,
      "dma_200": null,
-     "up_down_volume_ratio_50d": 2.18
-    },
-    "status": "SCORED_NO_TREND"
-   }
-  },
-  {
-   "ticker": "GROWW",
-   "name": "Billionbrains",
-   "joined_date": "2026-07-05",
-   "last_updated": "2026-07-12",
-   "scorecard": {
-    "ticker": "GROWW",
-    "name": "Billionbrains",
-    "as_of": "2026-07-10",
-    "mode": "WEEKLY",
-    "gates": {
-     "trend_template": {
-      "c1": false,
-      "c2": false,
-      "c3": false,
-      "c4": false,
-      "c5": true,
-      "c6": true,
-      "c7": true,
-      "c8": false,
-      "pass": false,
-      "near_miss_notes": ""
-     },
-     "investability": {
-      "liquidity": true,
-      "pledge": true,
-      "governance": true,
-      "pass": true
-     }
-    },
-    "scores": {
-     "earnings": {
-      "A1": 0,
-      "A2": 0,
-      "A3": 0,
-      "A4": 0,
-      "A5": 2,
-      "subtotal": 2
-     },
-     "revenue": {
-      "B1": 6,
-      "B2": 0,
-      "B3": 3,
-      "B4": 0,
-      "subtotal": 9
-     },
-     "profitability": {
-      "C1": 3,
-      "C2": 3,
-      "C3": 0,
-      "C4": 0,
-      "subtotal": 6
-     },
-     "balance_sheet": {
-      "D1": 2,
-      "D2": 1,
-      "D3": 0,
-      "D4": 1,
-      "subtotal": 4
-     },
-     "sponsorship": {
-      "E1": 2,
-      "E2": 0,
-      "E3": 0,
-      "E4": 0,
-      "subtotal": 2
-     },
-     "rs_trend": {
-      "F1": 0,
-      "F2": 2,
-      "F3": 0,
-      "F4": 0,
-      "subtotal": 2
-     },
-     "base_structure": {
-      "G1": 0,
-      "G2": 0,
-      "G3": 3,
-      "G4": 0,
-      "G5": 3,
-      "G6": 0,
-      "subtotal": 6
-     },
-     "leadership": {
-      "H1": 0,
-      "H2": 0,
-      "H3": 0,
-      "subtotal": 0
-     },
-     "total": 31
-    },
-    "quality_band": "Reject",
-    "action_bucket": "AVOID",
-    "red_flags": [
-     "POOR_CASH_CONVERSION"
-    ],
-    "risk_level": "MEDIUM",
-    "valuation_context": {
-     "pe": 61.6,
-     "peg": null,
-     "vs_own_5yr": "",
-     "note": "Valuation is context only, never a criterion."
-    },
-    "base": {
-     "pattern_label": "",
-     "pivot": 208.49,
-     "pct_from_pivot": -1.93,
-     "base_count": null,
-     "depth_pct": 20.8,
-     "weeks": 10.6
-    },
-    "trade_plan": null,
-    "delta": {
-     "score_change": 31,
-     "gate_flips": [],
-     "bucket_change": "",
-     "alerts": [
-      "RS_DOWNGRADE"
-     ]
-    },
-    "violations": {
-     "count": 0,
-     "items": [],
-     "recommendation": ""
-    },
-    "verdict": {
-     "summary": "GROWW (31/100) \u2014 Reject / AVOID. Score is informational only \u2014 Gate 1 not confirmed, so not an actionable setup yet.",
-     "strengths": [],
-     "weaknesses": [
-      "Fails Trend Template: c1, c2, c3, c4, c8",
-      "Earnings block weak (2/25)",
-      "No valid base yet (6/20)",
-      "12 unverified fields scored 0"
-     ],
-     "catalysts": [],
-     "biggest_risk": "POOR_CASH_CONVERSION",
-     "conviction_0_10": 0
-    },
-    "data_quality": {
-     "unverified_fields": [
-      "base_count",
-      "dma_200",
-      "eps_acceleration",
-      "fcf",
-      "governance_events",
-      "group_leadership_rank",
-      "industry_group_rs",
-      "marquee_institution",
-      "mf_scheme_count",
-      "new_catalyst",
-      "promoter_pledge_pct",
-      "sales_acceleration"
-     ],
-     "sources": [
-      {
-       "field": "technicals",
-       "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-07-10"
-      },
-      {
-       "field": "fundamentals",
-       "source": "screener.in",
-       "as_of": "2026-07-10"
-      }
-     ]
-    },
-    "technicals": {
-     "price": 204.47,
-     "rs_percentile": 24,
-     "pct_below_52w_high": 10.0,
-     "pct_above_52w_low": 82.6,
-     "dma_50": 196.17,
-     "dma_200": null,
-     "up_down_volume_ratio_50d": 0.69
-    },
-    "status": "SCORED_NO_TREND"
-   }
-  },
-  {
-   "ticker": "AEGISVOPAK",
-   "name": "Aegis Vopak Term",
-   "joined_date": "2026-07-12",
-   "last_updated": "2026-07-12",
-   "scorecard": {
-    "ticker": "AEGISVOPAK",
-    "name": "Aegis Vopak Term",
-    "as_of": "2026-07-10",
-    "mode": "FULL",
-    "gates": {
-     "trend_template": {
-      "c1": true,
-      "c2": false,
-      "c3": false,
-      "c4": false,
-      "c5": true,
-      "c6": true,
-      "c7": true,
-      "c8": false,
-      "pass": false,
-      "near_miss_notes": ""
-     },
-     "investability": {
-      "liquidity": true,
-      "pledge": true,
-      "governance": true,
-      "pass": true
-     }
-    },
-    "scores": {
-     "earnings": {
-      "A1": 0,
-      "A2": 0,
-      "A3": 4,
-      "A4": 0,
-      "A5": 4,
-      "subtotal": 8
-     },
-     "revenue": {
-      "B1": 4,
-      "B2": 2,
-      "B3": 3,
-      "B4": 2,
-      "subtotal": 11
-     },
-     "profitability": {
-      "C1": 0,
-      "C2": 0,
-      "C3": 2,
-      "C4": 0,
-      "subtotal": 2
-     },
-     "balance_sheet": {
-      "D1": 1,
-      "D2": 1,
-      "D3": 0,
-      "D4": 1,
-      "subtotal": 3
-     },
-     "sponsorship": {
-      "E1": 0,
-      "E2": 0,
-      "E3": 0,
-      "E4": 1,
-      "subtotal": 1
-     },
-     "rs_trend": {
-      "F1": 0,
-      "F2": 2,
-      "F3": 2,
-      "F4": 2,
-      "subtotal": 6
-     },
-     "base_structure": {
-      "G1": 0,
-      "G2": 0,
-      "G3": 0,
-      "G4": 0,
-      "G5": 0,
-      "G6": 0,
-      "subtotal": 0
-     },
-     "leadership": {
-      "H1": 0,
-      "H2": 0,
-      "H3": 0,
-      "subtotal": 0
-     },
-     "total": 31
-    },
-    "quality_band": "Reject",
-    "action_bucket": "AVOID",
-    "red_flags": [
-     "EPS_DECELERATION"
-    ],
-    "risk_level": "LOW",
-    "valuation_context": {
-     "pe": 101.0,
-     "peg": null,
-     "vs_own_5yr": "",
-     "note": "Valuation is context only, never a criterion."
-    },
-    "base": {
-     "pattern_label": "",
-     "pivot": 301.78,
-     "pct_from_pivot": -6.16,
-     "base_count": null,
-     "depth_pct": 47.7,
-     "weeks": 48.8
-    },
-    "trade_plan": null,
-    "delta": {
-     "score_change": 0,
-     "gate_flips": [],
-     "bucket_change": "",
-     "alerts": []
-    },
-    "violations": {
-     "count": 0,
-     "items": [],
-     "recommendation": ""
-    },
-    "verdict": {
-     "summary": "AEGISVOPAK (31/100) \u2014 Reject / AVOID. Score is informational only \u2014 Gate 1 not confirmed, so not an actionable setup yet.",
-     "strengths": [],
-     "weaknesses": [
-      "Fails Trend Template: c2, c3, c4, c8",
-      "Earnings block weak (8/25)",
-      "No valid base yet (0/20)",
-      "10 unverified fields scored 0"
-     ],
-     "catalysts": [],
-     "biggest_risk": "EPS_DECELERATION",
-     "conviction_0_10": 0
-    },
-    "data_quality": {
-     "unverified_fields": [
-      "base_count",
-      "eps_cagr_3y",
-      "fcf",
-      "governance_events",
-      "group_leadership_rank",
-      "industry_group_rs",
-      "marquee_institution",
-      "mf_scheme_count",
-      "new_catalyst",
-      "promoter_pledge_pct"
-     ],
-     "sources": [
-      {
-       "field": "technicals",
-       "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-07-10"
-      },
-      {
-       "field": "fundamentals",
-       "source": "screener.in",
-       "as_of": "2026-07-10"
-      }
-     ]
-    },
-    "technicals": {
-     "price": 283.18,
-     "rs_percentile": 42,
-     "pct_below_52w_high": 6.2,
-     "pct_above_52w_low": 79.4,
-     "dma_50": 219.51,
-     "dma_200": 229.23,
-     "up_down_volume_ratio_50d": 3.55
+     "up_down_volume_ratio_50d": 2.14
     },
     "status": "SCORED_NO_TREND"
    }
@@ -6948,11 +7094,11 @@
    "ticker": "MOTILALOFS",
    "name": "Motil.Oswal.Fin.",
    "joined_date": "2026-07-05",
-   "last_updated": "2026-07-12",
+   "last_updated": "2026-07-14",
    "scorecard": {
     "ticker": "MOTILALOFS",
     "name": "Motil.Oswal.Fin.",
-    "as_of": "2026-07-10",
+    "as_of": "2026-07-14",
     "mode": "WEEKLY",
     "gates": {
      "trend_template": {
@@ -7005,11 +7151,11 @@
       "subtotal": 1
      },
      "sponsorship": {
-      "E1": 0,
+      "E1": 1,
       "E2": 0,
       "E3": 0,
       "E4": 1,
-      "subtotal": 1
+      "subtotal": 2
      },
      "rs_trend": {
       "F1": 0,
@@ -7033,7 +7179,7 @@
       "H3": 0,
       "subtotal": 0
      },
-     "total": 30
+     "total": 31
     },
     "quality_band": "Reject",
     "action_bucket": "AVOID",
@@ -7042,7 +7188,7 @@
     ],
     "risk_level": "MEDIUM",
     "valuation_context": {
-     "pe": 31.7,
+     "pe": 31.3,
      "peg": null,
      "vs_own_5yr": "",
      "note": "Valuation is context only, never a criterion."
@@ -7050,14 +7196,14 @@
     "base": {
      "pattern_label": "",
      "pivot": 1088.32,
-     "pct_from_pivot": -10.01,
+     "pct_from_pivot": -11.15,
      "base_count": 1,
      "depth_pct": 43.5,
-     "weeks": 35.2
+     "weeks": 35.6
     },
     "trade_plan": null,
     "delta": {
-     "score_change": 30,
+     "score_change": 1,
      "gate_flips": [],
      "bucket_change": "",
      "alerts": []
@@ -7068,7 +7214,7 @@
      "recommendation": ""
     },
     "verdict": {
-     "summary": "MOTILALOFS (30/100) \u2014 Reject / AVOID. Score is informational only \u2014 Gate 1 not confirmed, so not an actionable setup yet.",
+     "summary": "MOTILALOFS (31/100) \u2014 Reject / AVOID. Score is informational only \u2014 Gate 1 not confirmed, so not an actionable setup yet.",
      "strengths": [],
      "weaknesses": [
       "Fails Trend Template: c2, c8",
@@ -7098,23 +7244,23 @@
       {
        "field": "technicals",
        "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       },
       {
        "field": "fundamentals",
        "source": "screener.in",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       }
      ]
     },
     "technicals": {
-     "price": 979.35,
-     "rs_percentile": 22,
-     "pct_below_52w_high": 10.0,
-     "pct_above_52w_low": 59.3,
-     "dma_50": 894.05,
-     "dma_200": 853.99,
-     "up_down_volume_ratio_50d": 2.15
+     "price": 967.0,
+     "rs_percentile": 20,
+     "pct_below_52w_high": 11.1,
+     "pct_above_52w_low": 57.3,
+     "dma_50": 899.44,
+     "dma_200": 854.27,
+     "up_down_volume_ratio_50d": 1.85
     },
     "status": "SCORED_NO_TREND"
    }
@@ -7123,11 +7269,11 @@
    "ticker": "UNIMECH",
    "name": "Unimech Aero.",
    "joined_date": "2026-07-05",
-   "last_updated": "2026-07-12",
+   "last_updated": "2026-07-14",
    "scorecard": {
     "ticker": "UNIMECH",
     "name": "Unimech Aero.",
-    "as_of": "2026-07-10",
+    "as_of": "2026-07-14",
     "mode": "WEEKLY",
     "gates": {
      "trend_template": {
@@ -7217,22 +7363,22 @@
     ],
     "risk_level": "MEDIUM",
     "valuation_context": {
-     "pe": 95.2,
+     "pe": 96.6,
      "peg": null,
      "vs_own_5yr": "",
      "note": "Valuation is context only, never a criterion."
     },
     "base": {
      "pattern_label": "",
-     "pivot": 1325.0,
-     "pct_from_pivot": -10.57,
+     "pivot": 1315.0,
+     "pct_from_pivot": -8.56,
      "base_count": 1,
-     "depth_pct": 47.5,
+     "depth_pct": 47.1,
      "weeks": 50.4
     },
     "trade_plan": null,
     "delta": {
-     "score_change": 27,
+     "score_change": 0,
      "gate_flips": [],
      "bucket_change": "",
      "alerts": []
@@ -7270,203 +7416,23 @@
       {
        "field": "technicals",
        "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       },
       {
        "field": "fundamentals",
        "source": "screener.in",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       }
      ]
     },
     "technicals": {
-     "price": 1185.0,
+     "price": 1202.4,
      "rs_percentile": 34,
-     "pct_below_52w_high": 10.6,
-     "pct_above_52w_low": 70.5,
-     "dma_50": 1067.84,
-     "dma_200": 963.38,
-     "up_down_volume_ratio_50d": 1.15
-    },
-    "status": "SCORED_NO_TREND"
-   }
-  },
-  {
-   "ticker": "NEPHROPLUS",
-   "name": "Nephrocare Health Services",
-   "joined_date": "2026-07-05",
-   "last_updated": "2026-07-12",
-   "scorecard": {
-    "ticker": "NEPHROPLUS",
-    "name": "Nephrocare Health Services",
-    "as_of": "2026-07-10",
-    "mode": "WEEKLY",
-    "gates": {
-     "trend_template": {
-      "c1": false,
-      "c2": false,
-      "c3": false,
-      "c4": false,
-      "c5": true,
-      "c6": true,
-      "c7": true,
-      "c8": false,
-      "pass": false,
-      "near_miss_notes": ""
-     },
-     "investability": {
-      "liquidity": true,
-      "pledge": true,
-      "governance": true,
-      "pass": true
-     }
-    },
-    "scores": {
-     "earnings": {
-      "A1": 0,
-      "A2": 0,
-      "A3": 0,
-      "A4": 0,
-      "A5": 0,
-      "subtotal": 0
-     },
-     "revenue": {
-      "B1": 6,
-      "B2": 0,
-      "B3": 3,
-      "B4": 0,
-      "subtotal": 9
-     },
-     "profitability": {
-      "C1": 0,
-      "C2": 3,
-      "C3": 2,
-      "C4": 0,
-      "subtotal": 5
-     },
-     "balance_sheet": {
-      "D1": 2,
-      "D2": 0,
-      "D3": 0,
-      "D4": 1,
-      "subtotal": 3
-     },
-     "sponsorship": {
-      "E1": 1,
-      "E2": 0,
-      "E3": 0,
-      "E4": 1,
-      "subtotal": 2
-     },
-     "rs_trend": {
-      "F1": 0,
-      "F2": 1,
-      "F3": 2,
-      "F4": 0,
-      "subtotal": 3
-     },
-     "base_structure": {
-      "G1": 0,
-      "G2": 0,
-      "G3": 3,
-      "G4": 0,
-      "G5": 1,
-      "G6": 0,
-      "subtotal": 4
-     },
-     "leadership": {
-      "H1": 0,
-      "H2": 0,
-      "H3": 0,
-      "subtotal": 0
-     },
-     "total": 26
-    },
-    "quality_band": "Reject",
-    "action_bucket": "AVOID",
-    "red_flags": [
-     "OTHER_INCOME_DRIVEN"
-    ],
-    "risk_level": "MEDIUM",
-    "valuation_context": {
-     "pe": 84.8,
-     "peg": null,
-     "vs_own_5yr": "",
-     "note": "Valuation is context only, never a criterion."
-    },
-    "base": {
-     "pattern_label": "",
-     "pivot": 769.75,
-     "pct_from_pivot": -15.69,
-     "base_count": null,
-     "depth_pct": 19.2,
-     "weeks": 4.2
-    },
-    "trade_plan": null,
-    "delta": {
-     "score_change": 26,
-     "gate_flips": [],
-     "bucket_change": "",
-     "alerts": [
-      "RS_DOWNGRADE"
-     ]
-    },
-    "violations": {
-     "count": 0,
-     "items": [],
-     "recommendation": ""
-    },
-    "verdict": {
-     "summary": "NEPHROPLUS (26/100) \u2014 Reject / AVOID. Score is informational only \u2014 Gate 1 not confirmed, so not an actionable setup yet.",
-     "strengths": [],
-     "weaknesses": [
-      "Fails Trend Template: c1, c2, c3, c4, c8",
-      "Earnings block weak (0/25)",
-      "No valid base yet (4/20)",
-      "14 unverified fields scored 0"
-     ],
-     "catalysts": [],
-     "biggest_risk": "OTHER_INCOME_DRIVEN",
-     "conviction_0_10": 0
-    },
-    "data_quality": {
-     "unverified_fields": [
-      "base_count",
-      "dma_150",
-      "dma_200",
-      "eps_acceleration",
-      "eps_cagr_3y",
-      "fcf",
-      "governance_events",
-      "group_leadership_rank",
-      "industry_group_rs",
-      "marquee_institution",
-      "mf_scheme_count",
-      "new_catalyst",
-      "promoter_pledge_pct",
-      "sales_acceleration"
-     ],
-     "sources": [
-      {
-       "field": "technicals",
-       "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-07-10"
-      },
-      {
-       "field": "fundamentals",
-       "source": "screener.in",
-       "as_of": "2026-07-10"
-      }
-     ]
-    },
-    "technicals": {
-     "price": 649.0,
-     "rs_percentile": 38,
-     "pct_below_52w_high": 15.7,
-     "pct_above_52w_low": 45.5,
-     "dma_50": 647.31,
-     "dma_200": null,
-     "up_down_volume_ratio_50d": 1.11
+     "pct_below_52w_high": 8.6,
+     "pct_above_52w_low": 73.0,
+     "dma_50": 1074.26,
+     "dma_200": 964.43,
+     "up_down_volume_ratio_50d": 1.16
     },
     "status": "SCORED_NO_TREND"
    }
@@ -7475,11 +7441,11 @@
    "ticker": "SHADOWFAX",
    "name": "Shadowfax Technologies",
    "joined_date": "2026-07-05",
-   "last_updated": "2026-07-12",
+   "last_updated": "2026-07-14",
    "scorecard": {
     "ticker": "SHADOWFAX",
     "name": "Shadowfax Technologies",
-    "as_of": "2026-07-10",
+    "as_of": "2026-07-14",
     "mode": "WEEKLY",
     "gates": {
      "trend_template": {
@@ -7569,7 +7535,7 @@
     ],
     "risk_level": "MEDIUM",
     "valuation_context": {
-     "pe": 120.0,
+     "pe": 109.0,
      "peg": null,
      "vs_own_5yr": "",
      "note": "Valuation is context only, never a criterion."
@@ -7577,14 +7543,14 @@
     "base": {
      "pattern_label": "",
      "pivot": 241.63,
-     "pct_from_pivot": -5.59,
+     "pct_from_pivot": -13.63,
      "base_count": null,
-     "depth_pct": 12.0,
-     "weeks": 0.8
+     "depth_pct": 15.4,
+     "weeks": 1.2
     },
     "trade_plan": null,
     "delta": {
-     "score_change": 26,
+     "score_change": 0,
      "gate_flips": [],
      "bucket_change": "",
      "alerts": []
@@ -7632,23 +7598,23 @@
       {
        "field": "technicals",
        "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       },
       {
        "field": "fundamentals",
        "source": "screener.in",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       }
      ]
     },
     "technicals": {
-     "price": 228.13,
+     "price": 208.7,
      "rs_percentile": null,
-     "pct_below_52w_high": 5.6,
-     "pct_above_52w_low": 131.5,
-     "dma_50": 203.6,
+     "pct_below_52w_high": 13.6,
+     "pct_above_52w_low": 111.8,
+     "dma_50": 205.37,
      "dma_200": null,
-     "up_down_volume_ratio_50d": 1.4
+     "up_down_volume_ratio_50d": 1.29
     },
     "status": "SCORED_NO_TREND"
    }
@@ -7657,11 +7623,11 @@
    "ticker": "LENSKART",
    "name": "Lenskart Solut.",
    "joined_date": "2026-07-05",
-   "last_updated": "2026-07-12",
+   "last_updated": "2026-07-14",
    "scorecard": {
     "ticker": "LENSKART",
     "name": "Lenskart Solut.",
-    "as_of": "2026-07-10",
+    "as_of": "2026-07-14",
     "mode": "WEEKLY",
     "gates": {
      "trend_template": {
@@ -7751,7 +7717,7 @@
     ],
     "risk_level": "MEDIUM",
     "valuation_context": {
-     "pe": 188.0,
+     "pe": 186.0,
      "peg": null,
      "vs_own_5yr": "",
      "note": "Valuation is context only, never a criterion."
@@ -7759,14 +7725,14 @@
     "base": {
      "pattern_label": "",
      "pivot": 563.0,
-     "pct_from_pivot": -3.44,
+     "pct_from_pivot": -4.46,
      "base_count": null,
      "depth_pct": 6.0,
-     "weeks": 0.4
+     "weeks": 0.8
     },
     "trade_plan": null,
     "delta": {
-     "score_change": 25,
+     "score_change": 0,
      "gate_flips": [],
      "bucket_change": "",
      "alerts": []
@@ -7809,23 +7775,23 @@
       {
        "field": "technicals",
        "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       },
       {
        "field": "fundamentals",
        "source": "screener.in",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       }
      ]
     },
     "technicals": {
-     "price": 543.65,
-     "rs_percentile": 8,
-     "pct_below_52w_high": 3.4,
-     "pct_above_52w_low": 52.7,
-     "dma_50": 508.43,
+     "price": 537.9,
+     "rs_percentile": 12,
+     "pct_below_52w_high": 4.5,
+     "pct_above_52w_low": 51.1,
+     "dma_50": 509.52,
      "dma_200": null,
-     "up_down_volume_ratio_50d": 2.46
+     "up_down_volume_ratio_50d": 2.43
     },
     "status": "SCORED_NO_TREND"
    }
@@ -7834,11 +7800,11 @@
    "ticker": "UTLSOLAR",
    "name": "Fujiyama Power",
    "joined_date": "2026-07-05",
-   "last_updated": "2026-07-12",
+   "last_updated": "2026-07-14",
    "scorecard": {
     "ticker": "UTLSOLAR",
     "name": "Fujiyama Power",
-    "as_of": "2026-07-10",
+    "as_of": "2026-07-14",
     "mode": "WEEKLY",
     "gates": {
      "trend_template": {
@@ -7928,25 +7894,23 @@
     ],
     "risk_level": "MEDIUM",
     "valuation_context": {
-     "pe": 594.0,
+     "pe": 595.0,
      "peg": null,
      "vs_own_5yr": "",
      "note": "Valuation is context only, never a criterion."
     },
     "base": {
      "pattern_label": "",
-     "pivot": 382.7,
-     "pct_from_pivot": 0.0,
+     "pivot": 401.8,
+     "pct_from_pivot": -4.6,
      "base_count": null,
-     "depth_pct": 4.3,
-     "weeks": 0.2
+     "depth_pct": 7.3,
+     "weeks": 0.4
     },
     "trade_plan": null,
     "delta": {
-     "score_change": 22,
-     "gate_flips": [
-      "c8: False -> True"
-     ],
+     "score_change": 0,
+     "gate_flips": [],
      "bucket_change": "",
      "alerts": []
     },
@@ -7996,23 +7960,23 @@
       {
        "field": "technicals",
        "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       },
       {
        "field": "fundamentals",
        "source": "screener.in",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       }
      ]
     },
     "technicals": {
-     "price": 382.7,
+     "price": 383.3,
      "rs_percentile": 77,
-     "pct_below_52w_high": 0.0,
-     "pct_above_52w_low": 122.5,
-     "dma_50": 308.22,
+     "pct_below_52w_high": 4.6,
+     "pct_above_52w_low": 122.8,
+     "dma_50": 312.26,
      "dma_200": null,
-     "up_down_volume_ratio_50d": 1.8
+     "up_down_volume_ratio_50d": 1.82
     },
     "status": "SCORED_NO_TREND"
    }
@@ -8021,11 +7985,11 @@
    "ticker": "KSHINTL",
    "name": "KSH Internationa",
    "joined_date": "2026-07-05",
-   "last_updated": "2026-07-12",
+   "last_updated": "2026-07-14",
    "scorecard": {
     "ticker": "KSHINTL",
     "name": "KSH Internationa",
-    "as_of": "2026-07-10",
+    "as_of": "2026-07-14",
     "mode": "WEEKLY",
     "gates": {
      "trend_template": {
@@ -8085,20 +8049,20 @@
       "subtotal": 2
      },
      "rs_trend": {
-      "F1": 5,
-      "F2": 2,
+      "F1": 7,
+      "F2": 4,
       "F3": 2,
       "F4": 2,
-      "subtotal": 11
+      "subtotal": 15
      },
      "base_structure": {
       "G1": 0,
       "G2": 0,
       "G3": 3,
       "G4": 0,
-      "G5": 3,
-      "G6": 2,
-      "subtotal": 8
+      "G5": 1,
+      "G6": 0,
+      "subtotal": 4
      },
      "leadership": {
       "H1": 0,
@@ -8121,14 +8085,14 @@
     "base": {
      "pattern_label": "",
      "pivot": 908.9,
-     "pct_from_pivot": -6.55,
+     "pct_from_pivot": -4.52,
      "base_count": null,
      "depth_pct": 15.9,
-     "weeks": 3.8
+     "weeks": 4.2
     },
     "trade_plan": null,
     "delta": {
-     "score_change": 22,
+     "score_change": 0,
      "gate_flips": [],
      "bucket_change": "",
      "alerts": []
@@ -8141,11 +8105,12 @@
     "verdict": {
      "summary": "KSHINTL (22/100) \u2014 Reject / AVOID. Score is informational only \u2014 Gate 1 not confirmed, so not an actionable setup yet.",
      "strengths": [
-      "RS percentile 89"
+      "RS percentile 91"
      ],
      "weaknesses": [
       "Fails Trend Template: c1, c2, c3, c4",
       "Earnings block weak (0/25)",
+      "No valid base yet (4/20)",
       "27 unverified fields scored 0"
      ],
      "catalysts": [],
@@ -8186,23 +8151,23 @@
       {
        "field": "technicals",
        "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       },
       {
        "field": "fundamentals",
        "source": "screener.in",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       }
      ]
     },
     "technicals": {
-     "price": 849.35,
-     "rs_percentile": 89,
-     "pct_below_52w_high": 6.6,
-     "pct_above_52w_low": 157.1,
-     "dma_50": 772.28,
+     "price": 867.85,
+     "rs_percentile": 91,
+     "pct_below_52w_high": 4.5,
+     "pct_above_52w_low": 162.7,
+     "dma_50": 781.97,
      "dma_200": null,
-     "up_down_volume_ratio_50d": 1.74
+     "up_down_volume_ratio_50d": 1.94
     },
     "status": "SCORED_NO_TREND"
    }
@@ -8211,11 +8176,11 @@
    "ticker": "TIPSMUSIC",
    "name": "Tips Music",
    "joined_date": "2026-07-05",
-   "last_updated": "2026-07-12",
+   "last_updated": "2026-07-14",
    "scorecard": {
     "ticker": "TIPSMUSIC",
     "name": "Tips Music",
-    "as_of": "2026-07-10",
+    "as_of": "2026-07-14",
     "mode": "WEEKLY",
     "gates": {
      "trend_template": {
@@ -8311,14 +8276,14 @@
     "base": {
      "pattern_label": "",
      "pivot": 726.75,
-     "pct_from_pivot": -2.09,
+     "pct_from_pivot": -3.16,
      "base_count": 1,
      "depth_pct": 14.6,
-     "weeks": 5.2
+     "weeks": 5.6
     },
     "trade_plan": null,
     "delta": {
-     "score_change": 20,
+     "score_change": 0,
      "gate_flips": [],
      "bucket_change": "",
      "alerts": []
@@ -8371,23 +8336,23 @@
       {
        "field": "technicals",
        "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       },
       {
        "field": "fundamentals",
        "source": "screener.in",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       }
      ]
     },
     "technicals": {
-     "price": 711.55,
-     "rs_percentile": 44,
-     "pct_below_52w_high": 2.1,
-     "pct_above_52w_low": 48.7,
-     "dma_50": 656.03,
-     "dma_200": 568.02,
-     "up_down_volume_ratio_50d": 1.6
+     "price": 703.8,
+     "rs_percentile": 38,
+     "pct_below_52w_high": 3.2,
+     "pct_above_52w_low": 47.1,
+     "dma_50": 658.56,
+     "dma_200": 569.28,
+     "up_down_volume_ratio_50d": 1.65
     },
     "status": "SCORED_NO_TREND"
    }
@@ -8396,11 +8361,11 @@
    "ticker": "THANGAMAYL",
    "name": "Thangamayil Jew.",
    "joined_date": "2026-07-05",
-   "last_updated": "2026-07-12",
+   "last_updated": "2026-07-14",
    "scorecard": {
     "ticker": "THANGAMAYL",
     "name": "Thangamayil Jew.",
-    "as_of": "2026-07-10",
+    "as_of": "2026-07-14",
     "mode": "WEEKLY",
     "gates": {
      "trend_template": {
@@ -8498,10 +8463,10 @@
     "base": {
      "pattern_label": "",
      "pivot": 7165.0,
-     "pct_from_pivot": -8.72,
-     "base_count": 5,
-     "depth_pct": 10.9,
-     "weeks": 0.4
+     "pct_from_pivot": -9.85,
+     "base_count": 6,
+     "depth_pct": 13.7,
+     "weeks": 0.8
     },
     "trade_plan": null,
     "delta": {
@@ -8560,43 +8525,43 @@
       {
        "field": "technicals",
        "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       },
       {
        "field": "fundamentals",
        "source": "screener.in",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       }
      ]
     },
     "technicals": {
-     "price": 6540.5,
+     "price": 6459.0,
      "rs_percentile": 97,
-     "pct_below_52w_high": 8.7,
-     "pct_above_52w_low": 273.7,
-     "dma_50": 4949.19,
-     "dma_200": 3672.28,
-     "up_down_volume_ratio_50d": 1.46
+     "pct_below_52w_high": 9.9,
+     "pct_above_52w_low": 269.1,
+     "dma_50": 5043.82,
+     "dma_200": 3714.89,
+     "up_down_volume_ratio_50d": 1.48
     },
     "status": "SCORED"
    }
   },
   {
-   "ticker": "DATAPATTNS",
-   "name": "Data Pattern",
+   "ticker": "SEDEMAC",
+   "name": "Sedemac Mechatro",
    "joined_date": "2026-07-05",
-   "last_updated": "2026-07-12",
+   "last_updated": "2026-07-14",
    "scorecard": {
-    "ticker": "DATAPATTNS",
-    "name": "Data Pattern",
-    "as_of": "2026-07-10",
+    "ticker": "SEDEMAC",
+    "name": "Sedemac Mechatro",
+    "as_of": "2026-07-14",
     "mode": "WEEKLY",
     "gates": {
      "trend_template": {
-      "c1": true,
-      "c2": true,
-      "c3": true,
-      "c4": true,
+      "c1": false,
+      "c2": false,
+      "c3": false,
+      "c4": false,
       "c5": true,
       "c6": true,
       "c7": true,
@@ -8642,11 +8607,11 @@
       "subtotal": 1
      },
      "sponsorship": {
-      "E1": 2,
+      "E1": 0,
       "E2": 0,
       "E3": 0,
-      "E4": 1,
-      "subtotal": 3
+      "E4": 0,
+      "subtotal": 0
      },
      "rs_trend": {
       "F1": 0,
@@ -8657,12 +8622,12 @@
      },
      "base_structure": {
       "G1": 0,
-      "G2": 2,
+      "G2": 0,
       "G3": 4,
       "G4": 0,
       "G5": 3,
       "G6": 0,
-      "subtotal": 9
+      "subtotal": 7
      },
      "leadership": {
       "H1": 0,
@@ -8670,7 +8635,7 @@
       "H3": 0,
       "subtotal": 0
      },
-     "total": 19
+     "total": 14
     },
     "quality_band": "Reject",
     "action_bucket": "AVOID",
@@ -8684,22 +8649,18 @@
     },
     "base": {
      "pattern_label": "",
-     "pivot": 4955.9,
-     "pct_from_pivot": -12.37,
-     "base_count": 3,
-     "depth_pct": 14.4,
-     "weeks": 3.2
+     "pivot": 2977.7,
+     "pct_from_pivot": -8.75,
+     "base_count": null,
+     "depth_pct": 13.8,
+     "weeks": 3.0
     },
     "trade_plan": null,
     "delta": {
-     "score_change": 1,
-     "gate_flips": [
-      "c8: True -> False"
-     ],
+     "score_change": 7,
+     "gate_flips": [],
      "bucket_change": "",
-     "alerts": [
-      "RS_DOWNGRADE"
-     ]
+     "alerts": []
     },
     "violations": {
      "count": 0,
@@ -8707,15 +8668,209 @@
      "recommendation": ""
     },
     "verdict": {
-     "summary": "DATAPATTNS (19/100) \u2014 Reject / AVOID. Score is informational only \u2014 Gate 1 not confirmed, so not an actionable setup yet.",
+     "summary": "SEDEMAC (14/100) \u2014 Reject / AVOID. Score is informational only \u2014 Gate 1 not confirmed, so not an actionable setup yet.",
      "strengths": [],
      "weaknesses": [
-      "Fails Trend Template: c8",
+      "Fails Trend Template: c1, c2, c3, c4, c8",
       "Earnings block weak (0/25)",
-      "24 unverified fields scored 0"
+      "30 unverified fields scored 0"
      ],
      "catalysts": [],
      "biggest_risk": "None flagged",
+     "conviction_0_10": 0
+    },
+    "data_quality": {
+     "unverified_fields": [
+      "base_count",
+      "debt_to_equity",
+      "dma_150",
+      "dma_200",
+      "eps_acceleration",
+      "eps_annual_growth",
+      "eps_cagr_3y",
+      "eps_quarterly",
+      "eps_revenue_support",
+      "eps_yoy_latest",
+      "fcf",
+      "governance_events",
+      "group_leadership_rank",
+      "industry_group_rs",
+      "institutional_holding",
+      "interest_coverage",
+      "marquee_institution",
+      "mf_scheme_count",
+      "net_margin_trend",
+      "new_catalyst",
+      "ocf_to_pat_3y",
+      "other_income_pct_pbt",
+      "promoter_holding_trend",
+      "promoter_pledge_pct",
+      "roe",
+      "rs_percentile",
+      "sales_acceleration",
+      "sales_cagr_3y",
+      "sales_yoy_latest",
+      "share_count_growth"
+     ],
+     "sources": [
+      {
+       "field": "technicals",
+       "source": "Yahoo Finance OHLCV",
+       "as_of": "2026-07-14"
+      },
+      {
+       "field": "fundamentals",
+       "source": "screener.in",
+       "as_of": "2026-07-14"
+      }
+     ]
+    },
+    "technicals": {
+     "price": 2717.2,
+     "rs_percentile": null,
+     "pct_below_52w_high": 8.7,
+     "pct_above_52w_low": 92.3,
+     "dma_50": 2442.15,
+     "dma_200": null,
+     "up_down_volume_ratio_50d": 1.47
+    },
+    "status": "SCORED_NO_TREND"
+   }
+  },
+  {
+   "ticker": "NETWEB",
+   "name": "Netweb Technol.",
+   "joined_date": "2026-07-14",
+   "last_updated": "2026-07-14",
+   "scorecard": {
+    "ticker": "NETWEB",
+    "name": "Netweb Technol.",
+    "as_of": "2026-07-14",
+    "mode": "FULL",
+    "gates": {
+     "trend_template": {
+      "c1": true,
+      "c2": true,
+      "c3": true,
+      "c4": true,
+      "c5": false,
+      "c6": true,
+      "c7": true,
+      "c8": false,
+      "pass": false,
+      "near_miss_notes": "c8 near miss: RS 65"
+     },
+     "investability": {
+      "liquidity": true,
+      "pledge": true,
+      "governance": true,
+      "pass": true
+     }
+    },
+    "scores": {
+     "earnings": {
+      "A1": 0,
+      "A2": 0,
+      "A3": 0,
+      "A4": 0,
+      "A5": 0,
+      "subtotal": 0
+     },
+     "revenue": {
+      "B1": 0,
+      "B2": 0,
+      "B3": 0,
+      "B4": 0,
+      "subtotal": 0
+     },
+     "profitability": {
+      "C1": 0,
+      "C2": 0,
+      "C3": 0,
+      "C4": 0,
+      "subtotal": 0
+     },
+     "balance_sheet": {
+      "D1": 0,
+      "D2": 0,
+      "D3": 0,
+      "D4": 1,
+      "subtotal": 1
+     },
+     "sponsorship": {
+      "E1": 1,
+      "E2": 0,
+      "E3": 0,
+      "E4": 0,
+      "subtotal": 1
+     },
+     "rs_trend": {
+      "F1": 0,
+      "F2": 1,
+      "F3": 0,
+      "F4": 2,
+      "subtotal": 3
+     },
+     "base_structure": {
+      "G1": 0,
+      "G2": 0,
+      "G3": 3,
+      "G4": 0,
+      "G5": 3,
+      "G6": 0,
+      "subtotal": 6
+     },
+     "leadership": {
+      "H1": 0,
+      "H2": 0,
+      "H3": 0,
+      "subtotal": 0
+     },
+     "total": 11
+    },
+    "quality_band": "Reject",
+    "action_bucket": "AVOID",
+    "red_flags": [
+     "LATE_STAGE_BASE"
+    ],
+    "risk_level": "LOW",
+    "valuation_context": {
+     "pe": null,
+     "peg": null,
+     "vs_own_5yr": "",
+     "note": "Valuation is context only, never a criterion."
+    },
+    "base": {
+     "pattern_label": "",
+     "pivot": 5244.0,
+     "pct_from_pivot": -16.13,
+     "base_count": 6,
+     "depth_pct": 20.8,
+     "weeks": 3.6
+    },
+    "trade_plan": null,
+    "delta": {
+     "score_change": 0,
+     "gate_flips": [],
+     "bucket_change": "",
+     "alerts": []
+    },
+    "violations": {
+     "count": 0,
+     "items": [],
+     "recommendation": ""
+    },
+    "verdict": {
+     "summary": "NETWEB (11/100) \u2014 Reject / AVOID. Score is informational only \u2014 Gate 1 not confirmed, so not an actionable setup yet.",
+     "strengths": [],
+     "weaknesses": [
+      "Fails Trend Template: c5, c8",
+      "Earnings block weak (0/25)",
+      "No valid base yet (6/20)",
+      "24 unverified fields scored 0"
+     ],
+     "catalysts": [],
+     "biggest_risk": "LATE_STAGE_BASE",
      "conviction_0_10": 0
     },
     "data_quality": {
@@ -8749,23 +8904,23 @@
       {
        "field": "technicals",
        "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       },
       {
        "field": "fundamentals",
        "source": "screener.in",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       }
      ]
     },
     "technicals": {
-     "price": 4343.0,
-     "rs_percentile": 59,
-     "pct_below_52w_high": 12.4,
-     "pct_above_52w_low": 103.8,
-     "dma_50": 4281.25,
-     "dma_200": 3263.13,
-     "up_down_volume_ratio_50d": 1.32
+     "price": 4398.1,
+     "rs_percentile": 65,
+     "pct_below_52w_high": 16.1,
+     "pct_above_52w_low": 144.3,
+     "dma_50": 4404.85,
+     "dma_200": 3688.3,
+     "up_down_volume_ratio_50d": 1.23
     },
     "status": "SCORED_NO_TREND"
    }
@@ -8774,12 +8929,12 @@
    "ticker": "HOMEFIRST",
    "name": "Home First Finan",
    "joined_date": "2026-07-12",
-   "last_updated": "2026-07-12",
+   "last_updated": "2026-07-14",
    "scorecard": {
     "ticker": "HOMEFIRST",
     "name": "Home First Finan",
-    "as_of": "2026-07-10",
-    "mode": "FULL",
+    "as_of": "2026-07-14",
+    "mode": "WEEKLY",
     "gates": {
      "trend_template": {
       "c1": true,
@@ -8874,10 +9029,10 @@
     "base": {
      "pattern_label": "",
      "pivot": 1511.93,
-     "pct_from_pivot": -19.13,
+     "pct_from_pivot": -19.1,
      "base_count": 2,
      "depth_pct": 41.2,
-     "weeks": 47.6
+     "weeks": 48.0
     },
     "trade_plan": null,
     "delta": {
@@ -8935,23 +9090,23 @@
       {
        "field": "technicals",
        "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       },
       {
        "field": "fundamentals",
        "source": "screener.in",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       }
      ]
     },
     "technicals": {
-     "price": 1222.7,
-     "rs_percentile": 0,
+     "price": 1223.1,
+     "rs_percentile": 6,
      "pct_below_52w_high": 19.1,
      "pct_above_52w_low": 37.5,
-     "dma_50": 1127.91,
-     "dma_200": 1127.68,
-     "up_down_volume_ratio_50d": 0.96
+     "dma_50": 1130.48,
+     "dma_200": 1127.48,
+     "up_down_volume_ratio_50d": 0.95
     },
     "status": "SCORED_NO_TREND"
    }
@@ -8960,11 +9115,11 @@
    "ticker": "SHILCTECH",
    "name": "Shilchar Tech.",
    "joined_date": "2026-07-05",
-   "last_updated": "2026-07-12",
+   "last_updated": "2026-07-14",
    "scorecard": {
     "ticker": "SHILCTECH",
     "name": "Shilchar Tech.",
-    "as_of": "2026-07-10",
+    "as_of": "2026-07-14",
     "mode": "WEEKLY",
     "gates": {
      "trend_template": {
@@ -9060,14 +9215,14 @@
     "base": {
      "pattern_label": "",
      "pivot": 4779.9,
-     "pct_from_pivot": -6.18,
+     "pct_from_pivot": -7.87,
      "base_count": null,
      "depth_pct": 30.2,
-     "weeks": 10.8
+     "weeks": 11.2
     },
     "trade_plan": null,
     "delta": {
-     "score_change": 8,
+     "score_change": 0,
      "gate_flips": [],
      "bucket_change": "",
      "alerts": []
@@ -9123,37 +9278,37 @@
       {
        "field": "technicals",
        "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       },
       {
        "field": "fundamentals",
        "source": "screener.in",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       }
      ]
     },
     "technicals": {
-     "price": 4484.3,
-     "rs_percentile": 4,
-     "pct_below_52w_high": 16.9,
-     "pct_above_52w_low": 57.2,
-     "dma_50": 4259.45,
+     "price": 4403.6,
+     "rs_percentile": 22,
+     "pct_below_52w_high": 18.4,
+     "pct_above_52w_low": 54.4,
+     "dma_50": 4238.54,
      "dma_200": null,
-     "up_down_volume_ratio_50d": 0.76
+     "up_down_volume_ratio_50d": 0.87
     },
     "status": "SCORED_NO_TREND"
    }
   },
   {
-   "ticker": "SEDEMAC",
-   "name": "Sedemac Mechatro",
-   "joined_date": "2026-07-05",
-   "last_updated": "2026-07-12",
+   "ticker": "SAATVIKGL",
+   "name": "Saatvik Green",
+   "joined_date": "2026-07-14",
+   "last_updated": "2026-07-14",
    "scorecard": {
-    "ticker": "SEDEMAC",
-    "name": "Sedemac Mechatro",
-    "as_of": "2026-07-10",
-    "mode": "WEEKLY",
+    "ticker": "SAATVIKGL",
+    "name": "Saatvik Green",
+    "as_of": "2026-07-14",
+    "mode": "FULL",
     "gates": {
      "trend_template": {
       "c1": false,
@@ -9168,94 +9323,34 @@
       "near_miss_notes": ""
      },
      "investability": {
-      "liquidity": true,
+      "liquidity": false,
       "pledge": true,
       "governance": true,
-      "pass": true
+      "pass": false
      }
     },
-    "scores": {
-     "earnings": {
-      "A1": 0,
-      "A2": 0,
-      "A3": 0,
-      "A4": 0,
-      "A5": 0,
-      "subtotal": 0
-     },
-     "revenue": {
-      "B1": 0,
-      "B2": 0,
-      "B3": 0,
-      "B4": 0,
-      "subtotal": 0
-     },
-     "profitability": {
-      "C1": 0,
-      "C2": 0,
-      "C3": 0,
-      "C4": 0,
-      "subtotal": 0
-     },
-     "balance_sheet": {
-      "D1": 0,
-      "D2": 0,
-      "D3": 0,
-      "D4": 1,
-      "subtotal": 1
-     },
-     "sponsorship": {
-      "E1": 0,
-      "E2": 0,
-      "E3": 0,
-      "E4": 0,
-      "subtotal": 0
-     },
-     "rs_trend": {
-      "F1": 0,
-      "F2": 2,
-      "F3": 2,
-      "F4": 2,
-      "subtotal": 6
-     },
-     "base_structure": {
-      "G1": 0,
-      "G2": 0,
-      "G3": 0,
-      "G4": 0,
-      "G5": 0,
-      "G6": 0,
-      "subtotal": 0
-     },
-     "leadership": {
-      "H1": 0,
-      "H2": 0,
-      "H3": 0,
-      "subtotal": 0
-     },
-     "total": 7
-    },
+    "scores": null,
     "quality_band": "Reject",
     "action_bucket": "AVOID",
     "red_flags": [],
-    "risk_level": "LOW",
+    "risk_level": null,
     "valuation_context": {
-     "pe": null,
+     "pe": 16.4,
      "peg": null,
      "vs_own_5yr": "",
      "note": "Valuation is context only, never a criterion."
     },
     "base": {
      "pattern_label": "",
-     "pivot": 2977.7,
-     "pct_from_pivot": -7.8,
+     "pivot": 567.0,
+     "pct_from_pivot": -17.83,
      "base_count": null,
-     "depth_pct": 13.8,
-     "weeks": 2.6
+     "depth_pct": 42.2,
+     "weeks": 37.8
     },
     "trade_plan": null,
     "delta": {
-     "score_change": 7,
+     "score_change": 0,
      "gate_flips": [],
      "bucket_change": "",
      "alerts": []
@@ -9266,85 +9361,54 @@
      "recommendation": ""
     },
     "verdict": {
-     "summary": "SEDEMAC (7/100) \u2014 Reject / AVOID. Score is informational only \u2014 Gate 1 not confirmed, so not an actionable setup yet.",
+     "summary": "Fails investability gate: LIQUIDITY.",
      "strengths": [],
-     "weaknesses": [
-      "Fails Trend Template: c1, c2, c3, c4, c8",
-      "Earnings block weak (0/25)",
-      "No valid base yet (0/20)",
-      "30 unverified fields scored 0"
-     ],
+     "weaknesses": [],
      "catalysts": [],
-     "biggest_risk": "None flagged",
+     "biggest_risk": "",
      "conviction_0_10": 0
     },
     "data_quality": {
      "unverified_fields": [
-      "base_count",
-      "debt_to_equity",
-      "dma_150",
       "dma_200",
-      "eps_acceleration",
-      "eps_annual_growth",
-      "eps_cagr_3y",
-      "eps_quarterly",
-      "eps_revenue_support",
-      "eps_yoy_latest",
       "fcf",
       "governance_events",
-      "group_leadership_rank",
-      "industry_group_rs",
-      "institutional_holding",
-      "interest_coverage",
-      "marquee_institution",
-      "mf_scheme_count",
-      "net_margin_trend",
-      "new_catalyst",
-      "ocf_to_pat_3y",
-      "other_income_pct_pbt",
-      "promoter_holding_trend",
-      "promoter_pledge_pct",
-      "roe",
-      "rs_percentile",
-      "sales_acceleration",
-      "sales_cagr_3y",
-      "sales_yoy_latest",
-      "share_count_growth"
+      "promoter_pledge_pct"
      ],
      "sources": [
       {
        "field": "technicals",
        "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       },
       {
        "field": "fundamentals",
        "source": "screener.in",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       }
      ]
     },
     "technicals": {
-     "price": 2745.4,
-     "rs_percentile": null,
-     "pct_below_52w_high": 7.8,
-     "pct_above_52w_low": 94.3,
-     "dma_50": 2411.14,
+     "price": 465.9,
+     "rs_percentile": 0,
+     "pct_below_52w_high": 17.8,
+     "pct_above_52w_low": 42.0,
+     "dma_50": 457.47,
      "dma_200": null,
-     "up_down_volume_ratio_50d": 1.69
+     "up_down_volume_ratio_50d": 0.8
     },
-    "status": "SCORED_NO_TREND"
+    "status": "FAIL_LIQUIDITY"
    }
   },
   {
    "ticker": "KISSHT",
    "name": "Onemi Technology",
    "joined_date": "2026-07-05",
-   "last_updated": "2026-07-12",
+   "last_updated": "2026-07-14",
    "scorecard": {
     "ticker": "KISSHT",
     "name": "Onemi Technology",
-    "as_of": "2026-07-10",
+    "as_of": "2026-07-14",
     "mode": "WEEKLY",
     "gates": {
      "trend_template": {
@@ -9372,7 +9436,7 @@
     "red_flags": [],
     "risk_level": null,
     "valuation_context": {
-     "pe": 19.2,
+     "pe": 19.4,
      "peg": null,
      "vs_own_5yr": "",
      "note": "Valuation is context only, never a criterion."
@@ -9380,10 +9444,10 @@
     "base": {
      "pattern_label": "",
      "pivot": 333.8,
-     "pct_from_pivot": -3.89,
+     "pct_from_pivot": -2.91,
      "base_count": null,
      "depth_pct": 10.5,
-     "weeks": 1.0
+     "weeks": 1.4
     },
     "trade_plan": null,
     "delta": {
@@ -9421,23 +9485,23 @@
       {
        "field": "technicals",
        "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       },
       {
        "field": "fundamentals",
        "source": "screener.in",
-       "as_of": "2026-07-10"
+       "as_of": "2026-07-14"
       }
      ]
     },
     "technicals": {
-     "price": 320.8,
+     "price": 324.1,
      "rs_percentile": null,
-     "pct_below_52w_high": 3.9,
-     "pct_above_52w_low": 68.8,
+     "pct_below_52w_high": 2.9,
+     "pct_above_52w_low": 70.6,
      "dma_50": null,
      "dma_200": null,
-     "up_down_volume_ratio_50d": 2.3
+     "up_down_volume_ratio_50d": 2.25
     },
     "status": "FAIL_LIQUIDITY"
    }
