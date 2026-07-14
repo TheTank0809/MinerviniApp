@@ -96,7 +96,7 @@
         return state.universeKey ? loadUniverse(state.universeKey) : renderList();
       })
       .catch(function () {
-        $("#regime-line").textContent = "no data yet — run the weekly scan";
+        $("#regime-line").textContent = "No data yet — run the weekly scan";
       });
   }
 
@@ -194,7 +194,7 @@
     var el = $("#regime-line");
     var llmEl = $("#llm-line");
     if (!run) {
-      el.innerHTML = '<span class="cursor">▮</span> awaiting first scan';
+      el.innerHTML = '<span class="cursor">▮</span> Awaiting first scan';
       llmEl.hidden = true;
       return;
     }
@@ -202,11 +202,11 @@
     el.className = "regime " + (r.label === "CORRECTION" ? "correction" : r.label === "CAUTION" ? "caution" : "");
     el.innerHTML = '<span class="cursor">▮</span> MKT ' + esc(r.label || "?") +
       " " + (r.score != null ? r.score + "/6" : "");
-    $("#runstamp").textContent = "scan " + fmtDate(run.run_date);
+    $("#runstamp").textContent = "Scan " + fmtDate(run.run_date);
 
     var llm = run.llm;
     if (llm && llm.model) {
-      llmEl.textContent = "verdicts: " + (llm.enabled ? llm.model : "rule-based (no LLM key set)");
+      llmEl.textContent = "Verdicts: " + (llm.enabled ? llm.model : "Rule-based (no LLM key set)");
       llmEl.hidden = false;
     } else {
       llmEl.hidden = true;
@@ -281,7 +281,8 @@
       var on = !!entry.activeRecs[s.screen];
       var droppedRec = entry.droppedRecs[s.screen];
       var title = s.label + (on ? " — active" : droppedRec ? " — left " + fmtDate(droppedRec.dropped_date) : " — not in this screen");
-      return '<span class="mship' + (on ? " on" : "") + '" title="' + esc(title) + '">' + esc(s.short) + "</span>";
+      var colorClass = "mship-" + s.short.toLowerCase().replace(/[^a-z0-9]/g, "");
+      return '<span class="mship ' + colorClass + (on ? " on" : "") + '" title="' + esc(title) + '">' + esc(s.short) + "</span>";
     }).join("");
   }
 
@@ -308,8 +309,8 @@
       var reason = rejectReason(sc);
       var statusText = reason || sc.quality_band || sc.status || "";
       var sub = state.tab === "dropped"
-        ? "joined " + fmtDate(entry.joined_date) + " · left " + fmtDate(entry.dropped_date) + (reason ? " · " + reason : "")
-        : "joined " + fmtDate(entry.joined_date) + (statusText ? " · " + statusText : "");
+        ? "Joined " + fmtDate(entry.joined_date) + " · Left " + fmtDate(entry.dropped_date) + (reason ? " · " + reason : "")
+        : "Joined " + fmtDate(entry.joined_date) + (statusText ? " · " + statusText : "");
       var cells =
         '<span class="stockcell"><span class="ticker">' + esc(entry.ticker) + "</span>" +
         membershipPills(entry) +
@@ -393,7 +394,7 @@
     html += '<div class="badges">';
     if (scores) html += '<span class="badge band">' + esc(sc.quality_band) + " · " + scores.total + "/100</span>";
     html += '<span class="badge">' + esc((sc.action_bucket || sc.status || "").replace(/_/g, " ")) + "</span>";
-    if (rec.dropped_date) html += '<span class="badge frozen">left screen ' + fmtDate(rec.dropped_date) + " · frozen</span>";
+    if (rec.dropped_date) html += '<span class="badge frozen">Left screen ' + fmtDate(rec.dropped_date) + " · frozen</span>";
     var reason = rejectReason(sc);
     if (reason) html += '<span class="badge flag">' + esc(reason) + "</span>";
     (sc.red_flags || []).forEach(function (f) { html += '<span class="badge flag">' + esc(f) + "</span>"; });
