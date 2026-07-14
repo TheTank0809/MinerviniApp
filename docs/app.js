@@ -56,6 +56,12 @@
     var d = new Date(iso + "T00:00:00");
     return d.toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "2-digit" });
   }
+  var NEW_WINDOW_DAYS = 14;
+  function daysSince(iso) {
+    if (!iso) return null;
+    var d = new Date(iso + "T00:00:00");
+    return Math.floor((Date.now() - d.getTime()) / 86400000);
+  }
   function esc(s) {
     return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
       return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
@@ -179,10 +185,8 @@
       e.primary = pickPrimary(pool);
       e.joined_date = extremeDate(pool, "joined_date", false);
       e.dropped_date = extremeDate(e.droppedRecs, "dropped_date", true);
-      e.isNew = activeSlugs.some(function (s) {
-        var r = e.activeRecs[s];
-        return r.joined_date && r.last_updated === r.joined_date;
-      });
+      var age = daysSince(e.joined_date);
+      e.isNew = age !== null && age >= 0 && age <= NEW_WINDOW_DAYS;
       if (activeSlugs.length) active.push(e); else if (Object.keys(e.droppedRecs).length) dropped.push(e);
     });
     return { active: active, dropped: dropped };
@@ -231,21 +235,28 @@
   function renderFilterChips() {
     var box = $("#screen-filter");
     box.innerHTML = "";
-    if (state.screens.length < 2) { box.hidden = true; return; }
+    if (!state.screens.length) { box.hidden = true; return; }
     box.hidden = false;
     var allBtn = document.createElement("button");
     allBtn.className = "chip" + (!state.filter ? " active" : "");
     allBtn.textContent = "All";
     allBtn.onclick = function () { state.filter = null; renderFilterChips(); renderList(); };
     box.appendChild(allBtn);
-    state.screens.forEach(function (raw) {
-      var s = screenMeta(raw.screen);
-      var b = document.createElement("button");
-      b.className = "chip" + (state.filter === s.screen ? " active" : "");
-      b.textContent = s.short + " only";
-      b.onclick = function () { state.filter = s.screen; renderFilterChips(); renderList(); };
-      box.appendChild(b);
-    });
+    if (state.screens.length >= 2) {
+      state.screens.forEach(function (raw) {
+        var s = screenMeta(raw.screen);
+        var b = document.createElement("button");
+        b.className = "chip" + (state.filter === s.screen ? " active" : "");
+        b.textContent = s.short + " only";
+        b.onclick = function () { state.filter = s.screen; renderFilterChips(); renderList(); };
+        box.appendChild(b);
+      });
+    }
+    var newBtn = document.createElement("button");
+    newBtn.className = "chip" + (state.filter === "new" ? " active" : "");
+    newBtn.textContent = "New";
+    newBtn.onclick = function () { state.filter = "new"; renderFilterChips(); renderList(); };
+    box.appendChild(newBtn);
   }
 
   // ---------------------------------------------------------------- list
@@ -288,8 +299,15 @@
 
   function renderList() {
     var list = state.data[state.tab] || [];
-    if (state.filter) {
-      list = list.filter(function (e) { return e.activeRecs[state.filter] || e.droppedRecs[state.filter]; });
+    if (state.filter === "new") {
+      list = list.filter(function (e) { return e.isNew; });
+    } else if (state.filter) {
+      // Scoped to the tab being shown: a stock that dropped out of screen X but is
+      // still active via screen Y must not count as "X only" on the In-screen tab —
+      // it's no longer actually in X.
+      list = list.filter(function (e) {
+        return state.tab === "dropped" ? !!e.droppedRecs[state.filter] : !!e.activeRecs[state.filter];
+      });
     }
     var box = $("#list");
     $("#thead").style.display = list.length ? "" : "none";
