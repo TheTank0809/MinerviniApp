@@ -124,7 +124,10 @@ def process_screen(client, universe_key, uni, screen, settings):
 
     # ---- evaluate every current stock ---------------------------------------
     name_by_code = {s["code"]: s["name"] for s in current}
+    llm_model = settings.get("llm_model", "claude-sonnet-5")
     llm_budget = settings.get("llm_max_new_stocks_per_run", 25)
+    existing_recheck_budget = settings.get("llm_max_existing_catalyst_checks_per_run", 10)
+    recheck_days = settings.get("llm_catalyst_recheck_days", 30)
     out_stocks, errors = [], []
     for s in current:
         code = s["code"]
@@ -134,27 +137,44 @@ def process_screen(client, universe_key, uni, screen, settings):
             df = df_for(code)
             if df is None:
                 raise RuntimeError("no OHLCV data on Yahoo Finance")
+            prior_scorecard = (prior_rec or {}).get("scorecard")
             prev_rs = None
             if prior_rec:
-                prev_rs = ((prior_rec.get("scorecard") or {}).get("technicals") or {}).get("rs_percentile")
+                prev_rs = ((prior_scorecard or {}).get("technicals") or {}).get("rs_percentile")
             tech = T.build_technical_payload(df, rs_percentile=rs_pct.get(code),
                                              rs_percentile_prev=prev_rs)
             raw_fund = client.fetch_company(code)
             fund = build_fundamental_payload(raw_fund)
 
-            llm_out = None
+            prior_llm_checks = (prior_scorecard or {}).get("llm_checks") or {}
+            llm_out, fresh_check = None, False
             if is_new and LLM.llm_available() and llm_budget > 0:
                 pre = SC.evaluate(code, name_by_code[code], tech, fund, regime, settings,
                                   mode="FULL", prior=None)
-                llm_out = LLM.synthesize_verdict(pre, tech, fund, PROMPT_PATH,
-                                                 model=settings.get("llm_model", "claude-sonnet-5"))
+                llm_out = LLM.synthesize_verdict(pre, tech, fund, PROMPT_PATH, model=llm_model)
                 llm_budget -= 1
+                fresh_check = llm_out is not None
+            elif not is_new and LLM.llm_available() and existing_recheck_budget > 0:
+                last_checked = prior_llm_checks.get("checked_date")
+                stale = (not last_checked) or (
+                    (datetime.date.today() - datetime.date.fromisoformat(last_checked)).days >= recheck_days)
+                if stale:
+                    llm_out = LLM.check_catalyst_and_governance(
+                        code, name_by_code[code], PROMPT_PATH, model=llm_model)
+                    existing_recheck_budget -= 1
+                    fresh_check = llm_out is not None
+
+            if llm_out is None and prior_llm_checks:
+                llm_out = prior_llm_checks  # carry forward last known H3/governance result
 
             card = SC.evaluate(
                 code, name_by_code[code], tech, fund, regime, settings,
                 mode="FULL" if is_new else "WEEKLY",
-                prior=(prior_rec or {}).get("scorecard"),
+                prior=prior_scorecard,
                 llm_verdict=llm_out)
+            if card.get("llm_checks") is not None:
+                card["llm_checks"]["checked_date"] = (
+                    today() if fresh_check else prior_llm_checks.get("checked_date"))
 
             rec = {
                 "ticker": code,

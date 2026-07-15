@@ -56,13 +56,13 @@ def fund(eps_yoy, sales_yoy, roe=22.0, de=0.2):
         "eps_annual": [10, 14, 19, 26, 35], "eps_annual_growth_latest": 34.6,
         "eps_cagr_3y": 36.0, "sales_cagr_3y": 24.0,
         "roe": roe, "roce": roe + 3, "ocf_to_pat_3y": 0.92,
-        "fcf_positive_years_of_3": None,
+        "fcf_estimated_positive_count": 2,  # estimated (OCF - approx capex), see FCF_ESTIMATED flag
         "debt_to_equity": de, "interest_coverage": 14.0,
         "share_count_growth_2y_pct": 0.4,
         "promoter_holding_last4": [61.0, 61.0, 61.2, 61.2],
         "institutional_holding_last4": [12.1, 12.9, 13.8, 15.2],
-        "promoter_pledge_pct": None, "pe": 44.2,
-        "unverified_fields": ["fcf", "mf_scheme_count"],
+        "promoter_pledge_pct": 0.0, "pe": 44.2,  # screener.in omits this line when pledge is zero
+        "unverified_fields": ["mf_scheme_count"],
     }
 
 

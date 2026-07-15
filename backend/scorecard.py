@@ -52,7 +52,7 @@ def trend_template(t, unverified):
 
 # ---------------------------------------------------------------- Gate 2: Investability
 
-def investability(t, f, cfg, unverified):
+def investability(t, f, cfg, unverified, llm_checks=None):
     g = {}
     mtv = t.get("median_daily_traded_value_50d")
     min_cr = cfg.get("min_median_daily_traded_value_cr", 5)
@@ -63,15 +63,24 @@ def investability(t, f, cfg, unverified):
         g["liquidity"] = mtv >= min_cr * 1e7  # ₹ crore -> ₹
     pledge = f.get("promoter_pledge_pct")
     if pledge is None:
-        # screener only shows pledge when it exists; treat absent as 0 but note it
+        # genuine parse failure (the ratios box itself didn't load) — screener.in
+        # omitting just the pledge line is already normalized to 0.0 upstream
         g["pledge"] = True
         if "promoter_pledge_pct" not in unverified:
             unverified.append("promoter_pledge_pct")
     else:
         g["pledge"] = pledge <= cfg.get("max_promoter_pledge_pct", 15)
-    g["governance"] = True  # not automatable for free; flagged as unverified
-    if "governance_events" not in unverified:
-        unverified.append("governance_events")
+    # Governance events (auditor resignation, SEBI action, fraud investigation) have no
+    # structured field on screener.in — best-effort only, via the LLM's own knowledge of
+    # recent news when a check was actually run this cycle (see llm.py). No check yet run
+    # for this stock -> stays unverified rather than assumed clean.
+    if llm_checks is not None and "governance_flag" in llm_checks:
+        g["governance"] = not llm_checks.get("governance_flag")
+        g["governance_note"] = llm_checks.get("governance_note", "")
+    else:
+        g["governance"] = True
+        if "governance_events" not in unverified:
+            unverified.append("governance_events")
     g["pass"] = g["liquidity"] and g["pledge"] and g["governance"]
     return g
 
@@ -156,8 +165,12 @@ def _score_C(f, uv, flags):
         s["C3"] = 2 if cc >= 0.8 else 0
         if cc < 0.5:
             flags.append("POOR_CASH_CONVERSION")
-    fcf = f.get("fcf_positive_years_of_3")
-    s["C4"] = _uv(uv, "fcf") if fcf is None else (2 if fcf >= 2 else 0)
+    fcf_count = f.get("fcf_estimated_positive_count")
+    if fcf_count is None:
+        s["C4"] = _uv(uv, "fcf")
+    else:
+        s["C4"] = 2 if fcf_count >= 2 else 0
+        flags.append("FCF_ESTIMATED")  # OCF - approximate capex, not a verified figure
     s["subtotal"] = sum(v for k, v in s.items() if k != "subtotal")
     return s
 
@@ -336,11 +349,21 @@ def evaluate(ticker, name, tech, fund, regime, cfg, mode="FULL", prior=None, llm
     flags = []
 
     tt = trend_template(tech, unverified)
-    inv = investability(tech, fund, cfg, unverified)
+    inv = investability(tech, fund, cfg, unverified, llm_checks=llm_verdict)
+    # Raw H3/governance assessment, persisted so a stock not rechecked this run (see
+    # pipeline.py's recheck cadence/budget) still carries forward its last known result
+    # instead of reverting to unverified every week in between checks.
+    llm_checks = {
+        "h3_catalyst_found": bool(llm_verdict.get("h3_catalyst_found")),
+        "h3_citation": llm_verdict.get("h3_citation", ""),
+        "governance_flag": bool(llm_verdict.get("governance_flag")),
+        "governance_note": llm_verdict.get("governance_note", ""),
+    } if llm_verdict else None
 
     card = {
         "ticker": ticker, "name": name, "as_of": tech.get("as_of"), "mode": mode,
         "gates": {"trend_template": tt, "investability": inv},
+        "llm_checks": llm_checks,
         "scores": None, "quality_band": None, "action_bucket": None,
         "red_flags": [], "risk_level": None,
         "valuation_context": {"pe": fund.get("pe"), "peg": None, "vs_own_5yr": "",
@@ -373,7 +396,10 @@ def evaluate(ticker, name, tech, fund, regime, cfg, mode="FULL", prior=None, llm
         card["status"] = "FAIL_" + fails[0] if fails else "FAIL_INVESTABILITY"
         card["quality_band"] = "Reject"
         card["action_bucket"] = "AVOID"
-        card["verdict"]["summary"] = "Fails investability gate: %s." % ", ".join(fails)
+        summary = "Fails investability gate: %s." % ", ".join(fails)
+        if not inv.get("governance", True) and inv.get("governance_note"):
+            summary += " Governance: %s" % inv["governance_note"]
+        card["verdict"]["summary"] = summary
         card["data_quality"]["unverified_fields"] = sorted(set(unverified))
         _apply_delta(card, prior)
         return card
@@ -392,8 +418,7 @@ def evaluate(ticker, name, tech, fund, regime, cfg, mode="FULL", prior=None, llm
         "sponsorship": _score_E(fund, unverified, flags),
         "rs_trend": _score_F(tech, unverified, flags),
         "base_structure": _score_G(tech, tt["pass"], unverified, flags),
-        "leadership": _score_H(tech, unverified, flags,
-                               llm_h=(llm_verdict or {}).get("h3") if llm_verdict else None),
+        "leadership": _score_H(tech, unverified, flags, llm_h=llm_verdict),
     }
     total = sum(sec["subtotal"] for sec in s.values())
     s["total"] = total

@@ -103,9 +103,23 @@ python3 -m http.server 8000 --directory docs   # then open http://localhost:8000
 
 - **RS percentile** is ranked within the tracked screen universe, not all of Nifty 500 —
   fine in practice since your screen pre-filters for strength.
-- Industry-group RS, MF scheme counts, marquee-holder checks, FCF, and governance-event
-  scans aren't available from free sources → those items score 0 and are listed as
-  unverified (per the prompt's own rule, never estimated).
+- **Industry-group RS, group leadership rank, MF scheme counts, and marquee-holder
+  checks** aren't available from free sources at all → those items always score 0 and
+  stay listed as unverified. The first two would need RS/EPS growth computed across the
+  whole sector, not just your tracked screens; the latter two need named-holder detail
+  that screener.in's free shareholding view doesn't expose (NSE/BSE quarterly filings do,
+  but that's a separate scraper project, not a config toggle).
+- **Free Cash Flow** is *estimated* (Operating Cash Flow − an approximate capex derived
+  from the change in Net Block + Depreciation), since screener.in's free Cash Flow section
+  doesn't isolate capex as its own line. This one deliberately breaks the "never estimate"
+  rule — every stock scored this way carries an `FCF_ESTIMATED` red flag so it's never
+  presented as a verified number.
+- **New catalyst (H3)** and **governance red flags** are LLM best-effort checks (only run
+  when `ANTHROPIC_API_KEY` is set) — a citation-or-nothing check against the model's own
+  knowledge, not a scan of screener.in. New stocks get checked on arrival; already-tracked
+  stocks get periodically rechecked (`llm_catalyst_recheck_days` in config, default 30) so
+  the result doesn't silently go stale, capped by `llm_max_existing_catalyst_checks_per_run`
+  to bound cost. A governance red flag hard-fails the investability gate.
 - Base/VCP detection is a heuristic on daily bars; treat G-section scores as a guide
   and eyeball the chart before buying.
 - The site currently shows FII+DII holdings as the institutional sponsorship proxy

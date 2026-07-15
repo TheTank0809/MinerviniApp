@@ -12,6 +12,8 @@ settings:
   request_delay_seconds: 1.2        # politeness delay between screener.in requests
   llm_model: "claude-sonnet-5"      # used only if ANTHROPIC_API_KEY is set
   llm_max_new_stocks_per_run: 25    # cost guard for verdict synthesis
+  llm_max_existing_catalyst_checks_per_run: 10  # cost guard for the lighter recheck below
+  llm_catalyst_recheck_days: 30     # how often an already-tracked stock's H3/governance is rechecked
 
 universes:
   india:

@@ -43,6 +43,29 @@ def _pct_from_ratio_text(text):
     return float(m.group(1)) if m else None
 
 
+def _estimate_fcf_years(bs, pl, cf, n_years=3):
+    """Estimated FCF per year = OCF - (delta Net Block + Depreciation), an indirect proxy
+    for capex. screener.in's free Cash Flow section doesn't isolate capex as its own line,
+    so this is an ESTIMATE, not a verified figure — callers must flag it as such (see
+    scorecard.py's FCF_ESTIMATED red flag) rather than presenting it as a hard number."""
+    net_block = _row(bs, "Net Block")
+    depreciation = _row(pl, "Depreciation")
+    ocf = _row(cf, "Cash from Operating")
+    if not (net_block and depreciation and ocf):
+        return None
+    results = []
+    for k in range(1, n_years + 1):
+        ocf_idx, nb_idx, dep_idx = len(ocf) - k, len(net_block) - k, len(depreciation) - k
+        if ocf_idx < 0 or nb_idx < 1 or dep_idx < 0:
+            break
+        nb_now, nb_prev, dep, ocf_v = net_block[nb_idx], net_block[nb_idx - 1], depreciation[dep_idx], ocf[ocf_idx]
+        if None in (nb_now, nb_prev, dep, ocf_v):
+            continue
+        capex_est = (nb_now - nb_prev) + dep
+        results.append(ocf_v - capex_est)
+    return results or None
+
+
 def build_fundamental_payload(raw):
     """raw = output of ScreenerClient.fetch_company"""
     unverified = []
@@ -151,9 +174,16 @@ def build_fundamental_payload(raw):
         payload["ocf_to_pat_3y"] = None
         unverified.append("ocf_to_pat_3y")
 
-    # FCF is not derivable from screener tables (no capex line) — leave unverified
-    payload["fcf_positive_years_of_3"] = None
-    unverified.append("fcf")
+    # screener.in's Cash Flow section doesn't isolate capex, so FCF can only be
+    # estimated (OCF - approximate capex) — never a verified figure. See
+    # _estimate_fcf_years' docstring; scorecard.py must tag this with FCF_ESTIMATED.
+    fcf_years = _estimate_fcf_years(bs, pl, cf)
+    if fcf_years:
+        payload["fcf_estimated_positive_count"] = sum(1 for v in fcf_years if v > 0)
+        payload["fcf_estimated_years_count"] = len(fcf_years)
+    else:
+        payload["fcf_estimated_positive_count"] = None
+        unverified.append("fcf")
 
     # ---- Balance sheet ----------------------------------------------------
     borrow = _row(bs, "Borrowings")
@@ -201,10 +231,17 @@ def build_fundamental_payload(raw):
         payload["institutional_holding_last4"] = None
         unverified.append("institutional_holding")
 
-    pledge = _pct_from_ratio_text(ratios.get("Pledged percentage"))
-    payload["promoter_pledge_pct"] = pledge  # None => unverified
-    if pledge is None:
+    # screener.in omits the "Pledged percentage" ratio entirely when pledge is zero,
+    # rather than showing 0% — so its absence is a confirmed zero, not a missing value,
+    # as long as the ratios box itself parsed (i.e. this isn't a page-structure failure).
+    if ratios:
+        pledge = _pct_from_ratio_text(ratios.get("Pledged percentage"))
+        if pledge is None:
+            pledge = 0.0
+    else:
+        pledge = None
         unverified.append("promoter_pledge_pct")
+    payload["promoter_pledge_pct"] = pledge
 
     # valuation context (never scored — PROMPT.md purity rules)
     payload["pe"] = None
