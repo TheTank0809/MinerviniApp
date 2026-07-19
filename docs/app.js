@@ -187,9 +187,32 @@
       e.dropped_date = extremeDate(e.droppedRecs, "dropped_date", true);
       var age = daysSince(e.joined_date);
       e.isNew = age !== null && age >= 0 && age <= NEW_WINDOW_DAYS;
-      if (activeSlugs.length) active.push(e); else if (Object.keys(e.droppedRecs).length) dropped.push(e);
+      // A stock stays in "In screen" as long as it's active in at least one screen, and
+      // separately appears in "Left the screen" as soon as it has dropped from at least
+      // one — these are independent conditions now, so a stock dropped from Minervini
+      // but still active via Growth shows in both (deliberately: it needs a mention in
+      // Left as much as it needs live tracking in In-screen).
+      if (activeSlugs.length) active.push(e);
+      if (Object.keys(e.droppedRecs).length) dropped.push(e);
     });
     return { active: active, dropped: dropped };
+  }
+
+  // Classify a dropped entry into exactly one section: dropped from every currently
+  // tracked screen ("all"), from exactly one specific screen, or (only possible with 3+
+  // screens) from more than one but not all — a catch-all so nothing silently vanishes.
+  function droppedSection(entry) {
+    var droppedSlugs = Object.keys(entry.droppedRecs);
+    var total = state.screens.length;
+    if (total > 0 && droppedSlugs.length >= total) {
+      return { key: "__all__", label: "Left all tracked screens", order: total };
+    }
+    if (droppedSlugs.length === 1) {
+      var meta = screenMeta(droppedSlugs[0]);
+      var order = state.screens.map(function (s) { return s.screen; }).indexOf(droppedSlugs[0]);
+      return { key: droppedSlugs[0], label: "Left " + meta.label + " only", order: order < 0 ? 0 : order };
+    }
+    return { key: "__multi__", label: "Left multiple screens", order: total - 0.5 };
   }
 
   // ---------------------------------------------------------------- header
@@ -314,43 +337,71 @@
     $("#empty").hidden = !!list.length;
     $("#count").textContent = list.length + (state.tab === "active" ? " tracked" : " left");
     box.innerHTML = "";
+
+    if (state.tab !== "dropped") {
+      sorted(list).forEach(function (entry) { box.appendChild(buildRow(entry, false)); });
+      return;
+    }
+
+    // Left the screen: grouped into sections by exactly which screen(s) each stock has
+    // dropped from. A stock still active via another screen (not fully frozen) keeps
+    // showing live data here — only entries dropped from every tracked screen are frozen.
+    var groups = {};
     sorted(list).forEach(function (entry) {
-      var rec = entry.primary;
-      var sc = rec.scorecard || {};
-      var t = sc.technicals || {};
-      var scores = sc.scores || null;
-      var tot = scores ? scores.total : null;
-      var scoreCls = tot == null ? "low" : tot >= 80 ? "" : tot >= 60 ? "mid" : "low";
-      var bucket = scores ? (sc.action_bucket || "") : "GATE_FAIL";
-      var row = document.createElement("button");
-      row.className = "row" + (state.tab === "dropped" ? " frozen" : "");
-      var reason = rejectReason(sc);
-      var statusText = reason || sc.quality_band || sc.status || "";
-      var sub = state.tab === "dropped"
-        ? "Joined " + fmtDate(entry.joined_date) + " · Left " + fmtDate(entry.dropped_date) + (reason ? " · " + reason : "")
-        : "Joined " + fmtDate(entry.joined_date) + (statusText ? " · " + statusText : "");
-      var cells =
-        '<span class="stockcell"><span class="ticker">' + esc(entry.ticker) + "</span>" +
-        membershipPills(entry) +
-        (entry.isNew ? '<span class="newpill">NEW</span>' : "") +
-        '<div class="sname">' + esc(entry.name || "") + '</div>' +
-        '<div class="sub' + (reason && state.tab !== "dropped" ? " reject" : "") + '" title="' + esc(sub) + '">' + esc(sub) + "</div></span>" +
-        '<span class="score ' + scoreCls + '">' + (tot == null ? "—" : tot) + '<span class="of">/100</span></span>' +
-        gatebar(sc);
-      var subs = "";
-      ["earnings", "revenue", "profitability", "balance_sheet", "sponsorship", "rs_trend", "base_structure", "leadership"]
-        .forEach(function (k) {
-          var v = scores ? scores[k].subtotal : null;
-          subs += '<span class="cellnum wide' + (v ? "" : " dim") + '">' + (v == null ? "·" : v) + "</span>";
-        });
-      cells += '<span class="cellnum wide' + (t.rs_percentile == null ? " dim" : "") + '">' +
-               (t.rs_percentile == null ? "·" : t.rs_percentile) + "</span>" + subs +
-               '<span class="bucket wide ' + esc(bucket) + '">' + esc(bucket.replace(/_/g, " ")) + "</span>" +
-               '<span class="datecell wide">' + fmtDate(entry.joined_date) + "</span>";
-      row.innerHTML = cells;
-      row.onclick = function () { openSheet(entry); };
-      box.appendChild(row);
+      var sec = droppedSection(entry);
+      if (!groups[sec.key]) groups[sec.key] = { label: sec.label, order: sec.order, entries: [] };
+      groups[sec.key].entries.push(entry);
     });
+    Object.keys(groups).map(function (k) { return groups[k]; })
+      .sort(function (a, b) { return a.order - b.order; })
+      .forEach(function (g) {
+        var head = document.createElement("div");
+        head.className = "section-head";
+        head.textContent = g.label + " (" + g.entries.length + ")";
+        box.appendChild(head);
+        g.entries.forEach(function (entry) {
+          var isFrozen = !Object.keys(entry.activeRecs).length;
+          box.appendChild(buildRow(entry, isFrozen));
+        });
+      });
+  }
+
+  function buildRow(entry, isFrozen) {
+    var rec = entry.primary;
+    var sc = rec.scorecard || {};
+    var t = sc.technicals || {};
+    var scores = sc.scores || null;
+    var tot = scores ? scores.total : null;
+    var scoreCls = tot == null ? "low" : tot >= 80 ? "" : tot >= 60 ? "mid" : "low";
+    var bucket = scores ? (sc.action_bucket || "") : "GATE_FAIL";
+    var row = document.createElement("button");
+    row.className = "row" + (isFrozen ? " frozen" : "");
+    var reason = rejectReason(sc);
+    var statusText = reason || sc.quality_band || sc.status || "";
+    var sub = state.tab === "dropped"
+      ? "Joined " + fmtDate(entry.joined_date) + " · Left " + fmtDate(entry.dropped_date) + (reason ? " · " + reason : "")
+      : "Joined " + fmtDate(entry.joined_date) + (statusText ? " · " + statusText : "");
+    var cells =
+      '<span class="stockcell"><span class="ticker">' + esc(entry.ticker) + "</span>" +
+      membershipPills(entry) +
+      (entry.isNew ? '<span class="newpill">NEW</span>' : "") +
+      '<div class="sname">' + esc(entry.name || "") + '</div>' +
+      '<div class="sub' + (reason && state.tab !== "dropped" ? " reject" : "") + '" title="' + esc(sub) + '">' + esc(sub) + "</div></span>" +
+      '<span class="score ' + scoreCls + '">' + (tot == null ? "—" : tot) + '<span class="of">/100</span></span>' +
+      gatebar(sc);
+    var subs = "";
+    ["earnings", "revenue", "profitability", "balance_sheet", "sponsorship", "rs_trend", "base_structure", "leadership"]
+      .forEach(function (k) {
+        var v = scores ? scores[k].subtotal : null;
+        subs += '<span class="cellnum wide' + (v ? "" : " dim") + '">' + (v == null ? "·" : v) + "</span>";
+      });
+    cells += '<span class="cellnum wide' + (t.rs_percentile == null ? " dim" : "") + '">' +
+             (t.rs_percentile == null ? "·" : t.rs_percentile) + "</span>" + subs +
+             '<span class="bucket wide ' + esc(bucket) + '">' + esc(bucket.replace(/_/g, " ")) + "</span>" +
+             '<span class="datecell wide">' + fmtDate(entry.joined_date) + "</span>";
+    row.innerHTML = cells;
+    row.onclick = function () { openSheet(entry); };
+    return row;
   }
 
   // ---------------------------------------------------------------- detail sheet

@@ -145,6 +145,12 @@ main { padding: 0 10px 30px; max-width: 1100px; margin: 0 auto; }
 }
 .num { text-align: right; }
 .list { display: grid; gap: 6px; }
+.section-head {
+  font-family: var(--display); font-size: 12px; letter-spacing: .06em; text-transform: uppercase;
+  color: var(--amber-soft); padding: 14px 4px 2px; border-bottom: 1px solid var(--line);
+  margin-bottom: 2px;
+}
+.section-head:first-child { padding-top: 4px; }
 .row {
   width: 100%; text-align: left; background: var(--surface);
   border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px;
