@@ -107,6 +107,28 @@ h1 {
 .chip.active { border-color: var(--amber); color: var(--amber); background: rgba(255,176,32,.07); }
 .filterchips .chip { font-size: 11px; padding: 4px 10px; }
 .filterchips .chip.active { border-color: var(--pass); color: var(--pass); background: rgba(155,215,112,.08); }
+.new-filter-wrap {
+  display: flex; align-items: center; gap: 10px; width: 100%; min-width: 0;
+  max-width: 100%; box-sizing: border-box; overflow: hidden; padding: 8px 10px;
+  border: 1px solid var(--line); border-radius: 8px; background: rgba(255,176,32,.035);
+}
+.new-filter-wrap[hidden] { display: none; }
+.new-filter-label {
+  flex: none; font-family: var(--display); font-size: 10px; font-weight: 600;
+  letter-spacing: .09em; text-transform: uppercase; color: var(--amber-soft);
+}
+.newfilterchips {
+  flex: 1 1 auto; width: 100%; min-width: 0; max-width: 100%;
+  flex-wrap: nowrap; overflow-x: auto; padding: 1px; scrollbar-width: none;
+}
+.newfilterchips::-webkit-scrollbar { display: none; }
+.newfilterchips .chip {
+  flex: none; min-height: 34px; padding: 6px 11px; font-size: 10.5px; white-space: nowrap;
+}
+.newfilterchips .chip.active {
+  border-color: var(--amber); color: var(--text); background: rgba(255,176,32,.12);
+}
+.newfilterchips .chip:disabled { opacity: .35; cursor: default; }
 .tabs { display: flex; border-bottom: 1px solid var(--line); }
 .tab {
   font-family: var(--display); font-size: 13px; letter-spacing: .05em; text-transform: uppercase;
@@ -120,6 +142,11 @@ h1 {
   border-radius: 6px; padding: 4px 8px; font-family: var(--mono); font-size: 12px;
 }
 .count { margin-left: auto; font-family: var(--mono); font-size: 11.5px; }
+
+@media (max-width: 520px) {
+  .new-filter-wrap { display: block; padding: 8px; }
+  .new-filter-label { display: block; margin: 0 2px 6px; }
+}
 
 /* ---------------- list / table ---------------- */
 main { padding: 0 10px 30px; max-width: 1100px; margin: 0 auto; }

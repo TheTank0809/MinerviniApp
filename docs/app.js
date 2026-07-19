@@ -6,7 +6,8 @@
   "use strict";
 
   var state = { manifest: null, universeKey: null, universes: {}, screens: [],
-                tab: "active", sort: "score", filter: null, data: { active: [], dropped: [] } };
+                tab: "active", sort: "score", filter: null, newPeriod: "all",
+                data: { active: [], dropped: [] } };
   var $ = function (sel) { return document.querySelector(sel); };
   var lastFetchAt = 0;
 
@@ -56,11 +57,36 @@
     var d = new Date(iso + "T00:00:00");
     return d.toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "2-digit" });
   }
-  var NEW_WINDOW_DAYS = 14;
+  // Three calendar-week cohorts: current week, last week and the week before.
+  // This keeps "New" useful across weekly Sunday scans instead of expiring after 14 days.
+  var NEW_WINDOW_DAYS = 20;
   function daysSince(iso) {
     if (!iso) return null;
     var d = new Date(iso + "T00:00:00");
     return Math.floor((Date.now() - d.getTime()) / 86400000);
+  }
+  function dateOnly(iso) {
+    if (!iso) return null;
+    var parts = iso.slice(0, 10).split("-").map(Number);
+    return new Date(parts[0], parts[1] - 1, parts[2]);
+  }
+  function startOfWeek(d) {
+    var copy = new Date(d.getFullYear(), d.getMonth(), d.getDate());
+    var mondayOffset = (copy.getDay() + 6) % 7;
+    copy.setDate(copy.getDate() - mondayOffset);
+    return copy;
+  }
+  function newPeriod(entry) {
+    var joined = dateOnly(entry.joined_date);
+    if (!joined) return null;
+    var today = new Date();
+    today = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+    if (joined.getTime() === today.getTime()) return "today";
+    var weeks = Math.floor((startOfWeek(today) - startOfWeek(joined)) / (7 * 86400000));
+    if (weeks === 0) return "this-week";
+    if (weeks === 1) return "last-week";
+    if (weeks === 2) return "two-weeks";
+    return null;
   }
   function esc(s) {
     return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
@@ -142,6 +168,7 @@
       state.data.active = merged.active;
       state.data.dropped = merged.dropped;
       renderRegime(results[0] && results[0].run);
+      renderFilterChips();
       renderList();
     });
   }
@@ -250,7 +277,10 @@
       var b = document.createElement("button");
       b.className = "chip" + (uk === state.universeKey ? " active" : "");
       b.textContent = label + (hasError ? " ⚠" : "");
-      b.onclick = function () { state.universeKey = uk; state.filter = null; renderChips(); loadUniverse(uk); };
+      b.onclick = function () {
+        state.universeKey = uk; state.filter = null; state.newPeriod = "all";
+        renderChips(); loadUniverse(uk);
+      };
       box.appendChild(b);
     });
   }
@@ -263,7 +293,9 @@
     var allBtn = document.createElement("button");
     allBtn.className = "chip" + (!state.filter ? " active" : "");
     allBtn.textContent = "All";
-    allBtn.onclick = function () { state.filter = null; renderFilterChips(); renderList(); };
+    allBtn.onclick = function () {
+      state.filter = null; state.newPeriod = "all"; renderFilterChips(); renderList();
+    };
     box.appendChild(allBtn);
     if (state.screens.length >= 2) {
       state.screens.forEach(function (raw) {
@@ -271,15 +303,51 @@
         var b = document.createElement("button");
         b.className = "chip" + (state.filter === s.screen ? " active" : "");
         b.textContent = s.short + " only";
-        b.onclick = function () { state.filter = s.screen; renderFilterChips(); renderList(); };
+        b.onclick = function () {
+          state.filter = s.screen; state.newPeriod = "all"; renderFilterChips(); renderList();
+        };
         box.appendChild(b);
       });
     }
     var newBtn = document.createElement("button");
     newBtn.className = "chip" + (state.filter === "new" ? " active" : "");
-    newBtn.textContent = "New";
-    newBtn.onclick = function () { state.filter = "new"; renderFilterChips(); renderList(); };
+    var newCount = state.data.active.filter(function (e) { return e.isNew; }).length;
+    newBtn.textContent = "New" + (newCount ? " " + newCount : "");
+    newBtn.setAttribute("aria-expanded", state.filter === "new" ? "true" : "false");
+    newBtn.onclick = function () {
+      state.filter = "new"; state.newPeriod = "all"; renderFilterChips(); renderList();
+    };
     box.appendChild(newBtn);
+    renderNewFilter();
+  }
+
+  function renderNewFilter() {
+    var wrap = $("#new-filter-wrap");
+    var box = $("#new-filter");
+    var visible = state.filter === "new" && state.tab === "active";
+    wrap.hidden = !visible;
+    if (!visible) { box.innerHTML = ""; return; }
+
+    var newStocks = state.data.active.filter(function (e) { return e.isNew; });
+    var options = [
+      { key: "all", label: "All new" },
+      { key: "today", label: "Today" },
+      { key: "this-week", label: "Earlier this week" },
+      { key: "last-week", label: "Last week" },
+      { key: "two-weeks", label: "2 weeks ago" }
+    ];
+    box.innerHTML = "";
+    options.forEach(function (opt) {
+      var count = opt.key === "all" ? newStocks.length :
+        newStocks.filter(function (e) { return newPeriod(e) === opt.key; }).length;
+      var b = document.createElement("button");
+      b.className = "chip" + (state.newPeriod === opt.key ? " active" : "");
+      b.textContent = opt.label + " " + count;
+      b.disabled = count === 0;
+      b.setAttribute("aria-pressed", state.newPeriod === opt.key ? "true" : "false");
+      b.onclick = function () { state.newPeriod = opt.key; renderNewFilter(); renderList(); };
+      box.appendChild(b);
+    });
   }
 
   // ---------------------------------------------------------------- list
@@ -324,6 +392,9 @@
     var list = state.data[state.tab] || [];
     if (state.filter === "new") {
       list = list.filter(function (e) { return e.isNew; });
+      if (state.newPeriod !== "all") {
+        list = list.filter(function (e) { return newPeriod(e) === state.newPeriod; });
+      }
     } else if (state.filter) {
       // Scoped to the tab being shown: a stock that dropped out of screen X but is
       // still active via screen Y must not count as "X only" on the In-screen tab —
@@ -579,6 +650,13 @@
       document.querySelectorAll(".tab").forEach(function (x) { x.classList.remove("active"); });
       b.classList.add("active");
       state.tab = b.dataset.tab;
+      if (state.tab === "dropped" && state.filter === "new") {
+        state.filter = null;
+        state.newPeriod = "all";
+        renderFilterChips();
+      } else {
+        renderNewFilter();
+      }
       renderList();
     };
   });

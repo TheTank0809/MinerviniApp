@@ -16,7 +16,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <!-- bump ?v= on app.css/app.js (and CACHE in sw.js) on every change — GitHub Pages
      doesn't fingerprint asset URLs, so browsers can otherwise keep serving a stale copy -->
-<link rel="stylesheet" href="app.css?v=4">
+<link rel="stylesheet" href="app.css?v=5">
 </head>
 <body>
 
@@ -52,6 +52,10 @@
 <nav class="controls">
   <div class="chips" id="screen-chips"></div>
   <div class="chips filterchips" id="screen-filter"></div>
+  <div class="new-filter-wrap" id="new-filter-wrap" hidden>
+    <span class="new-filter-label">Added</span>
+    <div class="chips newfilterchips" id="new-filter" aria-label="Filter new stocks by date added"></div>
+  </div>
   <div class="tabs" role="tablist">
     <button class="tab active" data-tab="active" role="tab">In screen</button>
     <button class="tab" data-tab="dropped" role="tab">Left the screen</button>
@@ -89,8 +93,7 @@
   <span id="foot-note">Scores follow the Minervini Scorecard Engine v3 · data: screener.in + Yahoo Finance</span>
 </footer>
 
-<script src="app.js?v=4"></script>
+<script src="app.js?v=5"></script>
 </body>
 </html>
-
 
