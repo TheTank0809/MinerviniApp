@@ -1,6 +1,87 @@
 {
  "runs": [
   {
+   "run_date": "2026-07-19",
+   "mode": "WEEKLY",
+   "regime": {
+    "score": 4,
+    "label": "CAUTION",
+    "checks": {
+     "close_above_50dma": true,
+     "close_above_200dma": true,
+     "50dma_above_200dma": false,
+     "distribution_days_25": 5,
+     "distribution_days_ok": false,
+     "pct_universe_above_200dma": 71.4,
+     "universe_above_200dma_ok": true,
+     "net_new_highs_positive": true
+    },
+    "exposure_guidance": "New buys at half risk; only score >=85 setups."
+   },
+   "counts": {
+    "active": 114,
+    "new": 4,
+    "dropped": 0,
+    "errors": 2
+   },
+   "new_tickers": [
+    "BORORENEW",
+    "SWSOLAR",
+    "VERTIS",
+    "NHIT"
+   ],
+   "dropped_tickers": [],
+   "actionable_now": [],
+   "alerts": [
+    {
+     "ticker": "MCX",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "QPOWER",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "BSE",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "POLYCAB",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "ENTERO",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "ENTERO",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "LOTUSDEV",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "ICICIAMC",
+     "alert": "RS_DOWNGRADE"
+    }
+   ],
+   "errors": [
+    {
+     "ticker": "VERTIS",
+     "error": "no OHLCV data on Yahoo Finance"
+    },
+    {
+     "ticker": "NHIT",
+     "error": "no OHLCV data on Yahoo Finance"
+    }
+   ],
+   "llm": {
+    "enabled": true,
+    "model": "claude-sonnet-5"
+   }
+  },
+  {
    "run_date": "2026-07-14",
    "mode": "WEEKLY",
    "regime": {

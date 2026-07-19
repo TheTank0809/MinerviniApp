@@ -1,6 +1,61 @@
 {
  "runs": [
   {
+   "run_date": "2026-07-19",
+   "mode": "WEEKLY",
+   "regime": {
+    "score": 4,
+    "label": "CAUTION",
+    "checks": {
+     "close_above_50dma": true,
+     "close_above_200dma": true,
+     "50dma_above_200dma": false,
+     "distribution_days_25": 5,
+     "distribution_days_ok": false,
+     "pct_universe_above_200dma": 100.0,
+     "universe_above_200dma_ok": true,
+     "net_new_highs_positive": true
+    },
+    "exposure_guidance": "New buys at half risk; only score >=85 setups."
+   },
+   "counts": {
+    "active": 55,
+    "new": 5,
+    "dropped": 5,
+    "errors": 0
+   },
+   "new_tickers": [
+    "BORORENEW",
+    "SENCO",
+    "AIIL",
+    "ANANTRAJ",
+    "PTCIL"
+   ],
+   "dropped_tickers": [
+    "OLECTRA",
+    "MCX",
+    "POLYCAB",
+    "ENTERO",
+    "NETWEB"
+   ],
+   "actionable_now": [],
+   "alerts": [
+    {
+     "ticker": "CARTRADE",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "QPOWER",
+     "alert": "CLOSED_BELOW_50DMA"
+    }
+   ],
+   "errors": [],
+   "llm": {
+    "enabled": true,
+    "model": "claude-sonnet-5"
+   }
+  },
+  {
    "run_date": "2026-07-14",
    "mode": "WEEKLY",
    "regime": {
