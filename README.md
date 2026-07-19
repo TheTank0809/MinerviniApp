@@ -6,6 +6,12 @@ Every Sunday a GitHub Action pulls both screens, scores every stock with the
 publishes a mobile-friendly website (installable as an app) on GitHub Pages. Everything
 runs on free tiers — no domain, no server.
 
+**Cost guard:** the Sunday schedule skips itself if a scan (manual or scheduled) already
+ran in the last 48 hours — e.g. a Friday or Saturday manual trigger means Sunday's
+automatic run is skipped and the data just stays a day or two stale, rather than paying
+for LLM verdict/catalyst calls twice in one weekend. A manual "Run workflow" click always
+runs regardless of when the last scan was.
+
 Stocks that appear in more than one screen are merged into a single row on the website,
 with a tick badge per screen (`MV` / `GR`) showing which one(s) it's currently in. If a
 stock's score differs between screens (each screen ranks RS within its own tracked

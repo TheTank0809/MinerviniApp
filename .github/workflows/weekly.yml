@@ -15,7 +15,46 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  should-run:
+    # Cost guard: if you've already manually run this within the last 2 days (e.g. a
+    # Friday/Saturday trigger), skip the Sunday schedule rather than re-running the LLM
+    # verdict/catalyst calls for data that's still fresh. A manual "Run workflow" click
+    # always runs regardless — this only skips the automatic schedule.
+    runs-on: ubuntu-latest
+    outputs:
+      run: ${{ steps.check.outputs.run }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - id: check
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+            echo "Manually triggered — running regardless of when the last scan was."
+            exit 0
+          fi
+          last=$(git log --format=%cI --grep="^Weekly scan" -1)
+          if [ -z "$last" ]; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+            echo "No prior weekly scan commit found — running."
+            exit 0
+          fi
+          last_epoch=$(date -d "$last" +%s)
+          now_epoch=$(date -u +%s)
+          diff_hours=$(( (now_epoch - last_epoch) / 3600 ))
+          echo "Last weekly scan: $last ($diff_hours hour(s) ago)"
+          if [ "$diff_hours" -ge 48 ]; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "run=false" >> "$GITHUB_OUTPUT"
+            echo "Skipping — already scanned within the last 48 hours."
+          fi
+
   scan:
+    needs: should-run
+    if: needs.should-run.outputs.run == 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
