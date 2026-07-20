@@ -7,9 +7,39 @@
 
   var state = { manifest: null, universeKey: null, universes: {}, screens: [],
                 tab: "active", sort: "score", filter: null, newPeriod: "all",
+                shortlist: {}, bought: {},
                 data: { active: [], dropped: [] } };
   var $ = function (sel) { return document.querySelector(sel); };
   var lastFetchAt = 0;
+
+  // Shortlist and Buy are independent personal tags, separate from the screen filters,
+  // stored locally per-device (there's no backend to sync them across devices/browsers).
+  // A stock can carry either, both, or neither — they don't imply or exclude each other.
+  var SHORTLIST_KEY = "mv_shortlist_v1";
+  var BOUGHT_KEY = "mv_bought_v1";
+  function loadSet(key) {
+    try { return JSON.parse(localStorage.getItem(key) || "{}"); } catch (e) { return {}; }
+  }
+  function saveSet(key, obj) {
+    try { localStorage.setItem(key, JSON.stringify(obj)); } catch (e) {}
+  }
+  function toggleMark(key, obj, ticker) {
+    if (obj[ticker]) delete obj[ticker]; else obj[ticker] = true;
+    saveSet(key, obj);
+  }
+  function markPills(entry) {
+    var html = "";
+    if (state.shortlist[entry.ticker]) html += '<span class="markpill sl" title="Shortlisted">SL</span>';
+    if (state.bought[entry.ticker]) html += '<span class="markpill buy" title="Bought">BUY</span>';
+    return html;
+  }
+  function markedEntriesFor(marks) {
+    var byTicker = {};
+    state.data.active.concat(state.data.dropped).forEach(function (e) {
+      if (!byTicker[e.ticker]) byTicker[e.ticker] = e;
+    });
+    return Object.keys(marks).map(function (t) { return byTicker[t]; }).filter(Boolean);
+  }
 
   var SECTION_MAX = { earnings: 25, revenue: 15, profitability: 10, balance_sheet: 5,
                       sponsorship: 5, rs_trend: 15, base_structure: 20, leadership: 5 };
@@ -288,7 +318,8 @@
   function renderFilterChips() {
     var box = $("#screen-filter");
     box.innerHTML = "";
-    if (!state.screens.length) { box.hidden = true; return; }
+    // Shortlist is a separate, personal view — the screen filters don't apply to it.
+    if (state.tab === "shortlist" || state.tab === "buy" || !state.screens.length) { box.hidden = true; return; }
     box.hidden = false;
     var allBtn = document.createElement("button");
     allBtn.className = "chip" + (!state.filter ? " active" : "");
@@ -389,28 +420,46 @@
   }
 
   function renderList() {
-    var list = state.data[state.tab] || [];
-    if (state.filter === "new") {
-      list = list.filter(function (e) { return e.isNew; });
-      if (state.newPeriod !== "all") {
-        list = list.filter(function (e) { return newPeriod(e) === state.newPeriod; });
+    var list;
+    if (state.tab === "shortlist") {
+      list = markedEntriesFor(state.shortlist);
+    } else if (state.tab === "buy") {
+      list = markedEntriesFor(state.bought);
+    } else {
+      list = state.data[state.tab] || [];
+      if (state.filter === "new") {
+        list = list.filter(function (e) { return e.isNew; });
+        if (state.newPeriod !== "all") {
+          list = list.filter(function (e) { return newPeriod(e) === state.newPeriod; });
+        }
+      } else if (state.filter) {
+        // Scoped to the tab being shown: a stock that dropped out of screen X but is
+        // still active via screen Y must not count as "X only" on the In-screen tab —
+        // it's no longer actually in X.
+        list = list.filter(function (e) {
+          return state.tab === "dropped" ? !!e.droppedRecs[state.filter] : !!e.activeRecs[state.filter];
+        });
       }
-    } else if (state.filter) {
-      // Scoped to the tab being shown: a stock that dropped out of screen X but is
-      // still active via screen Y must not count as "X only" on the In-screen tab —
-      // it's no longer actually in X.
-      list = list.filter(function (e) {
-        return state.tab === "dropped" ? !!e.droppedRecs[state.filter] : !!e.activeRecs[state.filter];
-      });
     }
     var box = $("#list");
     $("#thead").style.display = list.length ? "" : "none";
     $("#empty").hidden = !!list.length;
-    $("#count").textContent = list.length + (state.tab === "active" ? " tracked" : " left");
+    $("#empty").textContent = state.tab === "shortlist"
+      ? "Nothing shortlisted yet. Open a stock and tap Shortlist."
+      : state.tab === "buy"
+      ? "Nothing marked Buy yet. Open a stock and tap Buy."
+      : "Nothing here yet. The first Sunday scan fills this in.";
+    $("#count").textContent = list.length + (
+      state.tab === "active" ? " tracked" :
+      state.tab === "shortlist" || state.tab === "buy" ? " marked" : " left");
     box.innerHTML = "";
 
     if (state.tab !== "dropped") {
-      sorted(list).forEach(function (entry) { box.appendChild(buildRow(entry, false)); });
+      // Shortlist and Buy are flat, independent lists — a stock can be in both, but each
+      // tab only cares about its own tag, so there's no cross-tag grouping to do here.
+      var isFrozenFn = state.tab === "active" ? function () { return false; }
+        : function (entry) { return !Object.keys(entry.activeRecs).length; };
+      sorted(list).forEach(function (entry) { box.appendChild(buildRow(entry, isFrozenFn(entry))); });
       return;
     }
 
@@ -454,7 +503,7 @@
       : "Joined " + fmtDate(entry.joined_date) + (statusText ? " · " + statusText : "");
     var cells =
       '<span class="stockcell"><span class="ticker">' + esc(entry.ticker) + "</span>" +
-      membershipPills(entry) +
+      membershipPills(entry) + markPills(entry) +
       (entry.isNew ? '<span class="newpill">NEW</span>' : "") +
       '<div class="sname">' + esc(entry.name || "") + '</div>' +
       '<div class="sub' + (reason && state.tab !== "dropped" ? " reject" : "") + '" title="' + esc(sub) + '">' + esc(sub) + "</div></span>" +
@@ -507,18 +556,29 @@
     var slug = null;
     var pool = Object.keys(entry.activeRecs).length ? entry.activeRecs : entry.droppedRecs;
     for (var k in pool) { if (pool[k] === entry.primary) { slug = k; break; } }
-    renderSheet(entry, slug || Object.keys(pool)[0]);
+    renderSheet(entry, slug || Object.keys(pool)[0], true);
   }
 
-  function renderSheet(entry, slug) {
+  function renderSheet(entry, slug, isFreshOpen) {
     var rec = entry.activeRecs[slug] || entry.droppedRecs[slug];
     var sc = rec.scorecard || {};
     var t = sc.technicals || {};
     var scores = sc.scores;
+    var isShortlisted = !!state.shortlist[entry.ticker];
+    var isBought = !!state.bought[entry.ticker];
 
     var html = '<div class="sheet-head"><div><h2>' + esc(entry.ticker) + "</h2>" +
       '<div class="sname">' + esc(entry.name || "") + "</div></div>" +
       '<button class="close" aria-label="Close">✕</button></div>';
+
+    // Independent toggles — a stock can be Shortlisted, Bought, both, or neither. Tap an
+    // active button again to remove that tag.
+    html += '<div class="marktoggle">' +
+      '<button class="stbtn' + (isShortlisted ? " marked-sl" : "") +
+        '" data-mark="shortlist" aria-pressed="' + isShortlisted + '">Shortlist</button>' +
+      '<button class="stbtn' + (isBought ? " active" : "") +
+        '" data-mark="buy" aria-pressed="' + isBought + '">Buy</button>' +
+      "</div>";
 
     var allSlugs = Object.keys(entry.activeRecs).concat(
       Object.keys(entry.droppedRecs).filter(function (s) { return !entry.activeRecs[s]; }));
@@ -624,14 +684,23 @@
     sheet.hidden = false;
     $("#backdrop").hidden = false;
     sheet.querySelector(".close").onclick = closeSheet;
-    var toggleBtns = sheet.querySelectorAll(".stbtn");
-    if (toggleBtns.length) {
-      toggleBtns.forEach(function (btn) {
-        btn.onclick = function () { renderSheet(entry, btn.dataset.slug); };
-      });
-      sheet.scrollTop = prevScroll;
-    } else {
+    // Scoped to .screentoggle specifically — .marktoggle also uses the .stbtn look, and
+    // its buttons have no data-slug, so a bare ".stbtn" query here would misfire on them.
+    sheet.querySelectorAll(".screentoggle .stbtn").forEach(function (btn) {
+      btn.onclick = function () { renderSheet(entry, btn.dataset.slug, false); };
+    });
+    sheet.querySelectorAll(".marktoggle [data-mark]").forEach(function (btn) {
+      btn.onclick = function () {
+        if (btn.dataset.mark === "shortlist") toggleMark(SHORTLIST_KEY, state.shortlist, entry.ticker);
+        else toggleMark(BOUGHT_KEY, state.bought, entry.ticker);
+        renderSheet(entry, slug, false);
+        renderList();
+      };
+    });
+    if (isFreshOpen) {
       sheet.querySelector(".close").focus();
+    } else {
+      sheet.scrollTop = prevScroll;
     }
   }
 
@@ -650,13 +719,12 @@
       document.querySelectorAll(".tab").forEach(function (x) { x.classList.remove("active"); });
       b.classList.add("active");
       state.tab = b.dataset.tab;
-      if (state.tab === "dropped" && state.filter === "new") {
+      if (state.tab !== "active" && state.filter === "new") {
         state.filter = null;
         state.newPeriod = "all";
-        renderFilterChips();
-      } else {
-        renderNewFilter();
       }
+      renderFilterChips();
+      renderNewFilter();
       renderList();
     };
   });
@@ -697,6 +765,8 @@
   window.hashPassphrase = function (p) { return sha256Hex(p); };
 
   function start() {
+    state.shortlist = loadSet(SHORTLIST_KEY);
+    state.bought = loadSet(BOUGHT_KEY);
     if ("serviceWorker" in navigator) {
       navigator.serviceWorker.register("sw.js").catch(function () {});
     }

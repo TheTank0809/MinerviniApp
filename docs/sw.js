@@ -1,8 +1,8 @@
 /* Minervini Tracker service worker — network-first with offline fallback.
    The site changes weekly; always prefer fresh files, keep the last good copy
    so the app still opens (with last week's data) when offline. */
-var CACHE = "minervini-v6";
-var SHELL = ["./", "index.html", "app.css?v=5", "app.js?v=5", "manifest.webmanifest",
+var CACHE = "minervini-v7";
+var SHELL = ["./", "index.html", "app.css?v=6", "app.js?v=6", "manifest.webmanifest",
              "icons/icon-192.png", "icons/icon-512.png"];
 
 self.addEventListener("install", function (e) {
