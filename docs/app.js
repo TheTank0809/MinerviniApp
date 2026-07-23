@@ -7,14 +7,15 @@
 
   var state = { manifest: null, universeKey: null, universes: {}, screens: [],
                 tab: "active", sort: "score", filter: null, newPeriod: "all",
-                shortlist: {}, bought: {},
+                shortlist: {}, bought: {}, activeSheet: null,
                 data: { active: [], dropped: [] } };
   var $ = function (sel) { return document.querySelector(sel); };
   var lastFetchAt = 0;
 
-  // Shortlist and Buy are independent personal tags, separate from the screen filters,
-  // stored locally per-device (there's no backend to sync them across devices/browsers).
-  // A stock can carry either, both, or neither — they don't imply or exclude each other.
+  // Shortlist and Buy are independent personal tags, separate from the screen filters.
+  // localStorage is the instant local cache (and offline fallback); Firebase Realtime
+  // Database (firebase-sync.js) syncs them across devices when reachable. A stock can
+  // carry either, both, or neither — they don't imply or exclude each other.
   var SHORTLIST_KEY = "mv_shortlist_v1";
   var BOUGHT_KEY = "mv_bought_v1";
   function loadSet(key) {
@@ -23,10 +24,37 @@
   function saveSet(key, obj) {
     try { localStorage.setItem(key, JSON.stringify(obj)); } catch (e) {}
   }
-  function toggleMark(key, obj, ticker) {
-    if (obj[ticker]) delete obj[ticker]; else obj[ticker] = true;
+  function toggleMark(key, kind, obj, ticker) {
+    var present = !obj[ticker];
+    if (present) obj[ticker] = true; else delete obj[ticker];
     saveSet(key, obj);
+    if (window.mvSync) window.mvSync.toggle(kind, ticker, present);
   }
+  // Wired to window.mvSyncInit below so firebase-sync.js can call it once it's ready —
+  // that module always loads after this script (deferred), so the reverse (this script
+  // waiting on mvSync) would race; having the module call in gets the order right for free.
+  var syncSeeded = { shortlist: false, bought: false };
+  function wireSync(kind, storageKey) {
+    window.mvSync.subscribe(kind, function (remote) {
+      if (!syncSeeded[kind]) {
+        syncSeeded[kind] = true;
+        // First connect on a device that already had local-only marks: seed the (empty)
+        // remote from them instead of wiping out what the user already picked here.
+        if (!Object.keys(remote).length && Object.keys(state[kind]).length) {
+          window.mvSync.replace(kind, state[kind]);
+          return;
+        }
+      }
+      state[kind] = remote;
+      saveSet(storageKey, remote);
+      renderList();
+      if (state.activeSheet) renderSheet(state.activeSheet.entry, state.activeSheet.slug, false);
+    });
+  }
+  window.mvSyncInit = function () {
+    wireSync("shortlist", SHORTLIST_KEY);
+    wireSync("bought", BOUGHT_KEY);
+  };
   function markPills(entry) {
     var html = "";
     if (state.shortlist[entry.ticker]) html += '<span class="markpill sl" title="Shortlisted">SL</span>';
@@ -560,6 +588,7 @@
   }
 
   function renderSheet(entry, slug, isFreshOpen) {
+    state.activeSheet = { entry: entry, slug: slug };
     var rec = entry.activeRecs[slug] || entry.droppedRecs[slug];
     var sc = rec.scorecard || {};
     var t = sc.technicals || {};
@@ -691,8 +720,8 @@
     });
     sheet.querySelectorAll(".marktoggle [data-mark]").forEach(function (btn) {
       btn.onclick = function () {
-        if (btn.dataset.mark === "shortlist") toggleMark(SHORTLIST_KEY, state.shortlist, entry.ticker);
-        else toggleMark(BOUGHT_KEY, state.bought, entry.ticker);
+        if (btn.dataset.mark === "shortlist") toggleMark(SHORTLIST_KEY, "shortlist", state.shortlist, entry.ticker);
+        else toggleMark(BOUGHT_KEY, "bought", state.bought, entry.ticker);
         renderSheet(entry, slug, false);
         renderList();
       };
@@ -709,6 +738,7 @@
   function closeSheet() {
     $("#sheet").hidden = true;
     $("#backdrop").hidden = true;
+    state.activeSheet = null;
     unlockBodyScroll();
   }
 
