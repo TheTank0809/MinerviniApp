@@ -1,6 +1,6 @@
 {
-  "name": "Minervini Tracker",
-  "short_name": "Minervini",
+  "name": "Stock Tracker",
+  "short_name": "Stock",
   "description": "Weekly Minervini SEPA scorecards from my screener.in screens",
   "start_url": ".",
   "scope": ".",

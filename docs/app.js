@@ -1,4 +1,4 @@
-/* Minervini Tracker front-end — reads static JSON written by the weekly pipeline.
+/* Stock Tracker front-end — reads static JSON written by the weekly pipeline.
    Multiple screens within a universe (e.g. Minervini Screener + Growth Screener) are
    merged into one list by ticker; each stock shows a tick badge per screen it's
    currently in, and the detail sheet can switch between each screen's own scorecard. */
@@ -426,12 +426,16 @@
     return arr;
   }
 
+  // Each segment is color-only at a glance, so it also carries its own title text —
+  // pass/fail must never depend on color alone (colorblind users, screen readers).
   function gatebar(sc) {
     var tt = ((sc.gates || {}).trend_template) || {};
     var html = '<span class="gatebar" title="Trend Template c1–c8">';
     for (var i = 1; i <= 8; i++) {
       var v = tt["c" + i];
-      html += "<i class=\"" + (v === true ? "on" : v === false ? "off" : "") + "\"></i>";
+      var state = v === true ? "on" : v === false ? "off" : "";
+      var label = "c" + i + ": " + (v === true ? "pass" : v === false ? "fail" : "n/a");
+      html += "<i class=\"" + state + "\" title=\"" + label + "\"></i>";
     }
     return html + "</span>";
   }
@@ -708,10 +712,26 @@
     if (vc.pe) html += '<p class="uv">Context only: P/E ' + vc.pe + " — never a criterion.</p>";
 
     var sheet = $("#sheet");
+    var backdrop = $("#backdrop");
     var prevScroll = sheet.scrollTop;
     sheet.innerHTML = html;
-    sheet.hidden = false;
-    $("#backdrop").hidden = false;
+    if (isFreshOpen) {
+      // A pending close (from a fast close-then-reopen tap) could otherwise fire its
+      // hide-after-animation timeout after this reopen and yank the sheet shut again.
+      if (sheetCloseTimer) { clearTimeout(sheetCloseTimer); sheetCloseTimer = null; }
+      // Two-step reveal: unhide first (so height/layout resolve), then add .show on the
+      // next frame so the transform/opacity transition actually has a starting state to
+      // animate from — toggling both at once would skip straight to the end state.
+      sheet.hidden = false;
+      backdrop.hidden = false;
+      sheet.classList.remove("show");
+      backdrop.classList.remove("show");
+      void sheet.offsetHeight;
+      requestAnimationFrame(function () {
+        sheet.classList.add("show");
+        backdrop.classList.add("show");
+      });
+    }
     sheet.querySelector(".close").onclick = closeSheet;
     // Scoped to .screentoggle specifically — .marktoggle also uses the .stbtn look, and
     // its buttons have no data-slug, so a bare ".stbtn" query here would misfire on them.
@@ -735,11 +755,18 @@
 
   function kv(k, v) { return "<div><div class=\"k\">" + k + "</div><div class=\"v\">" + v + "</div></div>"; }
 
+  var sheetCloseTimer = null;
   function closeSheet() {
-    $("#sheet").hidden = true;
-    $("#backdrop").hidden = true;
+    var sheet = $("#sheet");
+    var backdrop = $("#backdrop");
     state.activeSheet = null;
+    sheet.classList.remove("show");
+    backdrop.classList.remove("show");
     unlockBodyScroll();
+    if (sheetCloseTimer) clearTimeout(sheetCloseTimer);
+    var finish = function () { sheetCloseTimer = null; sheet.hidden = true; backdrop.hidden = true; };
+    var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduced) finish(); else sheetCloseTimer = setTimeout(finish, 220);
   }
 
   // ---------------------------------------------------------------- wiring

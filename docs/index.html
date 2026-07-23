@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Minervini Tracker</title>
+<title>Stock Tracker</title>
 <meta name="description" content="Weekly Minervini SEPA scorecards for my screener.in screens">
 <meta name="theme-color" content="#131009">
 <link rel="manifest" href="manifest.webmanifest">
@@ -16,14 +16,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <!-- bump ?v= on app.css/app.js (and CACHE in sw.js) on every change — GitHub Pages
      doesn't fingerprint asset URLs, so browsers can otherwise keep serving a stale copy -->
-<link rel="stylesheet" href="app.css?v=6">
+<link rel="stylesheet" href="app.css?v=8">
 </head>
 <body>
 
 <div id="gate" class="gate" hidden>
   <form id="gate-form" class="gate-card">
     <span class="brand-mark gate-mark">M</span>
-    <h2>Minervini Tracker</h2>
+    <h2>Stock Tracker</h2>
     <p class="gate-sub">Enter passphrase to continue</p>
     <input id="gate-pass" type="password" inputmode="text" autocomplete="current-password"
            placeholder="passphrase" aria-label="Passphrase">
@@ -36,7 +36,7 @@
   <div class="brand">
     <span class="brand-mark">M</span>
     <div>
-      <h1>Minervini Tracker</h1>
+      <h1>Stock Tracker</h1>
       <div class="regime" id="regime-line"><span class="cursor">▮</span> loading…</div>
       <div class="llmline" id="llm-line" hidden></div>
     </div>
@@ -96,7 +96,7 @@
 </footer>
 
 <script type="module" src="firebase-sync.js?v=1"></script>
-<script src="app.js?v=7"></script>
+<script src="app.js?v=9"></script>
 </body>
 </html>
 
