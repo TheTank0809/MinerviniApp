@@ -230,34 +230,47 @@ def process_screen(client, universe_key, uni, screen, settings):
 
 
 def main():
-    with open(os.path.join(ROOT, "backend", "config.yaml")) as fh:
-        cfg = yaml.safe_load(fh)
-    settings = cfg.get("settings", {})
-    client = ScreenerClient(delay=settings.get("request_delay_seconds", 1.2))
-
     manifest = {"generated_at": datetime.datetime.utcnow().isoformat() + "Z",
                 "sample": False, "screens": []}
     failures = 0
-    for uni_key, uni in cfg.get("universes", {}).items():
-        if not uni.get("enabled"):
-            continue
-        for screen in uni.get("screens", []):
-            if not screen.get("enabled"):
+    try:
+        with open(os.path.join(ROOT, "backend", "config.yaml")) as fh:
+            cfg = yaml.safe_load(fh)
+        settings = cfg.get("settings", {})
+        client = ScreenerClient(delay=settings.get("request_delay_seconds", 1.2))
+
+        for uni_key, uni in cfg.get("universes", {}).items():
+            if not uni.get("enabled"):
                 continue
-            try:
-                manifest["screens"].append(
-                    process_screen(client, uni_key, uni, screen, settings))
-            except (ScreenerError, RuntimeError) as exc:
-                failures += 1
-                print("SCREEN FAILED (%s): %s" % (screen["name"], exc))
-                manifest["screens"].append(
-                    {"universe": uni_key, "screen": screen["slug"], "label": screen["name"],
-                     "universe_label": uni["label"], "error": str(exc)})
+            for screen in uni.get("screens", []):
+                if not screen.get("enabled"):
+                    continue
+                try:
+                    manifest["screens"].append(
+                        process_screen(client, uni_key, uni, screen, settings))
+                except Exception as exc:
+                    # Any failure for one screen (auth, network, a bad URL, a bug in
+                    # the pipeline itself, ...) must not lose the other screens' data
+                    # or leave the site with no record that this run had a problem.
+                    failures += 1
+                    print("SCREEN FAILED (%s): %s" % (screen["name"], exc))
+                    traceback.print_exc()
+                    manifest["screens"].append(
+                        {"universe": uni_key, "screen": screen["slug"], "label": screen["name"],
+                         "universe_label": uni["label"], "error": str(exc)})
+    except Exception as exc:
+        # A failure before/outside the per-screen loop (bad config.yaml, etc.) — still
+        # write a manifest so the site shows a failure banner instead of going stale
+        # with no explanation.
+        failures += 1
+        print("PIPELINE FAILED: %s" % exc)
+        traceback.print_exc()
+        manifest["fatal_error"] = str(exc)
 
     save_json(os.path.join(DATA_DIR, "manifest.json"), manifest)
     print("done. manifest written.")
-    if failures and failures == len(manifest["screens"]):
-        sys.exit(1)  # every screen failed — surface it as a failed Actions run
+    if failures:
+        sys.exit(1)  # surface any failure as a failed Actions run
 
 
 if __name__ == "__main__":
