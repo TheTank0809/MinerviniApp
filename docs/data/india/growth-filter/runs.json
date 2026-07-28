@@ -1,6 +1,206 @@
 {
  "runs": [
   {
+   "run_date": "2026-07-28",
+   "mode": "WEEKLY",
+   "regime": {
+    "score": 3,
+    "label": "CAUTION",
+    "checks": {
+     "close_above_50dma": true,
+     "close_above_200dma": true,
+     "50dma_above_200dma": false,
+     "distribution_days_25": 5,
+     "distribution_days_ok": false,
+     "pct_universe_above_200dma": 70.0,
+     "universe_above_200dma_ok": true,
+     "net_new_highs_positive": false
+    },
+    "exposure_guidance": "New buys at half risk; only score >=85 setups."
+   },
+   "counts": {
+    "active": 114,
+    "new": 4,
+    "dropped": 2,
+    "errors": 2
+   },
+   "new_tickers": [
+    "IGIL",
+    "KRISHANA",
+    "VERTIS",
+    "NHIT"
+   ],
+   "dropped_tickers": [
+    "MOTILALOFS",
+    "SWSOLAR"
+   ],
+   "actionable_now": [],
+   "alerts": [
+    {
+     "ticker": "ACUTAAS",
+     "alert": "EPS_DECELERATION"
+    },
+    {
+     "ticker": "OLECTRA",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "SKIPPER",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "SKIPPER",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "APOLLO",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "SENORES",
+     "alert": "EPS_DECELERATION"
+    },
+    {
+     "ticker": "VIYASH",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "VIYASH",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "IKS",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "PREMIERENE",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "PREMIERENE",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "YATHARTH",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "QPOWER",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "CGCL",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "JIOFIN",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "ASHAPURMIN",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "ATLANTAELE",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "GENUSPOWER",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "GROWW",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "GROWW",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "WAAREERTL",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "WAAREERTL",
+     "alert": "EPS_DECELERATION"
+    },
+    {
+     "ticker": "INDIASHLTR",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "INDIASHLTR",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "SBFC",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "SHAKTIPUMP",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "SUZLON",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "UNIMECH",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "ZENTEC",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "ZENTEC",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "BORORENEW",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "BORORENEW",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "SHADOWFAX",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "HOMEFIRST",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "GVT&D",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "BAJAJHFL",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "SAATVIKGL",
+     "alert": "CLOSED_BELOW_50DMA"
+    }
+   ],
+   "errors": [
+    {
+     "ticker": "VERTIS",
+     "error": "no OHLCV data on Yahoo Finance"
+    },
+    {
+     "ticker": "NHIT",
+     "error": "no OHLCV data on Yahoo Finance"
+    }
+   ],
+   "llm": {
+    "enabled": true,
+    "model": "claude-sonnet-5"
+   }
+  },
+  {
    "run_date": "2026-07-19",
    "mode": "WEEKLY",
    "regime": {

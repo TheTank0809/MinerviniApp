@@ -1,6 +1,118 @@
 {
  "runs": [
   {
+   "run_date": "2026-07-28",
+   "mode": "WEEKLY",
+   "regime": {
+    "score": 4,
+    "label": "CAUTION",
+    "checks": {
+     "close_above_50dma": true,
+     "close_above_200dma": true,
+     "50dma_above_200dma": false,
+     "distribution_days_25": 5,
+     "distribution_days_ok": false,
+     "pct_universe_above_200dma": 100.0,
+     "universe_above_200dma_ok": true,
+     "net_new_highs_positive": true
+    },
+    "exposure_guidance": "New buys at half risk; only score >=85 setups."
+   },
+   "counts": {
+    "active": 54,
+    "new": 9,
+    "dropped": 10,
+    "errors": 0
+   },
+   "new_tickers": [
+    "DIXON",
+    "NETWEB",
+    "KRISHANA",
+    "DATAPATTNS",
+    "KALYANKJIL",
+    "NEPHROPLUS",
+    "ENTERO",
+    "GODREJPROP",
+    "ETERNAL"
+   ],
+   "dropped_tickers": [
+    "PREMIERENE",
+    "SKIPPER",
+    "APOLLO",
+    "VIYASH",
+    "QPOWER",
+    "GROWW",
+    "ZENTEC",
+    "MOTILALOFS",
+    "BORORENEW",
+    "SAATVIKGL"
+   ],
+   "actionable_now": [],
+   "alerts": [
+    {
+     "ticker": "PTCIL",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "ACUTAAS",
+     "alert": "EPS_DECELERATION"
+    },
+    {
+     "ticker": "IKS",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "SENORES",
+     "alert": "EPS_DECELERATION"
+    },
+    {
+     "ticker": "YATHARTH",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "YATHARTH",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "CGCL",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "CHOLAFIN",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "ANANDRATHI",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "CEMPRO",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "GENUSPOWER",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "NUVAMA",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "UNIMECH",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "SHADOWFAX",
+     "alert": "CLOSED_BELOW_50DMA"
+    }
+   ],
+   "errors": [],
+   "llm": {
+    "enabled": true,
+    "model": "claude-sonnet-5"
+   }
+  },
+  {
    "run_date": "2026-07-19",
    "mode": "WEEKLY",
    "regime": {
