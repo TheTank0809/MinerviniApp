@@ -40,6 +40,13 @@ class ScreenerClient:
                 "screener.in rejected the request (%s). Your SCREENER_SESSIONID is "
                 "probably missing or expired — grab a fresh sessionid cookie and update "
                 "the GitHub secret." % resp.status_code)
+        if resp.status_code == 404 and self.session_id:
+            raise ScreenerError(
+                "screener.in returned 404 for %s. Saved screens are private, so screener.in "
+                "returns 404 rather than 403 once your SCREENER_SESSIONID has expired — this "
+                "is almost always an expired session rather than a bad URL. Grab a fresh "
+                "sessionid cookie and update the SCREENER_SESSIONID secret. If that doesn't "
+                "fix it, double-check the screen's URL/slug hasn't changed on screener.in." % url)
         resp.raise_for_status()
         return resp.text
 

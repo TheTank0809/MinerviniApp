@@ -193,11 +193,15 @@
   function renderErrorBanner(m) {
     var failed = (m.screens || []).filter(function (s) { return s.error; });
     var el = $("#error-banner");
-    if (!failed.length) { el.hidden = true; return; }
-    var isAuth = failed.some(function (s) { return /SCREENER_SESSIONID|401|403/i.test(s.error || ""); });
+    if (!failed.length && !m.fatal_error) { el.hidden = true; return; }
+    var isAuth = failed.some(function (s) { return /SCREENER_SESSIONID|401|403/i.test(s.error || ""); }) ||
+      /SCREENER_SESSIONID|401|403/i.test(m.fatal_error || "");
     var lines = failed.map(function (s) { return "• " + s.label + ": " + s.error; });
-    el.innerHTML = "⚠ " + failed.length + " screen" + (failed.length > 1 ? "s" : "") +
-      " failed on the last run" +
+    if (m.fatal_error) lines.unshift("• pipeline crashed: " + m.fatal_error);
+    var headline = m.fatal_error
+      ? "the last run crashed before finishing"
+      : failed.length + " screen" + (failed.length > 1 ? "s" : "") + " failed on the last run";
+    el.innerHTML = "⚠ " + headline +
       (isAuth ? " — your screener.in session has likely expired. Grab a fresh sessionid cookie and update the SCREENER_SESSIONID secret on GitHub." : ".") +
       "<br><span style=\"opacity:.75\">" + lines.map(esc).join("<br>") + "</span>";
     el.hidden = false;
