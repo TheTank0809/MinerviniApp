@@ -77,6 +77,7 @@ def build_fundamental_payload(raw):
     ratios = raw.get("top_ratios") or {}
 
     payload = {}
+    payload["sector"] = raw.get("sector")
 
     # ---- Quarterly EPS & sales -------------------------------------------
     eps_q = _row(q, "EPS in Rs", "EPS")

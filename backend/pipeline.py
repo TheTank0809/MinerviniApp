@@ -122,8 +122,52 @@ def process_screen(client, universe_key, uni, screen, settings):
     rs_raw = {c: T._rs_raw(df["Close"]) for c, df in universe_dfs.items()}
     rs_pct = T.rs_percentiles(rs_raw)
 
-    # ---- evaluate every current stock ---------------------------------------
+    # ---- fetch fundamentals + technicals for every stock first --------------
+    # (industry-group RS below needs every stock's sector + RS percentile known
+    # before any single stock can be scored, so the fetch has to happen in its
+    # own pass ahead of scoring rather than inline in the scoring loop)
     name_by_code = {s["code"]: s["name"] for s in current}
+    tech_by_code, fund_by_code, fetch_errors = {}, {}, {}
+    for s in current:
+        code = s["code"]
+        try:
+            df = df_for(code)
+            if df is None:
+                raise RuntimeError("no OHLCV data on Yahoo Finance")
+            prior_rec = prior_by_code.get(code)
+            prior_scorecard = (prior_rec or {}).get("scorecard")
+            prev_rs = None
+            if prior_rec:
+                prev_rs = ((prior_scorecard or {}).get("technicals") or {}).get("rs_percentile")
+            tech_by_code[code] = T.build_technical_payload(
+                df, rs_percentile=rs_pct.get(code), rs_percentile_prev=prev_rs)
+            fund_by_code[code] = build_fundamental_payload(client.fetch_company(code))
+        except Exception as exc:
+            fetch_errors[code] = exc
+
+    # ---- industry-group RS: a trade-off proxy ranked only against the stocks
+    # this screen already tracks (currently ~a hundred), never the full market —
+    # H1/H2 were previously always unverified for lack of a free full-market
+    # classification. A sector needs >=3 tracked members to rank meaningfully;
+    # smaller ones are left unverified rather than ranked off 1-2 stocks. --------
+    sector_groups = {}
+    for code, fund in fund_by_code.items():
+        sec = fund.get("sector")
+        if sec and rs_pct.get(code) is not None:
+            sector_groups.setdefault(sec, []).append(code)
+    ranked_sectors = sorted(
+        (sec for sec, codes in sector_groups.items() if len(codes) >= 3),
+        key=lambda sec: -(sum(rs_pct[c] for c in sector_groups[sec]) / len(sector_groups[sec])))
+    for i, sec in enumerate(ranked_sectors):
+        quartile = min(4, int(i / len(ranked_sectors) * 4) + 1)
+        ordered = sorted(sector_groups[sec], key=lambda c: -rs_pct[c])
+        for rank, peer_code in enumerate(ordered, start=1):
+            tech_by_code[peer_code]["industry_group_rs_quartile"] = quartile
+            tech_by_code[peer_code]["industry_sector"] = sec
+            tech_by_code[peer_code]["group_leadership_rank"] = rank
+            tech_by_code[peer_code]["group_leadership_of"] = len(ordered)
+
+    # ---- evaluate every current stock ---------------------------------------
     llm_model = settings.get("llm_model", "claude-sonnet-5")
     llm_budget = settings.get("llm_max_new_stocks_per_run", 25)
     existing_recheck_budget = settings.get("llm_max_existing_catalyst_checks_per_run", 10)
@@ -134,17 +178,11 @@ def process_screen(client, universe_key, uni, screen, settings):
         prior_rec = prior_by_code.get(code)
         is_new = prior_rec is None
         try:
-            df = df_for(code)
-            if df is None:
-                raise RuntimeError("no OHLCV data on Yahoo Finance")
+            if code in fetch_errors:
+                raise fetch_errors[code]
+            tech = tech_by_code[code]
+            fund = fund_by_code[code]
             prior_scorecard = (prior_rec or {}).get("scorecard")
-            prev_rs = None
-            if prior_rec:
-                prev_rs = ((prior_scorecard or {}).get("technicals") or {}).get("rs_percentile")
-            tech = T.build_technical_payload(df, rs_percentile=rs_pct.get(code),
-                                             rs_percentile_prev=prev_rs)
-            raw_fund = client.fetch_company(code)
-            fund = build_fundamental_payload(raw_fund)
 
             prior_llm_checks = (prior_scorecard or {}).get("llm_checks") or {}
             llm_out, fresh_check = None, False

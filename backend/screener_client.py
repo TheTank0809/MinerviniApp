@@ -115,6 +115,7 @@ class ScreenerClient:
         except Exception:
             html = self._get("%s/company/%s/" % (BASE, code))
         soup = BeautifulSoup(html, "html.parser")
+        sector, industry = self._parse_sector(soup)
         out = {
             "top_ratios": self._parse_top_ratios(soup),
             "quarters": self._parse_section_table(soup, "quarters"),
@@ -122,8 +123,24 @@ class ScreenerClient:
             "balance_sheet": self._parse_section_table(soup, "balance-sheet"),
             "cash_flow": self._parse_section_table(soup, "cash-flow"),
             "shareholding": self._parse_section_table(soup, "shareholding"),
+            "sector": sector,
+            "industry": industry,
         }
         return out
+
+    def _parse_sector(self, soup):
+        """Sector/industry classification from the breadcrumb screener.in shows near
+        the top of every company page (Broad Sector > Sector > Broad Industry >
+        Industry, each an <a title="..."> link) — no extra request, same page we
+        already fetch. Used only for a free, watchlist-relative "industry group RS"
+        proxy (see scorecard.py _score_H) — never a true full-market classification."""
+        sector = industry = None
+        for a in soup.find_all("a", title=True):
+            if a["title"] == "Sector" and sector is None:
+                sector = a.get_text(strip=True)
+            elif a["title"] == "Industry" and industry is None:
+                industry = a.get_text(strip=True)
+        return sector, industry
 
     def _parse_top_ratios(self, soup):
         ratios = {}

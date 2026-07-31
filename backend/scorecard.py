@@ -262,11 +262,25 @@ def _score_G(t, tt_pass, uv, flags):
     return s
 
 
-def _score_H(t, uv, flags, llm_h=None):
+def _score_H(t, uv, flags, proxy, llm_h=None):
     s = {}
+    # H1/H2 are a deliberate trade-off: ranked only against the stocks this screen
+    # already tracks (a few hundred at most), never the full market — pipeline.py
+    # only fills these in when a stock's sector has >=3 tracked peers to rank
+    # against. Flagged in `proxy` (not `uv`) so the frontend can mark them as an
+    # approximation rather than either a real score or a silent zero.
     q = t.get("industry_group_rs_quartile")
-    s["H1"] = _uv(uv, "industry_group_rs") if q is None else (2 if q == 1 else 0)
-    s["H2"] = _uv(uv, "group_leadership_rank")
+    if q is None:
+        s["H1"] = _uv(uv, "industry_group_rs")
+    else:
+        s["H1"] = 2 if q == 1 else 0
+        proxy.append("industry_group_rs")
+    rank, of = t.get("group_leadership_rank"), t.get("group_leadership_of")
+    if rank is None or not of:
+        s["H2"] = _uv(uv, "group_leadership_rank")
+    else:
+        s["H2"] = 2 if rank <= max(1, round(of * 0.25)) else 0
+        proxy.append("group_leadership_rank")
     s["H3"] = 0
     if llm_h and llm_h.get("h3_catalyst_found") and llm_h.get("h3_citation"):
         s["H3"] = 1
@@ -346,6 +360,7 @@ def assess_risk(f, t, flags):
 
 def evaluate(ticker, name, tech, fund, regime, cfg, mode="FULL", prior=None, llm_verdict=None):
     unverified = list(fund.get("unverified_fields") or [])
+    proxy = []
     flags = []
 
     tt = trend_template(tech, unverified)
@@ -378,7 +393,7 @@ def evaluate(ticker, name, tech, fund, regime, cfg, mode="FULL", prior=None, llm
         "violations": {"count": 0, "items": [], "recommendation": ""},
         "verdict": {"summary": "", "strengths": [], "weaknesses": [], "catalysts": [],
                     "biggest_risk": "", "conviction_0_10": 0},
-        "data_quality": {"unverified_fields": [], "sources": [
+        "data_quality": {"unverified_fields": [], "proxy_fields": [], "sources": [
             {"field": "technicals", "source": "Yahoo Finance OHLCV", "as_of": tech.get("as_of")},
             {"field": "fundamentals", "source": "screener.in", "as_of": tech.get("as_of")},
         ]},
@@ -388,6 +403,9 @@ def evaluate(ticker, name, tech, fund, regime, cfg, mode="FULL", prior=None, llm
             "pct_above_52w_low": tech.get("pct_above_52w_low"),
             "dma_50": tech.get("dma_50"), "dma_200": tech.get("dma_200"),
             "up_down_volume_ratio_50d": tech.get("up_down_volume_ratio_50d"),
+            "industry_sector": tech.get("industry_sector"),
+            "group_leadership_rank": tech.get("group_leadership_rank"),
+            "group_leadership_of": tech.get("group_leadership_of"),
         },
     }
 
@@ -418,7 +436,7 @@ def evaluate(ticker, name, tech, fund, regime, cfg, mode="FULL", prior=None, llm
         "sponsorship": _score_E(fund, unverified, flags),
         "rs_trend": _score_F(tech, unverified, flags),
         "base_structure": _score_G(tech, tt["pass"], unverified, flags),
-        "leadership": _score_H(tech, unverified, flags, llm_h=llm_verdict),
+        "leadership": _score_H(tech, unverified, flags, proxy, llm_h=llm_verdict),
     }
     total = sum(sec["subtotal"] for sec in s.values())
     s["total"] = total
@@ -433,6 +451,7 @@ def evaluate(ticker, name, tech, fund, regime, cfg, mode="FULL", prior=None, llm
         if card["action_bucket"] in ("ACTIONABLE_NOW", "BUY_ON_BREAKOUT"):
             card["trade_plan"] = trade_plan(tech, total, regime["label"], cfg)
     card["data_quality"]["unverified_fields"] = sorted(set(unverified))
+    card["data_quality"]["proxy_fields"] = sorted(set(proxy))
 
     # rule-derived verdict (LLM may overwrite with richer text)
     if llm_verdict and llm_verdict.get("verdict"):

@@ -562,10 +562,26 @@
 
   // ---------------------------------------------------------------- detail sheet
 
-  function itemRows(sec) {
+  // H1/H2 are a watchlist-relative proxy (see backend/scorecard.py _score_H) rather
+  // than a true full-market figure — flagged distinctly so it reads as "approximate,"
+  // not as either a fully verified score or a silent zero.
+  var PROXY_FIELD_TO_KEY = { industry_group_rs: "H1", group_leadership_rank: "H2" };
+  function proxyTitle(t) {
+    var bits = ["Approximate — ranked only within your tracked screens, not the full market"];
+    if (t.industry_sector) bits.push(t.industry_sector);
+    if (t.group_leadership_rank && t.group_leadership_of) {
+      bits.push("rank " + t.group_leadership_rank + " of " + t.group_leadership_of + " tracked peers");
+    }
+    return bits.join(" · ");
+  }
+  function itemRows(sec, proxyKeys, proxyTitleText) {
     var keys = Object.keys(sec).filter(function (k) { return k !== "subtotal"; });
     return keys.map(function (k) {
-      return "<b>" + (ITEM_LABEL[k] || k) + "</b> " + sec[k] + "/" + (ITEM_MAX[k] || "?");
+      var text = "<b>" + (ITEM_LABEL[k] || k) + "</b> " + sec[k] + "/" + (ITEM_MAX[k] || "?");
+      if (proxyKeys && proxyKeys[k]) {
+        return '<span class="proxy-item" title="' + esc(proxyTitleText) + '">' + text + "</span>";
+      }
+      return text;
     }).join(" · ");
   }
 
@@ -649,16 +665,25 @@
     // gates
     var tt = ((sc.gates || {}).trend_template) || {};
     html += '<div class="sec-title">Gate 1 · Trend Template</div><div class="gategrid">';
-    var GL = ["&gt;150/200d", "150&gt;200", "200d rising", "50&gt;150/200", "&gt;50d", "+30% low", "-25% high", "RS≥70"];
+    var GL_WORD = ["Uptrend", "Aligned", "Rising", "Leading", "Holding", "Rebounded", "Nearing", "Leader"];
+    var GL_DEF = ["Price > 150d & 200d MA", "150d MA > 200d MA", "200d MA rising", "50d MA > 150d & 200d MA",
+                  "Price > 50d MA", ">=30% above 52w low", "Within 25% of 52w high", "RS percentile >= 70"];
     for (var i = 1; i <= 8; i++) {
       var v = tt["c" + i];
-      html += '<div class="gcell ' + (v === true ? "on" : v === false ? "off" : "") + '">c' + i +
-        "<br>" + GL[i - 1] + "</div>";
+      html += '<div class="gcell ' + (v === true ? "on" : v === false ? "off" : "") +
+        '" title="c' + i + ": " + esc(GL_DEF[i - 1]) + '">c' + i +
+        "<br>" + GL_WORD[i - 1] + "</div>";
     }
     html += "</div>";
     if (tt.near_miss_notes) html += '<p class="uv">' + esc(tt.near_miss_notes) + "</p>";
 
     if (scores) {
+      var proxyKeys = {};
+      ((sc.data_quality || {}).proxy_fields || []).forEach(function (f) {
+        var k = PROXY_FIELD_TO_KEY[f];
+        if (k) proxyKeys[k] = true;
+      });
+      var proxyTitleText = proxyTitle(t);
       html += '<div class="sec-title">Score · ' + scores.total + "/100</div><div class=\"scorebars\">";
       Object.keys(SECTION_MAX).forEach(function (k) {
         var sec = scores[k];
@@ -666,7 +691,7 @@
         html += '<div class="sbar"><span class="lbl">' + SECTION_LABEL[k] + "</span>" +
           '<span class="track"><span class="fill" style="width:' + pct + '%"></span></span>' +
           '<span class="val">' + sec.subtotal + "/" + SECTION_MAX[k] + "</span></div>" +
-          '<div class="items">' + itemRows(sec) + "</div>";
+          '<div class="items">' + itemRows(sec, proxyKeys, proxyTitleText) + "</div>";
       });
       html += "</div>";
     }
@@ -712,6 +737,9 @@
 
     var uv = ((sc.data_quality || {}).unverified_fields) || [];
     if (uv.length) html += '<p class="uv">Unverified (scored 0): ' + esc(uv.join(", ")) + "</p>";
+    var pf = ((sc.data_quality || {}).proxy_fields) || [];
+    if (pf.length) html += '<p class="uv proxy-note">Approximate (' + esc(pf.join(", ")) +
+      "): ranked only within your tracked screens, not the full market.</p>";
     var vc = sc.valuation_context || {};
     if (vc.pe) html += '<p class="uv">Context only: P/E ' + vc.pe + " — never a criterion.</p>";
 
