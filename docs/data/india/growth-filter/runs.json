@@ -1,6 +1,98 @@
 {
  "runs": [
   {
+   "run_date": "2026-08-02",
+   "mode": "WEEKLY",
+   "regime": {
+    "score": 5,
+    "label": "CONFIRMED_UPTREND",
+    "checks": {
+     "close_above_50dma": true,
+     "close_above_200dma": true,
+     "50dma_above_200dma": false,
+     "distribution_days_25": 4,
+     "distribution_days_ok": true,
+     "pct_universe_above_200dma": 71.3,
+     "universe_above_200dma_ok": true,
+     "net_new_highs_positive": true
+    },
+    "exposure_guidance": "New buys allowed; full risk budget."
+   },
+   "counts": {
+    "active": 115,
+    "new": 3,
+    "dropped": 0,
+    "errors": 2
+   },
+   "new_tickers": [
+    "VERTIS",
+    "NHIT",
+    "NIVABUPA"
+   ],
+   "dropped_tickers": [],
+   "actionable_now": [],
+   "alerts": [
+    {
+     "ticker": "PTCIL",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "ACUTAAS",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "EMMVEE",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "SENCO",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "MANORAMA",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "WAAREEENER",
+     "alert": "EPS_DECELERATION"
+    },
+    {
+     "ticker": "DATAPATTNS",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "THANGAMAYL",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "KSHINTL",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "SHILCTECH",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "*",
+     "alert": "REGIME_CHANGE CAUTION -> CONFIRMED_UPTREND"
+    }
+   ],
+   "errors": [
+    {
+     "ticker": "VERTIS",
+     "error": "no OHLCV data on Yahoo Finance"
+    },
+    {
+     "ticker": "NHIT",
+     "error": "no OHLCV data on Yahoo Finance"
+    }
+   ],
+   "llm": {
+    "enabled": true,
+    "model": "claude-sonnet-5"
+   }
+  },
+  {
    "run_date": "2026-07-28",
    "mode": "WEEKLY",
    "regime": {

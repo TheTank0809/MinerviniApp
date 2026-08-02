@@ -1,6 +1,83 @@
 {
  "runs": [
   {
+   "run_date": "2026-08-02",
+   "mode": "WEEKLY",
+   "regime": {
+    "score": 5,
+    "label": "CONFIRMED_UPTREND",
+    "checks": {
+     "close_above_50dma": true,
+     "close_above_200dma": true,
+     "50dma_above_200dma": false,
+     "distribution_days_25": 4,
+     "distribution_days_ok": true,
+     "pct_universe_above_200dma": 95.8,
+     "universe_above_200dma_ok": true,
+     "net_new_highs_positive": true
+    },
+    "exposure_guidance": "New buys allowed; full risk budget."
+   },
+   "counts": {
+    "active": 58,
+    "new": 10,
+    "dropped": 6,
+    "errors": 0
+   },
+   "new_tickers": [
+    "GOKULAGRO",
+    "TRENT",
+    "SANDUMA",
+    "COFORGE",
+    "SKIPPER",
+    "LUMAXTECH",
+    "LOTUSDEV",
+    "PNGJL",
+    "ASHAPURMIN",
+    "APOLLO"
+   ],
+   "dropped_tickers": [
+    "EBGNG",
+    "ACUTAAS",
+    "YATHARTH",
+    "EMMVEE",
+    "THANGAMAYL",
+    "DATAPATTNS"
+   ],
+   "actionable_now": [],
+   "alerts": [
+    {
+     "ticker": "PTCIL",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "CUPID",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "MANORAMA",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "UTLSOLAR",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "KSHINTL",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "*",
+     "alert": "REGIME_CHANGE CAUTION -> CONFIRMED_UPTREND"
+    }
+   ],
+   "errors": [],
+   "llm": {
+    "enabled": true,
+    "model": "claude-sonnet-5"
+   }
+  },
+  {
    "run_date": "2026-07-28",
    "mode": "WEEKLY",
    "regime": {
