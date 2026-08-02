@@ -11,6 +11,7 @@ Usage:  SCREENER_SESSIONID=... python backend/pipeline.py
 """
 
 import json
+import math
 import os
 import sys
 import datetime
@@ -38,10 +39,25 @@ def load_json(path, default):
         return default
 
 
+def _sanitize(obj):
+    """Python's json module happily writes the literal tokens NaN/Infinity, which
+    aren't valid JSON — browsers' JSON.parse rejects them outright, and a single bad
+    value anywhere in a screen's data corrupts the whole file (and, since both
+    screens load via Promise.all, can blank the entire site). Recursively coerce
+    any such float to null before it ever reaches disk."""
+    if isinstance(obj, float):
+        return None if (math.isnan(obj) or math.isinf(obj)) else obj
+    if isinstance(obj, dict):
+        return {k: _sanitize(v) for k, v in obj.items()}
+    if isinstance(obj, list):
+        return [_sanitize(v) for v in obj]
+    return obj
+
+
 def save_json(path, obj):
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w") as fh:
-        json.dump(obj, fh, indent=1, default=str)
+        json.dump(_sanitize(obj), fh, indent=1, default=str)
 
 
 def today():

@@ -17,15 +17,26 @@ def download_history(symbols, years=2):
     data = yf.download(
         symbols, period="%dy" % years, interval="1d",
         group_by="ticker", auto_adjust=True, progress=False, threads=True)
+    def _clean(df):
+        # dropna(how="all") only drops rows where every column is NaN — a row with a
+        # NaN Close but valid Open/High/Low survives it. That single NaN then poisons
+        # every rolling calculation that touches it (price, DMAs, 52w range, ...),
+        # which silently writes invalid JSON and can blank the whole site. Close is
+        # what every downstream number derives from, so require it specifically.
+        df = df.dropna(how="all")
+        if "Close" in df.columns:
+            df = df[df["Close"].notna()]
+        return df
+
     out = {}
     if isinstance(data.columns, pd.MultiIndex):
         for sym in symbols:
             if sym in data.columns.get_level_values(0):
-                df = data[sym].dropna(how="all")
+                df = _clean(data[sym])
                 if len(df) > 30:
                     out[sym] = df
     else:  # single symbol
-        df = data.dropna(how="all")
+        df = _clean(data)
         if len(df) > 30:
             out[symbols[0]] = df
     return out

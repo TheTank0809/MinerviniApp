@@ -2630,7 +2630,7 @@
     "base": {
      "pattern_label": "",
      "pivot": 234.5,
-     "pct_from_pivot": NaN,
+     "pct_from_pivot": null,
      "base_count": 4,
      "depth_pct": 3.5,
      "weeks": 0.4
@@ -2696,12 +2696,12 @@
      ]
     },
     "technicals": {
-     "price": NaN,
+     "price": null,
      "rs_percentile": 68,
-     "pct_below_52w_high": NaN,
-     "pct_above_52w_low": NaN,
-     "dma_50": NaN,
-     "dma_200": NaN,
+     "pct_below_52w_high": null,
+     "pct_above_52w_low": null,
+     "dma_50": null,
+     "dma_200": null,
      "up_down_volume_ratio_50d": 3.36,
      "industry_sector": "Fast Moving Consumer Goods",
      "group_leadership_rank": 1,
