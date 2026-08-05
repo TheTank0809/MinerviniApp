@@ -89,6 +89,44 @@
     G1: "Stage", G2: "Count", G3: "Depth", G4: "VCP", G5: "DryUp", G6: "Tight",
     H1: "Group", H2: "Rank", H3: "Catalyst",
   };
+  // Plain-English descriptions shown on tap — see PROMPT.md for the exact rubric each
+  // is scored against.
+  var ITEM_DESC = {
+    A1: "Latest quarter's EPS growth year-over-year. ≥100% = 8, 50–99% = 6, 25–49% = 4, 15–24% = 2, <15% = 0.",
+    A2: "EPS growth rate accelerating across each of the last 3 quarters.",
+    A3: "Latest full-year EPS growth vs the year before.",
+    A4: "3-year compound annual EPS growth rate.",
+    A5: "Positive EPS in all 8 quarters, and no quarter propped up by non-operating income (>30% of pre-tax profit).",
+    B1: "Latest quarter's sales growth year-over-year.",
+    B2: "Sales growth rate accelerating across each of the last 3 quarters.",
+    B3: "3-year compound annual sales growth rate.",
+    B4: "EPS growth actually driven by sales and margins, not a one-off or a lower tax rate.",
+    C1: "Return on equity.",
+    C2: "Net profit margin expanding year-over-year in the latest quarter.",
+    C3: "3-year cumulative operating cash flow as a share of profit after tax — checks that earnings are real cash, not just accounting.",
+    C4: "Estimated free cash flow positive in at least 2 of the last 3 years (screener.in doesn't isolate capex, so this is an estimate).",
+    D1: "Debt to equity ratio.",
+    D2: "Operating profit as a multiple of interest expense.",
+    D3: "Share count growth over 2 years — heavy dilution is a red flag.",
+    D4: "Promoter shareholding pledged against loans — any pledge is a red flag.",
+    E1: "Combined FII + DII institutional holding rising over recent quarters.",
+    E2: "Number of mutual fund schemes holding the stock is increasing.",
+    E3: "At least one well-regarded institutional holder.",
+    E4: "Promoter holding stable or rising over the last 4 quarters.",
+    F1: "Relative strength percentile — how this stock's price performance ranks against the rest of your tracked screens.",
+    F2: "How close the price is to its 52-week high.",
+    F3: "Price is above a rising 50-day moving average.",
+    F4: "Volume on up days vs down days over the last 50 sessions — buying pressure vs selling.",
+    G1: "Confirmed Stage 2 uptrend: trend template passed and price is well off its lows.",
+    G2: "Which base (consolidation) since the Stage 2 uptrend began — earlier bases score higher, later ones flag late-stage risk.",
+    G3: "How deep the current base is from its high.",
+    G4: "Volatility Contraction Pattern — each pullback within the base shallower than the last, tightening into a pivot.",
+    G5: "Volume drying up on the final contraction before a breakout, vs the 50-day average.",
+    G6: "How tight the last 2–3 weekly closes are to each other — a classic pre-breakout signature.",
+    H1: "Industry group relative strength.",
+    H2: "Rank within its industry group by relative strength.",
+    H3: "An identifiable new catalyst (product, capacity, order book, margin inflection) found by the LLM check, with a citation.",
+  };
 
   var C_SHORT = { c1: "below 150/200 DMA", c2: "150 DMA under 200", c3: "200 DMA not rising",
                   c4: "50 DMA under 150/200", c5: "below 50 DMA", c6: "under +30% off low",
@@ -574,14 +612,21 @@
     }
     return bits.join(" · ");
   }
+  // Every item is a real <button> (not a styled link) so tapping it works identically
+  // on desktop and mobile — title/hover tooltips don't fire reliably on touch. Buttons
+  // already inherit plain text styling from the global `button` reset in app.css, so
+  // this adds a description without looking like a hyperlink.
   function itemRows(sec, proxyKeys, proxyTitleText) {
     var keys = Object.keys(sec).filter(function (k) { return k !== "subtotal"; });
     return keys.map(function (k) {
-      var text = "<b>" + (ITEM_LABEL[k] || k) + "</b> " + sec[k] + "/" + (ITEM_MAX[k] || "?");
-      if (proxyKeys && proxyKeys[k]) {
-        return '<span class="proxy-item" title="' + esc(proxyTitleText) + '">' + text + "</span>";
-      }
-      return text;
+      var label = ITEM_LABEL[k] || k;
+      var text = "<b>" + esc(label) + "</b> " + sec[k] + "/" + (ITEM_MAX[k] || "?");
+      var isProxy = proxyKeys && proxyKeys[k];
+      var desc = ITEM_DESC[k] || "";
+      if (isProxy && proxyTitleText) desc = (desc ? desc + " " : "") + proxyTitleText;
+      var cls = "item-btn" + (isProxy ? " proxy-item" : "");
+      return '<button type="button" class="' + cls + '" data-item-key="' + esc(k) +
+        '" data-item-desc="' + esc(desc) + '">' + text + "</button>";
     }).join(" · ");
   }
 
@@ -662,19 +707,27 @@
       kv("Joined", fmtDate(rec.joined_date)) +
       kv("As of", fmtDate(sc.as_of)) + "</div>";
 
-    // gates
+    // gates — cells are buttons so tapping any one shows its definition below the grid
+    // (a shared slot, not per-cell, so the grid never reflows when opened/closed).
     var tt = ((sc.gates || {}).trend_template) || {};
     html += '<div class="sec-title">Gate 1 · Trend Template</div><div class="gategrid">';
     var GL_WORD = ["Uptrend", "Aligned", "Rising", "Leading", "Holding", "Rebounded", "Nearing", "Leader"];
-    var GL_DEF = ["Price > 150d & 200d MA", "150d MA > 200d MA", "200d MA rising", "50d MA > 150d & 200d MA",
-                  "Price > 50d MA", ">=30% above 52w low", "Within 25% of 52w high", "RS percentile >= 70"];
+    var GL_DEF = ["Price is above both the 150-day and 200-day moving average.",
+                  "150-day moving average is above the 200-day moving average.",
+                  "200-day moving average has been trending up for at least 1 month.",
+                  "50-day moving average is above both the 150-day and 200-day moving average.",
+                  "Price is above the 50-day moving average.",
+                  "Price is at least 30% above its 52-week low.",
+                  "Price is within 25% of its 52-week high.",
+                  "Relative strength percentile is 70 or higher."];
     for (var i = 1; i <= 8; i++) {
       var v = tt["c" + i];
-      html += '<div class="gcell ' + (v === true ? "on" : v === false ? "off" : "") +
-        '" title="c' + i + ": " + esc(GL_DEF[i - 1]) + '">c' + i +
-        "<br>" + GL_WORD[i - 1] + "</div>";
+      html += '<button type="button" class="gcell ' + (v === true ? "on" : v === false ? "off" : "") +
+        '" data-gate-key="c' + i + '" data-gate-word="' + esc(GL_WORD[i - 1]) +
+        '" data-gate-desc="' + esc(GL_DEF[i - 1]) + '">c' + i +
+        "<br>" + GL_WORD[i - 1] + "</button>";
     }
-    html += "</div>";
+    html += "</div><div class=\"gate-desc\" hidden></div>";
     if (tt.near_miss_notes) html += '<p class="uv">' + esc(tt.near_miss_notes) + "</p>";
 
     if (scores) {
@@ -691,7 +744,8 @@
         html += '<div class="sbar"><span class="lbl">' + SECTION_LABEL[k] + "</span>" +
           '<span class="track"><span class="fill" style="width:' + pct + '%"></span></span>' +
           '<span class="val">' + sec.subtotal + "/" + SECTION_MAX[k] + "</span></div>" +
-          '<div class="items">' + itemRows(sec, proxyKeys, proxyTitleText) + "</div>";
+          '<div class="items">' + itemRows(sec, proxyKeys, proxyTitleText) + "</div>" +
+          '<div class="item-desc" hidden></div>';
       });
       html += "</div>";
     }
@@ -776,6 +830,28 @@
         else toggleMark(BOUGHT_KEY, "bought", state.bought, entry.ticker);
         renderSheet(entry, slug, false);
         renderList();
+      };
+    });
+    // Tap a gate cell or score item to show its definition — tap the same one again
+    // (or tap elsewhere on the page) to close it.
+    sheet.querySelectorAll(".gategrid .gcell").forEach(function (btn) {
+      btn.onclick = function () {
+        var box = sheet.querySelector(".gate-desc");
+        var key = btn.dataset.gateKey;
+        var open = !box.hidden && box.dataset.openKey === key;
+        box.hidden = open;
+        box.dataset.openKey = open ? "" : key;
+        if (!open) box.innerHTML = "<b>" + esc(key) + " " + esc(btn.dataset.gateWord) + ":</b> " + esc(btn.dataset.gateDesc);
+      };
+    });
+    sheet.querySelectorAll(".items .item-btn").forEach(function (btn) {
+      btn.onclick = function () {
+        var box = btn.parentElement.nextElementSibling;
+        var key = btn.dataset.itemKey;
+        var open = !box.hidden && box.dataset.openKey === key;
+        box.hidden = open;
+        box.dataset.openKey = open ? "" : key;
+        if (!open) box.innerHTML = "<b>" + esc(ITEM_LABEL[key] || key) + ":</b> " + esc(btn.dataset.itemDesc);
       };
     });
     if (isFreshOpen) {
