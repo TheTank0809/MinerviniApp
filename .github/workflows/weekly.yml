@@ -102,7 +102,13 @@ jobs:
 
   deploy:
     needs: scan
-    if: ${{ !cancelled() }}   # deploy even if scan failed, so the failure banner reaches the site
+    # scan uploads its site artifact via `if: always()`, so both success and failure
+    # leave something real to deploy (a failure still commits a manifest with the error
+    # banner). But scan can also be *skipped* entirely — the should-run cost-guard
+    # decided not to re-scan — and then there's no artifact at all. The old
+    # `!cancelled()` condition didn't distinguish "failed" from "skipped" and tried to
+    # deploy nothing, crashing with "No artifacts named github-pages were found."
+    if: ${{ needs.scan.result == 'success' || needs.scan.result == 'failure' }}
     runs-on: ubuntu-latest
     environment:
       name: github-pages
