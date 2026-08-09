@@ -10,6 +10,8 @@ settings:
   max_stop_pct: 10
   history_years: 2                  # OHLCV lookback
   request_delay_seconds: 1.2        # politeness delay between screener.in requests
+  rs_universe_min_symbols: 100      # below this many successful fetches, fall back to tracked-only RS ranking
+  rs_universe_lookback_years: 1     # OHLCV lookback for the broad RS reference universe (only needs ~1yr for the RS formula)
   llm_model: "claude-sonnet-5"      # used only if ANTHROPIC_API_KEY is set
   llm_max_new_stocks_per_run: 25    # cost guard for verdict synthesis
   llm_max_existing_catalyst_checks_per_run: 10  # cost guard for the lighter recheck below
@@ -21,6 +23,14 @@ universes:
     enabled: true
     currency: "INR"
     yahoo_suffixes: [".NS", ".BO"]
+    # RS percentile is ranked against this list instead of just the tracked stocks below
+    # (which, being pre-filtered by the screens, otherwise inflates everyone's RS). Static
+    # file, not fetched live — refresh occasionally from NSE's own archive (constituents
+    # don't change often enough for staleness to matter much between refreshes):
+    #   curl -A "Mozilla/5.0" https://archives.nseindia.com/content/indices/ind_nifty500list.csv \
+    #     -o backend/data/universe_india.csv
+    rs_universe_csv: "backend/data/universe_india.csv"
+    rs_universe_label: "Nifty 500"
     screens:
       # url = paste the exact address bar URL of the screen on screener.in, no edits.
       # slug = internal folder name under docs/data/ — can be anything, unrelated to screener.in.

@@ -365,6 +365,22 @@
     } else {
       llmEl.hidden = true;
     }
+
+    var rsEl = $("#rs-line");
+    var rsu = run.rs_universe;
+    if (rsu && rsu.source) {
+      if (rsu.used) {
+        rsEl.textContent = "RS vs " + esc(rsu.source) + ": " + rsu.succeeded + "/" + rsu.attempted + " fetched";
+        rsEl.className = "llmline";
+      } else {
+        rsEl.textContent = "RS vs " + esc(rsu.source) + ": only " + rsu.succeeded + "/" + rsu.attempted +
+          " fetched — fell back to tracked-only ranking this run";
+        rsEl.className = "llmline warn";
+      }
+      rsEl.hidden = false;
+    } else {
+      rsEl.hidden = true;
+    }
   }
 
   function renderChips() {

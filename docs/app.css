@@ -93,6 +93,7 @@ h1 {
 @media (prefers-reduced-motion: reduce) { .cursor { animation: none; } }
 .runstamp { font-family: var(--mono); font-size: 11px; color: var(--muted); text-align: right; flex: none; }
 .llmline { font-family: var(--mono); font-size: 10.5px; color: var(--muted); margin-top: 2px; letter-spacing: .02em; }
+.llmline.warn { color: var(--amber-soft); }
 
 .sample-banner {
   margin: 0 16px 8px; padding: 8px 12px; border: 1px dashed var(--amber-dim);

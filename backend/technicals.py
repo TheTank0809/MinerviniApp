@@ -5,9 +5,28 @@ Data source: Yahoo Finance daily bars via yfinance.
 """
 
 import math
+import time
 import pandas as pd
 import numpy as np
 import yfinance as yf
+
+try:
+    from yfinance.exceptions import YFRateLimitError
+except ImportError:  # older yfinance versions don't expose this class
+    class YFRateLimitError(Exception):
+        pass
+
+
+def _clean_ohlcv(df):
+    # dropna(how="all") only drops rows where every column is NaN — a row with a
+    # NaN Close but valid Open/High/Low survives it. That single NaN then poisons
+    # every rolling calculation that touches it (price, DMAs, 52w range, ...),
+    # which silently writes invalid JSON and can blank the whole site. Close is
+    # what every downstream number derives from, so require it specifically.
+    df = df.dropna(how="all")
+    if "Close" in df.columns:
+        df = df[df["Close"].notna()]
+    return df
 
 
 def download_history(symbols, years=2):
@@ -17,29 +36,72 @@ def download_history(symbols, years=2):
     data = yf.download(
         symbols, period="%dy" % years, interval="1d",
         group_by="ticker", auto_adjust=True, progress=False, threads=True)
-    def _clean(df):
-        # dropna(how="all") only drops rows where every column is NaN — a row with a
-        # NaN Close but valid Open/High/Low survives it. That single NaN then poisons
-        # every rolling calculation that touches it (price, DMAs, 52w range, ...),
-        # which silently writes invalid JSON and can blank the whole site. Close is
-        # what every downstream number derives from, so require it specifically.
-        df = df.dropna(how="all")
-        if "Close" in df.columns:
-            df = df[df["Close"].notna()]
-        return df
-
     out = {}
     if isinstance(data.columns, pd.MultiIndex):
         for sym in symbols:
             if sym in data.columns.get_level_values(0):
-                df = _clean(data[sym])
+                df = _clean_ohlcv(data[sym])
                 if len(df) > 30:
                     out[sym] = df
     else:  # single symbol
-        df = _clean(data)
+        df = _clean_ohlcv(data)
         if len(df) > 30:
             out[symbols[0]] = df
     return out
+
+
+# Seconds to wait before each retry of a rate-limited chunk — a short first try (Yahoo's
+# limiter is often just a burst throttle) then longer waits, capped at 3 attempts so one
+# bad run can't hang the whole weekly job.
+RATE_LIMIT_BACKOFF = [30, 60, 120]
+
+
+def download_broad_universe_history(symbols, years=1, chunk_size=50, pause_seconds=3):
+    """Chunked, retry-with-backoff download for a broad reference universe (used only to
+    rank RS percentile against something closer to the full market — see pipeline.py).
+
+    This is explicitly best-effort and never raises: GitHub Actions' shared runner IPs
+    see a documented higher rate of Yahoo Finance throttling than a normal connection
+    (shared across every other workflow hitting Yahoo at the same time, outside our
+    control), so a chunk that's still rate-limited after retries is skipped rather than
+    failing the run — a smaller-than-requested universe is still far better than none,
+    and the caller decides whether what came back is enough to use.
+
+    Returns (histories, attempted, succeeded).
+    """
+    out = {}
+    attempted = len(symbols)
+    for i in range(0, len(symbols), chunk_size):
+        batch = symbols[i:i + chunk_size]
+        for attempt in range(len(RATE_LIMIT_BACKOFF) + 1):
+            try:
+                data = yf.download(batch, period="%dy" % years, interval="1d",
+                                    group_by="ticker", auto_adjust=True, progress=False, threads=True)
+                if isinstance(data.columns, pd.MultiIndex):
+                    for sym in batch:
+                        if sym in data.columns.get_level_values(0):
+                            df = _clean_ohlcv(data[sym])
+                            if len(df) > 30:
+                                out[sym] = df
+                elif len(batch) == 1:
+                    df = _clean_ohlcv(data)
+                    if len(df) > 30:
+                        out[batch[0]] = df
+                break  # chunk done (even if some symbols in it came back empty)
+            except YFRateLimitError:
+                if attempt < len(RATE_LIMIT_BACKOFF):
+                    wait = RATE_LIMIT_BACKOFF[attempt]
+                    print("  broad universe chunk %d-%d: rate limited, waiting %ds (retry %d/%d)" %
+                          (i, i + len(batch), wait, attempt + 1, len(RATE_LIMIT_BACKOFF)))
+                    time.sleep(wait)
+                else:
+                    print("  broad universe chunk %d-%d: still rate limited after retries, skipping" %
+                          (i, i + len(batch)))
+            except Exception as exc:
+                print("  broad universe chunk %d-%d: %s — skipping" % (i, i + len(batch), exc))
+                break
+        time.sleep(pause_seconds)
+    return out, attempted, len(out)
 
 
 def yahoo_symbol_candidates(code, suffixes):

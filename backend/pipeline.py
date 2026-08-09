@@ -10,6 +10,7 @@
 Usage:  SCREENER_SESSIONID=... python backend/pipeline.py
 """
 
+import csv
 import json
 import math
 import os
@@ -37,6 +38,39 @@ def load_json(path, default):
             return json.load(fh)
     except Exception:
         return default
+
+
+_rs_universe_cache = {}
+
+
+def load_rs_universe_symbols(uni):
+    """Yahoo symbols for the broad RS reference universe (e.g. Nifty 500), read from a
+    static CSV committed to the repo — not fetched live, so it's never a new point of
+    failure in the weekly run. NSE's own site blocks non-browser requests aggressively;
+    refresh the file manually (backend/data/universe_india.csv, from NSE's own archive:
+    archives.nseindia.com/content/indices/ind_nifty500list.csv) every so often instead —
+    constituents don't change often enough for staleness to matter much between refreshes.
+    Returns [] if no csv is configured for this universe (e.g. `us`, not built yet).
+    """
+    csv_path = uni.get("rs_universe_csv")
+    if not csv_path:
+        return []
+    if csv_path in _rs_universe_cache:
+        return _rs_universe_cache[csv_path]
+    full_path = os.path.join(ROOT, csv_path)
+    suffix = (uni.get("yahoo_suffixes") or [""])[0]
+    symbols = []
+    try:
+        with open(full_path, newline="") as fh:
+            for row in csv.DictReader(fh):
+                sym = (row.get("Symbol") or "").strip()
+                if sym:
+                    symbols.append(sym + suffix)
+    except Exception as exc:
+        print("  RS universe list unavailable (%s) — falling back to tracked-only ranking" % exc)
+        symbols = []
+    _rs_universe_cache[csv_path] = symbols
+    return symbols
 
 
 def _sanitize(obj):
@@ -134,8 +168,32 @@ def process_screen(client, universe_key, uni, screen, settings):
     regime = T.market_regime(bench_df, universe_dfs)
     print("  regime: %s (%d/6)" % (regime["label"], regime["score"]))
 
-    # ---- RS percentiles across the tracked universe -------------------------
+    # ---- RS percentiles ------------------------------------------------------
+    # Ranked against a broad reference universe (e.g. Nifty 500) when one is configured
+    # and enough of it actually downloads — ranking within just the ~100-150 tracked
+    # stocks (the old behavior, and still the fallback) inflates RS, since everyone in
+    # that pool already cleared a growth/momentum screen. See technicals.py for the
+    # chunked/retry-with-backoff fetch this depends on.
     rs_raw = {c: T._rs_raw(df["Close"]) for c, df in universe_dfs.items()}
+    rs_universe_stats = {"source": None, "attempted": 0, "succeeded": 0, "used": False}
+    broad_symbols = load_rs_universe_symbols(uni)
+    if broad_symbols:
+        min_needed = settings.get("rs_universe_min_symbols", 100)
+        broad_hist, attempted, succeeded = T.download_broad_universe_history(
+            broad_symbols, years=settings.get("rs_universe_lookback_years", 1))
+        rs_universe_stats = {"source": uni.get("rs_universe_label", "broad universe"),
+                              "attempted": attempted, "succeeded": succeeded, "used": False}
+        if succeeded >= min_needed:
+            combined_raw = {c: T._rs_raw(df["Close"]) for c, df in broad_hist.items()}
+            combined_raw.update(rs_raw)  # prefer the tracked stocks' own already-fetched data
+            rs_raw = combined_raw
+            rs_universe_stats["used"] = True
+            print("  RS universe: %d/%d %s stocks — ranking against the broad universe" %
+                  (succeeded, attempted, rs_universe_stats["source"]))
+        else:
+            print("  RS universe: only %d/%d %s stocks fetched (need >=%d) — "
+                  "falling back to tracked-only ranking" %
+                  (succeeded, attempted, rs_universe_stats["source"], min_needed))
     rs_pct = T.rs_percentiles(rs_raw)
 
     # ---- fetch fundamentals + technicals for every stock first --------------
@@ -271,6 +329,7 @@ def process_screen(client, universe_key, uni, screen, settings):
                            if r["scorecard"]["action_bucket"] == "ACTIONABLE_NOW"],
         "alerts": alerts, "errors": errors,
         "llm": {"enabled": LLM.llm_available(), "model": settings.get("llm_model")},
+        "rs_universe": rs_universe_stats,
     }
     runs["runs"] = [run_summary] + runs["runs"][:51]
 
