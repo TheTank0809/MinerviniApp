@@ -2,7 +2,7 @@ name: Weekly Minervini scan
 
 on:
   schedule:
-    - cron: "0 4 * * 0"   # every Sunday 04:00 UTC = 09:30 IST
+    - cron: "30 9 * * 0"   # every Sunday 09:30 UTC = 15:00 IST
   workflow_dispatch: {}    # run it manually from the Actions tab any time
 
 permissions:
