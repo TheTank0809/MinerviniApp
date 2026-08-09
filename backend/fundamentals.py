@@ -196,17 +196,33 @@ def build_fundamental_payload(raw):
         payload["ocf_to_pat_3y"] = None
         unverified.append("ocf_to_pat_3y")
 
-    # screener.in's Cash Flow section doesn't isolate capex, so FCF can only be
-    # estimated (OCF - approximate capex) — never a verified figure. See
-    # _estimate_fcf_years' docstring; scorecard.py must tag this with FCF_ESTIMATED.
-    fcf_years, fcf_missing_reason = _estimate_fcf_years(bs, pl, cf)
-    if fcf_years:
-        payload["fcf_estimated_positive_count"] = sum(1 for v in fcf_years if v > 0)
-        payload["fcf_estimated_years_count"] = len(fcf_years)
-    else:
-        payload["fcf_estimated_positive_count"] = None
-        unverified.append("fcf")
-        unverified_reasons["fcf"] = fcf_missing_reason
+    # screener.in publishes an actual "Free Cash Flow" row directly on the Cash Flows
+    # table for many (not all) companies — same table already scraped for OCF, so this
+    # is free. That's a real reported figure, so it's always preferred over our own
+    # OCF-minus-approximate-capex estimate; the estimate is only a fallback for
+    # companies (or periods) where screener.in doesn't have it — see
+    # _estimate_fcf_years' docstring for why that path can only ever be an estimate.
+    # fcf_source lets scorecard.py tag the FCF_ESTIMATED red flag only when the figure
+    # actually came from the estimate, not when it's screener.in's own number.
+    payload["fcf_source"] = None
+    fcf_direct = _row(cf, "Free Cash Flow")
+    if fcf_direct:
+        fcf_recent = [v for v in fcf_direct[-3:] if v is not None]
+        if fcf_recent:
+            payload["fcf_positive_count"] = sum(1 for v in fcf_recent if v > 0)
+            payload["fcf_years_count"] = len(fcf_recent)
+            payload["fcf_source"] = "reported"
+    if payload["fcf_source"] is None:
+        fcf_years, fcf_missing_reason = _estimate_fcf_years(bs, pl, cf)
+        if fcf_years:
+            payload["fcf_positive_count"] = sum(1 for v in fcf_years if v > 0)
+            payload["fcf_years_count"] = len(fcf_years)
+            payload["fcf_source"] = "estimated"
+        else:
+            payload["fcf_positive_count"] = None
+            unverified.append("fcf")
+            unverified_reasons["fcf"] = "no direct Free Cash Flow row on screener.in, and the " \
+                "estimate also failed: " + fcf_missing_reason
 
     # ---- Balance sheet ----------------------------------------------------
     borrow = _row(bs, "Borrowings")

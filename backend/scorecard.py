@@ -165,12 +165,14 @@ def _score_C(f, uv, flags):
         s["C3"] = 2 if cc >= 0.8 else 0
         if cc < 0.5:
             flags.append("POOR_CASH_CONVERSION")
-    fcf_count = f.get("fcf_estimated_positive_count")
+    fcf_count = f.get("fcf_positive_count")
     if fcf_count is None:
         s["C4"] = _uv(uv, "fcf")
     else:
         s["C4"] = 2 if fcf_count >= 2 else 0
-        flags.append("FCF_ESTIMATED")  # OCF - approximate capex, not a verified figure
+        if f.get("fcf_source") == "estimated":
+            flags.append("FCF_ESTIMATED")  # our own OCF-minus-approximate-capex proxy,
+            # not screener.in's own reported figure — only flagged when it's actually ours
     s["subtotal"] = sum(v for k, v in s.items() if k != "subtotal")
     return s
 
