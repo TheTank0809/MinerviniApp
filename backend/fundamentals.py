@@ -47,12 +47,30 @@ def _estimate_fcf_years(bs, pl, cf, n_years=3):
     """Estimated FCF per year = OCF - (delta Net Block + Depreciation), an indirect proxy
     for capex. screener.in's free Cash Flow section doesn't isolate capex as its own line,
     so this is an ESTIMATE, not a verified figure — callers must flag it as such (see
-    scorecard.py's FCF_ESTIMATED red flag) rather than presenting it as a hard number."""
-    net_block = _row(bs, "Net Block")
+    scorecard.py's FCF_ESTIMATED red flag) rather than presenting it as a hard number.
+
+    Note: screener.in's balance sheet row is labeled "Fixed Assets", never "Net Block" —
+    kept as a fallback label only in case some page variant differs; searching for "Net
+    Block" alone previously meant this silently failed for every company, always.
+
+    Returns (results, reason) — reason is a short human string set only when the estimate
+    is impossible outright (a required row or enough history of it is missing), not when
+    the calculation ran but every candidate year got filtered out for other reasons.
+    """
+    net_block = _row(bs, "Fixed Assets", "Net Block")
     depreciation = _row(pl, "Depreciation")
     ocf = _row(cf, "Cash from Operating")
-    if not (net_block and depreciation and ocf):
-        return None
+    missing = []
+    if not net_block:
+        missing.append("Fixed Assets (Balance Sheet)")
+    elif len(net_block) < 2:
+        missing.append("Fixed Assets history — need 2+ years, screener.in has %d" % len(net_block))
+    if not depreciation:
+        missing.append("Depreciation (P&L)")
+    if not ocf:
+        missing.append("Cash from Operating (Cash Flow)")
+    if missing:
+        return None, "missing " + " & ".join(missing)
     results = []
     for k in range(1, n_years + 1):
         ocf_idx, nb_idx, dep_idx = len(ocf) - k, len(net_block) - k, len(depreciation) - k
@@ -63,12 +81,15 @@ def _estimate_fcf_years(bs, pl, cf, n_years=3):
             continue
         capex_est = (nb_now - nb_prev) + dep
         results.append(ocf_v - capex_est)
-    return results or None
+    if not results:
+        return None, "the required rows exist but had no year with all values present"
+    return results, None
 
 
 def build_fundamental_payload(raw):
     """raw = output of ScreenerClient.fetch_company"""
     unverified = []
+    unverified_reasons = {}  # field -> short human reason, populated only where useful
     q = raw.get("quarters")
     pl = raw.get("profit_loss")
     bs = raw.get("balance_sheet")
@@ -178,13 +199,14 @@ def build_fundamental_payload(raw):
     # screener.in's Cash Flow section doesn't isolate capex, so FCF can only be
     # estimated (OCF - approximate capex) — never a verified figure. See
     # _estimate_fcf_years' docstring; scorecard.py must tag this with FCF_ESTIMATED.
-    fcf_years = _estimate_fcf_years(bs, pl, cf)
+    fcf_years, fcf_missing_reason = _estimate_fcf_years(bs, pl, cf)
     if fcf_years:
         payload["fcf_estimated_positive_count"] = sum(1 for v in fcf_years if v > 0)
         payload["fcf_estimated_years_count"] = len(fcf_years)
     else:
         payload["fcf_estimated_positive_count"] = None
         unverified.append("fcf")
+        unverified_reasons["fcf"] = fcf_missing_reason
 
     # ---- Balance sheet ----------------------------------------------------
     borrow = _row(bs, "Borrowings")
@@ -256,4 +278,5 @@ def build_fundamental_payload(raw):
         pass
 
     payload["unverified_fields"] = sorted(set(unverified))
+    payload["unverified_reasons"] = unverified_reasons
     return payload

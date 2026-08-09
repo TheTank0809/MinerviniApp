@@ -393,7 +393,8 @@ def evaluate(ticker, name, tech, fund, regime, cfg, mode="FULL", prior=None, llm
         "violations": {"count": 0, "items": [], "recommendation": ""},
         "verdict": {"summary": "", "strengths": [], "weaknesses": [], "catalysts": [],
                     "biggest_risk": "", "conviction_0_10": 0},
-        "data_quality": {"unverified_fields": [], "proxy_fields": [], "sources": [
+        "data_quality": {"unverified_fields": [], "proxy_fields": [],
+                         "unverified_reasons": fund.get("unverified_reasons") or {}, "sources": [
             {"field": "technicals", "source": "Yahoo Finance OHLCV", "as_of": tech.get("as_of")},
             {"field": "fundamentals", "source": "screener.in", "as_of": tech.get("as_of")},
         ]},

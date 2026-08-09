@@ -810,7 +810,13 @@
     }
 
     var uv = ((sc.data_quality || {}).unverified_fields) || [];
-    if (uv.length) html += '<p class="uv">Unverified (scored 0): ' + esc(uv.join(", ")) + "</p>";
+    var uvReasons = ((sc.data_quality || {}).unverified_reasons) || {};
+    if (uv.length) {
+      var uvText = uv.map(function (f) {
+        return uvReasons[f] ? f + " (" + uvReasons[f] + ")" : f;
+      }).join(", ");
+      html += '<p class="uv">Unverified (scored 0): ' + esc(uvText) + "</p>";
+    }
     var pf = ((sc.data_quality || {}).proxy_fields) || [];
     if (pf.length) html += '<p class="uv proxy-note">Approximate (' + esc(pf.join(", ")) +
       "): ranked only within your tracked screens, not the full market.</p>";
