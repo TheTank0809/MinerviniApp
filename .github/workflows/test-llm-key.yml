@@ -1,0 +1,40 @@
+name: Test ANTHROPIC_API_KEY
+
+# Manual-only smoke test for the ANTHROPIC_API_KEY secret — one trivial API call, no
+# screener.in scraping, no data changes, no commit, no site deploy. Use this to confirm
+# a newly rotated key actually works before waiting for (or manually running) the full
+# weekly pipeline, which is much more expensive to use just for a credential check.
+on:
+  workflow_dispatch: {}
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install SDK
+        run: pip install anthropic
+
+      - name: Call the API once
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          python3 -c "
+          import os, sys
+          if not os.environ.get('ANTHROPIC_API_KEY'):
+              print('FAIL: ANTHROPIC_API_KEY secret is not set at all.')
+              sys.exit(1)
+          import anthropic
+          client = anthropic.Anthropic()
+          try:
+              msg = client.messages.create(
+                  model='claude-sonnet-5',
+                  max_tokens=20,
+                  messages=[{'role': 'user', 'content': 'Reply with exactly: key works.'}],
+              )
+              print('SUCCESS — response from the API:')
+              print(msg.content[0].text)
+          except Exception as exc:
+              print('FAIL — the API call raised an error (bad key, no credit, or account issue):')
+              print('%s: %s' % (type(exc).__name__, exc))
+              sys.exit(1)
+          "
