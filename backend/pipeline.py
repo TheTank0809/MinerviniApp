@@ -43,34 +43,50 @@ def load_json(path, default):
 _rs_universe_cache = {}
 
 
-def load_rs_universe_symbols(uni):
-    """Yahoo symbols for the broad RS reference universe (e.g. Nifty 500), read from a
-    static CSV committed to the repo — not fetched live, so it's never a new point of
-    failure in the weekly run. NSE's own site blocks non-browser requests aggressively;
-    refresh the file manually (backend/data/universe_india.csv, from NSE's own archive:
-    archives.nseindia.com/content/indices/ind_nifty500list.csv) every so often instead —
-    constituents don't change often enough for staleness to matter much between refreshes.
-    Returns [] if no csv is configured for this universe (e.g. `us`, not built yet).
+def _load_rs_universe_csv(uni):
+    """Reads the broad RS reference universe (e.g. Nifty 500) once and caches
+    (yahoo_symbols, industry_by_symbol) together — it's a single static CSV committed to
+    the repo, not fetched live, so it's never a new point of failure in the weekly run,
+    and NSE's own "Industry" column means sector classification for the whole broad
+    universe is free too: no per-symbol yfinance lookup needed on top of the OHLCV
+    already fetched for RS. NSE's own site blocks non-browser requests aggressively;
+    refresh the file manually every so often instead (constituents/classifications don't
+    change often enough for staleness to matter much between refreshes):
+      curl -A "Mozilla/5.0" https://archives.nseindia.com/content/indices/ind_nifty500list.csv \
+        -o backend/data/universe_india.csv
+    Returns ([], {}) if no csv is configured for this universe (e.g. `us`, not built yet).
     """
     csv_path = uni.get("rs_universe_csv")
     if not csv_path:
-        return []
+        return [], {}
     if csv_path in _rs_universe_cache:
         return _rs_universe_cache[csv_path]
-    full_path = os.path.join(ROOT, csv_path)
     suffix = (uni.get("yahoo_suffixes") or [""])[0]
-    symbols = []
+    symbols, industry_by_symbol = [], {}
     try:
-        with open(full_path, newline="") as fh:
+        with open(os.path.join(ROOT, csv_path), newline="") as fh:
             for row in csv.DictReader(fh):
                 sym = (row.get("Symbol") or "").strip()
-                if sym:
-                    symbols.append(sym + suffix)
+                if not sym:
+                    continue
+                yahoo_sym = sym + suffix
+                symbols.append(yahoo_sym)
+                industry = (row.get("Industry") or "").strip()
+                if industry:
+                    industry_by_symbol[yahoo_sym] = industry
     except Exception as exc:
         print("  RS universe list unavailable (%s) — falling back to tracked-only ranking" % exc)
-        symbols = []
-    _rs_universe_cache[csv_path] = symbols
-    return symbols
+        symbols, industry_by_symbol = [], {}
+    _rs_universe_cache[csv_path] = (symbols, industry_by_symbol)
+    return symbols, industry_by_symbol
+
+
+def load_rs_universe_symbols(uni):
+    return _load_rs_universe_csv(uni)[0]
+
+
+def load_rs_universe_industries(uni):
+    return _load_rs_universe_csv(uni)[1]
 
 
 def _sanitize(obj):
@@ -219,27 +235,58 @@ def process_screen(client, universe_key, uni, screen, settings):
         except Exception as exc:
             fetch_errors[code] = exc
 
-    # ---- industry-group RS: a trade-off proxy ranked only against the stocks
-    # this screen already tracks (currently ~a hundred), never the full market —
-    # H1/H2 were previously always unverified for lack of a free full-market
-    # classification. A sector needs >=3 tracked members to rank meaningfully;
-    # smaller ones are left unverified rather than ranked off 1-2 stocks. --------
-    sector_groups = {}
+    # ---- industry-group RS: ranked against the full broad universe (when this run's
+    # broad RS fetch succeeded), using NSE's own Industry column for both tracked and
+    # broad-universe stocks — same taxonomy on both sides, so a tracked stock's real
+    # peers actually match up, and free (already-downloaded CSV, already-fetched broad
+    # RS data), so this adds no new network calls. We only ever need rankings for the
+    # industries our tracked stocks are actually in, so peers are pulled from the broad
+    # universe for those industries specifically, not all ~93 industries in the CSV.
+    # Falls back to the old tracked-stocks-only grouping (via screener.in's scraped
+    # sector) when the broad RS fetch didn't succeed well enough to trust this run. A
+    # group needs >=3 members to rank meaningfully; smaller ones stay unverified rather
+    # than ranked off 1-2 stocks. --------------------------------------------------
+    industry_by_symbol = load_rs_universe_industries(uni) if rs_universe_stats["used"] else {}
+
+    tracked_industry = {}
     for code, fund in fund_by_code.items():
-        sec = fund.get("sector")
-        if sec and rs_pct.get(code) is not None:
-            sector_groups.setdefault(sec, []).append(code)
+        sym = sym_map.get(code, [None])[0]
+        industry = (industry_by_symbol.get(sym) if sym else None) or fund.get("sector")
+        if industry:
+            tracked_industry[code] = industry
+    needed_industries = set(tracked_industry.values())
+    use_broad_groups = bool(industry_by_symbol and needed_industries)
+
+    sector_groups = {}
+    if use_broad_groups:
+        for sym, industry in industry_by_symbol.items():
+            if industry in needed_industries and rs_pct.get(sym) is not None:
+                sector_groups.setdefault(industry, []).append(sym)
+    else:
+        for code, industry in tracked_industry.items():
+            if rs_pct.get(code) is not None:
+                sector_groups.setdefault(industry, []).append(code)
+
     ranked_sectors = sorted(
-        (sec for sec, codes in sector_groups.items() if len(codes) >= 3),
-        key=lambda sec: -(sum(rs_pct[c] for c in sector_groups[sec]) / len(sector_groups[sec])))
+        (sec for sec, peers in sector_groups.items() if len(peers) >= 3),
+        key=lambda sec: -(sum(rs_pct[p] for p in sector_groups[sec]) / len(sector_groups[sec])))
+    quartile_of, rank_of = {}, {}
     for i, sec in enumerate(ranked_sectors):
-        quartile = min(4, int(i / len(ranked_sectors) * 4) + 1)
-        ordered = sorted(sector_groups[sec], key=lambda c: -rs_pct[c])
-        for rank, peer_code in enumerate(ordered, start=1):
-            tech_by_code[peer_code]["industry_group_rs_quartile"] = quartile
-            tech_by_code[peer_code]["industry_sector"] = sec
-            tech_by_code[peer_code]["group_leadership_rank"] = rank
-            tech_by_code[peer_code]["group_leadership_of"] = len(ordered)
+        quartile_of[sec] = min(4, int(i / len(ranked_sectors) * 4) + 1)
+        ordered = sorted(sector_groups[sec], key=lambda p: -rs_pct[p])
+        rank_of[sec] = {p: (r, len(ordered)) for r, p in enumerate(ordered, start=1)}
+
+    for code, industry in tracked_industry.items():
+        if industry not in quartile_of:
+            continue
+        peer_key = sym_map.get(code, [None])[0] if use_broad_groups else code
+        rank, of = rank_of[industry].get(peer_key, (None, None))
+        if rank is None:
+            continue  # e.g. a tracked stock outside the broad universe's constituent list
+        tech_by_code[code]["industry_group_rs_quartile"] = quartile_of[industry]
+        tech_by_code[code]["industry_sector"] = industry
+        tech_by_code[code]["group_leadership_rank"] = rank
+        tech_by_code[code]["group_leadership_of"] = of
 
     # ---- evaluate every current stock ---------------------------------------
     llm_model = settings.get("llm_model", "claude-sonnet-5")

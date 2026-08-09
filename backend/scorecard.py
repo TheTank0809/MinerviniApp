@@ -404,6 +404,7 @@ def evaluate(ticker, name, tech, fund, regime, cfg, mode="FULL", prior=None, llm
             "dma_50": tech.get("dma_50"), "dma_200": tech.get("dma_200"),
             "up_down_volume_ratio_50d": tech.get("up_down_volume_ratio_50d"),
             "industry_sector": tech.get("industry_sector"),
+            "industry_group_rs_quartile": tech.get("industry_group_rs_quartile"),
             "group_leadership_rank": tech.get("group_leadership_rank"),
             "group_leadership_of": tech.get("group_leadership_of"),
         },
