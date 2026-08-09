@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-09T05:10:48.208679Z",
+ "generated_at": "2026-08-09T10:26:51.927335Z",
  "sample": false,
  "screens": [
   {
@@ -10,8 +10,8 @@
    "universe_label": "India",
    "counts": {
     "active": 60,
-    "new": 10,
-    "dropped": 8,
+    "new": 0,
+    "dropped": 0,
     "errors": 0
    },
    "regime": {

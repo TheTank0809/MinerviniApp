@@ -20,6 +20,46 @@
    },
    "counts": {
     "active": 60,
+    "new": 0,
+    "dropped": 0,
+    "errors": 0
+   },
+   "new_tickers": [],
+   "dropped_tickers": [],
+   "actionable_now": [],
+   "alerts": [],
+   "errors": [],
+   "llm": {
+    "enabled": true,
+    "model": "claude-sonnet-5"
+   },
+   "rs_universe": {
+    "source": "Nifty 500",
+    "attempted": 500,
+    "succeeded": 500,
+    "used": true
+   }
+  },
+  {
+   "run_date": "2026-08-09",
+   "mode": "WEEKLY",
+   "regime": {
+    "score": 5,
+    "label": "CONFIRMED_UPTREND",
+    "checks": {
+     "close_above_50dma": true,
+     "close_above_200dma": true,
+     "50dma_above_200dma": false,
+     "distribution_days_25": 3,
+     "distribution_days_ok": true,
+     "pct_universe_above_200dma": 98.0,
+     "universe_above_200dma_ok": true,
+     "net_new_highs_positive": true
+    },
+    "exposure_guidance": "New buys allowed; full risk budget."
+   },
+   "counts": {
+    "active": 60,
     "new": 10,
     "dropped": 8,
     "errors": 0
