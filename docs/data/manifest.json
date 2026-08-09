@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-02T06:38:08.466808Z",
+ "generated_at": "2026-08-09T05:10:48.208679Z",
  "sample": false,
  "screens": [
   {
@@ -9,9 +9,9 @@
    "short": "MV",
    "universe_label": "India",
    "counts": {
-    "active": 58,
+    "active": 60,
     "new": 10,
-    "dropped": 6,
+    "dropped": 8,
     "errors": 0
    },
    "regime": {
@@ -29,7 +29,7 @@
     "active": 115,
     "new": 3,
     "dropped": 0,
-    "errors": 2
+    "errors": 3
    },
    "regime": {
     "label": "CONFIRMED_UPTREND",

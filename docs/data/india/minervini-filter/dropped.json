@@ -1,6 +1,1461 @@
 {
  "stocks": [
   {
+   "ticker": "TIPSMUSIC",
+   "name": "Tips Music",
+   "joined_date": "2026-07-05",
+   "last_updated": "2026-08-02",
+   "scorecard": {
+    "ticker": "TIPSMUSIC",
+    "name": "Tips Music",
+    "as_of": "2026-07-31",
+    "mode": "WEEKLY",
+    "gates": {
+     "trend_template": {
+      "c1": true,
+      "c2": true,
+      "c3": true,
+      "c4": true,
+      "c5": true,
+      "c6": true,
+      "c7": true,
+      "c8": false,
+      "pass": false,
+      "near_miss_notes": ""
+     },
+     "investability": {
+      "liquidity": true,
+      "pledge": true,
+      "governance": true,
+      "governance_note": "unverified - no specific dateable source available from training data to confirm or deny a governance event in the last 12 months",
+      "pass": true
+     }
+    },
+    "llm_checks": {
+     "h3_catalyst_found": false,
+     "h3_citation": "",
+     "governance_flag": false,
+     "governance_note": "unverified - no specific dateable source available from training data to confirm or deny a governance event in the last 12 months",
+     "checked_date": "2026-07-19"
+    },
+    "scores": {
+     "earnings": {
+      "A1": 0,
+      "A2": 0,
+      "A3": 0,
+      "A4": 0,
+      "A5": 0,
+      "subtotal": 0
+     },
+     "revenue": {
+      "B1": 0,
+      "B2": 0,
+      "B3": 0,
+      "B4": 0,
+      "subtotal": 0
+     },
+     "profitability": {
+      "C1": 0,
+      "C2": 0,
+      "C3": 0,
+      "C4": 0,
+      "subtotal": 0
+     },
+     "balance_sheet": {
+      "D1": 0,
+      "D2": 0,
+      "D3": 0,
+      "D4": 1,
+      "subtotal": 1
+     },
+     "sponsorship": {
+      "E1": 2,
+      "E2": 0,
+      "E3": 0,
+      "E4": 1,
+      "subtotal": 3
+     },
+     "rs_trend": {
+      "F1": 0,
+      "F2": 2,
+      "F3": 2,
+      "F4": 2,
+      "subtotal": 6
+     },
+     "base_structure": {
+      "G1": 0,
+      "G2": 4,
+      "G3": 0,
+      "G4": 0,
+      "G5": 0,
+      "G6": 0,
+      "subtotal": 4
+     },
+     "leadership": {
+      "H1": 0,
+      "H2": 0,
+      "H3": 0,
+      "subtotal": 0
+     },
+     "total": 14
+    },
+    "quality_band": "Reject",
+    "action_bucket": "AVOID",
+    "red_flags": [],
+    "risk_level": "LOW",
+    "valuation_context": {
+     "pe": null,
+     "peg": null,
+     "vs_own_5yr": "",
+     "note": "Valuation is context only, never a criterion."
+    },
+    "base": {
+     "pattern_label": "",
+     "pivot": 741.0,
+     "pct_from_pivot": -9.84,
+     "base_count": 2,
+     "depth_pct": 17.4,
+     "weeks": 2.0
+    },
+    "trade_plan": null,
+    "delta": {
+     "score_change": 0,
+     "gate_flips": [],
+     "bucket_change": "",
+     "alerts": []
+    },
+    "violations": {
+     "count": 0,
+     "items": [],
+     "recommendation": ""
+    },
+    "verdict": {
+     "summary": "TIPSMUSIC (14/100) \u2014 Reject / AVOID. Score is informational only \u2014 Gate 1 not confirmed, so not an actionable setup yet.",
+     "strengths": [],
+     "weaknesses": [
+      "Fails Trend Template: c8",
+      "Earnings block weak (0/25)",
+      "No valid base yet (4/20)",
+      "22 unverified fields scored 0"
+     ],
+     "catalysts": [],
+     "biggest_risk": "None flagged",
+     "conviction_0_10": 0
+    },
+    "data_quality": {
+     "unverified_fields": [
+      "debt_to_equity",
+      "eps_acceleration",
+      "eps_annual_growth",
+      "eps_cagr_3y",
+      "eps_quarterly",
+      "eps_revenue_support",
+      "eps_yoy_latest",
+      "fcf",
+      "group_leadership_rank",
+      "industry_group_rs",
+      "interest_coverage",
+      "marquee_institution",
+      "mf_scheme_count",
+      "net_margin_trend",
+      "new_catalyst",
+      "ocf_to_pat_3y",
+      "other_income_pct_pbt",
+      "roe",
+      "sales_acceleration",
+      "sales_cagr_3y",
+      "sales_yoy_latest",
+      "share_count_growth"
+     ],
+     "proxy_fields": [],
+     "sources": [
+      {
+       "field": "technicals",
+       "source": "Yahoo Finance OHLCV",
+       "as_of": "2026-07-31"
+      },
+      {
+       "field": "fundamentals",
+       "source": "screener.in",
+       "as_of": "2026-07-31"
+      }
+     ]
+    },
+    "technicals": {
+     "price": 668.05,
+     "rs_percentile": 31,
+     "pct_below_52w_high": 9.8,
+     "pct_above_52w_low": 39.6,
+     "dma_50": 666.57,
+     "dma_200": 577.06,
+     "up_down_volume_ratio_50d": 3.12,
+     "industry_sector": null,
+     "group_leadership_rank": null,
+     "group_leadership_of": null
+    },
+    "status": "SCORED_NO_TREND"
+   },
+   "dropped_date": "2026-08-09",
+   "frozen": true
+  },
+  {
+   "ticker": "NUVAMA",
+   "name": "Nuvama Wealth",
+   "joined_date": "2026-07-05",
+   "last_updated": "2026-08-02",
+   "scorecard": {
+    "ticker": "NUVAMA",
+    "name": "Nuvama Wealth",
+    "as_of": "2026-07-31",
+    "mode": "WEEKLY",
+    "gates": {
+     "trend_template": {
+      "c1": true,
+      "c2": true,
+      "c3": true,
+      "c4": true,
+      "c5": true,
+      "c6": true,
+      "c7": true,
+      "c8": false,
+      "pass": false,
+      "near_miss_notes": ""
+     },
+     "investability": {
+      "liquidity": true,
+      "pledge": true,
+      "governance": true,
+      "pass": true
+     }
+    },
+    "llm_checks": null,
+    "scores": {
+     "earnings": {
+      "A1": 0,
+      "A2": 5,
+      "A3": 0,
+      "A4": 2,
+      "A5": 4,
+      "subtotal": 11
+     },
+     "revenue": {
+      "B1": 4,
+      "B2": 2,
+      "B3": 1,
+      "B4": 2,
+      "subtotal": 9
+     },
+     "profitability": {
+      "C1": 3,
+      "C2": 0,
+      "C3": 0,
+      "C4": 0,
+      "subtotal": 3
+     },
+     "balance_sheet": {
+      "D1": 0,
+      "D2": 0,
+      "D3": 1,
+      "D4": 1,
+      "subtotal": 2
+     },
+     "sponsorship": {
+      "E1": 2,
+      "E2": 0,
+      "E3": 0,
+      "E4": 0,
+      "subtotal": 2
+     },
+     "rs_trend": {
+      "F1": 0,
+      "F2": 2,
+      "F3": 2,
+      "F4": 2,
+      "subtotal": 6
+     },
+     "base_structure": {
+      "G1": 0,
+      "G2": 4,
+      "G3": 0,
+      "G4": 0,
+      "G5": 0,
+      "G6": 0,
+      "subtotal": 4
+     },
+     "leadership": {
+      "H1": 0,
+      "H2": 0,
+      "H3": 0,
+      "subtotal": 0
+     },
+     "total": 37
+    },
+    "quality_band": "Reject",
+    "action_bucket": "AVOID",
+    "red_flags": [
+     "POOR_CASH_CONVERSION"
+    ],
+    "risk_level": "MEDIUM",
+    "valuation_context": {
+     "pe": 30.4,
+     "peg": null,
+     "vs_own_5yr": "",
+     "note": "Valuation is context only, never a criterion."
+    },
+    "base": {
+     "pattern_label": "",
+     "pivot": 2066.0,
+     "pct_from_pivot": -12.69,
+     "base_count": 2,
+     "depth_pct": 15.0,
+     "weeks": 1.2
+    },
+    "trade_plan": null,
+    "delta": {
+     "score_change": 6,
+     "gate_flips": [],
+     "bucket_change": "",
+     "alerts": []
+    },
+    "violations": {
+     "count": 0,
+     "items": [],
+     "recommendation": ""
+    },
+    "verdict": {
+     "summary": "NUVAMA (37/100) \u2014 Reject / AVOID. Score is informational only \u2014 Gate 1 not confirmed, so not an actionable setup yet.",
+     "strengths": [],
+     "weaknesses": [
+      "Fails Trend Template: c8",
+      "No valid base yet (4/20)",
+      "5 unverified fields scored 0"
+     ],
+     "catalysts": [],
+     "biggest_risk": "POOR_CASH_CONVERSION",
+     "conviction_0_10": 0
+    },
+    "data_quality": {
+     "unverified_fields": [
+      "fcf",
+      "governance_events",
+      "marquee_institution",
+      "mf_scheme_count",
+      "new_catalyst"
+     ],
+     "proxy_fields": [
+      "group_leadership_rank",
+      "industry_group_rs"
+     ],
+     "sources": [
+      {
+       "field": "technicals",
+       "source": "Yahoo Finance OHLCV",
+       "as_of": "2026-07-31"
+      },
+      {
+       "field": "fundamentals",
+       "source": "screener.in",
+       "as_of": "2026-07-31"
+      }
+     ]
+    },
+    "technicals": {
+     "price": 1803.8,
+     "rs_percentile": 57,
+     "pct_below_52w_high": 12.7,
+     "pct_above_52w_low": 66.0,
+     "dma_50": 1743.99,
+     "dma_200": 1457.8,
+     "up_down_volume_ratio_50d": 2.76,
+     "industry_sector": "Financial Services",
+     "group_leadership_rank": 3,
+     "group_leadership_of": 8
+    },
+    "status": "SCORED_NO_TREND"
+   },
+   "dropped_date": "2026-08-09",
+   "frozen": true
+  },
+  {
+   "ticker": "CEMPRO",
+   "name": "Cemindia Project",
+   "joined_date": "2026-07-05",
+   "last_updated": "2026-08-02",
+   "scorecard": {
+    "ticker": "CEMPRO",
+    "name": "Cemindia Project",
+    "as_of": "2026-07-31",
+    "mode": "WEEKLY",
+    "gates": {
+     "trend_template": {
+      "c1": true,
+      "c2": true,
+      "c3": true,
+      "c4": true,
+      "c5": true,
+      "c6": true,
+      "c7": true,
+      "c8": true,
+      "pass": true,
+      "near_miss_notes": ""
+     },
+     "investability": {
+      "liquidity": true,
+      "pledge": true,
+      "governance": true,
+      "governance_note": "unverified - no reliable data available for ticker 'CEMPRO' or company 'Cemindia Project'; cannot confirm this entity's identity or trading status",
+      "pass": true
+     }
+    },
+    "llm_checks": {
+     "h3_catalyst_found": false,
+     "h3_citation": "",
+     "governance_flag": false,
+     "governance_note": "unverified - no reliable data available for ticker 'CEMPRO' or company 'Cemindia Project'; cannot confirm this entity's identity or trading status",
+     "checked_date": "2026-07-28"
+    },
+    "scores": {
+     "earnings": {
+      "A1": 0,
+      "A2": 1,
+      "A3": 0,
+      "A4": 4,
+      "A5": 4,
+      "subtotal": 9
+     },
+     "revenue": {
+      "B1": 0,
+      "B2": 0,
+      "B3": 0,
+      "B4": 2,
+      "subtotal": 2
+     },
+     "profitability": {
+      "C1": 3,
+      "C2": 1,
+      "C3": 2,
+      "C4": 0,
+      "subtotal": 6
+     },
+     "balance_sheet": {
+      "D1": 2,
+      "D2": 0,
+      "D3": 1,
+      "D4": 1,
+      "subtotal": 4
+     },
+     "sponsorship": {
+      "E1": 1,
+      "E2": 0,
+      "E3": 0,
+      "E4": 1,
+      "subtotal": 2
+     },
+     "rs_trend": {
+      "F1": 5,
+      "F2": 1,
+      "F3": 2,
+      "F4": 2,
+      "subtotal": 10
+     },
+     "base_structure": {
+      "G1": 3,
+      "G2": 2,
+      "G3": 0,
+      "G4": 0,
+      "G5": 0,
+      "G6": 0,
+      "subtotal": 5
+     },
+     "leadership": {
+      "H1": 0,
+      "H2": 0,
+      "H3": 0,
+      "subtotal": 0
+     },
+     "total": 38
+    },
+    "quality_band": "Reject",
+    "action_bucket": "AVOID",
+    "red_flags": [],
+    "risk_level": "LOW",
+    "valuation_context": {
+     "pe": 39.1,
+     "peg": null,
+     "vs_own_5yr": "",
+     "note": "Valuation is context only, never a criterion."
+    },
+    "base": {
+     "pattern_label": "",
+     "pivot": 1649.2,
+     "pct_from_pivot": -17.06,
+     "base_count": 3,
+     "depth_pct": 22.7,
+     "weeks": 1.8
+    },
+    "trade_plan": null,
+    "delta": {
+     "score_change": 0,
+     "gate_flips": [],
+     "bucket_change": "",
+     "alerts": []
+    },
+    "violations": {
+     "count": 0,
+     "items": [],
+     "recommendation": ""
+    },
+    "verdict": {
+     "summary": "CEMPRO (38/100) \u2014 Reject / AVOID.",
+     "strengths": [
+      "RS percentile 88"
+     ],
+     "weaknesses": [
+      "Earnings block weak (9/25)",
+      "No valid base yet (5/20)",
+      "6 unverified fields scored 0"
+     ],
+     "catalysts": [],
+     "biggest_risk": "None flagged",
+     "conviction_0_10": 0
+    },
+    "data_quality": {
+     "unverified_fields": [
+      "fcf",
+      "group_leadership_rank",
+      "industry_group_rs",
+      "marquee_institution",
+      "mf_scheme_count",
+      "new_catalyst"
+     ],
+     "proxy_fields": [],
+     "sources": [
+      {
+       "field": "technicals",
+       "source": "Yahoo Finance OHLCV",
+       "as_of": "2026-07-31"
+      },
+      {
+       "field": "fundamentals",
+       "source": "screener.in",
+       "as_of": "2026-07-31"
+      }
+     ]
+    },
+    "technicals": {
+     "price": 1367.8,
+     "rs_percentile": 88,
+     "pct_below_52w_high": 17.1,
+     "pct_above_52w_low": 172.5,
+     "dma_50": 1303.63,
+     "dma_200": 865.48,
+     "up_down_volume_ratio_50d": 2.1,
+     "industry_sector": null,
+     "group_leadership_rank": null,
+     "group_leadership_of": null
+    },
+    "status": "SCORED"
+   },
+   "dropped_date": "2026-08-09",
+   "frozen": true
+  },
+  {
+   "ticker": "GENUSPOWER",
+   "name": "Genus Power",
+   "joined_date": "2026-07-05",
+   "last_updated": "2026-08-02",
+   "scorecard": {
+    "ticker": "GENUSPOWER",
+    "name": "Genus Power",
+    "as_of": "2026-07-31",
+    "mode": "WEEKLY",
+    "gates": {
+     "trend_template": {
+      "c1": true,
+      "c2": false,
+      "c3": false,
+      "c4": true,
+      "c5": false,
+      "c6": true,
+      "c7": true,
+      "c8": false,
+      "pass": false,
+      "near_miss_notes": ""
+     },
+     "investability": {
+      "liquidity": true,
+      "pledge": true,
+      "governance": true,
+      "pass": true
+     }
+    },
+    "llm_checks": null,
+    "scores": {
+     "earnings": {
+      "A1": 4,
+      "A2": 1,
+      "A3": 4,
+      "A4": 4,
+      "A5": 2,
+      "subtotal": 15
+     },
+     "revenue": {
+      "B1": 6,
+      "B2": 0,
+      "B3": 3,
+      "B4": 2,
+      "subtotal": 11
+     },
+     "profitability": {
+      "C1": 3,
+      "C2": 0,
+      "C3": 0,
+      "C4": 0,
+      "subtotal": 3
+     },
+     "balance_sheet": {
+      "D1": 0,
+      "D2": 1,
+      "D3": 1,
+      "D4": 1,
+      "subtotal": 3
+     },
+     "sponsorship": {
+      "E1": 0,
+      "E2": 0,
+      "E3": 0,
+      "E4": 1,
+      "subtotal": 1
+     },
+     "rs_trend": {
+      "F1": 0,
+      "F2": 1,
+      "F3": 0,
+      "F4": 0,
+      "subtotal": 1
+     },
+     "base_structure": {
+      "G1": 0,
+      "G2": 4,
+      "G3": 0,
+      "G4": 0,
+      "G5": 0,
+      "G6": 0,
+      "subtotal": 4
+     },
+     "leadership": {
+      "H1": 2,
+      "H2": 0,
+      "H3": 0,
+      "subtotal": 2
+     },
+     "total": 40
+    },
+    "quality_band": "Reject",
+    "action_bucket": "AVOID",
+    "red_flags": [
+     "OTHER_INCOME_DRIVEN",
+     "POOR_CASH_CONVERSION"
+    ],
+    "risk_level": "MEDIUM",
+    "valuation_context": {
+     "pe": 16.1,
+     "peg": null,
+     "vs_own_5yr": "",
+     "note": "Valuation is context only, never a criterion."
+    },
+    "base": {
+     "pattern_label": "",
+     "pivot": 391.18,
+     "pct_from_pivot": -20.06,
+     "base_count": 2,
+     "depth_pct": 47.2,
+     "weeks": 49.4
+    },
+    "trade_plan": null,
+    "delta": {
+     "score_change": 2,
+     "gate_flips": [],
+     "bucket_change": "",
+     "alerts": []
+    },
+    "violations": {
+     "count": 0,
+     "items": [],
+     "recommendation": ""
+    },
+    "verdict": {
+     "summary": "GENUSPOWER (40/100) \u2014 Reject / AVOID. Score is informational only \u2014 Gate 1 not confirmed, so not an actionable setup yet.",
+     "strengths": [],
+     "weaknesses": [
+      "Fails Trend Template: c2, c3, c5, c8",
+      "No valid base yet (4/20)",
+      "5 unverified fields scored 0"
+     ],
+     "catalysts": [],
+     "biggest_risk": "OTHER_INCOME_DRIVEN",
+     "conviction_0_10": 0
+    },
+    "data_quality": {
+     "unverified_fields": [
+      "fcf",
+      "governance_events",
+      "marquee_institution",
+      "mf_scheme_count",
+      "new_catalyst"
+     ],
+     "proxy_fields": [
+      "group_leadership_rank",
+      "industry_group_rs"
+     ],
+     "sources": [
+      {
+       "field": "technicals",
+       "source": "Yahoo Finance OHLCV",
+       "as_of": "2026-07-31"
+      },
+      {
+       "field": "fundamentals",
+       "source": "screener.in",
+       "as_of": "2026-07-31"
+      }
+     ]
+    },
+    "technicals": {
+     "price": 312.7,
+     "rs_percentile": 4,
+     "pct_below_52w_high": 20.1,
+     "pct_above_52w_low": 51.5,
+     "dma_50": 317.12,
+     "dma_200": 296.58,
+     "up_down_volume_ratio_50d": 0.93,
+     "industry_sector": "Capital Goods",
+     "group_leadership_rank": 12,
+     "group_leadership_of": 12
+    },
+    "status": "SCORED_NO_TREND"
+   },
+   "dropped_date": "2026-08-09",
+   "frozen": true
+  },
+  {
+   "ticker": "PNGJL",
+   "name": "P N Gadgil Jewe.",
+   "joined_date": "2026-08-02",
+   "last_updated": "2026-08-02",
+   "scorecard": {
+    "ticker": "PNGJL",
+    "name": "P N Gadgil Jewe.",
+    "as_of": "2026-07-31",
+    "mode": "FULL",
+    "gates": {
+     "trend_template": {
+      "c1": true,
+      "c2": false,
+      "c3": false,
+      "c4": false,
+      "c5": true,
+      "c6": true,
+      "c7": true,
+      "c8": false,
+      "pass": false,
+      "near_miss_notes": ""
+     },
+     "investability": {
+      "liquidity": true,
+      "pledge": true,
+      "governance": true,
+      "pass": true
+     }
+    },
+    "llm_checks": null,
+    "scores": {
+     "earnings": {
+      "A1": 6,
+      "A2": 1,
+      "A3": 0,
+      "A4": 4,
+      "A5": 2,
+      "subtotal": 13
+     },
+     "revenue": {
+      "B1": 6,
+      "B2": 2,
+      "B3": 3,
+      "B4": 2,
+      "subtotal": 13
+     },
+     "profitability": {
+      "C1": 3,
+      "C2": 1,
+      "C3": 0,
+      "C4": 0,
+      "subtotal": 4
+     },
+     "balance_sheet": {
+      "D1": 1,
+      "D2": 1,
+      "D3": 0,
+      "D4": 1,
+      "subtotal": 3
+     },
+     "sponsorship": {
+      "E1": 0,
+      "E2": 0,
+      "E3": 0,
+      "E4": 1,
+      "subtotal": 1
+     },
+     "rs_trend": {
+      "F1": 0,
+      "F2": 2,
+      "F3": 2,
+      "F4": 2,
+      "subtotal": 6
+     },
+     "base_structure": {
+      "G1": 0,
+      "G2": 4,
+      "G3": 1,
+      "G4": 0,
+      "G5": 0,
+      "G6": 0,
+      "subtotal": 5
+     },
+     "leadership": {
+      "H1": 0,
+      "H2": 0,
+      "H3": 0,
+      "subtotal": 0
+     },
+     "total": 45
+    },
+    "quality_band": "Reject",
+    "action_bucket": "AVOID",
+    "red_flags": [
+     "OTHER_INCOME_DRIVEN",
+     "POOR_CASH_CONVERSION"
+    ],
+    "risk_level": "MEDIUM",
+    "valuation_context": {
+     "pe": 20.3,
+     "peg": null,
+     "vs_own_5yr": "",
+     "note": "Valuation is context only, never a criterion."
+    },
+    "base": {
+     "pattern_label": "",
+     "pivot": 717.0,
+     "pct_from_pivot": -6.51,
+     "base_count": 1,
+     "depth_pct": 30.9,
+     "weeks": 12.2
+    },
+    "trade_plan": null,
+    "delta": {
+     "score_change": 0,
+     "gate_flips": [],
+     "bucket_change": "",
+     "alerts": []
+    },
+    "violations": {
+     "count": 0,
+     "items": [],
+     "recommendation": ""
+    },
+    "verdict": {
+     "summary": "PNGJL (45/100) \u2014 Reject / AVOID. Score is informational only \u2014 Gate 1 not confirmed, so not an actionable setup yet.",
+     "strengths": [
+      "Latest EPS YoY >=50%"
+     ],
+     "weaknesses": [
+      "Fails Trend Template: c2, c3, c4, c8",
+      "No valid base yet (5/20)",
+      "5 unverified fields scored 0"
+     ],
+     "catalysts": [],
+     "biggest_risk": "OTHER_INCOME_DRIVEN",
+     "conviction_0_10": 0
+    },
+    "data_quality": {
+     "unverified_fields": [
+      "fcf",
+      "governance_events",
+      "marquee_institution",
+      "mf_scheme_count",
+      "new_catalyst"
+     ],
+     "proxy_fields": [
+      "group_leadership_rank",
+      "industry_group_rs"
+     ],
+     "sources": [
+      {
+       "field": "technicals",
+       "source": "Yahoo Finance OHLCV",
+       "as_of": "2026-07-31"
+      },
+      {
+       "field": "fundamentals",
+       "source": "screener.in",
+       "as_of": "2026-07-31"
+      }
+     ]
+    },
+    "technicals": {
+     "price": 670.3,
+     "rs_percentile": 9,
+     "pct_below_52w_high": 9.0,
+     "pct_above_52w_low": 33.3,
+     "dma_50": 575.36,
+     "dma_200": 598.65,
+     "up_down_volume_ratio_50d": 1.99,
+     "industry_sector": "Consumer Durables",
+     "group_leadership_rank": 5,
+     "group_leadership_of": 5
+    },
+    "status": "SCORED_NO_TREND"
+   },
+   "dropped_date": "2026-08-09",
+   "frozen": true
+  },
+  {
+   "ticker": "SANDUMA",
+   "name": "Sandur Manganese",
+   "joined_date": "2026-08-02",
+   "last_updated": "2026-08-02",
+   "scorecard": {
+    "ticker": "SANDUMA",
+    "name": "Sandur Manganese",
+    "as_of": "2026-07-31",
+    "mode": "FULL",
+    "gates": {
+     "trend_template": {
+      "c1": true,
+      "c2": false,
+      "c3": true,
+      "c4": false,
+      "c5": true,
+      "c6": true,
+      "c7": true,
+      "c8": false,
+      "pass": false,
+      "near_miss_notes": ""
+     },
+     "investability": {
+      "liquidity": true,
+      "pledge": true,
+      "governance": true,
+      "pass": true
+     }
+    },
+    "llm_checks": null,
+    "scores": {
+     "earnings": {
+      "A1": 6,
+      "A2": 3,
+      "A3": 4,
+      "A4": 4,
+      "A5": 2,
+      "subtotal": 19
+     },
+     "revenue": {
+      "B1": 2,
+      "B2": 0,
+      "B3": 3,
+      "B4": 2,
+      "subtotal": 7
+     },
+     "profitability": {
+      "C1": 3,
+      "C2": 3,
+      "C3": 2,
+      "C4": 0,
+      "subtotal": 8
+     },
+     "balance_sheet": {
+      "D1": 2,
+      "D2": 1,
+      "D3": 0,
+      "D4": 1,
+      "subtotal": 4
+     },
+     "sponsorship": {
+      "E1": 2,
+      "E2": 0,
+      "E3": 0,
+      "E4": 1,
+      "subtotal": 3
+     },
+     "rs_trend": {
+      "F1": 0,
+      "F2": 1,
+      "F3": 0,
+      "F4": 0,
+      "subtotal": 1
+     },
+     "base_structure": {
+      "G1": 0,
+      "G2": 4,
+      "G3": 0,
+      "G4": 0,
+      "G5": 0,
+      "G6": 0,
+      "subtotal": 4
+     },
+     "leadership": {
+      "H1": 0,
+      "H2": 0,
+      "H3": 0,
+      "subtotal": 0
+     },
+     "total": 46
+    },
+    "quality_band": "Reject",
+    "action_bucket": "AVOID",
+    "red_flags": [
+     "OTHER_INCOME_DRIVEN"
+    ],
+    "risk_level": "MEDIUM",
+    "valuation_context": {
+     "pe": 15.3,
+     "peg": null,
+     "vs_own_5yr": "",
+     "note": "Valuation is context only, never a criterion."
+    },
+    "base": {
+     "pattern_label": "",
+     "pivot": 218.25,
+     "pct_from_pivot": -2.48,
+     "base_count": 1,
+     "depth_pct": 37.5,
+     "weeks": 28.8
+    },
+    "trade_plan": null,
+    "delta": {
+     "score_change": 0,
+     "gate_flips": [],
+     "bucket_change": "",
+     "alerts": []
+    },
+    "violations": {
+     "count": 0,
+     "items": [],
+     "recommendation": ""
+    },
+    "verdict": {
+     "summary": "SANDUMA (46/100) \u2014 Reject / AVOID. Score is informational only \u2014 Gate 1 not confirmed, so not an actionable setup yet.",
+     "strengths": [
+      "Latest EPS YoY >=50%"
+     ],
+     "weaknesses": [
+      "Fails Trend Template: c2, c4, c8",
+      "No valid base yet (4/20)",
+      "5 unverified fields scored 0"
+     ],
+     "catalysts": [],
+     "biggest_risk": "OTHER_INCOME_DRIVEN",
+     "conviction_0_10": 0
+    },
+    "data_quality": {
+     "unverified_fields": [
+      "fcf",
+      "governance_events",
+      "marquee_institution",
+      "mf_scheme_count",
+      "new_catalyst"
+     ],
+     "proxy_fields": [
+      "group_leadership_rank",
+      "industry_group_rs"
+     ],
+     "sources": [
+      {
+       "field": "technicals",
+       "source": "Yahoo Finance OHLCV",
+       "as_of": "2026-07-31"
+      },
+      {
+       "field": "fundamentals",
+       "source": "screener.in",
+       "as_of": "2026-07-31"
+      }
+     ]
+    },
+    "technicals": {
+     "price": 212.84,
+     "rs_percentile": 15,
+     "pct_below_52w_high": 22.0,
+     "pct_above_52w_low": 51.0,
+     "dma_50": 211.08,
+     "dma_200": 212.37,
+     "up_down_volume_ratio_50d": 0.91,
+     "industry_sector": "Metals & Mining",
+     "group_leadership_rank": 3,
+     "group_leadership_of": 3
+    },
+    "status": "SCORED_NO_TREND"
+   },
+   "dropped_date": "2026-08-09",
+   "frozen": true
+  },
+  {
+   "ticker": "SKIPPER",
+   "name": "Skipper",
+   "joined_date": "2026-08-02",
+   "last_updated": "2026-08-02",
+   "scorecard": {
+    "ticker": "SKIPPER",
+    "name": "Skipper",
+    "as_of": "2026-07-31",
+    "mode": "FULL",
+    "gates": {
+     "trend_template": {
+      "c1": true,
+      "c2": false,
+      "c3": true,
+      "c4": true,
+      "c5": false,
+      "c6": true,
+      "c7": true,
+      "c8": false,
+      "pass": false,
+      "near_miss_notes": ""
+     },
+     "investability": {
+      "liquidity": true,
+      "pledge": true,
+      "governance": true,
+      "pass": true
+     }
+    },
+    "llm_checks": null,
+    "scores": {
+     "earnings": {
+      "A1": 6,
+      "A2": 3,
+      "A3": 4,
+      "A4": 4,
+      "A5": 4,
+      "subtotal": 21
+     },
+     "revenue": {
+      "B1": 6,
+      "B2": 2,
+      "B3": 3,
+      "B4": 2,
+      "subtotal": 13
+     },
+     "profitability": {
+      "C1": 1,
+      "C2": 3,
+      "C3": 2,
+      "C4": 0,
+      "subtotal": 6
+     },
+     "balance_sheet": {
+      "D1": 1,
+      "D2": 0,
+      "D3": 1,
+      "D4": 1,
+      "subtotal": 3
+     },
+     "sponsorship": {
+      "E1": 0,
+      "E2": 0,
+      "E3": 0,
+      "E4": 1,
+      "subtotal": 1
+     },
+     "rs_trend": {
+      "F1": 0,
+      "F2": 2,
+      "F3": 0,
+      "F4": 2,
+      "subtotal": 4
+     },
+     "base_structure": {
+      "G1": 0,
+      "G2": 4,
+      "G3": 3,
+      "G4": 0,
+      "G5": 3,
+      "G6": 0,
+      "subtotal": 10
+     },
+     "leadership": {
+      "H1": 2,
+      "H2": 0,
+      "H3": 0,
+      "subtotal": 2
+     },
+     "total": 60
+    },
+    "quality_band": "Watchlist B",
+    "action_bucket": "AVOID",
+    "red_flags": [],
+    "risk_level": "LOW",
+    "valuation_context": {
+     "pe": 26.9,
+     "peg": null,
+     "vs_own_5yr": "",
+     "note": "Valuation is context only, never a criterion."
+    },
+    "base": {
+     "pattern_label": "",
+     "pivot": 593.0,
+     "pct_from_pivot": -11.0,
+     "base_count": 2,
+     "depth_pct": 15.1,
+     "weeks": 4.0
+    },
+    "trade_plan": null,
+    "delta": {
+     "score_change": 0,
+     "gate_flips": [],
+     "bucket_change": "",
+     "alerts": []
+    },
+    "violations": {
+     "count": 0,
+     "items": [],
+     "recommendation": ""
+    },
+    "verdict": {
+     "summary": "SKIPPER (60/100) \u2014 Watchlist B / AVOID. Score is informational only \u2014 Gate 1 not confirmed, so not an actionable setup yet.",
+     "strengths": [
+      "Latest EPS YoY >=50%"
+     ],
+     "weaknesses": [
+      "Fails Trend Template: c2, c5, c8",
+      "5 unverified fields scored 0"
+     ],
+     "catalysts": [],
+     "biggest_risk": "None flagged",
+     "conviction_0_10": 0
+    },
+    "data_quality": {
+     "unverified_fields": [
+      "fcf",
+      "governance_events",
+      "marquee_institution",
+      "mf_scheme_count",
+      "new_catalyst"
+     ],
+     "proxy_fields": [
+      "group_leadership_rank",
+      "industry_group_rs"
+     ],
+     "sources": [
+      {
+       "field": "technicals",
+       "source": "Yahoo Finance OHLCV",
+       "as_of": "2026-07-31"
+      },
+      {
+       "field": "fundamentals",
+       "source": "screener.in",
+       "as_of": "2026-07-31"
+      }
+     ]
+    },
+    "technicals": {
+     "price": 527.75,
+     "rs_percentile": 35,
+     "pct_below_52w_high": 11.0,
+     "pct_above_52w_low": 61.4,
+     "dma_50": 540.94,
+     "dma_200": 454.6,
+     "up_down_volume_ratio_50d": 1.2,
+     "industry_sector": "Capital Goods",
+     "group_leadership_rank": 9,
+     "group_leadership_of": 12
+    },
+    "status": "SCORED_NO_TREND"
+   },
+   "dropped_date": "2026-08-09",
+   "frozen": true
+  },
+  {
+   "ticker": "IKS",
+   "name": "Inventurus Knowl",
+   "joined_date": "2026-07-05",
+   "last_updated": "2026-08-02",
+   "scorecard": {
+    "ticker": "IKS",
+    "name": "Inventurus Knowl",
+    "as_of": "2026-07-31",
+    "mode": "WEEKLY",
+    "gates": {
+     "trend_template": {
+      "c1": true,
+      "c2": false,
+      "c3": true,
+      "c4": true,
+      "c5": true,
+      "c6": true,
+      "c7": true,
+      "c8": false,
+      "pass": false,
+      "near_miss_notes": ""
+     },
+     "investability": {
+      "liquidity": true,
+      "pledge": true,
+      "governance": true,
+      "pass": true
+     }
+    },
+    "llm_checks": null,
+    "scores": {
+     "earnings": {
+      "A1": 4,
+      "A2": 0,
+      "A3": 4,
+      "A4": 4,
+      "A5": 4,
+      "subtotal": 16
+     },
+     "revenue": {
+      "B1": 2,
+      "B2": 2,
+      "B3": 3,
+      "B4": 2,
+      "subtotal": 9
+     },
+     "profitability": {
+      "C1": 3,
+      "C2": 3,
+      "C3": 2,
+      "C4": 0,
+      "subtotal": 8
+     },
+     "balance_sheet": {
+      "D1": 2,
+      "D2": 1,
+      "D3": 1,
+      "D4": 1,
+      "subtotal": 5
+     },
+     "sponsorship": {
+      "E1": 2,
+      "E2": 0,
+      "E3": 0,
+      "E4": 1,
+      "subtotal": 3
+     },
+     "rs_trend": {
+      "F1": 0,
+      "F2": 4,
+      "F3": 2,
+      "F4": 2,
+      "subtotal": 8
+     },
+     "base_structure": {
+      "G1": 0,
+      "G2": 4,
+      "G3": 4,
+      "G4": 0,
+      "G5": 3,
+      "G6": 0,
+      "subtotal": 11
+     },
+     "leadership": {
+      "H1": 2,
+      "H2": 0,
+      "H3": 0,
+      "subtotal": 2
+     },
+     "total": 62
+    },
+    "quality_band": "Watchlist B",
+    "action_bucket": "AVOID",
+    "red_flags": [
+     "EPS_DECELERATION"
+    ],
+    "risk_level": "LOW",
+    "valuation_context": {
+     "pe": 44.0,
+     "peg": null,
+     "vs_own_5yr": "",
+     "note": "Valuation is context only, never a criterion."
+    },
+    "base": {
+     "pattern_label": "",
+     "pivot": 1933.0,
+     "pct_from_pivot": -4.35,
+     "base_count": 2,
+     "depth_pct": 10.1,
+     "weeks": 3.2
+    },
+    "trade_plan": null,
+    "delta": {
+     "score_change": 11,
+     "gate_flips": [
+      "c2: True -> False"
+     ],
+     "bucket_change": "",
+     "alerts": []
+    },
+    "violations": {
+     "count": 0,
+     "items": [],
+     "recommendation": ""
+    },
+    "verdict": {
+     "summary": "IKS (62/100) \u2014 Watchlist B / AVOID. Score is informational only \u2014 Gate 1 not confirmed, so not an actionable setup yet.",
+     "strengths": [],
+     "weaknesses": [
+      "Fails Trend Template: c2, c8",
+      "5 unverified fields scored 0"
+     ],
+     "catalysts": [],
+     "biggest_risk": "EPS_DECELERATION",
+     "conviction_0_10": 0
+    },
+    "data_quality": {
+     "unverified_fields": [
+      "fcf",
+      "governance_events",
+      "marquee_institution",
+      "mf_scheme_count",
+      "new_catalyst"
+     ],
+     "proxy_fields": [
+      "group_leadership_rank",
+      "industry_group_rs"
+     ],
+     "sources": [
+      {
+       "field": "technicals",
+       "source": "Yahoo Finance OHLCV",
+       "as_of": "2026-07-31"
+      },
+      {
+       "field": "fundamentals",
+       "source": "screener.in",
+       "as_of": "2026-07-31"
+      }
+     ]
+    },
+    "technicals": {
+     "price": 1848.9,
+     "rs_percentile": 29,
+     "pct_below_52w_high": 4.4,
+     "pct_above_52w_low": 46.5,
+     "dma_50": 1754.42,
+     "dma_200": 1618.64,
+     "up_down_volume_ratio_50d": 2.43,
+     "industry_sector": "Information Technology",
+     "group_leadership_rank": 5,
+     "group_leadership_of": 5
+    },
+    "status": "SCORED_NO_TREND"
+   },
+   "dropped_date": "2026-08-09",
+   "frozen": true
+  },
+  {
    "ticker": "DATAPATTNS",
    "name": "Data Pattern",
    "joined_date": "2026-07-28",
