@@ -369,13 +369,14 @@
     var rsEl = $("#rs-line");
     var rsu = run.rs_universe;
     if (rsu && rsu.source) {
+      rsEl.textContent = rsu.succeeded + " scanned";
       if (rsu.used) {
-        rsEl.textContent = "RS vs " + esc(rsu.source) + ": " + rsu.succeeded + "/" + rsu.attempted + " fetched";
         rsEl.className = "llmline";
+        rsEl.title = "RS ranked against " + rsu.source + ": " + rsu.succeeded + "/" + rsu.attempted + " fetched";
       } else {
-        rsEl.textContent = "RS vs " + esc(rsu.source) + ": only " + rsu.succeeded + "/" + rsu.attempted +
-          " fetched — fell back to tracked-only ranking this run";
         rsEl.className = "llmline warn";
+        rsEl.title = "Only " + rsu.succeeded + "/" + rsu.attempted + " of " + rsu.source +
+          " fetched this run — fell back to tracked-only RS ranking";
       }
       rsEl.hidden = false;
     } else {
