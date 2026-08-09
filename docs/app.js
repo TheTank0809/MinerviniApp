@@ -104,7 +104,7 @@
     C1: "Return on equity.",
     C2: "Net profit margin expanding year-over-year in the latest quarter.",
     C3: "3-year cumulative operating cash flow as a share of profit after tax — checks that earnings are real cash, not just accounting.",
-    C4: "Estimated free cash flow positive in at least 2 of the last 3 years (screener.in doesn't isolate capex, so this is an estimate).",
+    C4: "Free cash flow positive in at least 2 of the last 3 years — screener.in's own reported figure when it has one, otherwise our estimate (OCF minus approximate capex, since screener.in doesn't isolate capex as its own line).",
     D1: "Debt to equity ratio.",
     D2: "Operating profit as a multiple of interest expense.",
     D3: "Share count growth over 2 years — heavy dilution is a red flag.",
@@ -636,7 +636,7 @@
   // on desktop and mobile — title/hover tooltips don't fire reliably on touch. Buttons
   // already inherit plain text styling from the global `button` reset in app.css, so
   // this adds a description without looking like a hyperlink.
-  function itemRows(sec, proxyKeys, proxyTitleText) {
+  function itemRows(sec, proxyKeys, proxyTitleText, extraDesc) {
     var keys = Object.keys(sec).filter(function (k) { return k !== "subtotal"; });
     return keys.map(function (k) {
       var label = ITEM_LABEL[k] || k;
@@ -644,6 +644,7 @@
       var isProxy = proxyKeys && proxyKeys[k];
       var desc = ITEM_DESC[k] || "";
       if (isProxy && proxyTitleText) desc = (desc ? desc + " " : "") + proxyTitleText;
+      if (extraDesc && extraDesc[k]) desc = (desc ? desc + " " : "") + extraDesc[k];
       var cls = "item-btn" + (isProxy ? " proxy-item" : "");
       return '<button type="button" class="' + cls + '" data-item-key="' + esc(k) +
         '" data-item-desc="' + esc(desc) + '">' + text + "</button>";
@@ -721,7 +722,10 @@
 
     html += '<div class="kv">' +
       kv("Price", t.price != null ? "₹" + t.price : "—") +
-      kv("RS pct", t.rs_percentile != null ? t.rs_percentile : "—") +
+      kv("RS pct", t.rs_percentile != null ? t.rs_percentile : "—",
+        "Relative Strength percentile — price performance ranked against other stocks. Not the same as RSI.") +
+      kv("RSI", t.rsi != null ? t.rsi : "—",
+        "Wilder's 14-day momentum oscillator (overbought/oversold on this stock's own price) — context only, never scored, and not the same as RS pct.") +
       kv("Off 52w high", t.pct_below_52w_high != null ? t.pct_below_52w_high + "%" : "—") +
       kv("Above 52w low", t.pct_above_52w_low != null ? "+" + t.pct_above_52w_low + "%" : "—") +
       kv("Joined", fmtDate(rec.joined_date)) +
@@ -757,6 +761,13 @@
         if (k) proxyKeys[k] = true;
       });
       var proxyTitleText = proxyTitle(t);
+      // The C4 score is just a positive-years count — without this, the actual FCF
+      // figure it's based on was never visible anywhere, only its derived 0/2.
+      var extraDesc = {};
+      if (t.fcf_latest_cr != null) {
+        extraDesc.C4 = "Latest: ₹" + t.fcf_latest_cr + " Cr (" +
+          (t.fcf_source === "reported" ? "screener.in's own figure" : "our estimate") + ").";
+      }
       html += '<div class="sec-title">Score · ' + scores.total + "/100</div><div class=\"scorebars\">";
       Object.keys(SECTION_MAX).forEach(function (k) {
         var sec = scores[k];
@@ -764,7 +775,7 @@
         html += '<div class="sbar"><span class="lbl">' + SECTION_LABEL[k] + "</span>" +
           '<span class="track"><span class="fill" style="width:' + pct + '%"></span></span>' +
           '<span class="val">' + sec.subtotal + "/" + SECTION_MAX[k] + "</span></div>" +
-          '<div class="items">' + itemRows(sec, proxyKeys, proxyTitleText) + "</div>" +
+          '<div class="items">' + itemRows(sec, proxyKeys, proxyTitleText, extraDesc) + "</div>" +
           '<div class="item-desc" hidden></div>';
       });
       html += "</div>";
@@ -887,7 +898,10 @@
     }
   }
 
-  function kv(k, v) { return "<div><div class=\"k\">" + k + "</div><div class=\"v\">" + v + "</div></div>"; }
+  function kv(k, v, title) {
+    return '<div' + (title ? ' title="' + esc(title) + '"' : "") + '><div class="k">' + k +
+      '</div><div class="v">' + v + "</div></div>";
+  }
 
   var sheetCloseTimer = null;
   function closeSheet() {

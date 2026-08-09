@@ -204,7 +204,11 @@ def build_fundamental_payload(raw):
     # _estimate_fcf_years' docstring for why that path can only ever be an estimate.
     # fcf_source lets scorecard.py tag the FCF_ESTIMATED red flag only when the figure
     # actually came from the estimate, not when it's screener.in's own number.
+    # fcf_latest_cr is the most recent year's actual figure (Rs crore) — the score itself
+    # (C4) only ever reflects a positive-years count, so without this the real number was
+    # never actually visible anywhere, just its derived 0/2.
     payload["fcf_source"] = None
+    payload["fcf_latest_cr"] = None
     fcf_direct = _row(cf, "Free Cash Flow")
     if fcf_direct:
         fcf_recent = [v for v in fcf_direct[-3:] if v is not None]
@@ -212,12 +216,14 @@ def build_fundamental_payload(raw):
             payload["fcf_positive_count"] = sum(1 for v in fcf_recent if v > 0)
             payload["fcf_years_count"] = len(fcf_recent)
             payload["fcf_source"] = "reported"
+            payload["fcf_latest_cr"] = fcf_recent[-1]  # chronological: latest is last
     if payload["fcf_source"] is None:
         fcf_years, fcf_missing_reason = _estimate_fcf_years(bs, pl, cf)
         if fcf_years:
             payload["fcf_positive_count"] = sum(1 for v in fcf_years if v > 0)
             payload["fcf_years_count"] = len(fcf_years)
             payload["fcf_source"] = "estimated"
+            payload["fcf_latest_cr"] = fcf_years[0]  # reverse-chronological: latest is first
         else:
             payload["fcf_positive_count"] = None
             unverified.append("fcf")
@@ -290,6 +296,21 @@ def build_fundamental_payload(raw):
         if pe_txt:
             m = _re.search(r"([\d.]+)", pe_txt.replace(",", ""))
             payload["pe"] = float(m.group(1)) if m else None
+    except Exception:
+        pass
+
+    # RSI (Wilder's 14-day momentum oscillator, from screener.in's ratios box) — never
+    # scored, and never a substitute for rs_percentile: RSI is self-referential (a
+    # stock's own overbought/oversold reading), while rs_percentile ranks price
+    # performance against other stocks. Shown for context only, clearly separate from
+    # the RS pct tile in the UI, precisely because the two are easy to conflate.
+    payload["rsi"] = None
+    try:
+        import re as _re
+        rsi_txt = ratios.get("RSI")
+        if rsi_txt:
+            m = _re.search(r"([\d.]+)", rsi_txt.replace(",", ""))
+            payload["rsi"] = float(m.group(1)) if m else None
     except Exception:
         pass
 

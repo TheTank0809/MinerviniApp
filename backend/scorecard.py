@@ -410,6 +410,9 @@ def evaluate(ticker, name, tech, fund, regime, cfg, mode="FULL", prior=None, llm
             "industry_group_rs_quartile": tech.get("industry_group_rs_quartile"),
             "group_leadership_rank": tech.get("group_leadership_rank"),
             "group_leadership_of": tech.get("group_leadership_of"),
+            "rsi": fund.get("rsi"),
+            "fcf_latest_cr": fund.get("fcf_latest_cr"),
+            "fcf_source": fund.get("fcf_source"),
         },
     }
 
