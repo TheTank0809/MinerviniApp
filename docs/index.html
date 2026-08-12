@@ -16,7 +16,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <!-- bump ?v= on app.css/app.js (and CACHE in sw.js) on every change — GitHub Pages
      doesn't fingerprint asset URLs, so browsers can otherwise keep serving a stale copy -->
-<link rel="stylesheet" href="app.css?v=11">
+<link rel="stylesheet" href="app.css?v=14">
 </head>
 <body>
 
@@ -92,12 +92,15 @@
 <div class="sheet-backdrop" id="backdrop" hidden></div>
 <section class="sheet" id="sheet" hidden aria-modal="true" role="dialog"></section>
 
+<div class="sheet-backdrop hist-backdrop" id="hist-backdrop" hidden></div>
+<section class="hist-popup" id="hist-popup" hidden aria-modal="true" role="dialog"></section>
+
 <footer>
   <span id="foot-note">Scores follow the Minervini Scorecard Engine v3 · data: screener.in + Yahoo Finance</span>
 </footer>
 
 <script type="module" src="firebase-sync.js?v=1"></script>
-<script src="app.js?v=16"></script>
+<script src="app.js?v=18"></script>
 </body>
 </html>
 

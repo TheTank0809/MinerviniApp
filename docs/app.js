@@ -711,7 +711,8 @@
     }
 
     html += '<div class="badges">';
-    if (scores) html += '<span class="badge band">' + esc(sc.quality_band) + " · " + scores.total + "/100</span>";
+    if (scores) html += '<button type="button" class="badge band hist-open" data-ticker="' + esc(entry.ticker) +
+      '" title="Tap to see score history">' + esc(sc.quality_band) + " · " + scores.total + "/100</button>";
     html += '<span class="badge">' + esc((sc.action_bucket || sc.status || "").replace(/_/g, " ")) + "</span>";
     if (rec.dropped_date) html += '<span class="badge frozen">Left screen ' + fmtDate(rec.dropped_date) + " · frozen</span>";
     var reason = rejectReason(sc);
@@ -891,6 +892,10 @@
         if (!open) box.innerHTML = "<b>" + esc(ITEM_LABEL[key] || key) + ":</b> " + esc(btn.dataset.itemDesc);
       };
     });
+    var histOpenBtn = sheet.querySelector(".hist-open");
+    if (histOpenBtn) {
+      histOpenBtn.onclick = function () { openHistoryPopup(entry.ticker); };
+    }
     if (isFreshOpen) {
       sheet.querySelector(".close").focus();
     } else {
@@ -901,6 +906,122 @@
   function kv(k, v, title) {
     return '<div' + (title ? ' title="' + esc(title) + '"' : "") + '><div class="k">' + k +
       '</div><div class="v">' + v + "</div></div>";
+  }
+
+  // Score history — lazy-fetched per ticker (one small JSON file, only on tap) so
+  // opening the sheet never costs an extra request unless the chart is actually opened.
+  var HIST_W = 300, HIST_H = 108, HIST_PAD_L = 8, HIST_PAD_R = 8, HIST_PAD_T = 10, HIST_PAD_B = 20;
+  var HIST_PLOT_W = HIST_W - HIST_PAD_L - HIST_PAD_R, HIST_PLOT_H = HIST_H - HIST_PAD_T - HIST_PAD_B;
+  var histCache = {};
+
+  function histX(i, n) { return HIST_PAD_L + (n === 1 ? 0 : (i / (n - 1)) * HIST_PLOT_W); }
+  function histY(score) {
+    var s = Math.max(0, Math.min(100, score));
+    return HIST_PAD_T + (1 - s / 100) * HIST_PLOT_H;
+  }
+
+  function renderHistoryChart(points) {
+    if (!points || points.length < 2) {
+      return '<p class="uv">Not enough history yet — check back after next week’s scan.</p>';
+    }
+    var n = points.length, first = points[0], last = points[n - 1];
+    var delta = last.score - first.score;
+    var deltaCls = delta > 0 ? "up" : delta < 0 ? "down" : "";
+    var deltaText = (delta > 0 ? "+" : "") + delta + " over " + (n - 1) + (n - 1 === 1 ? " week" : " weeks");
+
+    var linePts = points.map(function (p, i) { return histX(i, n) + "," + histY(p.score); }).join(" ");
+    var areaPts = linePts + " " + histX(n - 1, n) + "," + (HIST_PAD_T + HIST_PLOT_H) +
+      " " + histX(0, n) + "," + (HIST_PAD_T + HIST_PLOT_H);
+    var grid = [25, 50, 75].map(function (g) {
+      return '<line x1="' + HIST_PAD_L + '" y1="' + histY(g) + '" x2="' + (HIST_W - HIST_PAD_R) +
+        '" y2="' + histY(g) + '" class="hist-grid" />';
+    }).join("");
+
+    var svg = '<svg viewBox="0 0 ' + HIST_W + ' ' + HIST_H + '" class="hist-svg" ' +
+      'preserveAspectRatio="none" role="img" aria-label="Score history, ' + n + ' data points">' +
+      grid +
+      '<polygon points="' + areaPts + '" class="hist-area"></polygon>' +
+      '<polyline points="' + linePts + '" class="hist-line"></polyline>' +
+      '<circle cx="' + histX(0, n) + '" cy="' + histY(first.score) + '" r="3" class="hist-dot hist-dot-first"></circle>' +
+      '<circle cx="' + histX(n - 1, n) + '" cy="' + histY(last.score) + '" r="3.5" class="hist-dot hist-dot-last"></circle>' +
+      "</svg>";
+
+    return '<div class="hist-summary"><span class="hist-score">' + last.score + '/100</span>' +
+      '<span class="hist-delta ' + deltaCls + '">' + esc(deltaText) + "</span></div>" +
+      svg +
+      '<div class="hist-axis"><span>' + esc(fmtDate(first.date)) + '</span><span>' + esc(fmtDate(last.date)) + "</span></div>" +
+      '<div class="hist-tip" hidden></div>';
+  }
+
+  function wireHistoryChart(box, points) {
+    var svg = box.querySelector(".hist-svg");
+    var tip = box.querySelector(".hist-tip");
+    if (!svg || !tip || !points || points.length < 2) return;
+    var n = points.length;
+    svg.addEventListener("click", function (e) {
+      var rect = svg.getBoundingClientRect();
+      var relX = (e.clientX - rect.left) / rect.width * HIST_W;
+      var idx = Math.round(((relX - HIST_PAD_L) / HIST_PLOT_W) * (n - 1));
+      idx = Math.max(0, Math.min(n - 1, idx));
+      var p = points[idx];
+      tip.hidden = false;
+      tip.textContent = fmtDate(p.date) + " · score " + p.score +
+        (p.bucket ? " · " + p.bucket.replace(/_/g, " ") : "");
+    });
+  }
+
+  function loadHistoryChart(ticker, box) {
+    if (histCache[ticker]) {
+      box.innerHTML = renderHistoryChart(histCache[ticker]);
+      wireHistoryChart(box, histCache[ticker]);
+      return;
+    }
+    box.innerHTML = '<p class="uv">Loading…</p>';
+    fetch("data/history/" + encodeURIComponent(ticker) + ".json", { cache: "no-store" })
+      .then(function (r) { return r.ok ? r.json() : { points: [] }; })
+      .then(function (data) {
+        var points = data.points || [];
+        histCache[ticker] = points;
+        box.innerHTML = renderHistoryChart(points);
+        wireHistoryChart(box, points);
+      })
+      .catch(function () {
+        box.innerHTML = '<p class="uv">Couldn’t load history right now.</p>';
+      });
+  }
+
+  // Score history opens as its own small popup on top of the detail sheet (rather than
+  // an inline section) — it's a side-lookup, not part of reading the scorecard, so it
+  // shouldn't add scroll length to the sheet every time.
+  var histPopupCloseTimer = null;
+  function openHistoryPopup(ticker) {
+    var popup = $("#hist-popup");
+    var backdrop = $("#hist-backdrop");
+    if (histPopupCloseTimer) { clearTimeout(histPopupCloseTimer); histPopupCloseTimer = null; }
+    popup.innerHTML = '<div class="sheet-head"><h2>' + esc(ticker) + " · Score history</h2>" +
+      '<button type="button" class="close" aria-label="Close">✕</button></div>' +
+      '<div class="hist-chart"></div>';
+    popup.querySelector(".close").onclick = closeHistoryPopup;
+    popup.hidden = false;
+    backdrop.hidden = false;
+    popup.classList.remove("show");
+    backdrop.classList.remove("show");
+    void popup.offsetHeight;
+    requestAnimationFrame(function () {
+      popup.classList.add("show");
+      backdrop.classList.add("show");
+    });
+    loadHistoryChart(ticker, popup.querySelector(".hist-chart"));
+  }
+  function closeHistoryPopup() {
+    var popup = $("#hist-popup");
+    var backdrop = $("#hist-backdrop");
+    popup.classList.remove("show");
+    backdrop.classList.remove("show");
+    if (histPopupCloseTimer) clearTimeout(histPopupCloseTimer);
+    var finish = function () { histPopupCloseTimer = null; popup.hidden = true; backdrop.hidden = true; };
+    var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduced) finish(); else histPopupCloseTimer = setTimeout(finish, 200);
   }
 
   var sheetCloseTimer = null;
@@ -935,7 +1056,13 @@
   });
   $("#sort").onchange = function () { state.sort = this.value; renderList(); };
   $("#backdrop").onclick = closeSheet;
-  document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeSheet(); });
+  $("#hist-backdrop").onclick = closeHistoryPopup;
+  document.addEventListener("keydown", function (e) {
+    if (e.key !== "Escape") return;
+    var popup = $("#hist-popup");
+    if (popup && !popup.hidden) { closeHistoryPopup(); return; }
+    closeSheet();
+  });
 
   // Installed PWAs are often just resumed from a suspended/frozen state when reopened
   // (no real page load), so a fetch made hours or days ago can sit on screen indefinitely

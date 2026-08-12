@@ -30,7 +30,7 @@ body {
 button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; touch-action: manipulation; }
 
 @media (prefers-reduced-motion: reduce) {
-  .sheet, .sheet-backdrop, .row, .chip, .tab, .stbtn, .gate-btn { transition: none !important; }
+  .sheet, .sheet-backdrop, .hist-popup, .row, .chip, .tab, .stbtn, .gate-btn { transition: none !important; }
 }
 
 /* ---------------- passphrase gate ---------------- */
@@ -292,6 +292,28 @@ main { padding: 0 10px 30px; max-width: 1100px; margin: 0 auto; }
 .sheet .close:hover { color: var(--text); }
 .sheet .close:focus-visible { outline: 2px solid var(--amber); border-radius: 4px; }
 .sheet .close:active { opacity: .6; }
+/* ---------------- score-history popup (sits above the detail sheet) ---------------- */
+.hist-backdrop { z-index: 40; }
+.hist-popup {
+  position: fixed; left: 50%; top: 50%; z-index: 41;
+  transform: translate(-50%, -46%); opacity: 0;
+  width: min(92vw, 420px); max-height: 80vh; overflow-y: auto; -webkit-overflow-scrolling: touch;
+  background: var(--surface); border: 1px solid var(--line); border-top: 2px solid var(--amber);
+  border-radius: 14px; padding: 16px 18px calc(18px + env(safe-area-inset-bottom));
+  transition: transform 200ms cubic-bezier(.16,1,.3,1), opacity 180ms ease-out;
+}
+.hist-popup.show { transform: translate(-50%, -50%); opacity: 1; }
+.hist-popup .sheet-head { margin-bottom: 4px; }
+.hist-popup h2 { font-family: var(--display); font-size: 15px; margin: 0; letter-spacing: .02em; }
+.hist-popup .close {
+  font-family: var(--mono); color: var(--muted); font-size: 20px; line-height: 1;
+  min-width: 40px; min-height: 40px; display: grid; place-items: center; margin: -6px -6px 0 0;
+  transition: color 160ms ease-out;
+}
+.hist-popup .close:hover { color: var(--text); }
+.hist-popup .close:focus-visible { outline: 2px solid var(--amber); border-radius: 4px; }
+.hist-popup .hist-chart { margin-top: 6px; }
+
 .screentoggle { display: flex; gap: 8px; margin: 10px 0 0; flex-wrap: wrap; }
 .stbtn {
   font-family: var(--mono); font-size: 11.5px; font-weight: 600; color: var(--muted);
@@ -311,6 +333,12 @@ main { padding: 0 10px 30px; max-width: 1100px; margin: 0 auto; }
   border: 1px solid var(--line); color: var(--muted);
 }
 .badge.band { color: var(--amber); border-color: var(--amber-dim); }
+button.badge.hist-open {
+  font: inherit; font-family: var(--mono); -webkit-appearance: none; appearance: none;
+  text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 3px;
+}
+button.badge.hist-open:focus-visible { outline: 2px solid var(--amber); outline-offset: 1px; }
+button.badge.hist-open:active { opacity: .7; }
 .badge.flag { color: var(--fail); border-color: var(--fail); }
 .badge.frozen { color: var(--cold); border-color: var(--cold); }
 .kv { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; margin: 12px 0; }
@@ -350,6 +378,23 @@ main { padding: 0 10px 30px; max-width: 1100px; margin: 0 auto; }
 }
 .gcell.on { color: var(--pass); border-color: rgba(155,215,112,.4); }
 .gcell.off { color: var(--fail); border-color: rgba(224,86,63,.5); }
+
+.hist-chart { margin: 2px 0 10px; }
+.hist-summary { display: flex; align-items: baseline; gap: 10px; margin-bottom: 2px; }
+.hist-score { font-family: var(--mono); font-size: 20px; color: var(--text); }
+.hist-delta { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+.hist-delta.up { color: var(--pass); }
+.hist-delta.down { color: var(--fail); }
+.hist-svg { width: 100%; height: 108px; display: block; cursor: pointer; touch-action: pan-y; }
+.hist-grid { stroke: var(--line); stroke-width: 1; }
+.hist-area { fill: var(--amber); fill-opacity: .08; stroke: none; }
+.hist-line { fill: none; stroke: var(--amber); stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+.hist-dot-last { fill: var(--amber); }
+.hist-dot-first { fill: var(--amber-dim); }
+.hist-axis { display: flex; justify-content: space-between; font-family: var(--mono);
+  font-size: 10.5px; color: var(--muted); margin-top: 2px; }
+.hist-tip { font-family: var(--mono); font-size: 11.5px; color: var(--text); margin-top: 6px;
+  padding: 6px 10px; background: var(--surface-2); border-radius: 6px; border-left: 2px solid var(--amber-dim); }
 
 .verdict p { margin: 6px 0; font-size: 13.5px; }
 .verdict ul { margin: 4px 0 8px 18px; padding: 0; font-size: 13px; }

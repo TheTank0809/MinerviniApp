@@ -29,6 +29,8 @@ from screener_client import ScreenerClient, ScreenerError
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_DIR = os.path.join(ROOT, "docs", "data")
+HISTORY_DIR = os.path.join(DATA_DIR, "history")
+HISTORY_MAX_POINTS = 104  # ~2 years of weekly runs
 PROMPT_PATH = os.path.join(ROOT, "PROMPT.md")
 
 
@@ -38,6 +40,28 @@ def load_json(path, default):
             return json.load(fh)
     except Exception:
         return default
+
+
+def update_history(ticker, date, score, bucket, price):
+    """Append (or overwrite same-day) a score snapshot for a ticker, one file per
+    ticker so the frontend can lazy-fetch a single stock's history on demand rather
+    than shipping every stock's full history on every page load."""
+    if score is None:
+        return
+    os.makedirs(HISTORY_DIR, exist_ok=True)
+    path = os.path.join(HISTORY_DIR, ticker + ".json")
+    obj = load_json(path, {"ticker": ticker, "points": []})
+    points = obj.get("points") or []
+    point = {"date": date, "score": score, "bucket": bucket, "price": price}
+    for i, p in enumerate(points):
+        if p.get("date") == date:
+            points[i] = point
+            break
+    else:
+        points.append(point)
+    points.sort(key=lambda p: p["date"])
+    obj["points"] = points[-HISTORY_MAX_POINTS:]
+    save_json(path, obj)
 
 
 _rs_universe_cache = {}
@@ -343,6 +367,9 @@ def process_screen(client, universe_key, uni, screen, settings):
                 "scorecard": card,
             }
             out_stocks.append(rec)
+            if card.get("status") == "SCORED":
+                update_history(code, today(), (card.get("scores") or {}).get("total"),
+                                card.get("action_bucket"), (card.get("technicals") or {}).get("price"))
             print("  %-12s %s score=%s %s" % (
                 code, card["status"],
                 (card.get("scores") or {}).get("total", "-"), card["action_bucket"]))
