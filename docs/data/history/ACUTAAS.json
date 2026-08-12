@@ -1,0 +1,11 @@
+{
+ "ticker": "ACUTAAS",
+ "points": [
+  {
+   "date": "2026-08-09",
+   "score": 64,
+   "bucket": "AVOID",
+   "price": 3297.9
+  }
+ ]
+}

@@ -1,0 +1,11 @@
+{
+ "ticker": "BLS",
+ "points": [
+  {
+   "date": "2026-08-09",
+   "score": 32,
+   "bucket": "AVOID",
+   "price": 254.33
+  }
+ ]
+}

@@ -1,0 +1,11 @@
+{
+ "ticker": "DIXON",
+ "points": [
+  {
+   "date": "2026-08-09",
+   "score": 58,
+   "bucket": "AVOID",
+   "price": 14200.0
+  }
+ ]
+}

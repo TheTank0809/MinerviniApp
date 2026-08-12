@@ -1,0 +1,11 @@
+{
+ "ticker": "YATHARTH",
+ "points": [
+  {
+   "date": "2026-08-09",
+   "score": 57,
+   "bucket": "AVOID",
+   "price": 870.5
+  }
+ ]
+}

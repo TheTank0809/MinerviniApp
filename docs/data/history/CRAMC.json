@@ -1,0 +1,11 @@
+{
+ "ticker": "CRAMC",
+ "points": [
+  {
+   "date": "2026-08-09",
+   "score": 12,
+   "bucket": "AVOID",
+   "price": 262.1
+  }
+ ]
+}

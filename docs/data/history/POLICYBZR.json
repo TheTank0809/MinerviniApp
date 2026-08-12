@@ -1,0 +1,11 @@
+{
+ "ticker": "POLICYBZR",
+ "points": [
+  {
+   "date": "2026-08-09",
+   "score": 41,
+   "bucket": "AVOID",
+   "price": 1604.5
+  }
+ ]
+}

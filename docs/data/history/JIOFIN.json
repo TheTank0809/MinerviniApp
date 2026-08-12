@@ -1,0 +1,11 @@
+{
+ "ticker": "JIOFIN",
+ "points": [
+  {
+   "date": "2026-08-09",
+   "score": 45,
+   "bucket": "AVOID",
+   "price": 256.8
+  }
+ ]
+}

@@ -1,0 +1,11 @@
+{
+ "ticker": "BAJAJHFL",
+ "points": [
+  {
+   "date": "2026-08-09",
+   "score": 4,
+   "bucket": "AVOID",
+   "price": 85.79
+  }
+ ]
+}

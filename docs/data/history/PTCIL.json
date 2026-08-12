@@ -1,0 +1,11 @@
+{
+ "ticker": "PTCIL",
+ "points": [
+  {
+   "date": "2026-08-09",
+   "score": 62,
+   "bucket": "AVOID",
+   "price": 19076.0
+  }
+ ]
+}

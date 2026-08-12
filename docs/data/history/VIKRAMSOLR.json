@@ -1,0 +1,11 @@
+{
+ "ticker": "VIKRAMSOLR",
+ "points": [
+  {
+   "date": "2026-08-09",
+   "score": 28,
+   "bucket": "AVOID",
+   "price": 164.34
+  }
+ ]
+}

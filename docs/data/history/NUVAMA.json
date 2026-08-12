@@ -1,0 +1,11 @@
+{
+ "ticker": "NUVAMA",
+ "points": [
+  {
+   "date": "2026-08-09",
+   "score": 34,
+   "bucket": "AVOID",
+   "price": 1642.7
+  }
+ ]
+}

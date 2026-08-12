@@ -1,0 +1,11 @@
+{
+ "ticker": "KPIGREEN",
+ "points": [
+  {
+   "date": "2026-08-09",
+   "score": 46,
+   "bucket": "AVOID",
+   "price": 370.7
+  }
+ ]
+}

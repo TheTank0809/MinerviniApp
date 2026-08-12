@@ -1,0 +1,11 @@
+{
+ "ticker": "CGCL",
+ "points": [
+  {
+   "date": "2026-08-09",
+   "score": 59,
+   "bucket": "AVOID",
+   "price": 230.25
+  }
+ ]
+}

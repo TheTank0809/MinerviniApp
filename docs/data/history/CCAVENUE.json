@@ -1,0 +1,11 @@
+{
+ "ticker": "CCAVENUE",
+ "points": [
+  {
+   "date": "2026-08-09",
+   "score": 44,
+   "bucket": "AVOID",
+   "price": 17.17
+  }
+ ]
+}

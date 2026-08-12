@@ -1,0 +1,11 @@
+{
+ "ticker": "CHOLAFIN",
+ "points": [
+  {
+   "date": "2026-08-09",
+   "score": 49,
+   "bucket": "AVOID",
+   "price": 1866.2
+  }
+ ]
+}

@@ -1,0 +1,11 @@
+{
+ "ticker": "CHOICEIN",
+ "points": [
+  {
+   "date": "2026-08-09",
+   "score": 42,
+   "bucket": "AVOID",
+   "price": 841.15
+  }
+ ]
+}

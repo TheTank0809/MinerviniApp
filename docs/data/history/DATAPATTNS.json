@@ -1,0 +1,11 @@
+{
+ "ticker": "DATAPATTNS",
+ "points": [
+  {
+   "date": "2026-08-09",
+   "score": 25,
+   "bucket": "AVOID",
+   "price": 4380.7
+  }
+ ]
+}

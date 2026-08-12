@@ -1,0 +1,11 @@
+{
+ "ticker": "IGIL",
+ "points": [
+  {
+   "date": "2026-08-09",
+   "score": 45,
+   "bucket": "AVOID",
+   "price": 355.8
+  }
+ ]
+}

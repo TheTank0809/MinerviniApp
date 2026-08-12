@@ -1,0 +1,11 @@
+{
+ "ticker": "IKS",
+ "points": [
+  {
+   "date": "2026-08-09",
+   "score": 54,
+   "bucket": "AVOID",
+   "price": 1737.7
+  }
+ ]
+}

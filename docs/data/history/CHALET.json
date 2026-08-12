@@ -1,0 +1,11 @@
+{
+ "ticker": "CHALET",
+ "points": [
+  {
+   "date": "2026-08-09",
+   "score": 26,
+   "bucket": "AVOID",
+   "price": 859.7
+  }
+ ]
+}

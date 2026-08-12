@@ -1,0 +1,11 @@
+{
+ "ticker": "ICICIAMC",
+ "points": [
+  {
+   "date": "2026-08-09",
+   "score": 19,
+   "bucket": "AVOID",
+   "price": 3072.8
+  }
+ ]
+}

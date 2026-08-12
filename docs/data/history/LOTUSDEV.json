@@ -1,0 +1,11 @@
+{
+ "ticker": "LOTUSDEV",
+ "points": [
+  {
+   "date": "2026-08-09",
+   "score": 37,
+   "bucket": "AVOID",
+   "price": 185.83
+  }
+ ]
+}

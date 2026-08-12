@@ -1,0 +1,11 @@
+{
+ "ticker": "CEMPRO",
+ "points": [
+  {
+   "date": "2026-08-09",
+   "score": 38,
+   "bucket": "AVOID",
+   "price": 1208.1
+  }
+ ]
+}

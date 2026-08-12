@@ -1,0 +1,11 @@
+{
+ "ticker": "V2RETAIL",
+ "points": [
+  {
+   "date": "2026-08-09",
+   "score": 53,
+   "bucket": "AVOID",
+   "price": 219.44
+  }
+ ]
+}

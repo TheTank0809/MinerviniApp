@@ -367,9 +367,12 @@ def process_screen(client, universe_key, uni, screen, settings):
                 "scorecard": card,
             }
             out_stocks.append(rec)
-            if card.get("status") == "SCORED":
-                update_history(code, today(), (card.get("scores") or {}).get("total"),
-                                card.get("action_bucket"), (card.get("technicals") or {}).get("price"))
+            # SCORED and SCORED_NO_TREND both carry a real numeric score — only the
+            # FAIL_* gate-2 statuses (investability/liquidity/governance) don't.
+            score_total = (card.get("scores") or {}).get("total")
+            if score_total is not None:
+                update_history(code, today(), score_total, card.get("action_bucket"),
+                                (card.get("technicals") or {}).get("price"))
             print("  %-12s %s score=%s %s" % (
                 code, card["status"],
                 (card.get("scores") or {}).get("total", "-"), card["action_bucket"]))

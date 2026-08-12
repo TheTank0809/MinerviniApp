@@ -334,8 +334,10 @@ main { padding: 0 10px 30px; max-width: 1100px; margin: 0 auto; }
 }
 .badge.band { color: var(--amber); border-color: var(--amber-dim); }
 button.badge.hist-open {
-  font: inherit; font-family: var(--mono); -webkit-appearance: none; appearance: none;
-  text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 3px;
+  font-family: var(--mono); font-size: 9px; padding: 2px 6px;
+  -webkit-appearance: none; appearance: none;
+  display: inline-flex; align-items: center;
+  text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 2px;
 }
 button.badge.hist-open:focus-visible { outline: 2px solid var(--amber); outline-offset: 1px; }
 button.badge.hist-open:active { opacity: .7; }

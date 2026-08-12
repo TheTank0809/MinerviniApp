@@ -1,0 +1,11 @@
+{
+ "ticker": "PREMIERENE",
+ "points": [
+  {
+   "date": "2026-08-09",
+   "score": 52,
+   "bucket": "AVOID",
+   "price": 1047.2
+  }
+ ]
+}

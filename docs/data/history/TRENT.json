@@ -1,0 +1,11 @@
+{
+ "ticker": "TRENT",
+ "points": [
+  {
+   "date": "2026-08-09",
+   "score": 30,
+   "bucket": "AVOID",
+   "price": 2997.0
+  }
+ ]
+}

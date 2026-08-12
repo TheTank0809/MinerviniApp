@@ -1,0 +1,11 @@
+{
+ "ticker": "INDIASHLTR",
+ "points": [
+  {
+   "date": "2026-08-09",
+   "score": 36,
+   "bucket": "AVOID",
+   "price": 691.9
+  }
+ ]
+}

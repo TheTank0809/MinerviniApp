@@ -1,0 +1,11 @@
+{
+ "ticker": "ZENTEC",
+ "points": [
+  {
+   "date": "2026-08-09",
+   "score": 31,
+   "bucket": "AVOID",
+   "price": 1721.1
+  }
+ ]
+}

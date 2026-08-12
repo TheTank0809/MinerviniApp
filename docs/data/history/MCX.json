@@ -1,0 +1,11 @@
+{
+ "ticker": "MCX",
+ "points": [
+  {
+   "date": "2026-08-09",
+   "score": 60,
+   "bucket": "AVOID",
+   "price": 2638.0
+  }
+ ]
+}

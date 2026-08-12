@@ -1,0 +1,11 @@
+{
+ "ticker": "QPOWER",
+ "points": [
+  {
+   "date": "2026-08-09",
+   "score": 50,
+   "bucket": "AVOID",
+   "price": 1124.1
+  }
+ ]
+}

@@ -1,0 +1,11 @@
+{
+ "ticker": "BSE",
+ "points": [
+  {
+   "date": "2026-08-09",
+   "score": 52,
+   "bucket": "AVOID",
+   "price": 3457.1
+  }
+ ]
+}

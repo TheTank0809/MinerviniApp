@@ -1,0 +1,11 @@
+{
+ "ticker": "BIRET",
+ "points": [
+  {
+   "date": "2026-08-09",
+   "score": 43,
+   "bucket": "AVOID",
+   "price": 344.99
+  }
+ ]
+}

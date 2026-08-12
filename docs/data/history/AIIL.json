@@ -1,0 +1,11 @@
+{
+ "ticker": "AIIL",
+ "points": [
+  {
+   "date": "2026-08-09",
+   "score": 27,
+   "bucket": "AVOID",
+   "price": 596.6
+  }
+ ]
+}

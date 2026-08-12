@@ -1,0 +1,11 @@
+{
+ "ticker": "GRSE",
+ "points": [
+  {
+   "date": "2026-08-09",
+   "score": 15,
+   "bucket": "AVOID",
+   "price": 2599.0
+  }
+ ]
+}

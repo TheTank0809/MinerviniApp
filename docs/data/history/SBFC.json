@@ -1,0 +1,11 @@
+{
+ "ticker": "SBFC",
+ "points": [
+  {
+   "date": "2026-08-09",
+   "score": 38,
+   "bucket": "AVOID",
+   "price": 94.25
+  }
+ ]
+}

@@ -1,0 +1,11 @@
+{
+ "ticker": "PNGJL",
+ "points": [
+  {
+   "date": "2026-08-09",
+   "score": 45,
+   "bucket": "AVOID",
+   "price": 642.85
+  }
+ ]
+}
