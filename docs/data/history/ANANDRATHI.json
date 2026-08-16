@@ -6,6 +6,12 @@
    "score": 64,
    "bucket": "WATCH",
    "price": 2101.5
+  },
+  {
+   "date": "2026-08-16",
+   "score": 57,
+   "bucket": "AVOID",
+   "price": 2174.7
   }
  ]
 }

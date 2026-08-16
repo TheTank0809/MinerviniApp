@@ -1,6 +1,183 @@
 {
  "runs": [
   {
+   "run_date": "2026-08-16",
+   "mode": "WEEKLY",
+   "regime": {
+    "score": 6,
+    "label": "CONFIRMED_UPTREND",
+    "checks": {
+     "close_above_50dma": true,
+     "close_above_200dma": true,
+     "50dma_above_200dma": true,
+     "distribution_days_25": 3,
+     "distribution_days_ok": true,
+     "pct_universe_above_200dma": 68.6,
+     "universe_above_200dma_ok": true,
+     "net_new_highs_positive": true
+    },
+    "exposure_guidance": "New buys allowed; full risk budget."
+   },
+   "counts": {
+    "active": 116,
+    "new": 7,
+    "dropped": 2,
+    "errors": 4
+   },
+   "new_tickers": [
+    "SBIFUNDS",
+    "VMARCIND",
+    "KUSUMGAR",
+    "MARINE",
+    "VERTIS",
+    "NHIT",
+    "SWANCORP"
+   ],
+   "dropped_tickers": [
+    "COCHINSHIP",
+    "SHILCTECH"
+   ],
+   "actionable_now": [],
+   "alerts": [
+    {
+     "ticker": "DIACABS",
+     "alert": "EPS_DECELERATION"
+    },
+    {
+     "ticker": "CGCL",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "DIXON",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "POLYCAB",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "QPOWER",
+     "alert": "EPS_DECELERATION"
+    },
+    {
+     "ticker": "IGIL",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "BSE",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "VIYASH",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "VIYASH",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "SANDUMA",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "OLECTRA",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "JSLL",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "YATHARTH",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "YATHARTH",
+     "alert": "EPS_DECELERATION"
+    },
+    {
+     "ticker": "SENCO",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "SENCO",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "SENCO",
+     "alert": "EPS_DECELERATION"
+    },
+    {
+     "ticker": "LOTUSDEV",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "CCAVENUE",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "CCAVENUE",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "TRENT",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "ASHAPURMIN",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "ASHAPURMIN",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "TECHNOE",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "TECHNOE",
+     "alert": "EPS_DECELERATION"
+    },
+    {
+     "ticker": "NIVABUPA",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "TSFINV",
+     "alert": "CLOSED_BELOW_50DMA"
+    }
+   ],
+   "errors": [
+    {
+     "ticker": "SBIFUNDS",
+     "error": "no OHLCV data on Yahoo Finance"
+    },
+    {
+     "ticker": "KUSUMGAR",
+     "error": "no OHLCV data on Yahoo Finance"
+    },
+    {
+     "ticker": "VERTIS",
+     "error": "no OHLCV data on Yahoo Finance"
+    },
+    {
+     "ticker": "NHIT",
+     "error": "no OHLCV data on Yahoo Finance"
+    }
+   ],
+   "llm": {
+    "enabled": true,
+    "model": "claude-sonnet-5"
+   },
+   "rs_universe": {
+    "source": "Nifty 500",
+    "attempted": 500,
+    "succeeded": 500,
+    "used": true
+   }
+  },
+  {
    "run_date": "2026-08-09",
    "mode": "WEEKLY",
    "regime": {

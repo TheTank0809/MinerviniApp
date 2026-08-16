@@ -6,6 +6,12 @@
    "score": 32,
    "bucket": "AVOID",
    "price": 516.3
+  },
+  {
+   "date": "2026-08-16",
+   "score": 32,
+   "bucket": "AVOID",
+   "price": 500.3
   }
  ]
 }

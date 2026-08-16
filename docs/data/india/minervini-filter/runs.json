@@ -1,6 +1,98 @@
 {
  "runs": [
   {
+   "run_date": "2026-08-16",
+   "mode": "WEEKLY",
+   "regime": {
+    "score": 6,
+    "label": "CONFIRMED_UPTREND",
+    "checks": {
+     "close_above_50dma": true,
+     "close_above_200dma": true,
+     "50dma_above_200dma": true,
+     "distribution_days_25": 3,
+     "distribution_days_ok": true,
+     "pct_universe_above_200dma": 96.3,
+     "universe_above_200dma_ok": true,
+     "net_new_highs_positive": true
+    },
+    "exposure_guidance": "New buys allowed; full risk budget."
+   },
+   "counts": {
+    "active": 63,
+    "new": 12,
+    "dropped": 9,
+    "errors": 0
+   },
+   "new_tickers": [
+    "TIPSMUSIC",
+    "MCX",
+    "ATLANTAELE",
+    "EMMVEE",
+    "VMARCIND",
+    "IKS",
+    "CEMPRO",
+    "QPOWER",
+    "BORORENEW",
+    "EBGNG",
+    "MARINE",
+    "ZENTEC"
+   ],
+   "dropped_tickers": [
+    "ACUTAAS",
+    "VIYASH",
+    "OLECTRA",
+    "CGCL",
+    "SENCO",
+    "PREMIERENE",
+    "CCAVENUE",
+    "ASHAPURMIN",
+    "SHILCTECH"
+   ],
+   "actionable_now": [],
+   "alerts": [
+    {
+     "ticker": "DIXON",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "POLYCAB",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "YATHARTH",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "YATHARTH",
+     "alert": "EPS_DECELERATION"
+    },
+    {
+     "ticker": "LOTUSDEV",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "TRENT",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "AIIL",
+     "alert": "RS_DOWNGRADE"
+    }
+   ],
+   "errors": [],
+   "llm": {
+    "enabled": true,
+    "model": "claude-sonnet-5"
+   },
+   "rs_universe": {
+    "source": "Nifty 500",
+    "attempted": 500,
+    "succeeded": 500,
+    "used": true
+   }
+  },
+  {
    "run_date": "2026-08-09",
    "mode": "WEEKLY",
    "regime": {

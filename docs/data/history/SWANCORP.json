@@ -1,0 +1,11 @@
+{
+ "ticker": "SWANCORP",
+ "points": [
+  {
+   "date": "2026-08-16",
+   "score": 11,
+   "bucket": "AVOID",
+   "price": 304.6
+  }
+ ]
+}

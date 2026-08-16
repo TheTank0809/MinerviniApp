@@ -1,0 +1,11 @@
+{
+ "ticker": "VMARCIND",
+ "points": [
+  {
+   "date": "2026-08-16",
+   "score": 16,
+   "bucket": "AVOID",
+   "price": 365.8
+  }
+ ]
+}
