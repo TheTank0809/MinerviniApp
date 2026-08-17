@@ -123,6 +123,26 @@ def _sma_series(close, n):
     return close.rolling(n).mean()
 
 
+def _rsi_wilder(close, period=14):
+    """Classic Wilder 14-day RSI, computed from the same daily closes already pulled
+    for every other technical (DMAs, RS raw, base detection) — no screener.in
+    dependency needed. (screener.in's own RSI ratio can't be scraped: it's injected
+    into the ratios box by client-side JS after page load, never present in the
+    server-rendered HTML a plain HTTP fetch receives, regardless of account/session.)"""
+    if len(close) < period + 1:
+        return None
+    delta = close.diff().dropna()
+    gain = delta.clip(lower=0)
+    loss = -delta.clip(upper=0)
+    avg_gain = gain.ewm(alpha=1.0 / period, min_periods=period, adjust=False).mean()
+    avg_loss = loss.ewm(alpha=1.0 / period, min_periods=period, adjust=False).mean()
+    ag, al = float(avg_gain.iloc[-1]), float(avg_loss.iloc[-1])
+    if al == 0:
+        return 100.0
+    rs = ag / al
+    return round(100.0 - 100.0 / (1.0 + rs), 1)
+
+
 def _rs_raw(close):
     """Minervini/IBD-style RS raw score:
     2*(3m return) + (6m return) + (9m return) + (12m return); periods in trading days."""
@@ -339,6 +359,7 @@ def build_technical_payload(df, rs_percentile=None, rs_percentile_prev=None):
         "pct_below_52w_high": round((1 - price / hi52) * 100, 1) if hi52 else None,
         "rs_percentile": rs_percentile,
         "rs_percentile_prev_week": rs_percentile_prev,
+        "rsi": _rsi_wilder(close),
         "industry_group_rs_quartile": None,   # not derivable for free — unverified
         "avg_volume_50d": int(avg_vol_50) if avg_vol_50 else None,
         "median_daily_traded_value_50d": round(median_traded_value, 0) if median_traded_value else None,

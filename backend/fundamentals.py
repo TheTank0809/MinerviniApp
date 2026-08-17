@@ -299,21 +299,6 @@ def build_fundamental_payload(raw):
     except Exception:
         pass
 
-    # RSI (Wilder's 14-day momentum oscillator, from screener.in's ratios box) — never
-    # scored, and never a substitute for rs_percentile: RSI is self-referential (a
-    # stock's own overbought/oversold reading), while rs_percentile ranks price
-    # performance against other stocks. Shown for context only, clearly separate from
-    # the RS pct tile in the UI, precisely because the two are easy to conflate.
-    payload["rsi"] = None
-    try:
-        import re as _re
-        rsi_txt = ratios.get("RSI")
-        if rsi_txt:
-            m = _re.search(r"([\d.]+)", rsi_txt.replace(",", ""))
-            payload["rsi"] = float(m.group(1)) if m else None
-    except Exception:
-        pass
-
     payload["unverified_fields"] = sorted(set(unverified))
     payload["unverified_reasons"] = unverified_reasons
     return payload
