@@ -78,9 +78,14 @@ body.locked > *:not(.gate) { display: none !important; }
   display: grid; place-items: center; flex: none;
   box-shadow: 0 0 18px rgba(255, 176, 32, .35);
 }
+/* The text column is a flex child too — without min-width:0 it won't shrink below its
+   own content width and h1 can silently overflow past .brand into whatever sits next
+   to it (runstamp, search) rather than truncating. */
+.brand > div { min-width: 0; overflow: hidden; }
 h1 {
   font-family: var(--display); font-size: 17px; font-weight: 600; margin: 0;
   letter-spacing: .04em; text-transform: uppercase;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
 .regime {
   font-family: var(--mono); font-size: 11.5px; color: var(--amber-soft);
@@ -92,6 +97,36 @@ h1 {
 @keyframes blink { 50% { opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { .cursor { animation: none; } }
 .runstamp { font-family: var(--mono); font-size: 11px; color: var(--muted); text-align: right; flex: none; }
+.topbar-right { display: flex; align-items: center; gap: 10px; flex: none; }
+.search { display: flex; align-items: center; }
+.search-btn {
+  flex: none; width: 32px; height: 32px; display: grid; place-items: center;
+  border: 1px solid var(--line); border-radius: 999px; color: var(--muted); background: var(--surface);
+  transition: border-color 160ms ease-out, color 160ms ease-out;
+}
+.search-btn:hover, .search-btn[aria-expanded="true"] { color: var(--amber); border-color: var(--amber-dim); }
+.search-btn:focus-visible { outline: 2px solid var(--amber); outline-offset: 1px; }
+.search-btn:active { opacity: .7; }
+.search-input {
+  font-family: var(--mono); font-size: 12.5px; background: var(--surface); color: var(--text);
+  border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px; margin-left: 6px;
+  width: 130px; max-width: 34vw; opacity: 0; transform: translateX(6px);
+  transition: opacity 160ms ease-out, transform 160ms ease-out;
+}
+.search-input.show { opacity: 1; transform: translateX(0); }
+.search-input:focus-visible { outline: 2px solid var(--amber); outline-offset: 1px; border-color: var(--amber-dim); }
+
+/* Below ~520px there isn't room for the title, the run stamp, and an expanded search
+   box on one line — rather than cram all three, an open search takes over the whole
+   bar (the standard mobile-search pattern) instead of fighting the title for space. */
+@media (max-width: 520px) {
+  .search.open {
+    position: absolute; left: 16px; right: 16px; top: 14px; z-index: 21;
+    background: var(--bg); display: flex; align-items: center;
+  }
+  .search.open .search-input { flex: 1 1 auto; width: auto; max-width: none; }
+  .topbar:has(.search.open) .brand, .topbar:has(.search.open) .runstamp { visibility: hidden; }
+}
 .llmline { font-family: var(--mono); font-size: 10.5px; color: var(--muted); margin-top: 2px; letter-spacing: .02em; }
 .llmline.warn { color: var(--amber-soft); }
 
@@ -127,18 +162,11 @@ h1 {
   flex: none; font-family: var(--display); font-size: 10px; font-weight: 600;
   letter-spacing: .09em; text-transform: uppercase; color: var(--amber-soft);
 }
-.newfilterchips {
-  flex: 1 1 auto; width: 100%; min-width: 0; max-width: 100%;
-  flex-wrap: nowrap; overflow-x: auto; padding: 1px; scrollbar-width: none;
+.new-filter-select { flex: 1 1 auto; min-width: 0; }
+.new-filter-select select {
+  width: 100%; background: var(--surface); color: var(--text); border: 1px solid var(--line);
+  border-radius: 6px; padding: 6px 8px; min-height: 36px; font-family: var(--mono); font-size: 12px;
 }
-.newfilterchips::-webkit-scrollbar { display: none; }
-.newfilterchips .chip {
-  flex: none; min-height: 36px; padding: 6px 12px; font-size: 10.5px; white-space: nowrap;
-}
-.newfilterchips .chip.active {
-  border-color: var(--amber); color: var(--text); background: rgba(255,176,32,.12);
-}
-.newfilterchips .chip:disabled { opacity: .35; cursor: default; }
 .tabs { display: flex; border-bottom: 1px solid var(--line); }
 .tab {
   font-family: var(--display); font-size: 13px; letter-spacing: .05em; text-transform: uppercase;

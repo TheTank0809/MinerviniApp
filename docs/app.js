@@ -6,7 +6,7 @@
   "use strict";
 
   var state = { manifest: null, universeKey: null, universes: {}, screens: [],
-                tab: "active", sort: "score", filter: null, newPeriod: "all",
+                tab: "active", sort: "score", filter: null, newPeriod: "all", searchQuery: "",
                 shortlist: {}, bought: {}, activeSheet: null,
                 data: { active: [], dropped: [] } };
   var $ = function (sel) { return document.querySelector(sel); };
@@ -450,25 +450,32 @@
     if (!visible) { box.innerHTML = ""; return; }
 
     var newStocks = state.data.active.filter(function (e) { return e.isNew; });
-    var options = [
-      { key: "all", label: "All new" },
+    // Only date buckets that actually have a new stock in them are offered — an empty
+    // "2 weeks ago (0)" option is dead weight, not a real filter choice.
+    var periods = [
       { key: "today", label: "Today" },
       { key: "this-week", label: "Earlier this week" },
       { key: "last-week", label: "Last week" },
       { key: "two-weeks", label: "2 weeks ago" }
-    ];
+    ].map(function (opt) {
+      return { key: opt.key, label: opt.label,
+        count: newStocks.filter(function (e) { return newPeriod(e) === opt.key; }).length };
+    }).filter(function (p) { return p.count > 0; });
+
+    if (state.newPeriod !== "all" && !periods.some(function (p) { return p.key === state.newPeriod; })) {
+      state.newPeriod = "all";
+    }
+
     box.innerHTML = "";
-    options.forEach(function (opt) {
-      var count = opt.key === "all" ? newStocks.length :
-        newStocks.filter(function (e) { return newPeriod(e) === opt.key; }).length;
-      var b = document.createElement("button");
-      b.className = "chip" + (state.newPeriod === opt.key ? " active" : "");
-      b.textContent = opt.label + " " + count;
-      b.disabled = count === 0;
-      b.setAttribute("aria-pressed", state.newPeriod === opt.key ? "true" : "false");
-      b.onclick = function () { state.newPeriod = opt.key; renderNewFilter(); renderList(); };
-      box.appendChild(b);
+    var select = document.createElement("select");
+    select.setAttribute("aria-label", "Filter new stocks by date added");
+    select.appendChild(new Option("All new (" + newStocks.length + ")", "all"));
+    periods.forEach(function (p) {
+      select.appendChild(new Option(p.label + " (" + p.count + ")", p.key));
     });
+    select.value = state.newPeriod;
+    select.onchange = function () { state.newPeriod = select.value; renderList(); };
+    box.appendChild(select);
   }
 
   // ---------------------------------------------------------------- list
@@ -534,6 +541,13 @@
           return state.tab === "dropped" ? !!e.droppedRecs[state.filter] : !!e.activeRecs[state.filter];
         });
       }
+    }
+    if (state.searchQuery) {
+      var q = state.searchQuery;
+      list = list.filter(function (e) {
+        return (e.ticker || "").toLowerCase().indexOf(q) !== -1 ||
+          (e.name || "").toLowerCase().indexOf(q) !== -1;
+      });
     }
     var box = $("#list");
     $("#thead").style.display = list.length ? "" : "none";
@@ -1055,6 +1069,42 @@
     };
   });
   $("#sort").onchange = function () { state.sort = this.value; renderList(); };
+
+  // Search — collapsed to an icon by default; tap to expand, type to filter the
+  // current view by ticker or name. Collapses again on close, click-outside, or Escape.
+  function openSearch() {
+    var input = $("#search-input");
+    var btn = $("#search-btn");
+    $("#search").classList.add("open");
+    input.hidden = false;
+    btn.setAttribute("aria-expanded", "true");
+    void input.offsetWidth;
+    requestAnimationFrame(function () { input.classList.add("show"); });
+    input.focus();
+  }
+  function closeSearch() {
+    var input = $("#search-input");
+    var btn = $("#search-btn");
+    input.classList.remove("show");
+    $("#search").classList.remove("open");
+    btn.setAttribute("aria-expanded", "false");
+    if (state.searchQuery) { state.searchQuery = ""; input.value = ""; renderList(); }
+    setTimeout(function () { input.hidden = true; }, 180);
+  }
+  $("#search-btn").onclick = function () {
+    if ($("#search-input").hidden) openSearch(); else closeSearch();
+  };
+  $("#search-input").addEventListener("input", function () {
+    state.searchQuery = this.value.trim().toLowerCase();
+    renderList();
+  });
+  $("#search-input").addEventListener("keydown", function (e) {
+    if (e.key === "Escape") { e.stopPropagation(); closeSearch(); $("#search-btn").focus(); }
+  });
+  document.addEventListener("click", function (e) {
+    if (!$("#search-input").hidden && !$("#search").contains(e.target)) closeSearch();
+  });
+
   $("#backdrop").onclick = closeSheet;
   $("#hist-backdrop").onclick = closeHistoryPopup;
   document.addEventListener("keydown", function (e) {
