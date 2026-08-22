@@ -701,7 +701,9 @@
     var isBought = !!state.bought[entry.ticker];
 
     var html = '<div class="sheet-head"><div><h2>' + esc(entry.ticker) + "</h2>" +
-      '<div class="sname">' + esc(entry.name || "") + "</div></div>" +
+      '<div class="sname">' + esc(entry.name || "") + "</div>" +
+      (rec.joined_date ? '<div class="sjoined">Joined ' + esc(fmtDate(rec.joined_date)) + "</div>" : "") +
+      "</div>" +
       '<button class="close" aria-label="Close">✕</button></div>';
 
     // Independent toggles — a stock can be Shortlisted, Bought, both, or neither. Tap an
@@ -741,10 +743,10 @@
         "Relative Strength percentile — price performance ranked against other stocks. Not the same as RSI.") +
       kv("RSI", t.rsi != null ? t.rsi : "—",
         "Wilder's 14-day momentum oscillator (overbought/oversold on this stock's own price) — context only, never scored, and not the same as RS pct.") +
+      kv("ROCE", t.roce != null ? t.roce + "%" : "—",
+        "Return on Capital Employed — how efficiently the company turns capital into profit. Context only; only ROE feeds the score.") +
       kv("Off 52w high", t.pct_below_52w_high != null ? t.pct_below_52w_high + "%" : "—") +
-      kv("Above 52w low", t.pct_above_52w_low != null ? "+" + t.pct_above_52w_low + "%" : "—") +
-      kv("Joined", fmtDate(rec.joined_date)) +
-      kv("As of", fmtDate(sc.as_of)) + "</div>";
+      kv("Above 52w low", t.pct_above_52w_low != null ? "+" + t.pct_above_52w_low + "%" : "—") + "</div>";
 
     // gates — cells are buttons so tapping any one shows its definition below the grid
     // (a shared slot, not per-cell, so the grid never reflows when opened/closed).

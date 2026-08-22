@@ -411,6 +411,7 @@ def evaluate(ticker, name, tech, fund, regime, cfg, mode="FULL", prior=None, llm
             "group_leadership_rank": tech.get("group_leadership_rank"),
             "group_leadership_of": tech.get("group_leadership_of"),
             "rsi": tech.get("rsi"),
+            "roce": fund.get("roce"),
             "fcf_latest_cr": fund.get("fcf_latest_cr"),
             "fcf_source": fund.get("fcf_source"),
         },
