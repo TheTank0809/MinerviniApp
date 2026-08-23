@@ -1,6 +1,99 @@
 {
  "runs": [
   {
+   "run_date": "2026-08-23",
+   "mode": "WEEKLY",
+   "regime": {
+    "score": 6,
+    "label": "CONFIRMED_UPTREND",
+    "checks": {
+     "close_above_50dma": true,
+     "close_above_200dma": true,
+     "50dma_above_200dma": true,
+     "distribution_days_25": 4,
+     "distribution_days_ok": true,
+     "pct_universe_above_200dma": 71.2,
+     "universe_above_200dma_ok": true,
+     "net_new_highs_positive": true
+    },
+    "exposure_guidance": "New buys allowed; full risk budget."
+   },
+   "counts": {
+    "active": 115,
+    "new": 4,
+    "dropped": 1,
+    "errors": 4
+   },
+   "new_tickers": [
+    "SBIFUNDS",
+    "KUSUMGAR",
+    "VERTIS",
+    "NHIT"
+   ],
+   "dropped_tickers": [
+    "SWANCORP"
+   ],
+   "actionable_now": [],
+   "alerts": [
+    {
+     "ticker": "LLOYDSME",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "IKS",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "IGIL",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "BSE",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "TIPSMUSIC",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "TIPSMUSIC",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "GVT&D",
+     "alert": "RS_DOWNGRADE"
+    }
+   ],
+   "errors": [
+    {
+     "ticker": "SBIFUNDS",
+     "error": "no OHLCV data on Yahoo Finance"
+    },
+    {
+     "ticker": "KUSUMGAR",
+     "error": "no OHLCV data on Yahoo Finance"
+    },
+    {
+     "ticker": "VERTIS",
+     "error": "no OHLCV data on Yahoo Finance"
+    },
+    {
+     "ticker": "NHIT",
+     "error": "no OHLCV data on Yahoo Finance"
+    }
+   ],
+   "llm": {
+    "enabled": true,
+    "model": "claude-sonnet-5"
+   },
+   "rs_universe": {
+    "source": "Nifty 500",
+    "attempted": 500,
+    "succeeded": 500,
+    "used": true
+   }
+  },
+  {
    "run_date": "2026-08-16",
    "mode": "WEEKLY",
    "regime": {

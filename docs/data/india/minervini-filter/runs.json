@@ -1,6 +1,75 @@
 {
  "runs": [
   {
+   "run_date": "2026-08-23",
+   "mode": "WEEKLY",
+   "regime": {
+    "score": 6,
+    "label": "CONFIRMED_UPTREND",
+    "checks": {
+     "close_above_50dma": true,
+     "close_above_200dma": true,
+     "50dma_above_200dma": true,
+     "distribution_days_25": 4,
+     "distribution_days_ok": true,
+     "pct_universe_above_200dma": 98.1,
+     "universe_above_200dma_ok": true,
+     "net_new_highs_positive": true
+    },
+    "exposure_guidance": "New buys allowed; full risk budget."
+   },
+   "counts": {
+    "active": 63,
+    "new": 7,
+    "dropped": 7,
+    "errors": 0
+   },
+   "new_tickers": [
+    "GROWW",
+    "PREMIERENE",
+    "GENUSPOWER",
+    "SKIPPER",
+    "NUVAMA",
+    "VIYASH",
+    "POLICYBZR"
+   ],
+   "dropped_tickers": [
+    "LLOYDSME",
+    "POLYCAB",
+    "APOLLO",
+    "CEMPRO",
+    "TRENT",
+    "BORORENEW",
+    "TIPSMUSIC"
+   ],
+   "actionable_now": [],
+   "alerts": [
+    {
+     "ticker": "IKS",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "CHOLAFIN",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "ANANTRAJ",
+     "alert": "RS_DOWNGRADE"
+    }
+   ],
+   "errors": [],
+   "llm": {
+    "enabled": true,
+    "model": "claude-sonnet-5"
+   },
+   "rs_universe": {
+    "source": "Nifty 500",
+    "attempted": 500,
+    "succeeded": 500,
+    "used": true
+   }
+  },
+  {
    "run_date": "2026-08-16",
    "mode": "WEEKLY",
    "regime": {
