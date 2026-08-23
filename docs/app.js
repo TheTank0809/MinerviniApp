@@ -153,6 +153,14 @@
     var d = new Date(iso + "T00:00:00");
     return d.toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "2-digit" });
   }
+  // Compact day/month, no year — for the score-history axis, where up to ~10 dates
+  // sit in one row and "9 Aug 26" per label would never fit.
+  function fmtDateShort(iso) {
+    if (!iso) return "—";
+    var parts = iso.split("-");
+    if (parts.length !== 3) return iso;
+    return parseInt(parts[2], 10) + "/" + parseInt(parts[1], 10);
+  }
   // Three calendar-week cohorts: current week, last week and the week before.
   // This keeps "New" useful across weekly Sunday scans instead of expiring after 14 days.
   var NEW_WINDOW_DAYS = 20;
@@ -953,12 +961,19 @@
         '" y2="' + histY(g) + '" class="hist-grid" />';
     }).join("");
 
+    // Anything not in the same calendar year as the first point gets its own color, on
+    // both the dot and its axis label — the one visual cue that says "this crossed a
+    // year boundary" without spelling the year out in every single label.
+    var baseYear = (points[0].date || "").slice(0, 4);
+    function isYearAlt(p) { return (p.date || "").slice(0, 4) !== baseYear; }
+
     // A dot at every point, not just the endpoints — with only the first/last marked,
     // a middle week whose score sits close to the straight line between them (common,
     // since scores drift gradually) was visually indistinguishable from a 2-point chart
     // even though the line itself was already bending through it correctly.
     var dots = points.map(function (p, i) {
       var cls = i === 0 ? "hist-dot-first" : i === n - 1 ? "hist-dot-last" : "hist-dot-mid";
+      if (isYearAlt(p)) cls += " hist-dot-yearalt";
       var r = i === 0 ? 3 : i === n - 1 ? 3.5 : 2.5;
       return '<circle cx="' + histX(i, n) + '" cy="' + histY(p.score) + '" r="' + r +
         '" class="hist-dot ' + cls + '"></circle>';
@@ -972,10 +987,21 @@
       dots +
       "</svg>";
 
+    // One label per dot when they fit; beyond ~10 points a label every week would
+    // overlap, so thin to every Nth week while always keeping the first and last.
+    var minLabelWidth = 26;
+    var maxLabels = Math.max(2, Math.floor(HIST_PLOT_W / minLabelWidth));
+    var step = Math.max(1, Math.ceil(n / maxLabels));
+    var axis = points.map(function (p, i) {
+      var show = i === 0 || i === n - 1 || i % step === 0;
+      var text = show ? esc(fmtDateShort(p.date)) : "";
+      return '<span class="' + (isYearAlt(p) ? "hist-year-alt" : "") + '">' + text + "</span>";
+    }).join("");
+
     return '<div class="hist-summary"><span class="hist-score">' + last.score + '/100</span>' +
       '<span class="hist-delta ' + deltaCls + '">' + esc(deltaText) + "</span></div>" +
       svg +
-      '<div class="hist-axis"><span>' + esc(fmtDate(first.date)) + '</span><span>' + esc(fmtDate(last.date)) + "</span></div>" +
+      '<div class="hist-axis">' + axis + "</div>" +
       '<div class="hist-tip" hidden></div>';
   }
 
