@@ -953,13 +953,23 @@
         '" y2="' + histY(g) + '" class="hist-grid" />';
     }).join("");
 
+    // A dot at every point, not just the endpoints — with only the first/last marked,
+    // a middle week whose score sits close to the straight line between them (common,
+    // since scores drift gradually) was visually indistinguishable from a 2-point chart
+    // even though the line itself was already bending through it correctly.
+    var dots = points.map(function (p, i) {
+      var cls = i === 0 ? "hist-dot-first" : i === n - 1 ? "hist-dot-last" : "hist-dot-mid";
+      var r = i === 0 ? 3 : i === n - 1 ? 3.5 : 2.5;
+      return '<circle cx="' + histX(i, n) + '" cy="' + histY(p.score) + '" r="' + r +
+        '" class="hist-dot ' + cls + '"></circle>';
+    }).join("");
+
     var svg = '<svg viewBox="0 0 ' + HIST_W + ' ' + HIST_H + '" class="hist-svg" ' +
       'preserveAspectRatio="none" role="img" aria-label="Score history, ' + n + ' data points">' +
       grid +
       '<polygon points="' + areaPts + '" class="hist-area"></polygon>' +
       '<polyline points="' + linePts + '" class="hist-line"></polyline>' +
-      '<circle cx="' + histX(0, n) + '" cy="' + histY(first.score) + '" r="3" class="hist-dot hist-dot-first"></circle>' +
-      '<circle cx="' + histX(n - 1, n) + '" cy="' + histY(last.score) + '" r="3.5" class="hist-dot hist-dot-last"></circle>' +
+      dots +
       "</svg>";
 
     return '<div class="hist-summary"><span class="hist-score">' + last.score + '/100</span>' +
