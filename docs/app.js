@@ -409,15 +409,16 @@
       var screensHere = state.universes[uk];
       var label = (screensHere[0] && screensHere[0].universe_label) || PLACEHOLDER_UNIVERSES[uk] || uk;
       var hasError = screensHere.some(function (s) { return s.error; });
-      var b = document.createElement("button");
-      b.className = "chip" + (uk === state.universeKey ? " active" : "");
-      b.textContent = label + (hasError ? " ⚠" : "");
-      b.onclick = function () {
-        state.universeKey = uk; state.filter = null; state.newPeriod = "all";
-        renderChips(); loadUniverse(uk);
-      };
-      box.appendChild(b);
+      var opt = document.createElement("option");
+      opt.value = uk;
+      opt.textContent = label + (hasError ? " ⚠" : "");
+      if (uk === state.universeKey) opt.selected = true;
+      box.appendChild(opt);
     });
+    box.onchange = function () {
+      state.universeKey = box.value; state.filter = null; state.newPeriod = "all";
+      renderChips(); loadUniverse(box.value);
+    };
     $("#index-select-wrap").hidden = state.universeKey !== "india-nifty";
   }
 

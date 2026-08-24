@@ -16,7 +16,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <!-- bump ?v= on app.css/app.js (and CACHE in sw.js) on every change — GitHub Pages
      doesn't fingerprint asset URLs, so browsers can otherwise keep serving a stale copy -->
-<link rel="stylesheet" href="app.css?v=21">
+<link rel="stylesheet" href="app.css?v=22">
 </head>
 <body>
 
@@ -62,7 +62,7 @@
 <div id="error-banner" class="sample-banner error-banner" hidden></div>
 
 <nav class="controls">
-  <div class="chips" id="screen-chips"></div>
+  <select class="universe-select" id="screen-chips" aria-label="Universe"></select>
   <div class="index-select-wrap" id="index-select-wrap" hidden>
     <select id="index-select" aria-label="Index"><option>Nifty 100</option></select>
   </div>
@@ -114,7 +114,7 @@
 </footer>
 
 <script type="module" src="firebase-sync.js?v=1"></script>
-<script src="app.js?v=24"></script>
+<script src="app.js?v=25"></script>
 </body>
 </html>
 

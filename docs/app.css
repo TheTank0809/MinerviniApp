@@ -152,6 +152,12 @@ h1 {
 .chip:active { opacity: .7; }
 .filterchips .chip { font-size: 11px; padding: 5px 12px; min-height: 32px; }
 .filterchips .chip.active { border-color: var(--pass); color: var(--pass); background: rgba(155,215,112,.08); }
+.universe-select {
+  font-family: var(--mono); font-size: 12px; font-weight: 600; padding: 6px 10px; min-height: 36px;
+  background: rgba(255,176,32,.07); color: var(--amber); border: 1px solid var(--amber-dim);
+  border-radius: 999px; max-width: 220px; width: fit-content;
+}
+.universe-select:focus-visible { outline: 2px solid var(--amber); outline-offset: 1px; }
 .new-filter-wrap {
   display: flex; align-items: center; gap: 10px; width: 100%; min-width: 0;
   max-width: 100%; box-sizing: border-box; overflow: hidden; padding: 8px 10px;
