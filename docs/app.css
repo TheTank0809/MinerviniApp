@@ -163,10 +163,12 @@ h1 {
   letter-spacing: .09em; text-transform: uppercase; color: var(--amber-soft);
 }
 .new-filter-select { flex: 1 1 auto; min-width: 0; }
-.new-filter-select select {
+.new-filter-select select, .index-select-wrap select {
   width: 100%; background: var(--surface); color: var(--text); border: 1px solid var(--line);
   border-radius: 6px; padding: 6px 8px; min-height: 36px; font-family: var(--mono); font-size: 12px;
 }
+.index-select-wrap { max-width: 220px; }
+.index-select-wrap[hidden] { display: none; }
 .tabs { display: flex; border-bottom: 1px solid var(--line); }
 .tab {
   font-family: var(--display); font-size: 13px; letter-spacing: .05em; text-transform: uppercase;
@@ -376,6 +378,14 @@ button.badge.hist-open:active { opacity: .7; }
 .kv div { background: var(--surface-2); border-radius: 6px; padding: 8px 10px; }
 .kv .k { font-size: 10.5px; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
 .kv .v { font-family: var(--mono); font-size: 14px; margin-top: 2px; }
+.kv button.v {
+  background: none; border: none; padding: 0; margin: 2px 0 0; text-align: left;
+  color: inherit; cursor: pointer; display: block; width: 100%;
+  -webkit-appearance: none; appearance: none;
+  text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 2px;
+}
+.kv button.v:focus-visible { outline: 2px solid var(--amber); outline-offset: 1px; }
+.kv button.v:active { opacity: .7; }
 
 .sec-title {
   font-family: var(--display); font-size: 12px; letter-spacing: .08em; text-transform: uppercase;

@@ -7,7 +7,7 @@
    "screen": "minervini-filter",
    "label": "Minervini Screener",
    "short": "MV",
-   "universe_label": "India",
+   "universe_label": "India-S",
    "counts": {
     "active": 63,
     "new": 7,
@@ -24,7 +24,7 @@
    "screen": "growth-filter",
    "label": "Growth Screener",
    "short": "GR",
-   "universe_label": "India",
+   "universe_label": "India-S",
    "counts": {
     "active": 115,
     "new": 4,

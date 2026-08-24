@@ -19,7 +19,7 @@ settings:
 
 universes:
   india:
-    label: "India"
+    label: "India-S"
     enabled: true
     currency: "INR"
     yahoo_suffixes: [".NS", ".BO"]

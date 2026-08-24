@@ -12,6 +12,11 @@
   var $ = function (sel) { return document.querySelector(sel); };
   var lastFetchAt = 0;
 
+  // Shell-only universes — no pipeline, no screens, no data yet. They still appear as
+  // real tabs (per explicit request: present and clickable, just empty) rather than
+  // being hidden until there's something behind them.
+  var PLACEHOLDER_UNIVERSES = { "india-nifty": "India-Nifty", "global": "Global" };
+
   // Shortlist and Buy are independent personal tags, separate from the screen filters.
   // localStorage is the instant local cache (and offline fallback); Firebase Realtime
   // Database (firebase-sync.js) syncs them across devices when reachable. A stock can
@@ -225,8 +230,9 @@
           if (!byUniverse[s.universe]) byUniverse[s.universe] = [];
           byUniverse[s.universe].push(s);
         });
+        Object.keys(PLACEHOLDER_UNIVERSES).forEach(function (k) { byUniverse[k] = []; });
         state.universes = byUniverse;
-        var keys = Object.keys(byUniverse);
+        var keys = Object.keys(state.universes).filter(function (k) { return !PLACEHOLDER_UNIVERSES[k]; });
         state.universeKey = keys[0] || null;
         renderChips();
         return state.universeKey ? loadUniverse(state.universeKey) : renderList();
@@ -262,6 +268,7 @@
     renderFilterChips();
     if (!screens.length) {
       state.data.active = []; state.data.dropped = [];
+      renderRegime(null);
       renderList();
       return;
     }
@@ -400,7 +407,7 @@
     box.innerHTML = "";
     Object.keys(state.universes).forEach(function (uk) {
       var screensHere = state.universes[uk];
-      var label = (screensHere[0] && screensHere[0].universe_label) || uk;
+      var label = (screensHere[0] && screensHere[0].universe_label) || PLACEHOLDER_UNIVERSES[uk] || uk;
       var hasError = screensHere.some(function (s) { return s.error; });
       var b = document.createElement("button");
       b.className = "chip" + (uk === state.universeKey ? " active" : "");
@@ -411,6 +418,7 @@
       };
       box.appendChild(b);
     });
+    $("#index-select-wrap").hidden = state.universeKey !== "india-nifty";
   }
 
   function renderFilterChips() {
@@ -564,6 +572,8 @@
       ? "Nothing shortlisted yet. Open a stock and tap Shortlist."
       : state.tab === "buy"
       ? "Nothing marked Buy yet. Open a stock and tap Buy."
+      : PLACEHOLDER_UNIVERSES[state.universeKey]
+      ? "Not built yet."
       : "Nothing here yet. The first Sunday scan fills this in.";
     $("#count").textContent = list.length + (
       state.tab === "active" ? " tracked" :
@@ -736,7 +746,7 @@
 
     html += '<div class="badges">';
     if (scores) html += '<button type="button" class="badge band hist-open" data-ticker="' + esc(entry.ticker) +
-      '" title="Tap to see score history">' + esc(sc.quality_band) + " · " + scores.total + "/100</button>";
+      '" data-metric="score" title="Tap to see score history">' + esc(sc.quality_band) + " · " + scores.total + "/100</button>";
     html += '<span class="badge">' + esc((sc.action_bucket || sc.status || "").replace(/_/g, " ")) + "</span>";
     if (rec.dropped_date) html += '<span class="badge frozen">Left screen ' + fmtDate(rec.dropped_date) + " · frozen</span>";
     var reason = rejectReason(sc);
@@ -746,7 +756,7 @@
     html += "</div>";
 
     html += '<div class="kv">' +
-      kv("Price", t.price != null ? "₹" + t.price : "—") +
+      kvBtn("Price", t.price != null ? "₹" + t.price : "—", entry.ticker, "price", "Tap to see price history") +
       kv("RS pct", t.rs_percentile != null ? t.rs_percentile : "—",
         "Relative Strength percentile — price performance ranked against other stocks. Not the same as RSI.") +
       kv("RSI", t.rsi != null ? t.rsi : "—",
@@ -916,10 +926,9 @@
         if (!open) box.innerHTML = "<b>" + esc(ITEM_LABEL[key] || key) + ":</b> " + esc(btn.dataset.itemDesc);
       };
     });
-    var histOpenBtn = sheet.querySelector(".hist-open");
-    if (histOpenBtn) {
-      histOpenBtn.onclick = function () { openHistoryPopup(entry.ticker); };
-    }
+    sheet.querySelectorAll(".hist-open").forEach(function (btn) {
+      btn.onclick = function () { openHistoryPopup(btn.dataset.ticker, btn.dataset.metric || "score"); };
+    });
     if (isFreshOpen) {
       sheet.querySelector(".close").focus();
     } else {
@@ -931,6 +940,11 @@
     return '<div' + (title ? ' title="' + esc(title) + '"' : "") + '><div class="k">' + k +
       '</div><div class="v">' + v + "</div></div>";
   }
+  function kvBtn(k, v, ticker, metric, title) {
+    return '<div' + (title ? ' title="' + esc(title) + '"' : "") + '><div class="k">' + k +
+      '</div><button type="button" class="v hist-open" data-ticker="' + esc(ticker) +
+      '" data-metric="' + esc(metric) + '">' + v + "</button></div>";
+  }
 
   // Score history — lazy-fetched per ticker (one small JSON file, only on tap) so
   // opening the sheet never costs an extra request unless the chart is actually opened.
@@ -938,27 +952,72 @@
   var HIST_PLOT_W = HIST_W - HIST_PAD_L - HIST_PAD_R, HIST_PLOT_H = HIST_H - HIST_PAD_T - HIST_PAD_B;
   var histCache = {};
 
+  function fmtPrice(v) { return String(Math.round(v * 100) / 100); }
+
+  // Per-metric plumbing for the history popup — score has a fixed [0,100] domain, price
+  // a dynamic one padded around its own min/max. Everything else (dots, grid, axis,
+  // year-coloring) is shared, so only the value/domain/text pieces need to vary.
+  var HIST_METRICS = {
+    score: {
+      title: "Score history", ariaLabel: "Score history",
+      valueOf: function (p) { return p.score; },
+      domain: function () { return [0, 100]; },
+      headline: function (last) { return last.score + "/100"; },
+      deltaText: function (first, last, n) {
+        var d = last.score - first.score;
+        return { cls: d > 0 ? "up" : d < 0 ? "down" : "",
+          text: (d > 0 ? "+" : "") + d + " over " + (n - 1) + (n - 1 === 1 ? " week" : " weeks") };
+      },
+      tooltip: function (p) {
+        return fmtDate(p.date) + " · score " + p.score + (p.bucket ? " · " + p.bucket.replace(/_/g, " ") : "");
+      }
+    },
+    price: {
+      title: "Price history", ariaLabel: "Price history",
+      valueOf: function (p) { return p.price; },
+      domain: function (points) {
+        var vals = points.map(function (p) { return p.price; }).filter(function (v) { return v != null; });
+        var lo = Math.min.apply(null, vals), hi = Math.max.apply(null, vals);
+        if (lo === hi) { lo -= 1; hi += 1; }
+        var pad = (hi - lo) * 0.08;
+        return [lo - pad, hi + pad];
+      },
+      headline: function (last) { return "₹" + fmtPrice(last.price); },
+      deltaText: function (first, last, n) {
+        var d = last.price - first.price;
+        var pct = first.price ? (d / first.price * 100) : 0;
+        var sign = d > 0 ? "+" : d < 0 ? "-" : "";
+        return { cls: d > 0 ? "up" : d < 0 ? "down" : "",
+          text: sign + "₹" + fmtPrice(Math.abs(d)) + " (" + sign + Math.abs(pct).toFixed(1) + "%) over " +
+            (n - 1) + (n - 1 === 1 ? " week" : " weeks") };
+      },
+      tooltip: function (p) { return fmtDate(p.date) + " · ₹" + fmtPrice(p.price); }
+    }
+  };
+
   function histX(i, n) { return HIST_PAD_L + (n === 1 ? 0 : (i / (n - 1)) * HIST_PLOT_W); }
-  function histY(score) {
-    var s = Math.max(0, Math.min(100, score));
-    return HIST_PAD_T + (1 - s / 100) * HIST_PLOT_H;
+  function histY(v, domain) {
+    var lo = domain[0], hi = domain[1];
+    var s = Math.max(lo, Math.min(hi, v));
+    return HIST_PAD_T + (1 - (s - lo) / (hi - lo)) * HIST_PLOT_H;
   }
 
-  function renderHistoryChart(points) {
+  function renderHistoryChart(points, metricKey) {
+    var metric = HIST_METRICS[metricKey] || HIST_METRICS.score;
     if (!points || points.length < 2) {
       return '<p class="uv">Not enough history yet — check back after next week’s scan.</p>';
     }
     var n = points.length, first = points[0], last = points[n - 1];
-    var delta = last.score - first.score;
-    var deltaCls = delta > 0 ? "up" : delta < 0 ? "down" : "";
-    var deltaText = (delta > 0 ? "+" : "") + delta + " over " + (n - 1) + (n - 1 === 1 ? " week" : " weeks");
+    var domain = metric.domain(points);
+    var d = metric.deltaText(first, last, n);
 
-    var linePts = points.map(function (p, i) { return histX(i, n) + "," + histY(p.score); }).join(" ");
+    var linePts = points.map(function (p, i) { return histX(i, n) + "," + histY(metric.valueOf(p), domain); }).join(" ");
     var areaPts = linePts + " " + histX(n - 1, n) + "," + (HIST_PAD_T + HIST_PLOT_H) +
       " " + histX(0, n) + "," + (HIST_PAD_T + HIST_PLOT_H);
-    var grid = [25, 50, 75].map(function (g) {
-      return '<line x1="' + HIST_PAD_L + '" y1="' + histY(g) + '" x2="' + (HIST_W - HIST_PAD_R) +
-        '" y2="' + histY(g) + '" class="hist-grid" />';
+    var grid = [0.25, 0.5, 0.75].map(function (frac) {
+      var y = histY(domain[0] + frac * (domain[1] - domain[0]), domain);
+      return '<line x1="' + HIST_PAD_L + '" y1="' + y + '" x2="' + (HIST_W - HIST_PAD_R) +
+        '" y2="' + y + '" class="hist-grid" />';
     }).join("");
 
     // Anything not in the same calendar year as the first point gets its own color, on
@@ -975,12 +1034,12 @@
       var cls = i === 0 ? "hist-dot-first" : i === n - 1 ? "hist-dot-last" : "hist-dot-mid";
       if (isYearAlt(p)) cls += " hist-dot-yearalt";
       var r = i === 0 ? 3 : i === n - 1 ? 3.5 : 2.5;
-      return '<circle cx="' + histX(i, n) + '" cy="' + histY(p.score) + '" r="' + r +
+      return '<circle cx="' + histX(i, n) + '" cy="' + histY(metric.valueOf(p), domain) + '" r="' + r +
         '" class="hist-dot ' + cls + '"></circle>';
     }).join("");
 
     var svg = '<svg viewBox="0 0 ' + HIST_W + ' ' + HIST_H + '" class="hist-svg" ' +
-      'preserveAspectRatio="none" role="img" aria-label="Score history, ' + n + ' data points">' +
+      'preserveAspectRatio="none" role="img" aria-label="' + esc(metric.ariaLabel) + ', ' + n + ' data points">' +
       grid +
       '<polygon points="' + areaPts + '" class="hist-area"></polygon>' +
       '<polyline points="' + linePts + '" class="hist-line"></polyline>' +
@@ -998,14 +1057,15 @@
       return '<span class="' + (isYearAlt(p) ? "hist-year-alt" : "") + '">' + text + "</span>";
     }).join("");
 
-    return '<div class="hist-summary"><span class="hist-score">' + last.score + '/100</span>' +
-      '<span class="hist-delta ' + deltaCls + '">' + esc(deltaText) + "</span></div>" +
+    return '<div class="hist-summary"><span class="hist-score">' + metric.headline(last) + '</span>' +
+      '<span class="hist-delta ' + d.cls + '">' + esc(d.text) + "</span></div>" +
       svg +
       '<div class="hist-axis">' + axis + "</div>" +
       '<div class="hist-tip" hidden></div>';
   }
 
-  function wireHistoryChart(box, points) {
+  function wireHistoryChart(box, points, metricKey) {
+    var metric = HIST_METRICS[metricKey] || HIST_METRICS.score;
     var svg = box.querySelector(".hist-svg");
     var tip = box.querySelector(".hist-tip");
     if (!svg || !tip || !points || points.length < 2) return;
@@ -1015,17 +1075,15 @@
       var relX = (e.clientX - rect.left) / rect.width * HIST_W;
       var idx = Math.round(((relX - HIST_PAD_L) / HIST_PLOT_W) * (n - 1));
       idx = Math.max(0, Math.min(n - 1, idx));
-      var p = points[idx];
       tip.hidden = false;
-      tip.textContent = fmtDate(p.date) + " · score " + p.score +
-        (p.bucket ? " · " + p.bucket.replace(/_/g, " ") : "");
+      tip.textContent = metric.tooltip(points[idx]);
     });
   }
 
-  function loadHistoryChart(ticker, box) {
+  function loadHistoryChart(ticker, box, metricKey) {
     if (histCache[ticker]) {
-      box.innerHTML = renderHistoryChart(histCache[ticker]);
-      wireHistoryChart(box, histCache[ticker]);
+      box.innerHTML = renderHistoryChart(histCache[ticker], metricKey);
+      wireHistoryChart(box, histCache[ticker], metricKey);
       return;
     }
     box.innerHTML = '<p class="uv">Loading…</p>';
@@ -1034,23 +1092,24 @@
       .then(function (data) {
         var points = data.points || [];
         histCache[ticker] = points;
-        box.innerHTML = renderHistoryChart(points);
-        wireHistoryChart(box, points);
+        box.innerHTML = renderHistoryChart(points, metricKey);
+        wireHistoryChart(box, points, metricKey);
       })
       .catch(function () {
         box.innerHTML = '<p class="uv">Couldn’t load history right now.</p>';
       });
   }
 
-  // Score history opens as its own small popup on top of the detail sheet (rather than
-  // an inline section) — it's a side-lookup, not part of reading the scorecard, so it
-  // shouldn't add scroll length to the sheet every time.
+  // Score/price history opens as its own small popup on top of the detail sheet (rather
+  // than an inline section) — it's a side-lookup, not part of reading the scorecard, so
+  // it shouldn't add scroll length to the sheet every time.
   var histPopupCloseTimer = null;
-  function openHistoryPopup(ticker) {
+  function openHistoryPopup(ticker, metricKey) {
+    var metric = HIST_METRICS[metricKey] || HIST_METRICS.score;
     var popup = $("#hist-popup");
     var backdrop = $("#hist-backdrop");
     if (histPopupCloseTimer) { clearTimeout(histPopupCloseTimer); histPopupCloseTimer = null; }
-    popup.innerHTML = '<div class="sheet-head"><h2>' + esc(ticker) + " · Score history</h2>" +
+    popup.innerHTML = '<div class="sheet-head"><h2>' + esc(ticker) + " · " + esc(metric.title) + "</h2>" +
       '<button type="button" class="close" aria-label="Close">✕</button></div>' +
       '<div class="hist-chart"></div>';
     popup.querySelector(".close").onclick = closeHistoryPopup;
@@ -1063,7 +1122,7 @@
       popup.classList.add("show");
       backdrop.classList.add("show");
     });
-    loadHistoryChart(ticker, popup.querySelector(".hist-chart"));
+    loadHistoryChart(ticker, popup.querySelector(".hist-chart"), metricKey);
   }
   function closeHistoryPopup() {
     var popup = $("#hist-popup");
