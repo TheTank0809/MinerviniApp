@@ -119,6 +119,24 @@ def _sma(close, n):
     return float(close.rolling(n).mean().iloc[-1])
 
 
+def _sma_adaptive(close, n):
+    """Same as _sma, but for stocks too young to have a full n-day window yet, falls
+    back to the mean of all available history instead of None — so a recent listing's
+    Gate 1 point-in-time checks (price vs DMA, 50 vs 150 vs 200) can still evaluate
+    against its real (if shorter) trading history instead of blanket-failing on a data
+    availability technicality. Below the 150-day mark this makes dma_150 and dma_200
+    equal (both average the same available days) rather than one artificially beating
+    the other — c2 stays honestly undecided until real separation exists, it doesn't
+    fabricate a trend. Only for the per-stock Gate 1 payload — market_regime()'s
+    universe-breadth stats intentionally keep the strict _sma, since diluting "% of
+    universe above 200 DMA" with young listings' short-window averages would distort
+    that market-wide read."""
+    if len(close) == 0:
+        return None
+    window = min(n, len(close))
+    return float(close.rolling(window).mean().iloc[-1])
+
+
 def _sma_series(close, n):
     return close.rolling(n).mean()
 
@@ -303,7 +321,7 @@ def build_technical_payload(df, rs_percentile=None, rs_percentile_prev=None):
     price = float(close.iloc[-1])
     as_of = str(df.index[-1].date())
 
-    d50, d150, d200 = _sma(close, 50), _sma(close, 150), _sma(close, 200)
+    d50, d150, d200 = _sma_adaptive(close, 50), _sma_adaptive(close, 150), _sma_adaptive(close, 200)
 
     sma200 = _sma_series(close, 200).dropna()
     slope_label, rising_months = "unverified", None
