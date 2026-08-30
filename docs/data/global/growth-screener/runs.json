@@ -1,0 +1,75 @@
+{
+ "runs": [
+  {
+   "run_date": "2026-08-30",
+   "regime": {
+    "score": 5,
+    "label": "CONFIRMED_UPTREND",
+    "checks": {
+     "close_above_50dma": true,
+     "close_above_200dma": true,
+     "50dma_above_200dma": true,
+     "distribution_days_25": 3,
+     "distribution_days_ok": true,
+     "pct_universe_above_200dma": 80.8,
+     "universe_above_200dma_ok": true,
+     "net_new_highs_positive": false
+    },
+    "exposure_guidance": "New buys allowed; full risk budget."
+   },
+   "counts": {
+    "active": 26,
+    "new": 28,
+    "dropped": 0,
+    "errors": 2
+   },
+   "new_tickers": [
+    "OKTA",
+    "CRDO",
+    "300308",
+    "300394",
+    "2345",
+    "688256",
+    "NVDA",
+    "300502",
+    "6857",
+    "PLTR",
+    "688200",
+    "6446",
+    "ENKAI",
+    "RDDT",
+    "6618",
+    "2059",
+    "INDU_A",
+    "688012",
+    "300661",
+    "TOST",
+    "MDB",
+    "GMED",
+    "AMD",
+    "DELTA",
+    "AEM",
+    "PME",
+    "LUG",
+    "FROG"
+   ],
+   "dropped_tickers": [],
+   "actionable_now": [],
+   "errors": [
+    {
+     "ticker": "OKTA",
+     "error": "no Yahoo Finance mapping/data for exchange 'NASDAQ'"
+    },
+    {
+     "ticker": "INDU_A",
+     "error": "no Yahoo Finance mapping/data for exchange 'OMXSTO'"
+    }
+   ],
+   "llm": {
+    "enabled": true,
+    "model": "deepseek-chat",
+    "provider": "deepseek"
+   }
+  }
+ ]
+}

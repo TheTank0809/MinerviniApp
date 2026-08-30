@@ -1,0 +1,11 @@
+{
+ "ticker": "FROG",
+ "points": [
+  {
+   "date": "2026-08-30",
+   "score": 35,
+   "bucket": "AVOID",
+   "price": 98.74
+  }
+ ]
+}

@@ -1,0 +1,11 @@
+{
+ "ticker": "PLTR",
+ "points": [
+  {
+   "date": "2026-08-30",
+   "score": 48,
+   "bucket": "AVOID",
+   "price": 186.29
+  }
+ ]
+}

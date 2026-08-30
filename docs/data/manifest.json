@@ -1,7 +1,24 @@
 {
- "generated_at": "2026-08-30T13:51:27.793457Z",
+ "generated_at": "2026-08-30T17:04:38.373705Z",
  "sample": false,
  "screens": [
+  {
+   "universe": "global",
+   "screen": "growth-screener",
+   "label": "Growth Screener",
+   "short": "GR",
+   "universe_label": "Global",
+   "counts": {
+    "active": 26,
+    "new": 28,
+    "dropped": 0,
+    "errors": 2
+   },
+   "regime": {
+    "label": "CONFIRMED_UPTREND",
+    "score": 5
+   }
+  },
   {
    "universe": "india",
    "screen": "minervini-filter",
