@@ -98,13 +98,14 @@ universes:
         # an actual filter. "will improve later" per the original request; these
         # are all easy to retune here without touching code.
         min_eps_growth_pct: 25       # EPS dil growth, Annual YoY
-        min_revenue_cagr_5y_pct: 25  # Revenue growth, 5 year CAGR (computed client-side —
-                                     # not a native TradingView query field, see pipeline_global.py)
+        min_revenue_cagr_5y_pct: 15  # Revenue growth, 5 year CAGR (computed client-side, strict
+                                     # endpoint-to-endpoint — not a native TradingView query field,
+                                     # see pipeline_global.py). Lowered from 25 -> 15 since the
+                                     # strict calc cuts much harder than TradingView's own version.
         max_debt_to_equity: 0.1      # Debt/equity, FY
         min_market_cap: 1000000000   # $1B floor — matches the actual TradingView screen (which
                                      # has no market-cap filter at all; this is still a deliberate
-                                     # narrowing for cost, not a match to "no floor"). ~127 companies
-                                     # at this floor with the current (strict) revenue CAGR filter.
+                                     # narrowing for cost, not a match to "no floor").
         exclude_countries: ["Pakistan", "India"]  # India is already covered by India-S/India-Nifty
         scan_limit: 1000
         llm_provider: "deepseek"    # "deepseek" or "anthropic" — same switch as India-Nifty
