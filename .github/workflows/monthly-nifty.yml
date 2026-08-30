@@ -10,6 +10,8 @@ on:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 concurrency:
   group: monthly-nifty-scan
@@ -78,8 +80,12 @@ jobs:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
         run: python backend/pipeline_nifty.py
 
-      # deploy-site.yml already redeploys Pages on any push touching docs/** — no
-      # separate deploy job needed here, unlike weekly.yml (which predates that).
+      # A push made with this job's own default GITHUB_TOKEN does NOT trigger
+      # deploy-site.yml's `on: push` — GitHub deliberately skips downstream workflow
+      # runs for pushes authored by the built-in token, to prevent infinite loops.
+      # (Found this the hard way: the first real run committed real data that never
+      # went live until manually deployed.) So this job deploys itself, same as
+      # weekly.yml already does, instead of relying on that trigger firing.
       - name: Commit updated data
         if: always()
         run: |
@@ -89,6 +95,23 @@ jobs:
           git diff --cached --quiet || git commit -m "Monthly Nifty scan $(date -u +%F)"
           git push
 
+      - name: Upload site
+        if: always()
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+
       - name: Fail job if the pipeline failed
         if: steps.pipeline.outcome == 'failure'
-        run: exit 1   # data is already committed above; this just marks the Actions run red
+        run: exit 1   # data/site are already committed/uploaded above; this just marks the Actions run red
+
+  deploy:
+    needs: scan
+    if: ${{ needs.scan.result == 'success' || needs.scan.result == 'failure' }}
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
