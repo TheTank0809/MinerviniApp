@@ -1,0 +1,41 @@
+name: Test DEEPSEEK_API_KEY
+
+# Manual-only smoke test for the DEEPSEEK_API_KEY secret — one trivial API call, no
+# screener.in scraping, no data changes, no commit, no site deploy. Use this to confirm
+# a newly added/rotated key actually works before waiting for (or manually running) the
+# full monthly Nifty pipeline, which is much more expensive to use just for a
+# credential check. Mirrors test-llm-key.yml's pattern for the Anthropic key.
+on:
+  workflow_dispatch: {}
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install SDK
+        run: pip install openai
+
+      - name: Call the API once
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+        run: |
+          python3 -c "
+          import os, sys
+          if not os.environ.get('DEEPSEEK_API_KEY'):
+              print('FAIL: DEEPSEEK_API_KEY secret is not set at all.')
+              sys.exit(1)
+          import openai
+          client = openai.OpenAI(api_key=os.environ['DEEPSEEK_API_KEY'], base_url='https://api.deepseek.com')
+          try:
+              resp = client.chat.completions.create(
+                  model='deepseek-chat',
+                  max_tokens=20,
+                  messages=[{'role': 'user', 'content': 'Reply with exactly: key works.'}],
+              )
+              print('SUCCESS — response from the API:')
+              print(resp.choices[0].message.content)
+          except Exception as exc:
+              print('FAIL — the API call raised an error (bad key, no credit, wrong model id, or account issue):')
+              print('%s: %s' % (type(exc).__name__, exc))
+              sys.exit(1)
+          "
