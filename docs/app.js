@@ -426,6 +426,21 @@
       renderChips(); loadUniverse(box.value);
     };
     $("#index-select-wrap").hidden = state.universeKey !== "india-nifty";
+
+    // "Left the screen" is a screener.in concept — a stock dropping out of a
+    // growth/momentum filter. It doesn't map to an index constituent list: a Nifty
+    // 100 name doesn't "leave" anything, NSE just reconstitutes the index a couple
+    // times a year. Hide the tab for that universe rather than show an always-empty
+    // (or conceptually-wrong) section.
+    var hideDropped = state.universeKey === "india-nifty";
+    var droppedTab = document.querySelector('.tab[data-tab="dropped"]');
+    droppedTab.hidden = hideDropped;
+    if (hideDropped && state.tab === "dropped") {
+      state.tab = "active";
+      document.querySelectorAll(".tab").forEach(function (x) {
+        x.classList.toggle("active", x.dataset.tab === "active");
+      });
+    }
   }
 
   function renderFilterChips() {

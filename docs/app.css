@@ -186,6 +186,7 @@ h1 {
 .tab[data-tab="dropped"].active { border-bottom-color: var(--cold); }
 .tab:focus-visible { outline: 2px solid var(--amber); outline-offset: -2px; }
 .tab:active { opacity: .7; }
+.tab[hidden] { display: none; }
 .sortrow { display: flex; align-items: center; gap: 8px; font-size: 12.5px; color: var(--muted); }
 .sortrow select {
   background: var(--surface); color: var(--text); border: 1px solid var(--line);

@@ -1,8 +1,8 @@
 /* Stock Tracker service worker — network-first with offline fallback.
    The site changes weekly; always prefer fresh files, keep the last good copy
    so the app still opens (with last week's data) when offline. */
-var CACHE = "minervini-v30";
-var SHELL = ["./", "index.html", "app.css?v=22", "app.js?v=27", "firebase-sync.js?v=1",
+var CACHE = "minervini-v31";
+var SHELL = ["./", "index.html", "app.css?v=23", "app.js?v=28", "firebase-sync.js?v=1",
              "manifest.webmanifest", "icons/icon-192.png", "icons/icon-512.png"];
 
 self.addEventListener("install", function (e) {

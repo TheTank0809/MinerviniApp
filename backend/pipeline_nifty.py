@@ -75,11 +75,9 @@ def process_index(client, universe_key, uni, index_cfg, settings):
     slug = index_cfg["slug"]
     sdir = os.path.join(DATA_DIR, universe_key, slug)
     active_path = os.path.join(sdir, "active.json")
-    dropped_path = os.path.join(sdir, "dropped.json")
     runs_path = os.path.join(sdir, "runs.json")
 
     active = load_json(active_path, {"stocks": []})
-    dropped = load_json(dropped_path, {"stocks": []})
     runs = load_json(runs_path, {"runs": []})
     if active.get("sample"):
         active = {"stocks": []}
@@ -94,17 +92,17 @@ def process_index(client, universe_key, uni, index_cfg, settings):
     current_codes = {s["code"] for s in current}
     print("  index has %d constituents%s" % (len(current), " (bootstrap load)" if is_bootstrap else ""))
 
+    # Unlike a screener.in screen, there's no "left the screen" concept here — a
+    # ticker no longer in this month's constituent CSV just doesn't appear in
+    # active.json below (the scoring loop only ever iterates `current`). No frozen
+    # record, no dropped-tracking file, nothing left for a UI tab to show; NSE's own
+    # periodic index reconstitution is the only reason a name would disappear, and
+    # that's not a signal this app is trying to make about the stock itself.
     new_codes = [] if is_bootstrap else [s for s in current if s["code"] not in prior_by_code]
-    dropped_codes = [] if is_bootstrap else [c for c in prior_by_code if c not in current_codes]
+    removed_count = 0 if is_bootstrap else len([c for c in prior_by_code if c not in current_codes])
     if not is_bootstrap:
         print("  new: %s" % ([s["code"] for s in new_codes] or "none"))
-        print("  dropped: %s" % (dropped_codes or "none"))
-
-    for code in dropped_codes:
-        rec = prior_by_code.pop(code)
-        rec["dropped_date"] = today()
-        rec["frozen"] = True
-        dropped["stocks"].insert(0, rec)
+        print("  no longer in the index: %d" % removed_count)
 
     # ---- download OHLCV for the whole index + benchmark ---------------------
     suffixes = uni.get("yahoo_suffixes", [".NS", ".BO"])
@@ -300,9 +298,8 @@ def process_index(client, universe_key, uni, index_cfg, settings):
         "run_date": today(), "mode": "BOOTSTRAP" if is_bootstrap else "MONTHLY",
         "regime": regime,
         "counts": {"active": len(out_stocks), "new": len(new_codes),
-                   "dropped": len(dropped_codes), "errors": len(errors)},
+                   "removed_from_index": removed_count, "errors": len(errors)},
         "new_tickers": [s["code"] for s in new_codes],
-        "dropped_tickers": dropped_codes,
         "actionable_now": [r["ticker"] for r in out_stocks
                            if r["scorecard"]["action_bucket"] == "ACTIONABLE_NOW"],
         "errors": errors,
@@ -312,7 +309,6 @@ def process_index(client, universe_key, uni, index_cfg, settings):
     runs["runs"] = [run_summary] + runs["runs"][:11]  # 12 months of history is plenty
 
     save_json(active_path, {"generated_at": today(), "stocks": out_stocks})
-    save_json(dropped_path, dropped)
     save_json(runs_path, runs)
     return {"universe": universe_key, "screen": slug, "label": index_cfg["name"],
             "short": index_cfg.get("short") or index_cfg["name"][:2].upper(),
