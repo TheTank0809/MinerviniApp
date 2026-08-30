@@ -1,0 +1,11 @@
+{
+ "ticker": "MIAX",
+ "points": [
+  {
+   "date": "2026-08-30",
+   "score": 23,
+   "bucket": "AVOID",
+   "price": 43.0
+  }
+ ]
+}

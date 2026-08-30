@@ -1,0 +1,11 @@
+{
+ "ticker": "ARM",
+ "points": [
+  {
+   "date": "2026-08-30",
+   "score": 32,
+   "bucket": "AVOID",
+   "price": 239.05
+  }
+ ]
+}

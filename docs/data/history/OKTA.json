@@ -1,0 +1,11 @@
+{
+ "ticker": "OKTA",
+ "points": [
+  {
+   "date": "2026-08-30",
+   "score": 43,
+   "bucket": "AVOID",
+   "price": 166.23
+  }
+ ]
+}

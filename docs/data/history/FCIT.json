@@ -1,0 +1,11 @@
+{
+ "ticker": "FCIT",
+ "points": [
+  {
+   "date": "2026-08-30",
+   "score": 26,
+   "bucket": "AVOID",
+   "price": 343.0
+  }
+ ]
+}

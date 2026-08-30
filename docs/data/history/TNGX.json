@@ -1,0 +1,11 @@
+{
+ "ticker": "TNGX",
+ "points": [
+  {
+   "date": "2026-08-30",
+   "score": 20,
+   "bucket": "AVOID",
+   "price": 23.34
+  }
+ ]
+}

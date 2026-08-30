@@ -1,0 +1,11 @@
+{
+ "ticker": "AYGAZ",
+ "points": [
+  {
+   "date": "2026-08-30",
+   "score": 56,
+   "bucket": "AVOID",
+   "price": 319.5
+  }
+ ]
+}

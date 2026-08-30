@@ -1,0 +1,11 @@
+{
+ "ticker": "ANSGR",
+ "points": [
+  {
+   "date": "2026-08-30",
+   "score": 39,
+   "bucket": "AVOID",
+   "price": 27.18
+  }
+ ]
+}

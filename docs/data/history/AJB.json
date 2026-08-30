@@ -1,0 +1,11 @@
+{
+ "ticker": "AJB",
+ "points": [
+  {
+   "date": "2026-08-30",
+   "score": 37,
+   "bucket": "AVOID",
+   "price": 612.0
+  }
+ ]
+}

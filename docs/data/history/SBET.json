@@ -1,0 +1,11 @@
+{
+ "ticker": "SBET",
+ "points": [
+  {
+   "date": "2026-08-30",
+   "score": 22,
+   "bucket": "AVOID",
+   "price": 8.2
+  }
+ ]
+}

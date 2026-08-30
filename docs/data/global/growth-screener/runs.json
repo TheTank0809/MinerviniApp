@@ -3,6 +3,338 @@
   {
    "run_date": "2026-08-30",
    "regime": {
+    "score": 6,
+    "label": "CONFIRMED_UPTREND",
+    "checks": {
+     "close_above_50dma": true,
+     "close_above_200dma": true,
+     "50dma_above_200dma": true,
+     "distribution_days_25": 3,
+     "distribution_days_ok": true,
+     "pct_universe_above_200dma": 72.9,
+     "universe_above_200dma_ok": true,
+     "net_new_highs_positive": true
+    },
+    "exposure_guidance": "New buys allowed; full risk budget."
+   },
+   "counts": {
+    "active": 183,
+    "new": 185,
+    "dropped": 0,
+    "errors": 28
+   },
+   "new_tickers": [
+    "OKTA",
+    "TW",
+    "BDJ",
+    "CMRY",
+    "PCOR",
+    "6699",
+    "3939",
+    "002192",
+    "ALK",
+    "ASA",
+    "301606",
+    "688261",
+    "RDVT",
+    "6834",
+    "ADES",
+    "PANI",
+    "FLYW",
+    "7747",
+    "688766",
+    "SNN",
+    "CLOV",
+    "300573",
+    "XTB",
+    "BROCALC1",
+    "CRON",
+    "800",
+    "6691",
+    "062040",
+    "PAYC",
+    "688531",
+    "EMSTEEL",
+    "SII",
+    "SFR",
+    "ASM",
+    "HDBK",
+    "688049",
+    "INDU_A",
+    "064350",
+    "LSPD",
+    "MSIN",
+    "SBET",
+    "2124",
+    "1523",
+    "KNT",
+    "6515",
+    "002517",
+    "EXEL",
+    "RVT",
+    "JMGI",
+    "ETV",
+    "VH2",
+    "688433",
+    "603444",
+    "688668",
+    "FEV",
+    "688449",
+    "8313",
+    "KTLEV",
+    "7806",
+    "WPM",
+    "SIP",
+    "OPRA",
+    "RAT",
+    "605599",
+    "HCI",
+    "RRL",
+    "688498",
+    "PCT",
+    "300938",
+    "FN",
+    "HBMNG",
+    "7618",
+    "1860",
+    "IDYA",
+    "PODERC1",
+    "OUST",
+    "AGI",
+    "688016",
+    "ARM",
+    "TEHOL",
+    "TFPM",
+    "MVZ.A",
+    "603986",
+    "AMSC",
+    "9636",
+    "1303",
+    "688515",
+    "688008",
+    "600338",
+    "1318",
+    "DUOL06",
+    "AJB",
+    "688336",
+    "688123",
+    "8230",
+    "002558",
+    "BONEX",
+    "OGC",
+    "688486",
+    "PRVA",
+    "MI",
+    "DUOL",
+    "1797",
+    "PGNY",
+    "688578",
+    "L1G",
+    "MIAX",
+    "688127",
+    "AOD",
+    "688690",
+    "300408",
+    "001270",
+    "H2O",
+    "HAPN",
+    "688322",
+    "LSF",
+    "TEL",
+    "WGX",
+    "600345",
+    "603893",
+    "688111",
+    "AGX",
+    "WDO",
+    "MFPC",
+    "603379",
+    "326030",
+    "301297",
+    "5536",
+    "PAY",
+    "1530",
+    "FCIT",
+    "CII",
+    "INSP",
+    "RXRX",
+    "300223",
+    "UCB",
+    "MYI",
+    "TRAN",
+    "329180",
+    "BPV",
+    "6871",
+    "002602",
+    "600988",
+    "AYGAZ",
+    "688293",
+    "TRALT",
+    "3923",
+    "CEF",
+    "WBHC",
+    "4749",
+    "1060",
+    "RVLV",
+    "LOB",
+    "CIE/B",
+    "BZ",
+    "300139",
+    "OBK",
+    "8279",
+    "ANSGR",
+    "TNGX",
+    "3653",
+    "3443",
+    "300033",
+    "SLYG",
+    "605098",
+    "002155",
+    "688270",
+    "301080",
+    "ATEX",
+    "688017",
+    "241",
+    "VCYT",
+    "TRAN.CI",
+    "NXSN",
+    "688209",
+    "ACAD",
+    "5274",
+    "EMAARDEV",
+    "DRD",
+    "PLMR",
+    "603929",
+    "6781",
+    "688271",
+    "AGYS",
+    "JAM"
+   ],
+   "dropped_tickers": [],
+   "actionable_now": [],
+   "errors": [
+    {
+     "ticker": "H2O",
+     "error": "exchange 'BVB' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "EMAARDEV",
+     "error": "exchange 'DFM' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "241",
+     "error": "mapped to '241.HK' but Yahoo Finance returned no data for it"
+    },
+    {
+     "ticker": "PANI",
+     "error": "exchange 'IDX' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "XTB",
+     "error": "exchange 'GPW' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "WBHC",
+     "error": "exchange 'OTC' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "1303",
+     "error": "exchange 'TADAWUL' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "SNN",
+     "error": "exchange 'BVB' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "HBMNG",
+     "error": "exchange 'NSENG' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "8230",
+     "error": "exchange 'TADAWUL' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "8313",
+     "error": "exchange 'TADAWUL' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "PODERC1",
+     "error": "exchange 'BVL' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "EMSTEEL",
+     "error": "exchange 'ADX' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "MFPC",
+     "error": "exchange 'EGX' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "CMRY",
+     "error": "exchange 'IDX' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "HDBK",
+     "error": "exchange 'EGX' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "800",
+     "error": "mapped to '800.HK' but Yahoo Finance returned no data for it"
+    },
+    {
+     "ticker": "TEL",
+     "error": "exchange 'BVB' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "MI",
+     "error": "exchange 'MYX' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "SLYG",
+     "error": "exchange 'BSESOF' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "BROCALC1",
+     "error": "exchange 'BVL' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "TRAN",
+     "error": "exchange 'BCBA' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "TRAN.CI",
+     "error": "exchange 'BCBA' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "MSIN",
+     "error": "exchange 'IDX' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "ADES",
+     "error": "exchange 'IDX' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "CIE/B",
+     "error": "exchange 'BMV' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "BPV",
+     "error": "exchange 'BVCV' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "MVZ.A",
+     "error": "exchange 'BVCV' has no Yahoo Finance suffix mapping yet"
+    }
+   ],
+   "llm": {
+    "enabled": true,
+    "model": "deepseek-chat",
+    "provider": "deepseek"
+   }
+  },
+  {
+   "run_date": "2026-08-30",
+   "regime": {
     "score": 5,
     "label": "CONFIRMED_UPTREND",
     "checks": {

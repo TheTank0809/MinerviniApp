@@ -1,0 +1,11 @@
+{
+ "ticker": "3923",
+ "points": [
+  {
+   "date": "2026-08-30",
+   "score": 45,
+   "bucket": "AVOID",
+   "price": 1176.5
+  }
+ ]
+}
