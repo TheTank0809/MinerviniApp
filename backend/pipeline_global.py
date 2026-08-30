@@ -84,7 +84,10 @@ EXCHANGE_COUNTRY_TO_YAHOO_SUFFIX = {
 
 def yahoo_symbol_for(row):
     exch = row.get("exchange")
-    code = row.get("name")
+    # TradingView uses an underscore for share-class tickers (e.g. "INDU_A");
+    # Yahoo Finance wants a hyphen there instead ("INDU-A") — verified against a
+    # real delisted-looking miss that turned out to just be this naming mismatch.
+    code = (row.get("name") or "").replace("_", "-")
     suffix = EXCHANGE_COUNTRY_TO_YAHOO_SUFFIX.get((exch, row.get("country")))
     if suffix is None:
         suffix = EXCHANGE_TO_YAHOO_SUFFIX.get(exch)
@@ -193,8 +196,11 @@ def process_global(universe_key, uni, gcfg, settings):
         try:
             df = df_for(code)
             if df is None:
+                if code not in sym_by_code:
+                    raise RuntimeError(
+                        "exchange %r has no Yahoo Finance suffix mapping yet" % row.get("exchange"))
                 raise RuntimeError(
-                    "no Yahoo Finance mapping/data for exchange %r" % row.get("exchange"))
+                    "mapped to %r but Yahoo Finance returned no data for it" % sym_by_code[code])
             prior_rec = prior_by_code.get(code)
             prior_scorecard = (prior_rec or {}).get("scorecard")
             prev_rs = None
