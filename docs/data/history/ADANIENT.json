@@ -1,0 +1,11 @@
+{
+ "ticker": "ADANIENT",
+ "points": [
+  {
+   "date": "2026-08-30",
+   "score": 48,
+   "bucket": "AVOID",
+   "price": 3168.5
+  }
+ ]
+}

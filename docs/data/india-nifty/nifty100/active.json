@@ -4532,6 +4532,197 @@
    }
   },
   {
+   "ticker": "ADANIENT",
+   "name": "Adani Enterprises Ltd.",
+   "joined_date": null,
+   "last_updated": "2026-08-30",
+   "scorecard": {
+    "ticker": "ADANIENT",
+    "name": "Adani Enterprises Ltd.",
+    "as_of": "2026-08-28",
+    "mode": "FULL",
+    "gates": {
+     "trend_template": {
+      "c1": true,
+      "c2": true,
+      "c3": true,
+      "c4": true,
+      "c5": true,
+      "c6": true,
+      "c7": true,
+      "c8": true,
+      "pass": true,
+      "near_miss_notes": ""
+     },
+     "investability": {
+      "liquidity": true,
+      "pledge": true,
+      "governance_flag": true,
+      "governance_note": "In January 2023, Hindenburg Research accused Adani Group of accounting fraud and stock manipulation; SEBI investigated. In January 2024, SEBI concluded its investigation without formally charging Adani Enterprises, but the matter remains a governance overhang and is cited in suppressed institutional sponsorship. Within the last 12 months (as of 2026-08-28), there has been no exculpatory resolution; the event remains a persistent governance stigma.",
+      "governance": true,
+      "pass": true
+     }
+    },
+    "llm_checks": {
+     "h3_catalyst_found": false,
+     "h3_citation": "",
+     "governance_flag": true,
+     "governance_note": "In January 2023, Hindenburg Research accused Adani Group of accounting fraud and stock manipulation; SEBI investigated. In January 2024, SEBI concluded its investigation without formally charging Adani Enterprises, but the matter remains a governance overhang and is cited in suppressed institutional sponsorship. Within the last 12 months (as of 2026-08-28), there has been no exculpatory resolution; the event remains a persistent governance stigma."
+    },
+    "scores": {
+     "earnings": {
+      "A1": 0,
+      "A2": 0,
+      "A3": 0,
+      "A4": 4,
+      "A5": 0,
+      "subtotal": 4
+     },
+     "revenue": {
+      "B1": 6,
+      "B2": 4,
+      "B3": 0,
+      "B4": 0,
+      "subtotal": 10
+     },
+     "profitability": {
+      "C1": 0,
+      "C2": 0,
+      "C3": 2,
+      "C4": 0,
+      "subtotal": 2
+     },
+     "balance_sheet": {
+      "D1": 0,
+      "D2": 0,
+      "D3": 0,
+      "D4": 1,
+      "subtotal": 1
+     },
+     "sponsorship": {
+      "E1": 2,
+      "E2": 0,
+      "E3": 0,
+      "E4": 0,
+      "subtotal": 2
+     },
+     "rs_trend": {
+      "F1": 5,
+      "F2": 4,
+      "F3": 2,
+      "F4": 2,
+      "subtotal": 13
+     },
+     "base_structure": {
+      "G1": 3,
+      "G2": 4,
+      "G3": 4,
+      "G4": 0,
+      "G5": 1,
+      "G6": 0,
+      "subtotal": 12
+     },
+     "leadership": {
+      "H1": 2,
+      "H2": 2,
+      "H3": 0,
+      "subtotal": 4
+     },
+     "total": 48
+    },
+    "quality_band": "Reject",
+    "action_bucket": "AVOID",
+    "red_flags": [
+     "EPS_DECELERATION",
+     "GOVERNANCE: In January 2023, Hindenburg Research accused Adani Group of accounting fraud and stock manipulation; SEBI investigated. In January 2024, SEBI concluded its investigation without formally charging Adani Enterprises, but the matter remains a governance overhang and is cited in suppressed institutional sponsorship. Within the last 12 months (as of 2026-08-28), there has been no exculpatory resolution; the event remains a persistent governance stigma.",
+     "OTHER_INCOME_DRIVEN"
+    ],
+    "risk_level": "MEDIUM",
+    "valuation_context": {
+     "pe": 181.0,
+     "peg": null,
+     "vs_own_5yr": "",
+     "note": "Valuation is context only, never a criterion."
+    },
+    "base": {
+     "pattern_label": "",
+     "pivot": 3245.0,
+     "pct_from_pivot": -2.36,
+     "base_count": 1,
+     "depth_pct": 9.6,
+     "weeks": 8.0
+    },
+    "trade_plan": null,
+    "delta": {
+     "score_change": 0,
+     "gate_flips": [],
+     "bucket_change": "",
+     "alerts": []
+    },
+    "violations": {
+     "count": 0,
+     "items": [],
+     "recommendation": ""
+    },
+    "verdict": {
+     "summary": "ADANIENT (48/100) \u2014 Reject / AVOID.",
+     "strengths": [
+      "RS percentile 86",
+      "Constructive base structure"
+     ],
+     "weaknesses": [
+      "Earnings block weak (4/25)",
+      "3 unverified fields scored 0"
+     ],
+     "catalysts": [],
+     "biggest_risk": "EPS_DECELERATION",
+     "conviction_0_10": 1
+    },
+    "data_quality": {
+     "unverified_fields": [
+      "marquee_institution",
+      "mf_scheme_count",
+      "new_catalyst"
+     ],
+     "proxy_fields": [
+      "group_leadership_rank",
+      "industry_group_rs"
+     ],
+     "unverified_reasons": {},
+     "sources": [
+      {
+       "field": "technicals",
+       "source": "Yahoo Finance OHLCV",
+       "as_of": "2026-08-28"
+      },
+      {
+       "field": "fundamentals",
+       "source": "screener.in",
+       "as_of": "2026-08-28"
+      }
+     ]
+    },
+    "technicals": {
+     "price": 3168.5,
+     "rs_percentile": 86,
+     "pct_below_52w_high": 2.4,
+     "pct_above_52w_low": 80.8,
+     "dma_50": 3071.16,
+     "dma_200": 2503.46,
+     "up_down_volume_ratio_50d": 1.52,
+     "industry_sector": "Metals & Mining",
+     "industry_group_rs_quartile": 1,
+     "group_leadership_rank": 1,
+     "group_leadership_of": 18,
+     "rsi": 66.5,
+     "roce": 5.8,
+     "fcf_latest_cr": -30993.0,
+     "fcf_source": "reported"
+    },
+    "status": "SCORED"
+   }
+  },
+  {
    "ticker": "ZYDUSLIFE",
    "name": "Zydus Lifesciences Ltd.",
    "joined_date": null,
@@ -8630,6 +8821,194 @@
    }
   },
   {
+   "ticker": "ADANIGREEN",
+   "name": "Adani Green Energy Ltd.",
+   "joined_date": null,
+   "last_updated": "2026-08-30",
+   "scorecard": {
+    "ticker": "ADANIGREEN",
+    "name": "Adani Green Energy Ltd.",
+    "as_of": "2026-08-28",
+    "mode": "FULL",
+    "gates": {
+     "trend_template": {
+      "c1": true,
+      "c2": true,
+      "c3": true,
+      "c4": true,
+      "c5": false,
+      "c6": true,
+      "c7": true,
+      "c8": true,
+      "pass": false,
+      "near_miss_notes": ""
+     },
+     "investability": {
+      "liquidity": true,
+      "pledge": true,
+      "governance_flag": true,
+      "governance_note": "Adani Green has faced ongoing governance scrutiny since the Hindenburg Research report (Jan 2023) with SEBI investigations confirmed; the company has consistently denied allegations but the intense regulatory/journalistic spotlight remains a material red flag.",
+      "governance": true,
+      "pass": true
+     }
+    },
+    "llm_checks": {
+     "h3_catalyst_found": false,
+     "h3_citation": "",
+     "governance_flag": true,
+     "governance_note": "Adani Green has faced ongoing governance scrutiny since the Hindenburg Research report (Jan 2023) with SEBI investigations confirmed; the company has consistently denied allegations but the intense regulatory/journalistic spotlight remains a material red flag."
+    },
+    "scores": {
+     "earnings": {
+      "A1": 2,
+      "A2": 1,
+      "A3": 0,
+      "A4": 2,
+      "A5": 0,
+      "subtotal": 5
+     },
+     "revenue": {
+      "B1": 2,
+      "B2": 4,
+      "B3": 1,
+      "B4": 2,
+      "subtotal": 9
+     },
+     "profitability": {
+      "C1": 0,
+      "C2": 3,
+      "C3": 2,
+      "C4": 0,
+      "subtotal": 5
+     },
+     "balance_sheet": {
+      "D1": 0,
+      "D2": 0,
+      "D3": 1,
+      "D4": 1,
+      "subtotal": 2
+     },
+     "sponsorship": {
+      "E1": 1,
+      "E2": 0,
+      "E3": 0,
+      "E4": 1,
+      "subtotal": 2
+     },
+     "rs_trend": {
+      "F1": 3,
+      "F2": 1,
+      "F3": 0,
+      "F4": 0,
+      "subtotal": 4
+     },
+     "base_structure": {
+      "G1": 0,
+      "G2": 4,
+      "G3": 3,
+      "G4": 0,
+      "G5": 3,
+      "G6": 0,
+      "subtotal": 10
+     },
+     "leadership": {
+      "H1": 0,
+      "H2": 2,
+      "H3": 0,
+      "subtotal": 2
+     },
+     "total": 39
+    },
+    "quality_band": "Reject",
+    "action_bucket": "AVOID",
+    "red_flags": [
+     "GOVERNANCE: Adani Green has faced ongoing governance scrutiny since the Hindenburg Research report (Jan 2023) with SEBI investigations confirmed; the company has consistently denied allegations but the intense regulatory/journalistic spotlight remains a material red flag.",
+     "OTHER_INCOME_DRIVEN"
+    ],
+    "risk_level": "MEDIUM",
+    "valuation_context": {
+     "pe": 111.0,
+     "peg": null,
+     "vs_own_5yr": "",
+     "note": "Valuation is context only, never a criterion."
+    },
+    "base": {
+     "pattern_label": "",
+     "pivot": 1558.7,
+     "pct_from_pivot": -15.89,
+     "base_count": 1,
+     "depth_pct": 21.5,
+     "weeks": 6.8
+    },
+    "trade_plan": null,
+    "delta": {
+     "score_change": 0,
+     "gate_flips": [],
+     "bucket_change": "",
+     "alerts": []
+    },
+    "violations": {
+     "count": 0,
+     "items": [],
+     "recommendation": ""
+    },
+    "verdict": {
+     "summary": "ADANIGREEN (39/100) \u2014 Reject / AVOID. Score is informational only \u2014 Gate 1 not confirmed, so not an actionable setup yet.",
+     "strengths": [],
+     "weaknesses": [
+      "Fails Trend Template: c5",
+      "Earnings block weak (5/25)",
+      "3 unverified fields scored 0"
+     ],
+     "catalysts": [],
+     "biggest_risk": "GOVERNANCE: Adani Green has faced ongoing governance scrutiny since the Hindenburg Research report (Jan 2023) with SEBI investigations confirmed; the company has consistently denied allegations but the intense regulatory/journalistic spotlight remains a material red flag.",
+     "conviction_0_10": 0
+    },
+    "data_quality": {
+     "unverified_fields": [
+      "marquee_institution",
+      "mf_scheme_count",
+      "new_catalyst"
+     ],
+     "proxy_fields": [
+      "group_leadership_rank",
+      "industry_group_rs"
+     ],
+     "unverified_reasons": {},
+     "sources": [
+      {
+       "field": "technicals",
+       "source": "Yahoo Finance OHLCV",
+       "as_of": "2026-08-28"
+      },
+      {
+       "field": "fundamentals",
+       "source": "screener.in",
+       "as_of": "2026-08-28"
+      }
+     ]
+    },
+    "technicals": {
+     "price": 1311.0,
+     "rs_percentile": 74,
+     "pct_below_52w_high": 19.6,
+     "pct_above_52w_low": 71.4,
+     "dma_50": 1432.39,
+     "dma_200": 1174.14,
+     "up_down_volume_ratio_50d": 0.75,
+     "industry_sector": "Power",
+     "industry_group_rs_quartile": 3,
+     "group_leadership_rank": 4,
+     "group_leadership_of": 17,
+     "rsi": 40.5,
+     "roce": 7.39,
+     "fcf_latest_cr": -15857.0,
+     "fcf_source": "reported"
+    },
+    "status": "SCORED_NO_TREND"
+   }
+  },
+  {
    "ticker": "MAZDOCK",
    "name": "Mazagoan Dock Shipbuilders Ltd.",
    "joined_date": null,
@@ -9022,6 +9401,195 @@
      "rsi": 51.0,
      "roce": 26.4,
      "fcf_latest_cr": 1531.0,
+     "fcf_source": "reported"
+    },
+    "status": "SCORED_NO_TREND"
+   }
+  },
+  {
+   "ticker": "HAL",
+   "name": "Hindustan Aeronautics Ltd.",
+   "joined_date": null,
+   "last_updated": "2026-08-30",
+   "scorecard": {
+    "ticker": "HAL",
+    "name": "Hindustan Aeronautics Ltd.",
+    "as_of": "2026-08-28",
+    "mode": "FULL",
+    "gates": {
+     "trend_template": {
+      "c1": true,
+      "c2": false,
+      "c3": true,
+      "c4": true,
+      "c5": true,
+      "c6": true,
+      "c7": true,
+      "c8": true,
+      "pass": false,
+      "near_miss_notes": ""
+     },
+     "investability": {
+      "liquidity": true,
+      "pledge": true,
+      "governance_flag": true,
+      "governance_note": "SEBI imposed a fine of ~\u20b93 crore on HAL in January 2025 for disclosure non-compliance regarding shareholding of promoter Hindustan Aeronautics Ltd. (Press Trust of India, Jan 2025).",
+      "governance": true,
+      "pass": true
+     }
+    },
+    "llm_checks": {
+     "h3_catalyst_found": false,
+     "h3_citation": "",
+     "governance_flag": true,
+     "governance_note": "SEBI imposed a fine of ~\u20b93 crore on HAL in January 2025 for disclosure non-compliance regarding shareholding of promoter Hindustan Aeronautics Ltd. (Press Trust of India, Jan 2025)."
+    },
+    "scores": {
+     "earnings": {
+      "A1": 0,
+      "A2": 3,
+      "A3": 0,
+      "A4": 0,
+      "A5": 2,
+      "subtotal": 5
+     },
+     "revenue": {
+      "B1": 2,
+      "B2": 0,
+      "B3": 0,
+      "B4": 0,
+      "subtotal": 2
+     },
+     "profitability": {
+      "C1": 3,
+      "C2": 1,
+      "C3": 2,
+      "C4": 2,
+      "subtotal": 8
+     },
+     "balance_sheet": {
+      "D1": 2,
+      "D2": 1,
+      "D3": 1,
+      "D4": 1,
+      "subtotal": 5
+     },
+     "sponsorship": {
+      "E1": 2,
+      "E2": 0,
+      "E3": 0,
+      "E4": 1,
+      "subtotal": 3
+     },
+     "rs_trend": {
+      "F1": 3,
+      "F2": 2,
+      "F3": 2,
+      "F4": 2,
+      "subtotal": 9
+     },
+     "base_structure": {
+      "G1": 0,
+      "G2": 4,
+      "G3": 0,
+      "G4": 0,
+      "G5": 0,
+      "G6": 0,
+      "subtotal": 4
+     },
+     "leadership": {
+      "H1": 2,
+      "H2": 0,
+      "H3": 0,
+      "subtotal": 2
+     },
+     "total": 38
+    },
+    "quality_band": "Reject",
+    "action_bucket": "AVOID",
+    "red_flags": [
+     "GOVERNANCE: SEBI imposed a fine of ~\u20b93 crore on HAL in January 2025 for disclosure non-compliance regarding shareholding of promoter Hindustan Aeronautics Ltd. (Press Trust of India, Jan 2025).",
+     "OTHER_INCOME_DRIVEN"
+    ],
+    "risk_level": "MEDIUM",
+    "valuation_context": {
+     "pe": 34.9,
+     "peg": null,
+     "vs_own_5yr": "",
+     "note": "Valuation is context only, never a criterion."
+    },
+    "base": {
+     "pattern_label": "",
+     "pivot": 5149.9,
+     "pct_from_pivot": -5.61,
+     "base_count": 1,
+     "depth_pct": 6.7,
+     "weeks": 2.0
+    },
+    "trade_plan": null,
+    "delta": {
+     "score_change": 0,
+     "gate_flips": [],
+     "bucket_change": "",
+     "alerts": []
+    },
+    "violations": {
+     "count": 0,
+     "items": [],
+     "recommendation": ""
+    },
+    "verdict": {
+     "summary": "HAL (38/100) \u2014 Reject / AVOID. Score is informational only \u2014 Gate 1 not confirmed, so not an actionable setup yet.",
+     "strengths": [],
+     "weaknesses": [
+      "Fails Trend Template: c2",
+      "Earnings block weak (5/25)",
+      "No valid base yet (4/20)",
+      "3 unverified fields scored 0"
+     ],
+     "catalysts": [],
+     "biggest_risk": "GOVERNANCE: SEBI imposed a fine of ~\u20b93 crore on HAL in January 2025 for disclosure non-compliance regarding shareholding of promoter Hindustan Aeronautics Ltd. (Press Trust of India, Jan 2025).",
+     "conviction_0_10": 0
+    },
+    "data_quality": {
+     "unverified_fields": [
+      "marquee_institution",
+      "mf_scheme_count",
+      "new_catalyst"
+     ],
+     "proxy_fields": [
+      "group_leadership_rank",
+      "industry_group_rs"
+     ],
+     "unverified_reasons": {},
+     "sources": [
+      {
+       "field": "technicals",
+       "source": "Yahoo Finance OHLCV",
+       "as_of": "2026-08-28"
+      },
+      {
+       "field": "fundamentals",
+       "source": "screener.in",
+       "as_of": "2026-08-28"
+      }
+     ]
+    },
+    "technicals": {
+     "price": 4861.1,
+     "rs_percentile": 70,
+     "pct_below_52w_high": 5.6,
+     "pct_above_52w_low": 40.0,
+     "dma_50": 4644.94,
+     "dma_200": 4356.52,
+     "up_down_volume_ratio_50d": 1.31,
+     "industry_sector": "Capital Goods",
+     "industry_group_rs_quartile": 1,
+     "group_leadership_rank": 28,
+     "group_leadership_of": 63,
+     "rsi": 53.1,
+     "roce": 32.0,
+     "fcf_latest_cr": 8438.0,
      "fcf_source": "reported"
     },
     "status": "SCORED_NO_TREND"
@@ -17273,6 +17841,197 @@
    }
   },
   {
+   "ticker": "INDIGO",
+   "name": "InterGlobe Aviation Ltd.",
+   "joined_date": null,
+   "last_updated": "2026-08-30",
+   "scorecard": {
+    "ticker": "INDIGO",
+    "name": "InterGlobe Aviation Ltd.",
+    "as_of": "2026-08-28",
+    "mode": "FULL",
+    "gates": {
+     "trend_template": {
+      "c1": true,
+      "c2": false,
+      "c3": false,
+      "c4": true,
+      "c5": false,
+      "c6": true,
+      "c7": true,
+      "c8": false,
+      "pass": false,
+      "near_miss_notes": ""
+     },
+     "investability": {
+      "liquidity": true,
+      "pledge": true,
+      "governance_flag": true,
+      "governance_note": "",
+      "governance": true,
+      "pass": true
+     }
+    },
+    "llm_checks": {
+     "h3_catalyst_found": true,
+     "h3_citation": "",
+     "governance_flag": true,
+     "governance_note": ""
+    },
+    "scores": {
+     "earnings": {
+      "A1": 0,
+      "A2": 0,
+      "A3": 0,
+      "A4": 0,
+      "A5": 0,
+      "subtotal": 0
+     },
+     "revenue": {
+      "B1": 2,
+      "B2": 0,
+      "B3": 0,
+      "B4": 0,
+      "subtotal": 2
+     },
+     "profitability": {
+      "C1": 3,
+      "C2": 0,
+      "C3": 2,
+      "C4": 2,
+      "subtotal": 7
+     },
+     "balance_sheet": {
+      "D1": 0,
+      "D2": 0,
+      "D3": 1,
+      "D4": 1,
+      "subtotal": 2
+     },
+     "sponsorship": {
+      "E1": 0,
+      "E2": 0,
+      "E3": 0,
+      "E4": 1,
+      "subtotal": 1
+     },
+     "rs_trend": {
+      "F1": 0,
+      "F2": 1,
+      "F3": 0,
+      "F4": 0,
+      "subtotal": 1
+     },
+     "base_structure": {
+      "G1": 0,
+      "G2": 4,
+      "G3": 0,
+      "G4": 0,
+      "G5": 3,
+      "G6": 0,
+      "subtotal": 7
+     },
+     "leadership": {
+      "H1": 2,
+      "H2": 0,
+      "H3": 0,
+      "subtotal": 2
+     },
+     "total": 22
+    },
+    "quality_band": "Reject",
+    "action_bucket": "AVOID",
+    "red_flags": [
+     "GOVERNANCE: flagged by the LLM verdict check with no citation given \u2014 unverified, judge independently",
+     "OTHER_INCOME_DRIVEN"
+    ],
+    "risk_level": "MEDIUM",
+    "valuation_context": {
+     "pe": null,
+     "peg": null,
+     "vs_own_5yr": "",
+     "note": "Valuation is context only, never a criterion."
+    },
+    "base": {
+     "pattern_label": "",
+     "pivot": 5508.0,
+     "pct_from_pivot": -6.21,
+     "base_count": 1,
+     "depth_pct": 36.2,
+     "weeks": 50.4
+    },
+    "trade_plan": null,
+    "delta": {
+     "score_change": 0,
+     "gate_flips": [],
+     "bucket_change": "",
+     "alerts": []
+    },
+    "violations": {
+     "count": 0,
+     "items": [],
+     "recommendation": ""
+    },
+    "verdict": {
+     "summary": "INDIGO (22/100) \u2014 Reject / AVOID. Score is informational only \u2014 Gate 1 not confirmed, so not an actionable setup yet.",
+     "strengths": [],
+     "weaknesses": [
+      "Fails Trend Template: c2, c3, c5, c8",
+      "Earnings block weak (0/25)",
+      "6 unverified fields scored 0"
+     ],
+     "catalysts": [],
+     "biggest_risk": "GOVERNANCE: flagged by the LLM verdict check with no citation given \u2014 unverified, judge independently",
+     "conviction_0_10": 0
+    },
+    "data_quality": {
+     "unverified_fields": [
+      "eps_acceleration",
+      "eps_annual_growth",
+      "eps_cagr_3y",
+      "marquee_institution",
+      "mf_scheme_count",
+      "new_catalyst"
+     ],
+     "proxy_fields": [
+      "group_leadership_rank",
+      "industry_group_rs"
+     ],
+     "unverified_reasons": {},
+     "sources": [
+      {
+       "field": "technicals",
+       "source": "Yahoo Finance OHLCV",
+       "as_of": "2026-08-28"
+      },
+      {
+       "field": "fundamentals",
+       "source": "screener.in",
+       "as_of": "2026-08-28"
+      }
+     ]
+    },
+    "technicals": {
+     "price": 5166.0,
+     "rs_percentile": 46,
+     "pct_below_52w_high": 15.3,
+     "pct_above_52w_low": 32.6,
+     "dma_50": 5254.29,
+     "dma_200": 4897.19,
+     "up_down_volume_ratio_50d": 0.94,
+     "industry_sector": "Services",
+     "industry_group_rs_quartile": 1,
+     "group_leadership_rank": 9,
+     "group_leadership_of": 14,
+     "rsi": 46.3,
+     "roce": 5.24,
+     "fcf_latest_cr": 21767.0,
+     "fcf_source": "reported"
+    },
+    "status": "SCORED_NO_TREND"
+   }
+  },
+  {
    "ticker": "TMPV",
    "name": "Tata Motors Passenger Vehicles Ltd.",
    "joined_date": null,
@@ -18896,462 +19655,6 @@
      "fcf_source": null
     },
     "status": "SCORED_NO_TREND"
-   }
-  },
-  {
-   "ticker": "ADANIENT",
-   "name": "Adani Enterprises Ltd.",
-   "joined_date": null,
-   "last_updated": "2026-08-30",
-   "scorecard": {
-    "ticker": "ADANIENT",
-    "name": "Adani Enterprises Ltd.",
-    "as_of": "2026-08-28",
-    "mode": "FULL",
-    "gates": {
-     "trend_template": {
-      "c1": true,
-      "c2": true,
-      "c3": true,
-      "c4": true,
-      "c5": true,
-      "c6": true,
-      "c7": true,
-      "c8": true,
-      "pass": true,
-      "near_miss_notes": ""
-     },
-     "investability": {
-      "liquidity": true,
-      "pledge": true,
-      "governance": false,
-      "governance_note": "In January 2023, Hindenburg Research accused Adani Group of accounting fraud and stock manipulation; SEBI investigated. In January 2024, SEBI concluded its investigation without formally charging Adani Enterprises, but the matter remains a governance overhang and is cited in suppressed institutional sponsorship. Within the last 12 months (as of 2026-08-28), there has been no exculpatory resolution; the event remains a persistent governance stigma.",
-      "pass": false
-     }
-    },
-    "llm_checks": {
-     "h3_catalyst_found": false,
-     "h3_citation": "",
-     "governance_flag": true,
-     "governance_note": "In January 2023, Hindenburg Research accused Adani Group of accounting fraud and stock manipulation; SEBI investigated. In January 2024, SEBI concluded its investigation without formally charging Adani Enterprises, but the matter remains a governance overhang and is cited in suppressed institutional sponsorship. Within the last 12 months (as of 2026-08-28), there has been no exculpatory resolution; the event remains a persistent governance stigma.",
-     "checked_date": "2026-08-30"
-    },
-    "scores": null,
-    "quality_band": "Reject",
-    "action_bucket": "AVOID",
-    "red_flags": [],
-    "risk_level": null,
-    "valuation_context": {
-     "pe": 181.0,
-     "peg": null,
-     "vs_own_5yr": "",
-     "note": "Valuation is context only, never a criterion."
-    },
-    "base": {
-     "pattern_label": "",
-     "pivot": 3245.0,
-     "pct_from_pivot": -2.36,
-     "base_count": 1,
-     "depth_pct": 9.6,
-     "weeks": 8.0
-    },
-    "trade_plan": null,
-    "delta": {
-     "score_change": 0,
-     "gate_flips": [],
-     "bucket_change": "",
-     "alerts": []
-    },
-    "violations": {
-     "count": 0,
-     "items": [],
-     "recommendation": ""
-    },
-    "verdict": {
-     "summary": "Fails investability gate: GOVERNANCE. Governance: In January 2023, Hindenburg Research accused Adani Group of accounting fraud and stock manipulation; SEBI investigated. In January 2024, SEBI concluded its investigation without formally charging Adani Enterprises, but the matter remains a governance overhang and is cited in suppressed institutional sponsorship. Within the last 12 months (as of 2026-08-28), there has been no exculpatory resolution; the event remains a persistent governance stigma.",
-     "strengths": [],
-     "weaknesses": [],
-     "catalysts": [],
-     "biggest_risk": "",
-     "conviction_0_10": 0
-    },
-    "data_quality": {
-     "unverified_fields": [],
-     "proxy_fields": [],
-     "unverified_reasons": {},
-     "sources": [
-      {
-       "field": "technicals",
-       "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-08-28"
-      },
-      {
-       "field": "fundamentals",
-       "source": "screener.in",
-       "as_of": "2026-08-28"
-      }
-     ]
-    },
-    "technicals": {
-     "price": 3168.5,
-     "rs_percentile": 86,
-     "pct_below_52w_high": 2.4,
-     "pct_above_52w_low": 80.8,
-     "dma_50": 3071.16,
-     "dma_200": 2503.46,
-     "up_down_volume_ratio_50d": 1.52,
-     "industry_sector": "Metals & Mining",
-     "industry_group_rs_quartile": 1,
-     "group_leadership_rank": 1,
-     "group_leadership_of": 18,
-     "rsi": 66.5,
-     "roce": 5.8,
-     "fcf_latest_cr": -30993.0,
-     "fcf_source": "reported"
-    },
-    "status": "FAIL_GOVERNANCE"
-   }
-  },
-  {
-   "ticker": "ADANIGREEN",
-   "name": "Adani Green Energy Ltd.",
-   "joined_date": null,
-   "last_updated": "2026-08-30",
-   "scorecard": {
-    "ticker": "ADANIGREEN",
-    "name": "Adani Green Energy Ltd.",
-    "as_of": "2026-08-28",
-    "mode": "FULL",
-    "gates": {
-     "trend_template": {
-      "c1": true,
-      "c2": true,
-      "c3": true,
-      "c4": true,
-      "c5": false,
-      "c6": true,
-      "c7": true,
-      "c8": true,
-      "pass": false,
-      "near_miss_notes": ""
-     },
-     "investability": {
-      "liquidity": true,
-      "pledge": true,
-      "governance": false,
-      "governance_note": "Adani Green has faced ongoing governance scrutiny since the Hindenburg Research report (Jan 2023) with SEBI investigations confirmed; the company has consistently denied allegations but the intense regulatory/journalistic spotlight remains a material red flag.",
-      "pass": false
-     }
-    },
-    "llm_checks": {
-     "h3_catalyst_found": false,
-     "h3_citation": "",
-     "governance_flag": true,
-     "governance_note": "Adani Green has faced ongoing governance scrutiny since the Hindenburg Research report (Jan 2023) with SEBI investigations confirmed; the company has consistently denied allegations but the intense regulatory/journalistic spotlight remains a material red flag.",
-     "checked_date": "2026-08-30"
-    },
-    "scores": null,
-    "quality_band": "Reject",
-    "action_bucket": "AVOID",
-    "red_flags": [],
-    "risk_level": null,
-    "valuation_context": {
-     "pe": 111.0,
-     "peg": null,
-     "vs_own_5yr": "",
-     "note": "Valuation is context only, never a criterion."
-    },
-    "base": {
-     "pattern_label": "",
-     "pivot": 1558.7,
-     "pct_from_pivot": -15.89,
-     "base_count": 1,
-     "depth_pct": 21.5,
-     "weeks": 6.8
-    },
-    "trade_plan": null,
-    "delta": {
-     "score_change": 0,
-     "gate_flips": [],
-     "bucket_change": "",
-     "alerts": []
-    },
-    "violations": {
-     "count": 0,
-     "items": [],
-     "recommendation": ""
-    },
-    "verdict": {
-     "summary": "Fails investability gate: GOVERNANCE. Governance: Adani Green has faced ongoing governance scrutiny since the Hindenburg Research report (Jan 2023) with SEBI investigations confirmed; the company has consistently denied allegations but the intense regulatory/journalistic spotlight remains a material red flag.",
-     "strengths": [],
-     "weaknesses": [],
-     "catalysts": [],
-     "biggest_risk": "",
-     "conviction_0_10": 0
-    },
-    "data_quality": {
-     "unverified_fields": [],
-     "proxy_fields": [],
-     "unverified_reasons": {},
-     "sources": [
-      {
-       "field": "technicals",
-       "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-08-28"
-      },
-      {
-       "field": "fundamentals",
-       "source": "screener.in",
-       "as_of": "2026-08-28"
-      }
-     ]
-    },
-    "technicals": {
-     "price": 1311.0,
-     "rs_percentile": 74,
-     "pct_below_52w_high": 19.6,
-     "pct_above_52w_low": 71.4,
-     "dma_50": 1432.39,
-     "dma_200": 1174.14,
-     "up_down_volume_ratio_50d": 0.75,
-     "industry_sector": "Power",
-     "industry_group_rs_quartile": 3,
-     "group_leadership_rank": 4,
-     "group_leadership_of": 17,
-     "rsi": 40.5,
-     "roce": 7.39,
-     "fcf_latest_cr": -15857.0,
-     "fcf_source": "reported"
-    },
-    "status": "FAIL_GOVERNANCE"
-   }
-  },
-  {
-   "ticker": "HAL",
-   "name": "Hindustan Aeronautics Ltd.",
-   "joined_date": null,
-   "last_updated": "2026-08-30",
-   "scorecard": {
-    "ticker": "HAL",
-    "name": "Hindustan Aeronautics Ltd.",
-    "as_of": "2026-08-28",
-    "mode": "FULL",
-    "gates": {
-     "trend_template": {
-      "c1": true,
-      "c2": false,
-      "c3": true,
-      "c4": true,
-      "c5": true,
-      "c6": true,
-      "c7": true,
-      "c8": true,
-      "pass": false,
-      "near_miss_notes": ""
-     },
-     "investability": {
-      "liquidity": true,
-      "pledge": true,
-      "governance": false,
-      "governance_note": "SEBI imposed a fine of ~\u20b93 crore on HAL in January 2025 for disclosure non-compliance regarding shareholding of promoter Hindustan Aeronautics Ltd. (Press Trust of India, Jan 2025).",
-      "pass": false
-     }
-    },
-    "llm_checks": {
-     "h3_catalyst_found": false,
-     "h3_citation": "",
-     "governance_flag": true,
-     "governance_note": "SEBI imposed a fine of ~\u20b93 crore on HAL in January 2025 for disclosure non-compliance regarding shareholding of promoter Hindustan Aeronautics Ltd. (Press Trust of India, Jan 2025).",
-     "checked_date": "2026-08-30"
-    },
-    "scores": null,
-    "quality_band": "Reject",
-    "action_bucket": "AVOID",
-    "red_flags": [],
-    "risk_level": null,
-    "valuation_context": {
-     "pe": 34.9,
-     "peg": null,
-     "vs_own_5yr": "",
-     "note": "Valuation is context only, never a criterion."
-    },
-    "base": {
-     "pattern_label": "",
-     "pivot": 5149.9,
-     "pct_from_pivot": -5.61,
-     "base_count": 1,
-     "depth_pct": 6.7,
-     "weeks": 2.0
-    },
-    "trade_plan": null,
-    "delta": {
-     "score_change": 0,
-     "gate_flips": [],
-     "bucket_change": "",
-     "alerts": []
-    },
-    "violations": {
-     "count": 0,
-     "items": [],
-     "recommendation": ""
-    },
-    "verdict": {
-     "summary": "Fails investability gate: GOVERNANCE. Governance: SEBI imposed a fine of ~\u20b93 crore on HAL in January 2025 for disclosure non-compliance regarding shareholding of promoter Hindustan Aeronautics Ltd. (Press Trust of India, Jan 2025).",
-     "strengths": [],
-     "weaknesses": [],
-     "catalysts": [],
-     "biggest_risk": "",
-     "conviction_0_10": 0
-    },
-    "data_quality": {
-     "unverified_fields": [],
-     "proxy_fields": [],
-     "unverified_reasons": {},
-     "sources": [
-      {
-       "field": "technicals",
-       "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-08-28"
-      },
-      {
-       "field": "fundamentals",
-       "source": "screener.in",
-       "as_of": "2026-08-28"
-      }
-     ]
-    },
-    "technicals": {
-     "price": 4861.1,
-     "rs_percentile": 70,
-     "pct_below_52w_high": 5.6,
-     "pct_above_52w_low": 40.0,
-     "dma_50": 4644.94,
-     "dma_200": 4356.52,
-     "up_down_volume_ratio_50d": 1.31,
-     "industry_sector": "Capital Goods",
-     "industry_group_rs_quartile": 1,
-     "group_leadership_rank": 28,
-     "group_leadership_of": 63,
-     "rsi": 53.1,
-     "roce": 32.0,
-     "fcf_latest_cr": 8438.0,
-     "fcf_source": "reported"
-    },
-    "status": "FAIL_GOVERNANCE"
-   }
-  },
-  {
-   "ticker": "INDIGO",
-   "name": "InterGlobe Aviation Ltd.",
-   "joined_date": null,
-   "last_updated": "2026-08-30",
-   "scorecard": {
-    "ticker": "INDIGO",
-    "name": "InterGlobe Aviation Ltd.",
-    "as_of": "2026-08-28",
-    "mode": "FULL",
-    "gates": {
-     "trend_template": {
-      "c1": true,
-      "c2": false,
-      "c3": false,
-      "c4": true,
-      "c5": false,
-      "c6": true,
-      "c7": true,
-      "c8": false,
-      "pass": false,
-      "near_miss_notes": ""
-     },
-     "investability": {
-      "liquidity": true,
-      "pledge": true,
-      "governance": false,
-      "governance_note": "",
-      "pass": false
-     }
-    },
-    "llm_checks": {
-     "h3_catalyst_found": true,
-     "h3_citation": "",
-     "governance_flag": true,
-     "governance_note": "",
-     "checked_date": "2026-08-30"
-    },
-    "scores": null,
-    "quality_band": "Reject",
-    "action_bucket": "AVOID",
-    "red_flags": [],
-    "risk_level": null,
-    "valuation_context": {
-     "pe": null,
-     "peg": null,
-     "vs_own_5yr": "",
-     "note": "Valuation is context only, never a criterion."
-    },
-    "base": {
-     "pattern_label": "",
-     "pivot": 5508.0,
-     "pct_from_pivot": -6.21,
-     "base_count": 1,
-     "depth_pct": 36.2,
-     "weeks": 50.4
-    },
-    "trade_plan": null,
-    "delta": {
-     "score_change": 0,
-     "gate_flips": [],
-     "bucket_change": "",
-     "alerts": []
-    },
-    "violations": {
-     "count": 0,
-     "items": [],
-     "recommendation": ""
-    },
-    "verdict": {
-     "summary": "Fails investability gate: GOVERNANCE.",
-     "strengths": [],
-     "weaknesses": [],
-     "catalysts": [],
-     "biggest_risk": "",
-     "conviction_0_10": 0
-    },
-    "data_quality": {
-     "unverified_fields": [],
-     "proxy_fields": [],
-     "unverified_reasons": {},
-     "sources": [
-      {
-       "field": "technicals",
-       "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-08-28"
-      },
-      {
-       "field": "fundamentals",
-       "source": "screener.in",
-       "as_of": "2026-08-28"
-      }
-     ]
-    },
-    "technicals": {
-     "price": 5166.0,
-     "rs_percentile": 46,
-     "pct_below_52w_high": 15.3,
-     "pct_above_52w_low": 32.6,
-     "dma_50": 5254.29,
-     "dma_200": 4897.19,
-     "up_down_volume_ratio_50d": 0.94,
-     "industry_sector": "Services",
-     "industry_group_rs_quartile": 1,
-     "group_leadership_rank": 9,
-     "group_leadership_of": 14,
-     "rsi": 46.3,
-     "roce": 5.24,
-     "fcf_latest_cr": 21767.0,
-     "fcf_source": "reported"
-    },
-    "status": "FAIL_GOVERNANCE"
    }
   }
  ]

@@ -1,0 +1,11 @@
+{
+ "ticker": "HAL",
+ "points": [
+  {
+   "date": "2026-08-30",
+   "score": 38,
+   "bucket": "AVOID",
+   "price": 4861.1
+  }
+ ]
+}

@@ -74,14 +74,23 @@ def investability(t, f, cfg, unverified, llm_checks=None):
     # structured field on screener.in — best-effort only, via the LLM's own knowledge of
     # recent news when a check was actually run this cycle (see llm.py). No check yet run
     # for this stock -> stays unverified rather than assumed clean.
+    #
+    # A raised flag no longer blocks scoring outright (it used to blank the whole
+    # scorecard to FAIL_GOVERNANCE, hiding a stock's real technicals/fundamentals
+    # behind a single LLM call that sometimes came back with no actual citation to
+    # back it up). It's now surfaced as a visible red flag instead — see evaluate()
+    # — so you get the real score plus the concern, and can judge the citation
+    # yourself rather than the pipeline judging it for you.
     if llm_checks is not None and "governance_flag" in llm_checks:
-        g["governance"] = not llm_checks.get("governance_flag")
+        g["governance_flag"] = bool(llm_checks.get("governance_flag"))
         g["governance_note"] = llm_checks.get("governance_note", "")
     else:
-        g["governance"] = True
+        g["governance_flag"] = False
+        g["governance_note"] = ""
         if "governance_events" not in unverified:
             unverified.append("governance_events")
-    g["pass"] = g["liquidity"] and g["pledge"] and g["governance"]
+    g["governance"] = True
+    g["pass"] = g["liquidity"] and g["pledge"]
     return g
 
 
@@ -367,6 +376,10 @@ def evaluate(ticker, name, tech, fund, regime, cfg, mode="FULL", prior=None, llm
 
     tt = trend_template(tech, unverified)
     inv = investability(tech, fund, cfg, unverified, llm_checks=llm_verdict)
+    if inv.get("governance_flag"):
+        note = inv.get("governance_note")
+        flags.append("GOVERNANCE: " + (note if note else
+            "flagged by the LLM verdict check with no citation given — unverified, judge independently"))
     # Raw H3/governance assessment, persisted so a stock not rechecked this run (see
     # pipeline.py's recheck cadence/budget) still carries forward its last known result
     # instead of reverting to unverified every week in between checks.
@@ -418,15 +431,14 @@ def evaluate(ticker, name, tech, fund, regime, cfg, mode="FULL", prior=None, llm
     }
 
     if not inv["pass"]:
-        fails = [k.upper() for k in ("liquidity", "pledge", "governance") if not inv[k]]
+        # governance no longer participates here — see investability()
+        fails = [k.upper() for k in ("liquidity", "pledge") if not inv[k]]
         card["status"] = "FAIL_" + fails[0] if fails else "FAIL_INVESTABILITY"
         card["quality_band"] = "Reject"
         card["action_bucket"] = "AVOID"
-        summary = "Fails investability gate: %s." % ", ".join(fails)
-        if not inv.get("governance", True) and inv.get("governance_note"):
-            summary += " Governance: %s" % inv["governance_note"]
-        card["verdict"]["summary"] = summary
+        card["verdict"]["summary"] = "Fails investability gate: %s." % ", ".join(fails)
         card["data_quality"]["unverified_fields"] = sorted(set(unverified))
+        card["red_flags"] = sorted(set(flags))  # a governance flag can still co-occur here
         _apply_delta(card, prior)
         return card
 

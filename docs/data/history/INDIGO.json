@@ -1,0 +1,11 @@
+{
+ "ticker": "INDIGO",
+ "points": [
+  {
+   "date": "2026-08-30",
+   "score": 22,
+   "bucket": "AVOID",
+   "price": 5166.0
+  }
+ ]
+}

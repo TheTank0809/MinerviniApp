@@ -548,6 +548,12 @@
   }
 
   function membershipPills(entry) {
+    // With only one screen/index tracked (e.g. India-Nifty's single Nifty 100 list),
+    // every listed stock is trivially "in" it — the badge would just say the same
+    // thing on every row and carry no information. Only worth showing once there's
+    // more than one to actually distinguish between (matches the same >1 gate the
+    // top filter chips already use).
+    if (state.screens.length <= 1) return "";
     return state.screens.map(function (raw) {
       var s = screenMeta(raw.screen);
       var on = !!entry.activeRecs[s.screen];

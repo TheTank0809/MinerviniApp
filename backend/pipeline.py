@@ -368,7 +368,8 @@ def process_screen(client, universe_key, uni, screen, settings):
             }
             out_stocks.append(rec)
             # SCORED and SCORED_NO_TREND both carry a real numeric score — only the
-            # FAIL_* gate-2 statuses (investability/liquidity/governance) don't.
+            # FAIL_* gate-2 statuses (liquidity/pledge) don't. Governance no longer
+            # gates this at all — see scorecard.py's investability().
             score_total = (card.get("scores") or {}).get("total")
             if score_total is not None:
                 update_history(code, today(), score_total, card.get("action_bucket"),
