@@ -34,6 +34,7 @@ jobs:
               )
               print('SUCCESS — response from the API:')
               print(resp.choices[0].message.content)
+              print('Resolved model: %s' % resp.model)
           except Exception as exc:
               print('FAIL — the API call raised an error (bad key, no credit, wrong model id, or account issue):')
               print('%s: %s' % (type(exc).__name__, exc))
