@@ -12,10 +12,10 @@
   var $ = function (sel) { return document.querySelector(sel); };
   var lastFetchAt = 0;
 
-  // Shell-only universes — no pipeline, no screens, no data yet. They still appear as
-  // real tabs (per explicit request: present and clickable, just empty) rather than
-  // being hidden until there's something behind them.
-  var PLACEHOLDER_UNIVERSES = { "india-nifty": "India-Nifty", "global": "Global" };
+  // Shell-only universes — no pipeline, no data yet. They still appear as real tabs
+  // (per explicit request: present and clickable, just empty) rather than being
+  // hidden until there's something behind them.
+  var PLACEHOLDER_UNIVERSES = { "global": "Global" };
 
   // Shortlist and Buy are independent personal tags, separate from the screen filters.
   // localStorage is the instant local cache (and offline fallback); Firebase Realtime
@@ -230,7 +230,10 @@
           if (!byUniverse[s.universe]) byUniverse[s.universe] = [];
           byUniverse[s.universe].push(s);
         });
-        Object.keys(PLACEHOLDER_UNIVERSES).forEach(function (k) { byUniverse[k] = []; });
+        // Only fill in a placeholder if this universe has no real data yet — never
+        // stomp real screens/indices a pipeline already wrote (this bit us once:
+        // india-nifty went from real to permanently-empty until this guard existed).
+        Object.keys(PLACEHOLDER_UNIVERSES).forEach(function (k) { if (!byUniverse[k]) byUniverse[k] = []; });
         state.universes = byUniverse;
         var keys = Object.keys(state.universes).filter(function (k) { return !PLACEHOLDER_UNIVERSES[k]; });
         state.universeKey = keys[0] || null;

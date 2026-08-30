@@ -420,6 +420,12 @@ def process_screen(client, universe_key, uni, screen, settings):
 
 
 def main():
+    # Other pipelines (e.g. pipeline_nifty.py, monthly) write their own manifest
+    # entries into this same shared file. Preserve anything already there that this
+    # run doesn't itself regenerate, so the two pipelines don't clobber each other's
+    # entries when they run at different times.
+    prior_manifest = load_json(os.path.join(DATA_DIR, "manifest.json"), {})
+    prior_screens = prior_manifest.get("screens", [])
     manifest = {"generated_at": datetime.datetime.utcnow().isoformat() + "Z",
                 "sample": False, "screens": []}
     failures = 0
@@ -456,6 +462,13 @@ def main():
         print("PIPELINE FAILED: %s" % exc)
         traceback.print_exc()
         manifest["fatal_error"] = str(exc)
+
+    existing_keys = {(s.get("universe"), s.get("screen")) for s in manifest["screens"]}
+    for s in prior_screens:
+        key = (s.get("universe"), s.get("screen"))
+        if key not in existing_keys:
+            manifest["screens"].append(s)
+            existing_keys.add(key)
 
     save_json(os.path.join(DATA_DIR, "manifest.json"), manifest)
     print("done. manifest written.")

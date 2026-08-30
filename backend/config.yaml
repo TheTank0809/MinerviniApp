@@ -46,6 +46,36 @@ universes:
         short: "GR"
         enabled: true
 
+  india-nifty:
+    label: "India-Nifty"
+    enabled: true
+    currency: "INR"
+    yahoo_suffixes: [".NS", ".BO"]
+    # Ranked against the same broad Nifty 500 reference as India-S, for comparable RS
+    # methodology across universes.
+    rs_universe_csv: "backend/data/universe_india.csv"
+    rs_universe_label: "Nifty 500"
+    # Unlike `screens` (a screener.in saved-screen URL), an `indices` entry tracks every
+    # constituent of a static NSE index list — see pipeline_nifty.py.
+    indices:
+      - name: "Nifty 100"
+        slug: "nifty100"
+        short: "N100"
+        enabled: true
+        constituents_csv: "backend/data/universe_nifty100.csv"
+        # "anthropic" or "deepseek" — flip this line any time to switch which model
+        # handles both the new-stock verdict and the existing-stock recheck for this
+        # index. Needs the matching secret set: ANTHROPIC_API_KEY or DEEPSEEK_API_KEY.
+        llm_provider: "deepseek"
+        # Verify this against DeepSeek's current docs when you add the key — model
+        # names shift. "claude-sonnet-5" if you switch llm_provider to "anthropic".
+        llm_model: "deepseek-chat"
+        # Sized for the bootstrap load: all ~100 constituents want a verdict in the
+        # first run, not spread over months the way the weekly screens' budget of 25
+        # is (see backend/llm.py and pipeline_nifty.py's module docstring).
+        llm_max_new_stocks_per_run: 100
+        llm_max_existing_catalyst_checks_per_run: 20
+
   # Placeholder for the planned US / global section. When you're ready, set enabled: true
   # and add a source (screener.in doesn't cover US stocks; a different fetcher will be needed).
   us:
