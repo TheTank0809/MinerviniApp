@@ -1,0 +1,11 @@
+{
+ "ticker": "LODHA",
+ "points": [
+  {
+   "date": "2026-08-30",
+   "score": 70,
+   "bucket": "AVOID",
+   "price": 1274.0
+  }
+ ]
+}

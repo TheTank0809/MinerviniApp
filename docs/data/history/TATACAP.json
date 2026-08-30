@@ -1,0 +1,11 @@
+{
+ "ticker": "TATACAP",
+ "points": [
+  {
+   "date": "2026-08-30",
+   "score": 52,
+   "bucket": "AVOID",
+   "price": 376.0
+  }
+ ]
+}

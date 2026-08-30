@@ -1,0 +1,11 @@
+{
+ "ticker": "HINDZINC",
+ "points": [
+  {
+   "date": "2026-08-30",
+   "score": 68,
+   "bucket": "AVOID",
+   "price": 622.0
+  }
+ ]
+}

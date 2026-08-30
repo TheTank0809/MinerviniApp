@@ -1,0 +1,11 @@
+{
+ "ticker": "PFC",
+ "points": [
+  {
+   "date": "2026-08-30",
+   "score": 19,
+   "bucket": "AVOID",
+   "price": 352.0
+  }
+ ]
+}

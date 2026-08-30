@@ -1,0 +1,11 @@
+{
+ "ticker": "ENRIN",
+ "points": [
+  {
+   "date": "2026-08-30",
+   "score": 13,
+   "bucket": "AVOID",
+   "price": 3242.6
+  }
+ ]
+}

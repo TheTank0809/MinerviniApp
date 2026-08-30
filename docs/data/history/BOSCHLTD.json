@@ -1,0 +1,11 @@
+{
+ "ticker": "BOSCHLTD",
+ "points": [
+  {
+   "date": "2026-08-30",
+   "score": 45,
+   "bucket": "AVOID",
+   "price": 48780.0
+  }
+ ]
+}

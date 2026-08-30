@@ -1,0 +1,11 @@
+{
+ "ticker": "BRITANNIA",
+ "points": [
+  {
+   "date": "2026-08-30",
+   "score": 34,
+   "bucket": "AVOID",
+   "price": 5308.5
+  }
+ ]
+}

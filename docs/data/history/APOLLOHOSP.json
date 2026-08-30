@@ -1,0 +1,11 @@
+{
+ "ticker": "APOLLOHOSP",
+ "points": [
+  {
+   "date": "2026-08-30",
+   "score": 59,
+   "bucket": "AVOID",
+   "price": 8800.0
+  }
+ ]
+}

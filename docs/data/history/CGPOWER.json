@@ -1,0 +1,11 @@
+{
+ "ticker": "CGPOWER",
+ "points": [
+  {
+   "date": "2026-08-30",
+   "score": 41,
+   "bucket": "AVOID",
+   "price": 889.0
+  }
+ ]
+}

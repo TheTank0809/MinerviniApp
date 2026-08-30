@@ -1,0 +1,11 @@
+{
+ "ticker": "ITC",
+ "points": [
+  {
+   "date": "2026-08-30",
+   "score": 14,
+   "bucket": "AVOID",
+   "price": 266.0
+  }
+ ]
+}

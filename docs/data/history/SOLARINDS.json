@@ -1,0 +1,11 @@
+{
+ "ticker": "SOLARINDS",
+ "points": [
+  {
+   "date": "2026-08-30",
+   "score": 75,
+   "bucket": "WATCH",
+   "price": 20400.0
+  }
+ ]
+}

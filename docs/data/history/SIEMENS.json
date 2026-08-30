@@ -1,0 +1,11 @@
+{
+ "ticker": "SIEMENS",
+ "points": [
+  {
+   "date": "2026-08-30",
+   "score": 59,
+   "bucket": "AVOID",
+   "price": 4089.0
+  }
+ ]
+}

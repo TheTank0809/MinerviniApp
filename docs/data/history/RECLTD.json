@@ -1,0 +1,11 @@
+{
+ "ticker": "RECLTD",
+ "points": [
+  {
+   "date": "2026-08-30",
+   "score": 16,
+   "bucket": "AVOID",
+   "price": 316.8
+  }
+ ]
+}

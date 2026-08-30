@@ -1,0 +1,44 @@
+{
+ "runs": [
+  {
+   "run_date": "2026-08-30",
+   "mode": "BOOTSTRAP",
+   "regime": {
+    "score": 5,
+    "label": "CONFIRMED_UPTREND",
+    "checks": {
+     "close_above_50dma": true,
+     "close_above_200dma": true,
+     "50dma_above_200dma": true,
+     "distribution_days_25": 3,
+     "distribution_days_ok": true,
+     "pct_universe_above_200dma": 57.0,
+     "universe_above_200dma_ok": true,
+     "net_new_highs_positive": false
+    },
+    "exposure_guidance": "New buys allowed; full risk budget."
+   },
+   "counts": {
+    "active": 100,
+    "new": 0,
+    "dropped": 0,
+    "errors": 0
+   },
+   "new_tickers": [],
+   "dropped_tickers": [],
+   "actionable_now": [],
+   "errors": [],
+   "llm": {
+    "enabled": true,
+    "model": "deepseek-chat",
+    "provider": "deepseek"
+   },
+   "rs_universe": {
+    "source": "Nifty 500",
+    "attempted": 500,
+    "succeeded": 500,
+    "used": true
+   }
+  }
+ ]
+}

@@ -1,0 +1,11 @@
+{
+ "ticker": "MAXHEALTH",
+ "points": [
+  {
+   "date": "2026-08-30",
+   "score": 33,
+   "bucket": "AVOID",
+   "price": 1014.1
+  }
+ ]
+}

@@ -1,0 +1,11 @@
+{
+ "ticker": "JINDALSTEL",
+ "points": [
+  {
+   "date": "2026-08-30",
+   "score": 34,
+   "bucket": "AVOID",
+   "price": 1179.2
+  }
+ ]
+}

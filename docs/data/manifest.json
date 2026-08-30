@@ -1,7 +1,24 @@
 {
- "generated_at": "2026-08-23T09:49:02.610433Z",
+ "generated_at": "2026-08-30T12:13:34.695241Z",
  "sample": false,
  "screens": [
+  {
+   "universe": "india-nifty",
+   "screen": "nifty100",
+   "label": "Nifty 100",
+   "short": "N100",
+   "universe_label": "India-Nifty",
+   "counts": {
+    "active": 100,
+    "new": 0,
+    "dropped": 0,
+    "errors": 0
+   },
+   "regime": {
+    "label": "CONFIRMED_UPTREND",
+    "score": 5
+   }
+  },
   {
    "universe": "india",
    "screen": "minervini-filter",

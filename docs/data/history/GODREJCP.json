@@ -1,0 +1,11 @@
+{
+ "ticker": "GODREJCP",
+ "points": [
+  {
+   "date": "2026-08-30",
+   "score": 35,
+   "bucket": "AVOID",
+   "price": 915.0
+  }
+ ]
+}

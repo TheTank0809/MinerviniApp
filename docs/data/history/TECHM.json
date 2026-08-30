@@ -1,0 +1,11 @@
+{
+ "ticker": "TECHM",
+ "points": [
+  {
+   "date": "2026-08-30",
+   "score": 53,
+   "bucket": "AVOID",
+   "price": 1640.9
+  }
+ ]
+}

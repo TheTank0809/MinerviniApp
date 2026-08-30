@@ -1,0 +1,11 @@
+{
+ "ticker": "BANKBARODA",
+ "points": [
+  {
+   "date": "2026-08-30",
+   "score": 24,
+   "bucket": "AVOID",
+   "price": 241.9
+  }
+ ]
+}

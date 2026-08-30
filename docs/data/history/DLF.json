@@ -1,0 +1,11 @@
+{
+ "ticker": "DLF",
+ "points": [
+  {
+   "date": "2026-08-30",
+   "score": 31,
+   "bucket": "AVOID",
+   "price": 679.8
+  }
+ ]
+}

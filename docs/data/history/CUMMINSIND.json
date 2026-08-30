@@ -1,0 +1,11 @@
+{
+ "ticker": "CUMMINSIND",
+ "points": [
+  {
+   "date": "2026-08-30",
+   "score": 30,
+   "bucket": "AVOID",
+   "price": 5190.0
+  }
+ ]
+}

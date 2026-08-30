@@ -1,0 +1,11 @@
+{
+ "ticker": "ADANIENSOL",
+ "points": [
+  {
+   "date": "2026-08-30",
+   "score": 65,
+   "bucket": "AVOID",
+   "price": 1581.4
+  }
+ ]
+}

@@ -1,0 +1,11 @@
+{
+ "ticker": "PNB",
+ "points": [
+  {
+   "date": "2026-08-30",
+   "score": 42,
+   "bucket": "AVOID",
+   "price": 115.4
+  }
+ ]
+}

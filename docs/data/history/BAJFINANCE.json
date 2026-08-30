@@ -1,0 +1,11 @@
+{
+ "ticker": "BAJFINANCE",
+ "points": [
+  {
+   "date": "2026-08-30",
+   "score": 50,
+   "bucket": "AVOID",
+   "price": 1079.9
+  }
+ ]
+}

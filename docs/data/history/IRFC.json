@@ -1,0 +1,11 @@
+{
+ "ticker": "IRFC",
+ "points": [
+  {
+   "date": "2026-08-30",
+   "score": 4,
+   "bucket": "AVOID",
+   "price": 83.9
+  }
+ ]
+}

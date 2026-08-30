@@ -1,0 +1,11 @@
+{
+ "ticker": "HYUNDAI",
+ "points": [
+  {
+   "date": "2026-08-30",
+   "score": 28,
+   "bucket": "AVOID",
+   "price": 2267.0
+  }
+ ]
+}
