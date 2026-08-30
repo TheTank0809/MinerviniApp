@@ -101,9 +101,10 @@ universes:
         min_revenue_cagr_5y_pct: 25  # Revenue growth, 5 year CAGR (computed client-side —
                                      # not a native TradingView query field, see pipeline_global.py)
         max_debt_to_equity: 0.1      # Debt/equity, FY
-        min_market_cap: 10000000000  # $10B floor — keeps the first run roughly Nifty-100-sized
-                                     # (~100 names) for a known, comfortable LLM cost; lower this
-                                     # to widen the universe once you're ready.
+        min_market_cap: 1000000000   # $1B floor — matches the actual TradingView screen (which
+                                     # has no market-cap filter at all; this is still a deliberate
+                                     # narrowing for cost, not a match to "no floor"). ~127 companies
+                                     # at this floor with the current (strict) revenue CAGR filter.
         exclude_countries: ["Pakistan", "India"]  # India is already covered by India-S/India-Nifty
         scan_limit: 1000
         llm_provider: "deepseek"    # "deepseek" or "anthropic" — same switch as India-Nifty
