@@ -12,6 +12,7 @@ settings:
   request_delay_seconds: 1.2        # politeness delay between screener.in requests
   rs_universe_min_symbols: 100      # below this many successful fetches, fall back to tracked-only RS ranking
   rs_universe_lookback_years: 1     # OHLCV lookback for the broad RS reference universe (only needs ~1yr for the RS formula)
+  global_benchmark_index: "^GSPC"   # S&P 500 — regime benchmark for the Global universe (a proxy, not a true "whole world" index)
   llm_model: "claude-sonnet-5"      # used only if ANTHROPIC_API_KEY is set
   llm_max_new_stocks_per_run: 25    # cost guard for verdict synthesis
   llm_max_existing_catalyst_checks_per_run: 10  # cost guard for the lighter recheck below
@@ -76,11 +77,36 @@ universes:
         llm_max_new_stocks_per_run: 100
         llm_max_existing_catalyst_checks_per_run: 20
 
-  # Placeholder for the planned US / global section. When you're ready, set enabled: true
-  # and add a source (screener.in doesn't cover US stocks; a different fetcher will be needed).
-  us:
-    label: "US / Global"
-    enabled: false
+  global:
+    label: "Global"
+    enabled: true
     currency: "USD"
-    yahoo_suffixes: [""]
-    screens: []
+    # No screener.in equivalent for international stocks — the universe AND
+    # fundamentals both come from a TradingView growth-screen query instead (see
+    # backend/tradingview_client.py, backend/fundamentals_tradingview.py). This is
+    # a real threshold screen re-evaluated every run (not a fixed constituent
+    # list like India-Nifty), so it keeps normal new/dropped/"Left the screen"
+    # tracking, same as India-S.
+    global_screens:
+      - name: "Growth Screener"
+        slug: "growth-screener"
+        short: "GR"
+        enabled: true
+        # Mirrors the 3 active thresholds on the TradingView screen this was built
+        # from (https://in.tradingview.com/screener/LskWhbOz/, "Growth Screener",
+        # Entire world) — everything else on that screen is a display column, not
+        # an actual filter. "will improve later" per the original request; these
+        # are all easy to retune here without touching code.
+        min_eps_growth_pct: 25       # EPS dil growth, Annual YoY
+        min_revenue_cagr_5y_pct: 25  # Revenue growth, 5 year CAGR (computed client-side —
+                                     # not a native TradingView query field, see pipeline_global.py)
+        max_debt_to_equity: 0.1      # Debt/equity, FY
+        min_market_cap: 10000000000  # $10B floor — keeps the first run roughly Nifty-100-sized
+                                     # (~100 names) for a known, comfortable LLM cost; lower this
+                                     # to widen the universe once you're ready.
+        exclude_countries: ["Pakistan", "India"]  # India is already covered by India-S/India-Nifty
+        scan_limit: 1000
+        llm_provider: "deepseek"    # "deepseek" or "anthropic" — same switch as India-Nifty
+        llm_model: "deepseek-chat"
+        llm_max_new_stocks_per_run: 100
+        llm_max_existing_catalyst_checks_per_run: 20
