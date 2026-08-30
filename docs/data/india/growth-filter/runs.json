@@ -1,6 +1,161 @@
 {
  "runs": [
   {
+   "run_date": "2026-08-30",
+   "mode": "WEEKLY",
+   "regime": {
+    "score": 6,
+    "label": "CONFIRMED_UPTREND",
+    "checks": {
+     "close_above_50dma": true,
+     "close_above_200dma": true,
+     "50dma_above_200dma": true,
+     "distribution_days_25": 3,
+     "distribution_days_ok": true,
+     "pct_universe_above_200dma": 72.6,
+     "universe_above_200dma_ok": true,
+     "net_new_highs_positive": true
+    },
+    "exposure_guidance": "New buys allowed; full risk budget."
+   },
+   "counts": {
+    "active": 116,
+    "new": 6,
+    "dropped": 1,
+    "errors": 4
+   },
+   "new_tickers": [
+    "SBIFUNDS",
+    "RAMRAT",
+    "KUSUMGAR",
+    "VERTIS",
+    "NHIT",
+    "JNPR"
+   ],
+   "dropped_tickers": [
+    "MCX"
+   ],
+   "actionable_now": [],
+   "alerts": [
+    {
+     "ticker": "RATEGAIN",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "PREMIERENE",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "PREMIERENE",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "JIOFIN",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "PAISALO",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "SKIPPER",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "VIYASH",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "PNGJL",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "GROWW",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "CHOICEIN",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "PGEL",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "PGEL",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "AEGISVOPAK",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "BLS",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "BLS",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "ZENTEC",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "ANANTRAJ",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "KISSHT",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "BORORENEW",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "NEPHROPLUS",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "ICICIAMC",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "ICICIAMC",
+     "alert": "CLOSED_BELOW_50DMA"
+    }
+   ],
+   "errors": [
+    {
+     "ticker": "SBIFUNDS",
+     "error": "no OHLCV data on Yahoo Finance"
+    },
+    {
+     "ticker": "VERTIS",
+     "error": "no OHLCV data on Yahoo Finance"
+    },
+    {
+     "ticker": "NHIT",
+     "error": "no OHLCV data on Yahoo Finance"
+    },
+    {
+     "ticker": "JNPR",
+     "error": "no OHLCV data on Yahoo Finance"
+    }
+   ],
+   "llm": {
+    "enabled": true,
+    "model": "claude-sonnet-5"
+   },
+   "rs_universe": {
+    "source": "Nifty 500",
+    "attempted": 500,
+    "succeeded": 500,
+    "used": true
+   }
+  },
+  {
    "run_date": "2026-08-23",
    "mode": "WEEKLY",
    "regime": {

@@ -1,20 +1,40 @@
 {
- "generated_at": "2026-08-30T13:45:02.203943Z",
+ "generated_at": "2026-08-30T13:51:27.793457Z",
  "sample": false,
  "screens": [
   {
    "universe": "india",
    "screen": "minervini-filter",
    "label": "Minervini Screener",
+   "short": "MV",
    "universe_label": "India-S",
-   "error": "screener.in returned 404 for https://www.screener.in/screens/877182/minervini-screener/?page=1. Saved screens are private, so screener.in returns 404 rather than 403 once your SCREENER_SESSIONID has expired \u2014 this is almost always an expired session rather than a bad URL. Grab a fresh sessionid cookie and update the SCREENER_SESSIONID secret. If that doesn't fix it, double-check the screen's URL/slug hasn't changed on screener.in."
+   "counts": {
+    "active": 63,
+    "new": 5,
+    "dropped": 5,
+    "errors": 0
+   },
+   "regime": {
+    "label": "CONFIRMED_UPTREND",
+    "score": 6
+   }
   },
   {
    "universe": "india",
    "screen": "growth-filter",
    "label": "Growth Screener",
+   "short": "GR",
    "universe_label": "India-S",
-   "error": "screener.in returned 404 for https://www.screener.in/screens/873628/growth-screener/?page=1. Saved screens are private, so screener.in returns 404 rather than 403 once your SCREENER_SESSIONID has expired \u2014 this is almost always an expired session rather than a bad URL. Grab a fresh sessionid cookie and update the SCREENER_SESSIONID secret. If that doesn't fix it, double-check the screen's URL/slug hasn't changed on screener.in."
+   "counts": {
+    "active": 116,
+    "new": 6,
+    "dropped": 1,
+    "errors": 4
+   },
+   "regime": {
+    "label": "CONFIRMED_UPTREND",
+    "score": 6
+   }
   },
   {
    "universe": "india-nifty",
