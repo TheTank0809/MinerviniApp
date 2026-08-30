@@ -12,10 +12,13 @@
   var $ = function (sel) { return document.querySelector(sel); };
   var lastFetchAt = 0;
 
-  // Shell-only universes — no pipeline, no data yet. They still appear as real tabs
-  // (per explicit request: present and clickable, just empty) rather than being
-  // hidden until there's something behind them.
-  var PLACEHOLDER_UNIVERSES = { "global": "Global" };
+  // Label fallback + guaranteed chip existence for universes that might not have any
+  // real manifest entries yet — "global" has no backend at all; "india-nifty" has a
+  // real backend (pipeline_nifty.py) but nothing appears here until it's actually
+  // been run at least once. Either way the chip must still show up (see loadManifest)
+  // rather than silently vanishing while waiting on real data. Once a universe has
+  // real manifest entries, its own screensHere[0].universe_label wins over this.
+  var PLACEHOLDER_UNIVERSES = { "india-nifty": "India-Nifty", "global": "Global" };
 
   // Shortlist and Buy are independent personal tags, separate from the screen filters.
   // localStorage is the instant local cache (and offline fallback); Firebase Realtime
@@ -576,9 +579,13 @@
       ? "Nothing shortlisted yet. Open a stock and tap Shortlist."
       : state.tab === "buy"
       ? "Nothing marked Buy yet. Open a stock and tap Buy."
-      : PLACEHOLDER_UNIVERSES[state.universeKey]
+      : !state.screens.length
+      // No screens/indices reported for this universe at all yet — either a true
+      // frontend-only placeholder (Global) or a real backend that just hasn't run
+      // yet (India-Nifty pre-first-scan). Self-corrects to the line below the
+      // moment real manifest data exists, without needing a code change here.
       ? "Not built yet."
-      : "Nothing here yet. The first Sunday scan fills this in.";
+      : "Nothing here yet. The first scan fills this in.";
     $("#count").textContent = list.length + (
       state.tab === "active" ? " tracked" :
       state.tab === "shortlist" || state.tab === "buy" ? " marked" : " left");
