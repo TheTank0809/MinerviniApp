@@ -1,10 +1,11 @@
-name: Monthly Global scan
+name: Weekly Global scan
 
 on:
   schedule:
-    # 28th of every month, 10:30 UTC — an hour after the Nifty scan so they don't
-    # compete for the runner/rate limits.
-    - cron: "30 10 28 * *"
+    # Sunday, 11:30 UTC — an hour after the weekly India-S scan (09:30) and its
+    # own separate slot from the Nifty scan's 28th-of-month run, so none of the
+    # three compete for runner/rate limits.
+    - cron: "30 11 * * 0"
   workflow_dispatch: {}    # run it manually from the Actions tab any time
 
 permissions:
@@ -13,14 +14,14 @@ permissions:
   id-token: write
 
 concurrency:
-  group: monthly-global-scan
+  group: weekly-global-scan
   cancel-in-progress: false
 
 jobs:
   should-run:
-    # Cost guard: same 20-day window as the Nifty scan — skip the scheduled run if
-    # this already ran recently (e.g. a manual trigger earlier in the month). A
-    # manual "Run workflow" click always runs regardless.
+    # Cost guard: same 48-hour window as the weekly India-S scan — skip the
+    # scheduled run if this already ran recently (e.g. a manual trigger earlier
+    # in the week). A manual "Run workflow" click always runs regardless.
     runs-on: ubuntu-latest
     outputs:
       run: ${{ steps.check.outputs.run }}
@@ -36,21 +37,21 @@ jobs:
             echo "Manually triggered — running regardless of when the last scan was."
             exit 0
           fi
-          last=$(git log --format=%cI --grep="^Monthly Global scan" -1)
+          last=$(git log --format=%cI --grep="^Weekly Global scan" -1)
           if [ -z "$last" ]; then
             echo "run=true" >> "$GITHUB_OUTPUT"
-            echo "No prior monthly Global scan commit found — running."
+            echo "No prior weekly Global scan commit found — running."
             exit 0
           fi
           last_epoch=$(date -d "$last" +%s)
           now_epoch=$(date -u +%s)
-          diff_days=$(( (now_epoch - last_epoch) / 86400 ))
-          echo "Last monthly Global scan: $last ($diff_days day(s) ago)"
-          if [ "$diff_days" -ge 20 ]; then
+          diff_hours=$(( (now_epoch - last_epoch) / 3600 ))
+          echo "Last weekly Global scan: $last ($diff_hours hour(s) ago)"
+          if [ "$diff_hours" -ge 48 ]; then
             echo "run=true" >> "$GITHUB_OUTPUT"
           else
             echo "run=false" >> "$GITHUB_OUTPUT"
-            echo "Skipping — already scanned within the last 20 days."
+            echo "Skipping — already scanned within the last 48 hours."
           fi
 
   scan:
@@ -86,7 +87,7 @@ jobs:
           git config user.name "minervini-bot"
           git config user.email "actions@github.com"
           git add docs/data
-          git diff --cached --quiet || git commit -m "Monthly Global scan $(date -u +%F)"
+          git diff --cached --quiet || git commit -m "Weekly Global scan $(date -u +%F)"
           git push
 
       - name: Upload site

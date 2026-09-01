@@ -1,4 +1,4 @@
-"""Global pipeline (run by GitHub Actions monthly, or locally): same Minervini
+"""Global pipeline (run by GitHub Actions weekly, or locally): same Minervini
 Scorecard Engine v3 as the other pipelines, but the tracked universe and
 fundamentals both come from a TradingView growth-screen query instead of
 screener.in — see tradingview_client.py and config.yaml's `global` universe block

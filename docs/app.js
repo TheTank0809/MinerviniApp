@@ -441,6 +441,20 @@
         x.classList.toggle("active", x.dataset.tab === "active");
       });
     }
+
+    // Global's RS percentile is ranked only within its own tracked (growth-screened)
+    // list — no broad reference universe exists for it yet, unlike India-S/India-Nifty
+    // (ranked against the Nifty 500). Flag that in the column header so it's visible
+    // on every row, not just buried in each stock's detail sheet.
+    var theadRS = $("#thead-rs");
+    if (state.universeKey === "global") {
+      theadRS.innerHTML = "RS ⓘ<em>pctile</em>";
+      theadRS.title = "Ranked only within this tracked list (the growth-screened universe), " +
+        "not the full global market — no broad reference universe exists for Global yet.";
+    } else {
+      theadRS.innerHTML = "RS<em>pctile</em>";
+      theadRS.title = "";
+    }
   }
 
   function renderFilterChips() {
@@ -789,8 +803,13 @@
 
     html += '<div class="kv">' +
       kvBtn("Price", t.price != null ? "₹" + t.price : "—", entry.ticker, "price", "Tap to see price history") +
-      kv("RS pct", t.rs_percentile != null ? t.rs_percentile : "—",
-        "Relative Strength percentile — price performance ranked against other stocks. Not the same as RSI.") +
+      kv("RS pct" + (state.universeKey === "global" ? " ⓘ" : ""),
+        t.rs_percentile != null ? t.rs_percentile : "—",
+        state.universeKey === "global"
+          ? "Relative Strength percentile — ranked only within this tracked list (the growth-screened " +
+            "universe), not the full global market. No broad reference universe exists for Global yet, " +
+            "unlike India-S/India-Nifty (ranked against the Nifty 500). Not the same as RSI."
+          : "Relative Strength percentile — price performance ranked against other stocks. Not the same as RSI.") +
       kv("RSI", t.rsi != null ? t.rsi : "—",
         "Wilder's 14-day momentum oscillator (overbought/oversold on this stock's own price) — context only, never scored, and not the same as RS pct.") +
       kv("ROCE", t.roce != null ? t.roce + "%" : "—",
