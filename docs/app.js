@@ -244,7 +244,9 @@
         return state.universeKey ? loadUniverse(state.universeKey) : renderList();
       })
       .catch(function () {
-        $("#regime-line").textContent = "No data yet — run the weekly scan";
+        var el = $("#error-banner");
+        el.textContent = "⚠ No data yet — run the weekly scan";
+        el.hidden = false;
       });
   }
 
@@ -369,17 +371,11 @@
   // ---------------------------------------------------------------- header
 
   function renderRegime(run) {
-    var el = $("#regime-line");
     var llmEl = $("#llm-line");
     if (!run) {
-      el.innerHTML = '<span class="cursor">▮</span> Awaiting first scan';
       llmEl.hidden = true;
       return;
     }
-    var r = run.regime || {};
-    el.className = "regime " + (r.label === "CORRECTION" ? "correction" : r.label === "CAUTION" ? "caution" : "");
-    el.innerHTML = '<span class="cursor">▮</span> MKT ' + esc(r.label || "?") +
-      " " + (r.score != null ? r.score + "/6" : "");
     $("#runstamp").textContent = "Scan " + fmtDate(run.run_date);
 
     var llm = run.llm;
@@ -388,23 +384,6 @@
       llmEl.hidden = false;
     } else {
       llmEl.hidden = true;
-    }
-
-    var rsEl = $("#rs-line");
-    var rsu = run.rs_universe;
-    if (rsu && rsu.source) {
-      rsEl.textContent = rsu.succeeded + " scanned";
-      if (rsu.used) {
-        rsEl.className = "llmline";
-        rsEl.title = "RS ranked against " + rsu.source + ": " + rsu.succeeded + "/" + rsu.attempted + " fetched";
-      } else {
-        rsEl.className = "llmline warn";
-        rsEl.title = "Only " + rsu.succeeded + "/" + rsu.attempted + " of " + rsu.source +
-          " fetched this run — fell back to tracked-only RS ranking";
-      }
-      rsEl.hidden = false;
-    } else {
-      rsEl.hidden = true;
     }
   }
 

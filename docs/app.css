@@ -87,15 +87,6 @@ h1 {
   letter-spacing: .04em; text-transform: uppercase;
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
-.regime {
-  font-family: var(--mono); font-size: 11.5px; color: var(--amber-soft);
-  letter-spacing: .03em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-}
-.regime.correction { color: var(--fail); }
-.regime.caution { color: var(--amber); }
-.cursor { animation: blink 1.1s steps(1) infinite; }
-@keyframes blink { 50% { opacity: 0; } }
-@media (prefers-reduced-motion: reduce) { .cursor { animation: none; } }
 .runstamp { font-family: var(--mono); font-size: 11px; color: var(--muted); text-align: right; flex: none; }
 .universe-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
 .topbar-right { display: flex; align-items: center; gap: 10px; flex: none; }
