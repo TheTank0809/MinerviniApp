@@ -80,7 +80,7 @@ body.locked > *:not(.gate) { display: none !important; }
 }
 /* The text column is a flex child too — without min-width:0 it won't shrink below its
    own content width and h1 can silently overflow past .brand into whatever sits next
-   to it (runstamp, search) rather than truncating. */
+   to it (search) rather than truncating. */
 .brand > div { min-width: 0; overflow: hidden; }
 h1 {
   font-family: var(--display); font-size: 17px; font-weight: 600; margin: 0;
@@ -97,6 +97,7 @@ h1 {
 @keyframes blink { 50% { opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { .cursor { animation: none; } }
 .runstamp { font-family: var(--mono); font-size: 11px; color: var(--muted); text-align: right; flex: none; }
+.universe-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
 .topbar-right { display: flex; align-items: center; gap: 10px; flex: none; }
 .search { display: flex; align-items: center; }
 .search-btn {
@@ -116,16 +117,16 @@ h1 {
 .search-input.show { opacity: 1; transform: translateX(0); }
 .search-input:focus-visible { outline: 2px solid var(--amber); outline-offset: 1px; border-color: var(--amber-dim); }
 
-/* Below ~520px there isn't room for the title, the run stamp, and an expanded search
-   box on one line — rather than cram all three, an open search takes over the whole
-   bar (the standard mobile-search pattern) instead of fighting the title for space. */
+/* Below ~520px there isn't room for the title and an expanded search box on one
+   line — rather than cram both, an open search takes over the whole bar (the
+   standard mobile-search pattern) instead of fighting the title for space. */
 @media (max-width: 520px) {
   .search.open {
     position: absolute; left: 16px; right: 16px; top: 14px; z-index: 21;
     background: var(--bg); display: flex; align-items: center;
   }
   .search.open .search-input { flex: 1 1 auto; width: auto; max-width: none; }
-  .topbar:has(.search.open) .brand, .topbar:has(.search.open) .runstamp { visibility: hidden; }
+  .topbar:has(.search.open) .brand { visibility: hidden; }
 }
 .llmline { font-family: var(--mono); font-size: 10.5px; color: var(--muted); margin-top: 2px; letter-spacing: .02em; }
 .llmline.warn { color: var(--amber-soft); }
