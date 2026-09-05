@@ -1,4 +1,4 @@
-"""Ratios pipeline (run by GitHub Actions weekly on Fridays, or locally): pulls a
+"""Ratios pipeline (run by GitHub Actions weekly on Saturdays, or locally): pulls a
 small set of macro valuation figures — Nifty 50 / Smallcap 100 / Midcap 100 / S&P
 500 / Gold / Silver — completely independent of the Minervini scorecard pipelines.
 
@@ -34,7 +34,7 @@ import requests
 
 sys.path.insert(0, os.path.dirname(__file__))
 import technicals as T
-from pipeline import load_json, save_json, today, DATA_DIR
+from pipeline import load_json, save_json, DATA_DIR
 
 RATIOS_PATH = os.path.join(DATA_DIR, "ratios.json")
 HISTORY_PATH = os.path.join(DATA_DIR, "ratios_history.json")
@@ -80,14 +80,23 @@ def fetch_yahoo_values():
         "gold_price_usd": float(hist["GC=F"]["Close"].iloc[-1]),
         "silver_price_usd": float(hist["SI=F"]["Close"].iloc[-1]),
         "usd_inr": float(hist["INR=X"]["Close"].iloc[-1]),
+        # The actual trading day this data is from — the pipeline runs Saturday
+        # morning, but this will be Friday's date, since markets were closed
+        # Saturday and no new bar exists for it. Used as the stored/displayed
+        # date instead of today() (the run date), which would mislabel every
+        # snapshot by a day.
+        "as_of": str(hist["^GSPC"].index[-1].date()),
     }
 
 
-def update_history_and_get_avg(history, key, metric, value):
-    """Appends (or overwrites same-day) this week's snapshot for (key, metric) and
-    returns the mean of every snapshot collected so far, including this one."""
+def update_history_and_get_avg(history, key, metric, value, as_of):
+    """Appends (or overwrites same-day) a snapshot for (key, metric) and returns
+    the mean of every snapshot collected so far, including this one. `as_of` is
+    the trading date the value actually reflects — the pipeline runs Saturday
+    morning but the prices are Friday's close, so this must NOT default to
+    today()'s run date or every snapshot would be mislabeled by a day."""
     series = history.setdefault(key, {}).setdefault(metric, [])
-    date = today()
+    date = as_of
     for i, p in enumerate(series):
         if p.get("date") == date:
             series[i] = {"date": date, "value": value}
@@ -103,6 +112,7 @@ def main():
     nse = fetch_nse_indices()
     yahoo = fetch_yahoo_values()
     fx = yahoo["usd_inr"]
+    as_of = yahoo["as_of"]
 
     nifty_price = nse["nifty50"]["price"]
     sp500_price_inr = yahoo["sp500_price_usd"] * fx
@@ -130,49 +140,49 @@ def main():
             "price_inr": nifty_price, "price_usd": nifty_price / fx,
             "by_nifty": 1.0,
             "pe": nse["nifty50"]["pe"],
-            "hist_avg_pe": update_history_and_get_avg(history, "nifty50", "pe", nse["nifty50"]["pe"]),
+            "hist_avg_pe": update_history_and_get_avg(history, "nifty50", "pe", nse["nifty50"]["pe"], as_of),
         },
         {
             "key": "smallcap100", "name": "Smallcap 100",
             "price_inr": nse["smallcap100"]["price"], "price_usd": nse["smallcap100"]["price"] / fx,
             "by_nifty": nse["smallcap100"]["price"] / nifty_price,
             "pe": nse["smallcap100"]["pe"],
-            "hist_avg_pe": update_history_and_get_avg(history, "smallcap100", "pe", nse["smallcap100"]["pe"]),
+            "hist_avg_pe": update_history_and_get_avg(history, "smallcap100", "pe", nse["smallcap100"]["pe"], as_of),
         },
         {
             "key": "midcap100", "name": "Midcap 100",
             "price_inr": nse["midcap100"]["price"], "price_usd": nse["midcap100"]["price"] / fx,
             "by_nifty": nse["midcap100"]["price"] / nifty_price,
             "pe": nse["midcap100"]["pe"],
-            "hist_avg_pe": update_history_and_get_avg(history, "midcap100", "pe", nse["midcap100"]["pe"]),
+            "hist_avg_pe": update_history_and_get_avg(history, "midcap100", "pe", nse["midcap100"]["pe"], as_of),
         },
         {
             "key": "sp500", "name": "S&P 500",
             "price_inr": sp500_price_inr, "price_usd": yahoo["sp500_price_usd"],
             "by_nifty": sp500_price_inr / nifty_price,
             "pe": yahoo["sp500_pe"],
-            "hist_avg_pe": update_history_and_get_avg(history, "sp500", "pe", yahoo["sp500_pe"]),
+            "hist_avg_pe": update_history_and_get_avg(history, "sp500", "pe", yahoo["sp500_pe"], as_of),
         },
         {
             "key": "gold", "name": "Gold (10g)",
             "price_inr": gold_price_inr, "price_usd": gold_price_usd_10g,
             "by_nifty": gold_price_inr / nifty_price,
             "gold_silver_ratio": gold_silver_ratio,
-            "hist_avg_price_inr": update_history_and_get_avg(history, "gold", "price_inr", gold_price_inr),
+            "hist_avg_price_inr": update_history_and_get_avg(history, "gold", "price_inr", gold_price_inr, as_of),
         },
         {
             "key": "silver", "name": "Silver (kg)",
             "price_inr": silver_price_inr, "price_usd": silver_price_usd_kg,
             "by_nifty": silver_price_inr / nifty_price,
             "gold_silver_ratio": gold_silver_ratio,
-            "hist_avg_price_inr": update_history_and_get_avg(history, "silver", "price_inr", silver_price_inr),
+            "hist_avg_price_inr": update_history_and_get_avg(history, "silver", "price_inr", silver_price_inr, as_of),
         },
     ]
 
     save_json(HISTORY_PATH, history)
     save_json(RATIOS_PATH, {
         "generated_at": datetime.datetime.utcnow().isoformat() + "Z",
-        "as_of": today(),
+        "as_of": as_of,
         "usd_inr": fx,
         "rows": rows,
     })

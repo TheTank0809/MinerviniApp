@@ -2,9 +2,13 @@ name: Weekly Ratios scan
 
 on:
   schedule:
-    # Friday, 13:00 UTC = 18:30 IST — well after NSE close (15:30 IST), so the
-    # day's real closing figures are in.
-    - cron: "0 13 * * 5"
+    # Saturday, 03:00 UTC = 08:30 IST. NSE closes Friday 15:30 IST, but the S&P
+    # 500 and gold/silver futures don't even open until Friday evening IST and
+    # run past midnight — US markets close ~21:00-22:00 UTC Friday (~02:30-03:30
+    # IST Saturday). A Friday-evening run would catch NSE's real close but stale
+    # pre-market US data; Saturday morning is comfortably after every relevant
+    # close.
+    - cron: "0 3 * * 6"
   workflow_dispatch: {}    # run it manually from the Actions tab any time
 
 permissions:
