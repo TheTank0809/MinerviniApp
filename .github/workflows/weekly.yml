@@ -2,7 +2,7 @@ name: Weekly Minervini scan
 
 on:
   schedule:
-    - cron: "30 9 * * 0"   # every Sunday 09:30 UTC = 15:00 IST
+    - cron: "30 9 * * 6"   # every Saturday 09:30 UTC = 15:00 IST
   workflow_dispatch: {}    # run it manually from the Actions tab any time
 
 permissions:
@@ -17,9 +17,9 @@ concurrency:
 jobs:
   should-run:
     # Cost guard: if you've already manually run this within the last 2 days (e.g. a
-    # Friday/Saturday trigger), skip the Sunday schedule rather than re-running the LLM
-    # verdict/catalyst calls for data that's still fresh. A manual "Run workflow" click
-    # always runs regardless — this only skips the automatic schedule.
+    # Thursday/Friday trigger), skip the Saturday schedule rather than re-running the
+    # LLM verdict/catalyst calls for data that's still fresh. A manual "Run workflow"
+    # click always runs regardless — this only skips the automatic schedule.
     runs-on: ubuntu-latest
     outputs:
       run: ${{ steps.check.outputs.run }}

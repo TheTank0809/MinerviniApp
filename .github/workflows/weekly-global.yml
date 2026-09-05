@@ -2,10 +2,9 @@ name: Weekly Global scan
 
 on:
   schedule:
-    # Sunday, 11:30 UTC — an hour after the weekly India-S scan (09:30) and its
-    # own separate slot from the Nifty scan's 28th-of-month run, so none of the
-    # three compete for runner/rate limits.
-    - cron: "30 11 * * 0"
+    # Saturday, 11:30 UTC — after the weekly India-S scan (09:30) and the Ratios
+    # scan (03:00), each in their own slot so none compete for runner/rate limits.
+    - cron: "30 11 * * 6"
   workflow_dispatch: {}    # run it manually from the Actions tab any time
 
 permissions:
