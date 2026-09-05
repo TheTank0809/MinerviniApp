@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-05T06:36:36.226387Z",
+ "generated_at": "2026-09-05T06:59:22.479505Z",
  "as_of": "2026-09-05",
  "usd_inr": 94.48999786376953,
  "rows": [
@@ -41,21 +41,21 @@
   },
   {
    "key": "gold",
-   "name": "Gold",
-   "price_inr": 418571.77408184856,
-   "price_usd": 4429.7998046875,
-   "by_nifty": 17.515148908968165,
+   "name": "Gold (10g)",
+   "price_inr": 134573.9502928652,
+   "price_usd": 1424.2137087026554,
+   "by_nifty": 5.631251136840164,
    "gold_silver_ratio": 67.07041956762411,
-   "hist_avg_price_inr": 418571.77408184856
+   "hist_avg_price_inr": 134573.9502928652
   },
   {
    "key": "silver",
-   "name": "Silver",
-   "price_inr": 6240.780612082221,
-   "price_usd": 66.0469970703125,
-   "by_nifty": 0.2611456588743779,
+   "name": "Silver (kg)",
+   "price_inr": 200645.7558494625,
+   "price_usd": 2123.460264426532,
+   "by_nifty": 8.3960278959675,
    "gold_silver_ratio": 67.07041956762411,
-   "hist_avg_price_inr": 6240.780612082221
+   "hist_avg_price_inr": 200645.7558494625
   }
  ]
 }

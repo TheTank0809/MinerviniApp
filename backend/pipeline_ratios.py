@@ -10,7 +10,9 @@ Sources, chosen after checking each one actually returns real data:
 - S&P 500 price: Yahoo Finance (^GSPC). P/E: no direct S&P 500 P/E from Yahoo
   either, so SPY (the S&P 500 ETF) is used as a P/E proxy — SPY tracks the index
   closely enough that its trailing P/E is a reasonable stand-in.
-- Gold / Silver: Yahoo Finance (GC=F / SI=F), quoted in USD, converted to INR via
+- Gold / Silver: Yahoo Finance (GC=F / SI=F) quotes per troy ounce (31.1034768g),
+  the international bullion convention — converted here to the units an Indian
+  retail buyer actually means (gold per 10g, silver per kg), then to INR via
   live USD/INR (INR=X).
 
 "Historical average" has no ready-made source (no free API publishes a running
@@ -82,10 +84,16 @@ def fetch_yahoo_values():
 
 
 def update_history_and_get_avg(history, key, metric, value):
-    """Appends this week's snapshot for (key, metric) and returns the mean of
-    every snapshot collected so far, including this one."""
+    """Appends (or overwrites same-day) this week's snapshot for (key, metric) and
+    returns the mean of every snapshot collected so far, including this one."""
     series = history.setdefault(key, {}).setdefault(metric, [])
-    series.append({"date": today(), "value": value})
+    date = today()
+    for i, p in enumerate(series):
+        if p.get("date") == date:
+            series[i] = {"date": date, "value": value}
+            break
+    else:
+        series.append({"date": date, "value": value})
     history[key][metric] = series[-HISTORY_MAX_POINTS:]
     vals = [p["value"] for p in history[key][metric] if p.get("value") is not None]
     return sum(vals) / len(vals) if vals else None
@@ -98,10 +106,21 @@ def main():
 
     nifty_price = nse["nifty50"]["price"]
     sp500_price_inr = yahoo["sp500_price_usd"] * fx
-    gold_price_inr = yahoo["gold_price_usd"] * fx
-    silver_price_inr = yahoo["silver_price_usd"] * fx
+    # Yahoo Finance quotes gold/silver (GC=F/SI=F) per troy ounce (31.1034768g) — the
+    # international bullion convention, not what a retail Indian buyer means by "gold
+    # price" (per 10g) or "silver price" (per kg). Converting at the source here so
+    # every downstream value (By Nifty, historical average) is in the same real unit
+    # as the displayed price, not just the display itself.
+    GRAMS_PER_TROY_OZ = 31.1034768
+    gold_price_usd_10g = yahoo["gold_price_usd"] * 10 / GRAMS_PER_TROY_OZ
+    silver_price_usd_kg = yahoo["silver_price_usd"] * 1000 / GRAMS_PER_TROY_OZ
+    gold_price_inr = gold_price_usd_10g * fx
+    silver_price_inr = silver_price_usd_kg * fx
+    # Ratio is unit-invariant as long as both sides use the same basis — computed
+    # from the raw per-troy-oz USD quotes, unaffected by the retail-unit conversion
+    # above.
     gold_silver_ratio = (yahoo["gold_price_usd"] / yahoo["silver_price_usd"]
-                         if yahoo["silver_price_usd"] else None)  # currency-invariant, no conversion needed
+                         if yahoo["silver_price_usd"] else None)
 
     history = load_json(HISTORY_PATH, {})
 
@@ -135,15 +154,15 @@ def main():
             "hist_avg_pe": update_history_and_get_avg(history, "sp500", "pe", yahoo["sp500_pe"]),
         },
         {
-            "key": "gold", "name": "Gold",
-            "price_inr": gold_price_inr, "price_usd": yahoo["gold_price_usd"],
+            "key": "gold", "name": "Gold (10g)",
+            "price_inr": gold_price_inr, "price_usd": gold_price_usd_10g,
             "by_nifty": gold_price_inr / nifty_price,
             "gold_silver_ratio": gold_silver_ratio,
             "hist_avg_price_inr": update_history_and_get_avg(history, "gold", "price_inr", gold_price_inr),
         },
         {
-            "key": "silver", "name": "Silver",
-            "price_inr": silver_price_inr, "price_usd": yahoo["silver_price_usd"],
+            "key": "silver", "name": "Silver (kg)",
+            "price_inr": silver_price_inr, "price_usd": silver_price_usd_kg,
             "by_nifty": silver_price_inr / nifty_price,
             "gold_silver_ratio": gold_silver_ratio,
             "hist_avg_price_inr": update_history_and_get_avg(history, "silver", "price_inr", silver_price_inr),
