@@ -130,8 +130,33 @@ h1 {
   border: 1px solid var(--fail); border-style: solid; color: var(--fail); background: rgba(224,86,63,.08);
 }
 
+/* ---------------- ratios ---------------- */
+.ratios-view { padding: 4px 16px 20px; max-width: 700px; margin: 0 auto; }
+.ratios-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 12px; }
+.currency-toggle { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; }
+.cur-btn {
+  font-family: var(--mono); font-size: 13px; padding: 6px 16px; color: var(--muted); background: var(--surface);
+  min-height: 32px; transition: background-color 140ms ease-out, color 140ms ease-out;
+}
+.cur-btn.active { background: var(--amber); color: var(--bg); font-weight: 600; }
+.cur-btn:focus-visible { outline: 2px solid var(--amber); outline-offset: 1px; }
+.ratios-asof { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+.ratios-table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 8px; }
+.ratios-table { width: 100%; border-collapse: collapse; font-family: var(--mono); font-size: 13px; }
+.ratios-table th {
+  text-align: right; padding: 8px 12px; color: var(--muted); font-size: 10.5px;
+  text-transform: uppercase; letter-spacing: .05em; border-bottom: 1px solid var(--line);
+  background: var(--surface-2);
+}
+.ratios-table th:first-child, .ratios-table td:first-child { text-align: left; }
+.ratios-table td { text-align: right; padding: 10px 12px; border-bottom: 1px solid var(--surface-2); color: var(--text); }
+.ratios-table tr:last-child td { border-bottom: none; }
+.ratios-table td.gs-ratio { color: var(--growth); }
+.ratios-note { margin-top: 10px; font-size: 11px; color: var(--muted); line-height: 1.5; }
+
 /* ---------------- controls ---------------- */
 .controls { padding: 2px 16px 10px; display: grid; gap: 10px; }
+.controls[hidden] { display: none; }
 .chips { display: flex; gap: 8px; flex-wrap: wrap; }
 .chip {
   font-family: var(--mono); font-size: 12px; padding: 6px 14px; min-height: 36px;

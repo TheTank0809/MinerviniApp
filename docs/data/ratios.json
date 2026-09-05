@@ -1,0 +1,61 @@
+{
+ "generated_at": "2026-09-05T06:36:36.226387Z",
+ "as_of": "2026-09-05",
+ "usd_inr": 94.48999786376953,
+ "rows": [
+  {
+   "key": "nifty50",
+   "name": "Nifty 50",
+   "price_inr": 23897.7,
+   "price_usd": 252.9124832286946,
+   "by_nifty": 1.0,
+   "pe": 20.2,
+   "hist_avg_pe": 20.2
+  },
+  {
+   "key": "smallcap100",
+   "name": "Smallcap 100",
+   "price_inr": 20095.45,
+   "price_usd": 212.67277441335656,
+   "by_nifty": 0.8408947304552321,
+   "pe": 31.83,
+   "hist_avg_pe": 31.83
+  },
+  {
+   "key": "midcap100",
+   "name": "Midcap 100",
+   "price_inr": 63079.05,
+   "price_usd": 667.5738324276808,
+   "by_nifty": 2.639544809751566,
+   "pe": 30.4,
+   "hist_avg_pe": 30.4
+  },
+  {
+   "key": "sp500",
+   "name": "S&P 500",
+   "price_inr": 729330.5067388304,
+   "price_usd": 7718.60009765625,
+   "by_nifty": 30.51885774525709,
+   "pe": 24.884598,
+   "hist_avg_pe": 24.884598
+  },
+  {
+   "key": "gold",
+   "name": "Gold",
+   "price_inr": 418571.77408184856,
+   "price_usd": 4429.7998046875,
+   "by_nifty": 17.515148908968165,
+   "gold_silver_ratio": 67.07041956762411,
+   "hist_avg_price_inr": 418571.77408184856
+  },
+  {
+   "key": "silver",
+   "name": "Silver",
+   "price_inr": 6240.780612082221,
+   "price_usd": 66.0469970703125,
+   "by_nifty": 0.2611456588743779,
+   "gold_silver_ratio": 67.07041956762411,
+   "hist_avg_price_inr": 6240.780612082221
+  }
+ ]
+}

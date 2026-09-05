@@ -7,7 +7,7 @@
 
   var state = { manifest: null, universeKey: null, universes: {}, screens: [],
                 tab: "active", sort: "score", filter: null, newPeriod: "all", searchQuery: "",
-                shortlist: {}, bought: {}, activeSheet: null,
+                shortlist: {}, bought: {}, activeSheet: null, ratios: null, currency: "inr",
                 data: { active: [], dropped: [] } };
   var $ = function (sel) { return document.querySelector(sel); };
   var lastFetchAt = 0;
@@ -220,8 +220,18 @@
 
   // ---------------------------------------------------------------- loading
 
+  function loadRatios() {
+    // Fetched in parallel with the manifest, not on-demand when the Ratios tab
+    // opens — the whole point is that it's already there and shows instantly.
+    fetch("data/ratios.json", { cache: "no-store" })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (d) { state.ratios = d; })
+      .catch(function () { state.ratios = null; });
+  }
+
   function loadManifest() {
     lastFetchAt = Date.now();
+    loadRatios();
     return fetch("data/manifest.json", { cache: "no-store" })
       .then(function (r) { if (!r.ok) throw new Error("no manifest"); return r.json(); })
       .then(function (m) {
@@ -1200,6 +1210,7 @@
   // Search — collapsed to an icon by default; tap to expand, type to filter the
   // current view by ticker or name. Collapses again on close, click-outside, or Escape.
   function openSearch() {
+    if (!$("#ratios-view").hidden) closeRatios();
     var input = $("#search-input");
     var btn = $("#search-btn");
     $("#search").classList.add("open");
@@ -1221,6 +1232,76 @@
   $("#search-btn").onclick = function () {
     if ($("#search-input").hidden) openSearch(); else closeSearch();
   };
+
+  // Ratios — a small macro-valuation table, independent of the Minervini scoring
+  // pipelines. Fetched in parallel with the manifest (loadRatios) so it's already
+  // in state.ratios by the time this ever gets opened — no fetch-on-click delay.
+  function ratiosSym() { return state.currency === "usd" ? "$" : "₹"; }
+  function fmtRatioPrice(inr, usd) {
+    var v = state.currency === "usd" ? usd : inr;
+    if (v == null) return "—";
+    return ratiosSym() + Math.round(v).toLocaleString("en-IN");
+  }
+  function renderRatios() {
+    var box = $("#ratios-rows");
+    var data = state.ratios;
+    if (!data || !data.rows) {
+      box.innerHTML = '<tr><td colspan="5">No ratios data yet — the first weekly scan fills this in.</td></tr>';
+      $("#ratios-asof").textContent = "";
+      return;
+    }
+    var fx = data.usd_inr;
+    $("#ratios-asof").textContent = "As of " + fmtDate(data.as_of) + " · 1 USD = ₹" + fx.toFixed(2);
+    box.innerHTML = data.rows.map(function (r) {
+      var isCommodity = r.key === "gold" || r.key === "silver";
+      var histCell;
+      if (isCommodity) {
+        var histUsd = r.hist_avg_price_inr != null ? r.hist_avg_price_inr / fx : null;
+        histCell = fmtRatioPrice(r.hist_avg_price_inr, histUsd);
+      } else {
+        histCell = r.hist_avg_pe != null ? r.hist_avg_pe.toFixed(1) : "—";
+      }
+      var peCell = isCommodity
+        ? (r.gold_silver_ratio != null ? r.gold_silver_ratio.toFixed(2) : "—")
+        : (r.pe != null ? r.pe.toFixed(1) : "—");
+      return "<tr>" +
+        "<td>" + esc(r.name) + "</td>" +
+        "<td>" + fmtRatioPrice(r.price_inr, r.price_usd) + "</td>" +
+        "<td>" + (r.by_nifty != null ? r.by_nifty.toFixed(3) : "—") + "</td>" +
+        "<td" + (isCommodity ? ' class="gs-ratio"' : "") + ">" + peCell + "</td>" +
+        "<td>" + histCell + "</td>" +
+        "</tr>";
+    }).join("");
+  }
+  function openRatios() {
+    if (!$("#search-input").hidden) closeSearch();
+    $("#ratios-view").hidden = false;
+    $("main").hidden = true;
+    $(".controls").hidden = true;
+    $("#sample-banner").hidden = true;
+    $("#ratios-btn").setAttribute("aria-expanded", "true");
+    document.querySelector("h1").textContent = "Ratios";
+    renderRatios();
+  }
+  function closeRatios() {
+    $("#ratios-view").hidden = true;
+    $("main").hidden = false;
+    $(".controls").hidden = false;
+    $("#sample-banner").hidden = !(state.manifest && state.manifest.sample);
+    $("#ratios-btn").setAttribute("aria-expanded", "false");
+    document.querySelector("h1").textContent = "Stock Tracker";
+  }
+  $("#ratios-btn").onclick = function () {
+    if ($("#ratios-view").hidden) openRatios(); else closeRatios();
+  };
+  document.querySelectorAll(".cur-btn").forEach(function (b) {
+    b.onclick = function () {
+      document.querySelectorAll(".cur-btn").forEach(function (x) { x.classList.remove("active"); });
+      b.classList.add("active");
+      state.currency = b.dataset.cur;
+      renderRatios();
+    };
+  });
   $("#search-input").addEventListener("input", function () {
     state.searchQuery = this.value.trim().toLowerCase();
     renderList();

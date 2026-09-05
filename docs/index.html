@@ -16,7 +16,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <!-- bump ?v= on app.css/app.js (and CACHE in sw.js) on every change — GitHub Pages
      doesn't fingerprint asset URLs, so browsers can otherwise keep serving a stale copy -->
-<link rel="stylesheet" href="app.css?v=25">
+<link rel="stylesheet" href="app.css?v=27">
 </head>
 <body>
 
@@ -50,6 +50,7 @@
       </button>
       <input type="text" id="search-input" class="search-input" placeholder="Ticker or name…" autocomplete="off" hidden>
     </div>
+    <button type="button" class="search-btn" id="ratios-btn" aria-label="Ratios" aria-expanded="false">R</button>
   </div>
 </header>
 
@@ -57,6 +58,25 @@
   Sample data — run the weekly scan once (Actions → Weekly Minervini scan) to see your screen.
 </div>
 <div id="error-banner" class="sample-banner error-banner" hidden></div>
+
+<section class="ratios-view" id="ratios-view" hidden>
+  <div class="ratios-head">
+    <div class="currency-toggle" id="currency-toggle">
+      <button type="button" class="cur-btn active" data-cur="inr">₹</button>
+      <button type="button" class="cur-btn" data-cur="usd">$</button>
+    </div>
+    <span class="ratios-asof" id="ratios-asof"></span>
+  </div>
+  <div class="ratios-table-wrap">
+    <table class="ratios-table">
+      <thead>
+        <tr><th>Asset</th><th>Price</th><th>By Nifty</th><th>P/E</th><th>Hist avg P/E</th></tr>
+      </thead>
+      <tbody id="ratios-rows"></tbody>
+    </table>
+  </div>
+  <div class="ratios-note">Historical average builds up from real weekly snapshots — starts at just this week's value and gets more meaningful over time.</div>
+</section>
 
 <nav class="controls">
   <div class="universe-row">
@@ -114,7 +134,7 @@
 </footer>
 
 <script type="module" src="firebase-sync.js?v=1"></script>
-<script src="app.js?v=31"></script>
+<script src="app.js?v=32"></script>
 </body>
 </html>
 
