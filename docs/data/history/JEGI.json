@@ -1,0 +1,11 @@
+{
+ "ticker": "JEGI",
+ "points": [
+  {
+   "date": "2026-09-05",
+   "score": 37,
+   "bucket": "AVOID",
+   "price": 145.8
+  }
+ ]
+}

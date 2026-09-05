@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-30T17:30:11.709816Z",
+ "generated_at": "2026-09-05T07:29:35.655263Z",
  "sample": false,
  "screens": [
   {
@@ -9,14 +9,14 @@
    "short": "GR",
    "universe_label": "Global",
    "counts": {
-    "active": 183,
-    "new": 185,
-    "dropped": 0,
-    "errors": 28
+    "active": 185,
+    "new": 34,
+    "dropped": 7,
+    "errors": 25
    },
    "regime": {
     "label": "CONFIRMED_UPTREND",
-    "score": 6
+    "score": 5
    }
   },
   {

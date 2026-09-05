@@ -1,6 +1,183 @@
 {
  "runs": [
   {
+   "run_date": "2026-09-05",
+   "regime": {
+    "score": 5,
+    "label": "CONFIRMED_UPTREND",
+    "checks": {
+     "close_above_50dma": true,
+     "close_above_200dma": true,
+     "50dma_above_200dma": true,
+     "distribution_days_25": 3,
+     "distribution_days_ok": true,
+     "pct_universe_above_200dma": 68.9,
+     "universe_above_200dma_ok": true,
+     "net_new_highs_positive": false
+    },
+    "exposure_guidance": "New buys allowed; full risk budget."
+   },
+   "counts": {
+    "active": 185,
+    "new": 34,
+    "dropped": 7,
+    "errors": 25
+   },
+   "new_tickers": [
+    "BPV",
+    "PANI",
+    "SNN",
+    "BCAT",
+    "PATH",
+    "EMSTEEL",
+    "BSTZ",
+    "603163",
+    "PODERC1",
+    "9699",
+    "HBMNG",
+    "CIE/B",
+    "CYL",
+    "MI",
+    "JEGI",
+    "MFPC",
+    "CMRY",
+    "039200",
+    "MVZ.A",
+    "TEL",
+    "ADES",
+    "SLYG",
+    "XTB",
+    "HDBK",
+    "BST",
+    "8313",
+    "H2O",
+    "MSIN",
+    "BROCALC1",
+    "EMAARDEV",
+    "1303",
+    "800",
+    "241",
+    "8230"
+   ],
+   "dropped_tickers": [
+    "301080",
+    "688486",
+    "MDB",
+    "6781",
+    "9636",
+    "300938",
+    "DUOL06"
+   ],
+   "actionable_now": [],
+   "errors": [
+    {
+     "ticker": "H2O",
+     "error": "exchange 'BVB' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "EMAARDEV",
+     "error": "exchange 'DFM' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "241",
+     "error": "mapped to '241.HK' but Yahoo Finance returned no data for it"
+    },
+    {
+     "ticker": "PANI",
+     "error": "exchange 'IDX' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "XTB",
+     "error": "exchange 'GPW' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "1303",
+     "error": "exchange 'TADAWUL' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "SNN",
+     "error": "exchange 'BVB' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "HBMNG",
+     "error": "exchange 'NSENG' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "8230",
+     "error": "exchange 'TADAWUL' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "PODERC1",
+     "error": "exchange 'BVL' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "8313",
+     "error": "exchange 'TADAWUL' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "MFPC",
+     "error": "exchange 'EGX' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "HDBK",
+     "error": "exchange 'EGX' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "EMSTEEL",
+     "error": "exchange 'ADX' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "CMRY",
+     "error": "exchange 'IDX' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "800",
+     "error": "mapped to '800.HK' but Yahoo Finance returned no data for it"
+    },
+    {
+     "ticker": "TEL",
+     "error": "exchange 'BVB' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "BROCALC1",
+     "error": "exchange 'BVL' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "SLYG",
+     "error": "exchange 'BSESOF' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "MI",
+     "error": "exchange 'MYX' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "MVZ.A",
+     "error": "exchange 'BVCV' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "MSIN",
+     "error": "exchange 'IDX' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "ADES",
+     "error": "exchange 'IDX' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "CIE/B",
+     "error": "exchange 'BMV' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "BPV",
+     "error": "exchange 'BVCV' has no Yahoo Finance suffix mapping yet"
+    }
+   ],
+   "llm": {
+    "enabled": true,
+    "model": "deepseek-chat",
+    "provider": "deepseek"
+   }
+  },
+  {
    "run_date": "2026-08-30",
    "regime": {
     "score": 6,
