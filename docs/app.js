@@ -1279,7 +1279,10 @@
     $("main").hidden = true;
     $(".controls").hidden = true;
     $("#sample-banner").hidden = true;
-    $("#ratios-btn").setAttribute("aria-expanded", "true");
+    var btn = $("#ratios-btn");
+    btn.setAttribute("aria-expanded", "true");
+    btn.setAttribute("aria-label", "Back to stock screen");
+    btn.textContent = "S";
     document.querySelector("h1").textContent = "Ratios";
     renderRatios();
   }
@@ -1288,7 +1291,10 @@
     $("main").hidden = false;
     $(".controls").hidden = false;
     $("#sample-banner").hidden = !(state.manifest && state.manifest.sample);
-    $("#ratios-btn").setAttribute("aria-expanded", "false");
+    var btn = $("#ratios-btn");
+    btn.setAttribute("aria-expanded", "false");
+    btn.setAttribute("aria-label", "Ratios");
+    btn.textContent = "R";
     document.querySelector("h1").textContent = "Stock Tracker";
   }
   $("#ratios-btn").onclick = function () {

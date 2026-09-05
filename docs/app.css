@@ -99,6 +99,14 @@ h1 {
 .search-btn:hover, .search-btn[aria-expanded="true"] { color: var(--amber); border-color: var(--amber-dim); }
 .search-btn:focus-visible { outline: 2px solid var(--amber); outline-offset: 1px; }
 .search-btn:active { opacity: .7; }
+/* Solid fill rather than the subtle border/color tint every other .search-btn
+   state uses — this one has to read as a mode switch (Ratios <-> Stock screen),
+   not just a hover state, so it needs real color weight, not just size. */
+#ratios-btn[aria-expanded="true"] {
+  background: var(--amber) !important; color: var(--bg) !important;
+  border-color: var(--amber) !important; font-weight: 700;
+}
+#ratios-btn[aria-expanded="true"]:hover { color: var(--bg) !important; border-color: var(--amber) !important; }
 .search-input {
   font-family: var(--mono); font-size: 12.5px; background: var(--surface); color: var(--text);
   border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px; margin-left: 6px;
