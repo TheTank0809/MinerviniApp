@@ -1,6 +1,158 @@
 {
  "runs": [
   {
+   "run_date": "2026-09-05",
+   "mode": "WEEKLY",
+   "regime": {
+    "score": 4,
+    "label": "CAUTION",
+    "checks": {
+     "close_above_50dma": false,
+     "close_above_200dma": true,
+     "50dma_above_200dma": true,
+     "distribution_days_25": 5,
+     "distribution_days_ok": false,
+     "pct_universe_above_200dma": 70.4,
+     "universe_above_200dma_ok": true,
+     "net_new_highs_positive": true
+    },
+    "exposure_guidance": "New buys at half risk; only score >=85 setups."
+   },
+   "counts": {
+    "active": 117,
+    "new": 7,
+    "dropped": 1,
+    "errors": 5
+   },
+   "new_tickers": [
+    "MCX",
+    "SBIFUNDS",
+    "MILKYMIST",
+    "VERTIS",
+    "LEAPIND",
+    "NHIT",
+    "JNPR"
+   ],
+   "dropped_tickers": [
+    "VMARCIND"
+   ],
+   "actionable_now": [],
+   "alerts": [
+    {
+     "ticker": "SJS",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "POLYCAB",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "GOKULAGRO",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "OMNI",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "IGIL",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "SANDUMA",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "MUTHOOTFIN",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "SENCO",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "OLECTRA",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "PGEL",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "BALUFORGE",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "KAYNES",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "AIIL",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "AIIL",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "GODREJPROP",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "ZENTEC",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "ASHAPURMIN",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "CRAMC",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "SEDEMAC",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "*",
+     "alert": "REGIME_CHANGE CONFIRMED_UPTREND -> CAUTION"
+    }
+   ],
+   "errors": [
+    {
+     "ticker": "MILKYMIST",
+     "error": "no OHLCV data on Yahoo Finance"
+    },
+    {
+     "ticker": "VERTIS",
+     "error": "no OHLCV data on Yahoo Finance"
+    },
+    {
+     "ticker": "LEAPIND",
+     "error": "no OHLCV data on Yahoo Finance"
+    },
+    {
+     "ticker": "NHIT",
+     "error": "no OHLCV data on Yahoo Finance"
+    },
+    {
+     "ticker": "JNPR",
+     "error": "no OHLCV data on Yahoo Finance"
+    }
+   ],
+   "llm": {
+    "enabled": true,
+    "model": "claude-sonnet-5"
+   },
+   "rs_universe": {
+    "source": "Nifty 500",
+    "attempted": 500,
+    "succeeded": 500,
+    "used": true
+   }
+  },
+  {
    "run_date": "2026-08-30",
    "mode": "WEEKLY",
    "regime": {
