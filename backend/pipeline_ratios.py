@@ -15,21 +15,23 @@ Sources, chosen after checking each one actually returns real data:
   retail buyer actually means (gold per 10g, silver per kg), then to INR via
   live USD/INR (INR=X).
 
-Baseline P/E (docs/data/ratios_baseline.json): a ONE-TIME reference value, not a
-rolling average — captured on whichever run first sees a given (key, metric) and
-then left untouched forever after, so it stays a fixed comparison point. Every
-other field (price, P/E, By Nifty) still refreshes every run.
-
 Weekly price history (docs/data/ratios_pricehist.json): powers the "click price to
 see a graph" chart. Nifty 50 / S&P 500 / Gold / Silver get a real one-time 1-year
 weekly backfill from Yahoo Finance on first run (see fetch_weekly_backfill below);
 every run after that just appends/overwrites this week's point. Nifty Smallcap 100
-and Midcap 100 have NO free historical source — Yahoo carries no matching index
-ticker for either, and NSE's own historical-index API (which does have both) blocks
-requests from outside India with a 503 bot-mitigation page even with a fully primed
-session (checked directly). So those two series simply start now and build up one
-point per week going forward, same as everything else did before this pipeline
-existed.
+and Midcap 100 have NO free historical source via automated fetch — Yahoo carries
+no matching index ticker for either, and NSE's own historical-index API (which does
+have both) blocks requests from outside India with a 503 bot-mitigation page even
+with a fully primed session (checked directly) — those two got a one-off manual CSV
+backfill instead (see docs/data/ratios_pricehist.json's git history).
+
+Monthly P/E & gold/silver-ratio history (docs/data/ratios_pe_hist.json): P/E moves
+slowly enough that a weekly chart is noise, so this bucks by CALENDAR MONTH instead
+of by week — each week's run just overwrites the current month's point with the
+latest reading, so by month-end it holds the last observed value for that month,
+and a new point starts the next month. Same idea as the price history, coarser
+grain. No baseline/"historical average" concept anymore — every point is a real
+dated observation.
 
 Usage:  python backend/pipeline_ratios.py
 """
@@ -44,9 +46,10 @@ sys.path.insert(0, os.path.dirname(__file__))
 from pipeline import load_json, save_json, DATA_DIR
 
 RATIOS_PATH = os.path.join(DATA_DIR, "ratios.json")
-BASELINE_PATH = os.path.join(DATA_DIR, "ratios_baseline.json")
 PRICEHIST_PATH = os.path.join(DATA_DIR, "ratios_pricehist.json")
 PRICEHIST_MAX_POINTS = 55  # a little over a year of weekly points
+PE_HIST_PATH = os.path.join(DATA_DIR, "ratios_pe_hist.json")
+PE_HIST_MAX_POINTS = 60  # 5 years of monthly points
 
 GRAMS_PER_TROY_OZ = 31.1034768
 
@@ -137,16 +140,6 @@ def fetch_weekly_backfill():
     return out
 
 
-def get_or_set_baseline(baseline, key, metric, value, as_of):
-    """A one-time reference value: captured the first run that ever sees this
-    (key, metric) and left untouched on every run after — a fixed comparison
-    point, not a rolling average."""
-    entry = baseline.setdefault(key, {})
-    if metric not in entry or entry[metric].get("value") is None:
-        entry[metric] = {"value": value, "captured_on": as_of}
-    return entry[metric]["value"]
-
-
 def upsert_price_point(pricehist, key, date, price_inr, price_usd):
     series = pricehist.setdefault(key, [])
     for i, p in enumerate(series):
@@ -156,6 +149,24 @@ def upsert_price_point(pricehist, key, date, price_inr, price_usd):
     else:
         series.append({"date": date, "price_inr": price_inr, "price_usd": price_usd})
     pricehist[key] = series[-PRICEHIST_MAX_POINTS:]
+
+
+def upsert_monthly_point(pehist, key, date, value):
+    """Bucketed by calendar month, not by exact date — the point for the current
+    month gets overwritten every run with the latest reading, so by month-end it
+    holds the last observed value; a new month starts a new point. `value` of
+    None is a no-op (e.g. a run where SPY's trailingPE didn't come through)."""
+    if value is None:
+        return
+    month = date[:7]  # "YYYY-MM"
+    series = pehist.setdefault(key, [])
+    for i, p in enumerate(series):
+        if (p.get("date") or "")[:7] == month:
+            series[i] = {"date": date, "value": value}
+            break
+    else:
+        series.append({"date": date, "value": value})
+    pehist[key] = series[-PE_HIST_MAX_POINTS:]
 
 
 def main():
@@ -181,7 +192,6 @@ def main():
     gold_silver_ratio = (yahoo["gold_price_usd"] / yahoo["silver_price_usd"]
                          if yahoo["silver_price_usd"] else None)
 
-    baseline = load_json(BASELINE_PATH, {})
     pricehist = load_json(PRICEHIST_PATH, {})
     if "nifty50" not in pricehist:
         pricehist.update(fetch_weekly_backfill())
@@ -192,50 +202,51 @@ def main():
             "price_inr": nifty_price, "price_usd": nifty_price / fx,
             "by_nifty": 1.0,
             "pe": nse["nifty50"]["pe"],
-            "baseline_pe": get_or_set_baseline(baseline, "nifty50", "pe", nse["nifty50"]["pe"], as_of),
         },
         {
             "key": "smallcap100", "name": "Smallcap 100",
             "price_inr": nse["smallcap100"]["price"], "price_usd": nse["smallcap100"]["price"] / fx,
             "by_nifty": nse["smallcap100"]["price"] / nifty_price,
             "pe": nse["smallcap100"]["pe"],
-            "baseline_pe": get_or_set_baseline(baseline, "smallcap100", "pe", nse["smallcap100"]["pe"], as_of),
         },
         {
             "key": "midcap100", "name": "Midcap 100",
             "price_inr": nse["midcap100"]["price"], "price_usd": nse["midcap100"]["price"] / fx,
             "by_nifty": nse["midcap100"]["price"] / nifty_price,
             "pe": nse["midcap100"]["pe"],
-            "baseline_pe": get_or_set_baseline(baseline, "midcap100", "pe", nse["midcap100"]["pe"], as_of),
         },
         {
             "key": "sp500", "name": "S&P 500",
             "price_inr": sp500_price_inr, "price_usd": yahoo["sp500_price_usd"],
             "by_nifty": sp500_price_inr / nifty_price,
             "pe": yahoo["sp500_pe"],
-            "baseline_pe": get_or_set_baseline(baseline, "sp500", "pe", yahoo["sp500_pe"], as_of),
         },
         {
             "key": "gold", "name": "Gold (10g)",
             "price_inr": gold_price_inr, "price_usd": gold_price_usd_10g,
             "by_nifty": gold_price_inr / nifty_price,
             "gold_silver_ratio": gold_silver_ratio,
-            "baseline_price_inr": get_or_set_baseline(baseline, "gold", "price_inr", gold_price_inr, as_of),
         },
         {
             "key": "silver", "name": "Silver (kg)",
             "price_inr": silver_price_inr, "price_usd": silver_price_usd_kg,
             "by_nifty": silver_price_inr / nifty_price,
             "gold_silver_ratio": gold_silver_ratio,
-            "baseline_price_inr": get_or_set_baseline(baseline, "silver", "price_inr", silver_price_inr, as_of),
         },
     ]
 
     for r in rows:
         upsert_price_point(pricehist, r["key"], as_of, r["price_inr"], r["price_usd"])
 
-    save_json(BASELINE_PATH, baseline)
+    pehist = load_json(PE_HIST_PATH, {})
+    upsert_monthly_point(pehist, "nifty50", as_of, nse["nifty50"]["pe"])
+    upsert_monthly_point(pehist, "smallcap100", as_of, nse["smallcap100"]["pe"])
+    upsert_monthly_point(pehist, "midcap100", as_of, nse["midcap100"]["pe"])
+    upsert_monthly_point(pehist, "sp500", as_of, yahoo["sp500_pe"])
+    upsert_monthly_point(pehist, "gsratio", as_of, gold_silver_ratio)
+
     save_json(PRICEHIST_PATH, pricehist)
+    save_json(PE_HIST_PATH, pehist)
     save_json(RATIOS_PATH, {
         "generated_at": datetime.datetime.utcnow().isoformat() + "Z",
         "as_of": as_of,
@@ -244,9 +255,8 @@ def main():
     })
     print("done. ratios.json written, fx=%.2f" % fx)
     for r in rows:
-        print(" %-14s price=%.2f  by_nifty=%.3f  pe=%s  baseline=%s" % (
-            r["name"], r["price_inr"], r["by_nifty"],
-            r.get("pe"), r.get("baseline_pe") or r.get("baseline_price_inr")))
+        print(" %-14s price=%.2f  by_nifty=%.3f  pe=%s" % (
+            r["name"], r["price_inr"], r["by_nifty"], r.get("pe") or r.get("gold_silver_ratio")))
 
 
 if __name__ == "__main__":
