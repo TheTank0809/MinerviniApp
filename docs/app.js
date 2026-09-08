@@ -8,7 +8,7 @@
   var state = { manifest: null, universeKey: null, universes: {}, screens: [],
                 tab: "active", sort: "score", filter: null, newPeriod: "all", searchQuery: "",
                 shortlist: {}, bought: {}, activeSheet: null, ratios: null, ratiosHist: null, ratiosPeHist: null,
-                currency: "inr", data: { active: [], dropped: [] } };
+                ratiosByNiftyHist: null, currency: "inr", data: { active: [], dropped: [] } };
   var $ = function (sel) { return document.querySelector(sel); };
   var lastFetchAt = 0;
 
@@ -253,11 +253,23 @@
       .catch(function () { state.ratiosPeHist = null; });
   }
 
+  function loadRatiosByNiftyHist() {
+    // Weekly By-Nifty series (price_inr / nifty_price_inr) behind the same popup.
+    fetch("data/ratios_bynifty_hist.json", { cache: "no-store" })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (d) {
+        state.ratiosByNiftyHist = d;
+        if (!$("#ratios-view").hidden) renderRatios();
+      })
+      .catch(function () { state.ratiosByNiftyHist = null; });
+  }
+
   function loadManifest() {
     lastFetchAt = Date.now();
     loadRatios();
     loadRatiosHist();
     loadRatiosPeHist();
+    loadRatiosByNiftyHist();
     return fetch("data/manifest.json", { cache: "no-store" })
       .then(function (r) { if (!r.ok) throw new Error("no manifest"); return r.json(); })
       .then(function (m) {
@@ -1115,6 +1127,33 @@
         var avg = vals.reduce(function (a, b) { return a + b; }, 0) / vals.length;
         return "Avg " + avg.toFixed(2) + " over " + vals.length + (vals.length === 1 ? " month" : " months");
       }
+    },
+    ratio_bynifty: {
+      title: "By Nifty history", ariaLabel: "Value history",
+      valueOf: function (p) { return p.value; },
+      domain: function (points) {
+        var vals = points.map(function (p) { return p.value; }).filter(function (v) { return v != null; });
+        var lo = Math.min.apply(null, vals), hi = Math.max.apply(null, vals);
+        if (lo === hi) { lo -= 1; hi += 1; }
+        var pad = (hi - lo) * 0.08;
+        return [lo - pad, hi + pad];
+      },
+      headline: function (last) { return last.value.toFixed(3); },
+      deltaText: function (first, last, n) {
+        var d = last.value - first.value;
+        var pct = first.value ? (d / first.value * 100) : 0;
+        var sign = d > 0 ? "+" : d < 0 ? "-" : "";
+        return { cls: d > 0 ? "up" : d < 0 ? "down" : "",
+          text: sign + Math.abs(d).toFixed(3) + " (" + sign + Math.abs(pct).toFixed(1) + "%) over " +
+            (n - 1) + (n - 1 === 1 ? " week" : " weeks") };
+      },
+      tooltip: function (p) { return fmtDate(p.date) + " · " + p.value.toFixed(3); },
+      avgText: function (points) {
+        var vals = points.map(function (p) { return p.value; }).filter(function (v) { return v != null; });
+        if (!vals.length) return "";
+        var avg = vals.reduce(function (a, b) { return a + b; }, 0) / vals.length;
+        return "Avg " + avg.toFixed(3) + " over " + vals.length + (vals.length === 1 ? " week" : " weeks");
+      }
     }
   };
 
@@ -1354,10 +1393,17 @@
         ? '<button type="button" class="ratio-price-btn" data-key="' + esc(r.key) + '" data-kind="price" data-name="' +
           esc(r.name) + '">' + priceText + "</button>"
         : priceText;
+
+      var byNiftyText = r.by_nifty != null ? r.by_nifty.toFixed(3) : "—";
+      var byNiftyHist = state.ratiosByNiftyHist && state.ratiosByNiftyHist[r.key];
+      var byNiftyCell = (r.key !== "nifty50" && r.by_nifty != null && byNiftyHist && byNiftyHist.length > 1)
+        ? '<button type="button" class="ratio-price-btn" data-key="' + esc(r.key) + '" data-kind="bynifty" data-name="' +
+          esc(r.name) + '">' + byNiftyText + "</button>"
+        : byNiftyText;
       return "<tr>" +
         "<td>" + esc(r.name) + "</td>" +
         "<td>" + priceCell + "</td>" +
-        "<td>" + (r.by_nifty != null ? r.by_nifty.toFixed(3) : "—") + "</td>" +
+        "<td>" + byNiftyCell + "</td>" +
         "<td" + (isCommodity ? ' class="gs-ratio"' : "") + ">" + peCell + "</td>" +
         "</tr>";
     }).join("");
@@ -1372,7 +1418,8 @@
   var openRatioKey = null, openRatioKind = null;
   var RATIO_HIST_KIND = {
     price: { metric: "ratio_price", label: "Price history", source: function () { return state.ratiosHist; } },
-    pe: { metric: "ratio_pe", label: "P/E history", source: function () { return state.ratiosPeHist; } }
+    pe: { metric: "ratio_pe", label: "P/E history", source: function () { return state.ratiosPeHist; } },
+    bynifty: { metric: "ratio_bynifty", label: "By Nifty history", source: function () { return state.ratiosByNiftyHist; } }
   };
   function openRatioHistoryPopup(key, name, kind) {
     var cfg = RATIO_HIST_KIND[kind] || RATIO_HIST_KIND.price;

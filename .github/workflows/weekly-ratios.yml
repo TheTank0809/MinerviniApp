@@ -86,7 +86,7 @@ jobs:
         run: |
           git config user.name "minervini-bot"
           git config user.email "actions@github.com"
-          git add docs/data/ratios.json docs/data/ratios_pricehist.json docs/data/ratios_pe_hist.json
+          git add docs/data/ratios.json docs/data/ratios_pricehist.json docs/data/ratios_pe_hist.json docs/data/ratios_bynifty_hist.json
           git diff --cached --quiet || git commit -m "Weekly Ratios scan $(date -u +%F)"
           git push
 

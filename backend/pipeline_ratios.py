@@ -33,6 +33,11 @@ and a new point starts the next month. Same idea as the price history, coarser
 grain. No baseline/"historical average" concept anymore — every point is a real
 dated observation.
 
+Weekly "By Nifty" history (docs/data/ratios_bynifty_hist.json): price_inr / nifty
+price_inr, one point per week — same cadence as the price history, since it's
+just a ratio of numbers price history already has. Nifty 50 itself is skipped
+(always exactly 1.0 by definition).
+
 Usage:  python backend/pipeline_ratios.py
 """
 
@@ -50,6 +55,8 @@ PRICEHIST_PATH = os.path.join(DATA_DIR, "ratios_pricehist.json")
 PRICEHIST_MAX_POINTS = 55  # a little over a year of weekly points
 PE_HIST_PATH = os.path.join(DATA_DIR, "ratios_pe_hist.json")
 PE_HIST_MAX_POINTS = 420  # 35 years of monthly points — Nifty 50's P/E history goes back to 2000
+BYNIFTY_HIST_PATH = os.path.join(DATA_DIR, "ratios_bynifty_hist.json")
+BYNIFTY_HIST_MAX_POINTS = 55  # weekly, same window as price — it's just price_inr / nifty_price_inr
 
 GRAMS_PER_TROY_OZ = 31.1034768
 
@@ -169,6 +176,19 @@ def upsert_monthly_point(pehist, key, date, value):
     pehist[key] = series[-PE_HIST_MAX_POINTS:]
 
 
+def upsert_weekly_value_point(hist, key, date, value):
+    """Same weekly by-exact-date upsert as upsert_price_point, but for a single
+    scalar value (here: By Nifty, i.e. price_inr / nifty_price_inr)."""
+    series = hist.setdefault(key, [])
+    for i, p in enumerate(series):
+        if p.get("date") == date:
+            series[i] = {"date": date, "value": value}
+            break
+    else:
+        series.append({"date": date, "value": value})
+    hist[key] = series[-BYNIFTY_HIST_MAX_POINTS:]
+
+
 def main():
     nse = fetch_nse_indices()
     yahoo = fetch_yahoo_values()
@@ -245,8 +265,15 @@ def main():
     upsert_monthly_point(pehist, "sp500", as_of, yahoo["sp500_pe"])
     upsert_monthly_point(pehist, "gsratio", as_of, gold_silver_ratio)
 
+    bynifty_hist = load_json(BYNIFTY_HIST_PATH, {})
+    for r in rows:
+        if r["key"] == "nifty50":
+            continue  # always exactly 1.0 by definition — not worth a chart
+        upsert_weekly_value_point(bynifty_hist, r["key"], as_of, r["by_nifty"])
+
     save_json(PRICEHIST_PATH, pricehist)
     save_json(PE_HIST_PATH, pehist)
+    save_json(BYNIFTY_HIST_PATH, bynifty_hist)
     save_json(RATIOS_PATH, {
         "generated_at": datetime.datetime.utcnow().isoformat() + "Z",
         "as_of": as_of,
