@@ -1108,7 +1108,13 @@
           text: sign + Math.abs(d).toFixed(2) + " (" + sign + Math.abs(pct).toFixed(1) + "%) over " +
             (n - 1) + (n - 1 === 1 ? " month" : " months") };
       },
-      tooltip: function (p) { return fmtDate(p.date) + " · " + p.value.toFixed(2); }
+      tooltip: function (p) { return fmtDate(p.date) + " · " + p.value.toFixed(2); },
+      avgText: function (points) {
+        var vals = points.map(function (p) { return p.value; }).filter(function (v) { return v != null; });
+        if (!vals.length) return "";
+        var avg = vals.reduce(function (a, b) { return a + b; }, 0) / vals.length;
+        return "Avg " + avg.toFixed(2) + " over " + vals.length + (vals.length === 1 ? " month" : " months");
+      }
     }
   };
 
@@ -1174,8 +1180,11 @@
       return '<span class="' + (isYearAlt(p) ? "hist-year-alt" : "") + '">' + text + "</span>";
     }).join("");
 
+    var avg = metric.avgText ? metric.avgText(points) : "";
+
     return '<div class="hist-summary"><span class="hist-score">' + metric.headline(last) + '</span>' +
       '<span class="hist-delta ' + d.cls + '">' + esc(d.text) + "</span></div>" +
+      (avg ? '<div class="hist-avg">' + esc(avg) + "</div>" : "") +
       svg +
       '<div class="hist-axis">' + axis + "</div>" +
       '<div class="hist-tip" hidden></div>';
