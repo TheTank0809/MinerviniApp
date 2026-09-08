@@ -33,10 +33,17 @@ and a new point starts the next month. Same idea as the price history, coarser
 grain. No baseline/"historical average" concept anymore — every point is a real
 dated observation.
 
-Weekly "By Nifty" history (docs/data/ratios_bynifty_hist.json): price_inr / nifty
-price_inr, one point per week — same cadence as the price history, since it's
-just a ratio of numbers price history already has. Nifty 50 itself is skipped
-(always exactly 1.0 by definition).
+Monthly "By Nifty" history (docs/data/ratios_bynifty_hist.json): price_inr / nifty
+price_inr, bucketed by calendar month like P/E — same upsert_monthly_point logic,
+same reasoning (a ratio this doesn't need weekly resolution). Nifty 50 itself is
+skipped (always exactly 1.0 by definition). Backfilled as far back as each asset's
+own price history goes — see docs/data/ratios_bynifty_hist.json's git history for
+the one-off backfill script that built it from niftyindices.com's real long price
+history (same unauthenticated endpoint as the P/E backfill, just its sibling
+"Historical Index Data" report) for nifty50/smallcap100/midcap100, and Yahoo
+Finance's long monthly history for sp500/gold/silver — capped at Dec 2003 for the
+latter three since that's as far back as Yahoo's USD/INR (INR=X) history goes,
+needed to convert their USD prices to INR before dividing by Nifty's INR price.
 
 Usage:  python backend/pipeline_ratios.py
 """
@@ -56,7 +63,7 @@ PRICEHIST_MAX_POINTS = 55  # a little over a year of weekly points
 PE_HIST_PATH = os.path.join(DATA_DIR, "ratios_pe_hist.json")
 PE_HIST_MAX_POINTS = 420  # 35 years of monthly points — Nifty 50's P/E history goes back to 2000
 BYNIFTY_HIST_PATH = os.path.join(DATA_DIR, "ratios_bynifty_hist.json")
-BYNIFTY_HIST_MAX_POINTS = 55  # weekly, same window as price — it's just price_inr / nifty_price_inr
+BYNIFTY_HIST_MAX_POINTS = 420  # monthly, same depth as P/E
 
 GRAMS_PER_TROY_OZ = 31.1034768
 
@@ -158,7 +165,7 @@ def upsert_price_point(pricehist, key, date, price_inr, price_usd):
     pricehist[key] = series[-PRICEHIST_MAX_POINTS:]
 
 
-def upsert_monthly_point(pehist, key, date, value):
+def upsert_monthly_point(hist, key, date, value, max_points=PE_HIST_MAX_POINTS):
     """Bucketed by calendar month, not by exact date — the point for the current
     month gets overwritten every run with the latest reading, so by month-end it
     holds the last observed value; a new month starts a new point. `value` of
@@ -166,27 +173,14 @@ def upsert_monthly_point(pehist, key, date, value):
     if value is None:
         return
     month = date[:7]  # "YYYY-MM"
-    series = pehist.setdefault(key, [])
+    series = hist.setdefault(key, [])
     for i, p in enumerate(series):
         if (p.get("date") or "")[:7] == month:
             series[i] = {"date": date, "value": value}
             break
     else:
         series.append({"date": date, "value": value})
-    pehist[key] = series[-PE_HIST_MAX_POINTS:]
-
-
-def upsert_weekly_value_point(hist, key, date, value):
-    """Same weekly by-exact-date upsert as upsert_price_point, but for a single
-    scalar value (here: By Nifty, i.e. price_inr / nifty_price_inr)."""
-    series = hist.setdefault(key, [])
-    for i, p in enumerate(series):
-        if p.get("date") == date:
-            series[i] = {"date": date, "value": value}
-            break
-    else:
-        series.append({"date": date, "value": value})
-    hist[key] = series[-BYNIFTY_HIST_MAX_POINTS:]
+    hist[key] = series[-max_points:]
 
 
 def main():
@@ -269,7 +263,7 @@ def main():
     for r in rows:
         if r["key"] == "nifty50":
             continue  # always exactly 1.0 by definition — not worth a chart
-        upsert_weekly_value_point(bynifty_hist, r["key"], as_of, r["by_nifty"])
+        upsert_monthly_point(bynifty_hist, r["key"], as_of, r["by_nifty"], BYNIFTY_HIST_MAX_POINTS)
 
     save_json(PRICEHIST_PATH, pricehist)
     save_json(PE_HIST_PATH, pehist)

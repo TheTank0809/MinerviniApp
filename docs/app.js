@@ -1086,19 +1086,16 @@
         var v = state.currency === "usd" ? last.price_usd : last.price_inr;
         return ratiosSym() + fmtPrice(v);
       },
-      deltaText: function (first, last, n) {
-        var fv = state.currency === "usd" ? first.price_usd : first.price_inr;
-        var lv = state.currency === "usd" ? last.price_usd : last.price_inr;
-        var d = lv - fv;
-        var pct = fv ? (d / fv * 100) : 0;
-        var sign = d > 0 ? "+" : d < 0 ? "-" : "";
-        return { cls: d > 0 ? "up" : d < 0 ? "down" : "",
-          text: sign + ratiosSym() + fmtPrice(Math.abs(d)) + " (" + sign + Math.abs(pct).toFixed(1) + "%) over " +
-            (n - 1) + (n - 1 === 1 ? " week" : " weeks") };
-      },
       tooltip: function (p) {
         var v = state.currency === "usd" ? p.price_usd : p.price_inr;
         return fmtDate(p.date) + " · " + ratiosSym() + fmtPrice(v);
+      },
+      avgText: function (points) {
+        var vals = points.map(function (p) { return state.currency === "usd" ? p.price_usd : p.price_inr; })
+          .filter(function (v) { return v != null; });
+        if (!vals.length) return "";
+        var avg = vals.reduce(function (a, b) { return a + b; }, 0) / vals.length;
+        return "Avg " + ratiosSym() + fmtPrice(avg) + " over " + vals.length + (vals.length === 1 ? " week" : " weeks");
       }
     },
     ratio_pe: {
@@ -1145,14 +1142,14 @@
         var sign = d > 0 ? "+" : d < 0 ? "-" : "";
         return { cls: d > 0 ? "up" : d < 0 ? "down" : "",
           text: sign + Math.abs(d).toFixed(3) + " (" + sign + Math.abs(pct).toFixed(1) + "%) over " +
-            (n - 1) + (n - 1 === 1 ? " week" : " weeks") };
+            (n - 1) + (n - 1 === 1 ? " month" : " months") };
       },
       tooltip: function (p) { return fmtDate(p.date) + " · " + p.value.toFixed(3); },
       avgText: function (points) {
         var vals = points.map(function (p) { return p.value; }).filter(function (v) { return v != null; });
         if (!vals.length) return "";
         var avg = vals.reduce(function (a, b) { return a + b; }, 0) / vals.length;
-        return "Avg " + avg.toFixed(3) + " over " + vals.length + (vals.length === 1 ? " week" : " weeks");
+        return "Avg " + avg.toFixed(3) + " over " + vals.length + (vals.length === 1 ? " month" : " months");
       }
     }
   };
@@ -1171,7 +1168,7 @@
     }
     var n = points.length, first = points[0], last = points[n - 1];
     var domain = metric.domain(points);
-    var d = metric.deltaText(first, last, n);
+    var d = metric.deltaText ? metric.deltaText(first, last, n) : null;
 
     var linePts = points.map(function (p, i) { return histX(i, n) + "," + histY(metric.valueOf(p), domain); }).join(" ");
     var areaPts = linePts + " " + histX(n - 1, n) + "," + (HIST_PAD_T + HIST_PLOT_H) +
@@ -1222,7 +1219,7 @@
     var avg = metric.avgText ? metric.avgText(points) : "";
 
     return '<div class="hist-summary"><span class="hist-score">' + metric.headline(last) + '</span>' +
-      '<span class="hist-delta ' + d.cls + '">' + esc(d.text) + "</span></div>" +
+      (d ? '<span class="hist-delta ' + d.cls + '">' + esc(d.text) + "</span>" : "") + "</div>" +
       (avg ? '<div class="hist-avg">' + esc(avg) + "</div>" : "") +
       svg +
       '<div class="hist-axis">' + axis + "</div>" +
