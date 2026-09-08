@@ -1,55 +1,55 @@
 {
- "generated_at": "2026-09-08T07:40:36.077982Z",
+ "generated_at": "2026-09-08T08:42:36.708110Z",
  "as_of": "2026-09-04",
- "usd_inr": 94.73750305175781,
+ "usd_inr": 94.7925033569336,
  "rows": [
   {
    "key": "nifty50",
    "name": "Nifty 50",
-   "price_inr": 23653.7,
-   "price_usd": 249.67620253910752,
+   "price_inr": 23651.9,
+   "price_usd": 249.51234709922855,
    "by_nifty": 1.0,
    "pe": 20.1
   },
   {
    "key": "smallcap100",
    "name": "Smallcap 100",
-   "price_inr": 20117.85,
-   "price_usd": 212.35360181499655,
-   "by_nifty": 0.8505159869280492,
+   "price_inr": 20091.4,
+   "price_usd": 211.95135995456772,
+   "by_nifty": 0.8494624110536574,
    "pe": 31.84
   },
   {
    "key": "midcap100",
    "name": "Midcap 100",
-   "price_inr": 62960.9,
-   "price_usd": 664.5826412123471,
-   "by_nifty": 2.6617780727750837,
+   "price_inr": 62867.75,
+   "price_usd": 663.2143658373122,
+   "by_nifty": 2.658042271445423,
    "pe": 30.26
   },
   {
    "key": "sp500",
    "name": "S&P 500",
-   "price_inr": 731240.9003070071,
+   "price_inr": 731665.425667908,
    "price_usd": 7718.60009765625,
-   "by_nifty": 30.914440459928347,
+   "by_nifty": 30.93474205742067,
    "pe": 24.884598
   },
   {
    "key": "gold",
    "name": "Gold (10g)",
-   "price_inr": 135425.98703053806,
-   "price_usd": 1429.4865567287643,
-   "by_nifty": 5.725361657184206,
-   "gold_silver_ratio": 66.42564215260295
+   "price_inr": 135288.22311878792,
+   "price_usd": 1427.2038223251782,
+   "by_nifty": 5.719972734485936,
+   "gold_silver_ratio": 66.80361627576686
   },
   {
    "key": "silver",
    "name": "Silver (kg)",
-   "price_inr": 203876.06749727338,
-   "price_usd": 2152.01014307808,
-   "by_nifty": 8.619204077893665,
-   "gold_silver_ratio": 66.42564215260295
+   "price_inr": 202516.31672200953,
+   "price_usd": 2136.4170113690375,
+   "by_nifty": 8.562369903559947,
+   "gold_silver_ratio": 66.80361627576686
   }
  ]
 }
