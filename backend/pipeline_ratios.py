@@ -49,7 +49,7 @@ RATIOS_PATH = os.path.join(DATA_DIR, "ratios.json")
 PRICEHIST_PATH = os.path.join(DATA_DIR, "ratios_pricehist.json")
 PRICEHIST_MAX_POINTS = 55  # a little over a year of weekly points
 PE_HIST_PATH = os.path.join(DATA_DIR, "ratios_pe_hist.json")
-PE_HIST_MAX_POINTS = 60  # 5 years of monthly points
+PE_HIST_MAX_POINTS = 420  # 35 years of monthly points — Nifty 50's P/E history goes back to 2000
 
 GRAMS_PER_TROY_OZ = 31.1034768
 
