@@ -7,7 +7,7 @@
 
   var state = { manifest: null, universeKey: null, universes: {}, screens: [],
                 tab: "active", sort: "score", filter: null, newPeriod: "all", searchQuery: "",
-                shortlist: {}, bought: {}, activeSheet: null, ratios: null, currency: "inr",
+                shortlist: {}, bought: {}, activeSheet: null, ratios: null, ratiosHist: null, currency: "inr",
                 data: { active: [], dropped: [] } };
   var $ = function (sel) { return document.querySelector(sel); };
   var lastFetchAt = 0;
@@ -229,9 +229,22 @@
       .catch(function () { state.ratios = null; });
   }
 
+  function loadRatiosHist() {
+    // Weekly price series behind the "tap a price to see its chart" popup — one
+    // small file for all 6 assets, fetched once up front like loadRatios above.
+    fetch("data/ratios_pricehist.json", { cache: "no-store" })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (d) {
+        state.ratiosHist = d;
+        if (!$("#ratios-view").hidden) renderRatios();
+      })
+      .catch(function () { state.ratiosHist = null; });
+  }
+
   function loadManifest() {
     lastFetchAt = Date.now();
     loadRatios();
+    loadRatiosHist();
     return fetch("data/manifest.json", { cache: "no-store" })
       .then(function (r) { if (!r.ok) throw new Error("no manifest"); return r.json(); })
       .then(function (m) {
@@ -1032,6 +1045,36 @@
             (n - 1) + (n - 1 === 1 ? " week" : " weeks") };
       },
       tooltip: function (p) { return fmtDate(p.date) + " · ₹" + fmtPrice(p.price); }
+    },
+    ratio_price: {
+      title: "Price history", ariaLabel: "Price history",
+      valueOf: function (p) { return state.currency === "usd" ? p.price_usd : p.price_inr; },
+      domain: function (points) {
+        var vals = points.map(function (p) { return state.currency === "usd" ? p.price_usd : p.price_inr; })
+          .filter(function (v) { return v != null; });
+        var lo = Math.min.apply(null, vals), hi = Math.max.apply(null, vals);
+        if (lo === hi) { lo -= 1; hi += 1; }
+        var pad = (hi - lo) * 0.08;
+        return [lo - pad, hi + pad];
+      },
+      headline: function (last) {
+        var v = state.currency === "usd" ? last.price_usd : last.price_inr;
+        return ratiosSym() + fmtPrice(v);
+      },
+      deltaText: function (first, last, n) {
+        var fv = state.currency === "usd" ? first.price_usd : first.price_inr;
+        var lv = state.currency === "usd" ? last.price_usd : last.price_inr;
+        var d = lv - fv;
+        var pct = fv ? (d / fv * 100) : 0;
+        var sign = d > 0 ? "+" : d < 0 ? "-" : "";
+        return { cls: d > 0 ? "up" : d < 0 ? "down" : "",
+          text: sign + ratiosSym() + fmtPrice(Math.abs(d)) + " (" + sign + Math.abs(pct).toFixed(1) + "%) over " +
+            (n - 1) + (n - 1 === 1 ? " week" : " weeks") };
+      },
+      tooltip: function (p) {
+        var v = state.currency === "usd" ? p.price_usd : p.price_inr;
+        return fmtDate(p.date) + " · " + ratiosSym() + fmtPrice(v);
+      }
     }
   };
 
@@ -1254,24 +1297,61 @@
     $("#ratios-asof").textContent = "As of " + fmtDate(data.as_of) + " · 1 USD = ₹" + fx.toFixed(2);
     box.innerHTML = data.rows.map(function (r) {
       var isCommodity = r.key === "gold" || r.key === "silver";
-      var histCell;
+      var baseCell;
       if (isCommodity) {
-        var histUsd = r.hist_avg_price_inr != null ? r.hist_avg_price_inr / fx : null;
-        histCell = fmtRatioPrice(r.hist_avg_price_inr, histUsd);
+        var baseUsd = r.baseline_price_inr != null ? r.baseline_price_inr / fx : null;
+        baseCell = fmtRatioPrice(r.baseline_price_inr, baseUsd);
       } else {
-        histCell = r.hist_avg_pe != null ? r.hist_avg_pe.toFixed(1) : "—";
+        baseCell = r.baseline_pe != null ? r.baseline_pe.toFixed(1) : "—";
       }
       var peCell = isCommodity
         ? (r.gold_silver_ratio != null ? r.gold_silver_ratio.toFixed(2) : "—")
         : (r.pe != null ? r.pe.toFixed(1) : "—");
+      var hist = state.ratiosHist && state.ratiosHist[r.key];
+      var priceText = fmtRatioPrice(r.price_inr, r.price_usd);
+      var priceCell = (hist && hist.length > 1)
+        ? '<button type="button" class="ratio-price-btn" data-key="' + esc(r.key) +
+          '" data-name="' + esc(r.name) + '">' + priceText + "</button>"
+        : priceText;
       return "<tr>" +
         "<td>" + esc(r.name) + "</td>" +
-        "<td>" + fmtRatioPrice(r.price_inr, r.price_usd) + "</td>" +
+        "<td>" + priceCell + "</td>" +
         "<td>" + (r.by_nifty != null ? r.by_nifty.toFixed(3) : "—") + "</td>" +
         "<td" + (isCommodity ? ' class="gs-ratio"' : "") + ">" + peCell + "</td>" +
-        "<td>" + histCell + "</td>" +
+        "<td>" + baseCell + "</td>" +
         "</tr>";
     }).join("");
+    box.querySelectorAll(".ratio-price-btn").forEach(function (btn) {
+      btn.onclick = function () { openRatioHistoryPopup(btn.dataset.key, btn.dataset.name); };
+    });
+  }
+
+  // Price-history popup for a ratios row — reuses the same #hist-popup chart the
+  // stock detail sheet uses, just sourced from the single ratios_pricehist.json
+  // (already in state) instead of a per-ticker fetch.
+  var openRatioKey = null;
+  function openRatioHistoryPopup(key, name) {
+    openRatioKey = key;
+    var popup = $("#hist-popup");
+    var backdrop = $("#hist-backdrop");
+    if (histPopupCloseTimer) { clearTimeout(histPopupCloseTimer); histPopupCloseTimer = null; }
+    popup.innerHTML = '<div class="sheet-head"><h2>' + esc(name) + " · Price history</h2>" +
+      '<button type="button" class="close" aria-label="Close">✕</button></div>' +
+      '<div class="hist-chart"></div>';
+    popup.querySelector(".close").onclick = function () { openRatioKey = null; closeHistoryPopup(); };
+    popup.hidden = false;
+    backdrop.hidden = false;
+    popup.classList.remove("show");
+    backdrop.classList.remove("show");
+    void popup.offsetHeight;
+    requestAnimationFrame(function () {
+      popup.classList.add("show");
+      backdrop.classList.add("show");
+    });
+    var box = popup.querySelector(".hist-chart");
+    var points = (state.ratiosHist && state.ratiosHist[key]) || [];
+    box.innerHTML = renderHistoryChart(points, "ratio_price");
+    wireHistoryChart(box, points, "ratio_price");
   }
   function openRatios() {
     if (!$("#search-input").hidden) closeSearch();
@@ -1306,6 +1386,11 @@
       b.classList.add("active");
       state.currency = b.dataset.cur;
       renderRatios();
+      if (openRatioKey && !$("#hist-popup").hidden) {
+        var box = $("#hist-popup .hist-chart");
+        var points = (state.ratiosHist && state.ratiosHist[openRatioKey]) || [];
+        if (box) { box.innerHTML = renderHistoryChart(points, "ratio_price"); wireHistoryChart(box, points, "ratio_price"); }
+      }
     };
   });
   $("#search-input").addEventListener("input", function () {

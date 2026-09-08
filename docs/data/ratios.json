@@ -1,61 +1,61 @@
 {
- "generated_at": "2026-09-08T06:40:39.579727Z",
+ "generated_at": "2026-09-08T07:05:41.962130Z",
  "as_of": "2026-09-04",
- "usd_inr": 94.73750305175781,
+ "usd_inr": 94.74250030517578,
  "rows": [
   {
    "key": "nifty50",
    "name": "Nifty 50",
-   "price_inr": 23642.0,
-   "price_usd": 249.5527034007187,
+   "price_inr": 23663.6,
+   "price_usd": 249.76752696811883,
    "by_nifty": 1.0,
    "pe": 20.1,
-   "hist_avg_pe": 20.1
+   "baseline_pe": 20.1
   },
   {
    "key": "smallcap100",
    "name": "Smallcap 100",
-   "price_inr": 20084.75,
-   "price_usd": 212.00421536365727,
-   "by_nifty": 0.8495368412147872,
+   "price_inr": 20111.5,
+   "price_usd": 212.2753773144966,
+   "by_nifty": 0.8498918169678326,
    "pe": 31.84,
-   "hist_avg_pe": 31.84
+   "baseline_pe": 31.84
   },
   {
    "key": "midcap100",
    "name": "Midcap 100",
-   "price_inr": 62830.2,
-   "price_usd": 663.2030397262429,
-   "by_nifty": 2.6575670417054393,
+   "price_inr": 62891.15,
+   "price_usd": 663.8113813486117,
+   "by_nifty": 2.6577169154312954,
    "pe": 30.26,
-   "hist_avg_pe": 30.26
+   "baseline_pe": 30.26
   },
   {
    "key": "sp500",
    "name": "S&P 500",
-   "price_inr": 731240.9003070071,
+   "price_inr": 731279.4721077271,
    "price_usd": 7718.60009765625,
-   "by_nifty": 30.929739459732982,
+   "by_nifty": 30.903136974413325,
    "pe": 24.884598,
-   "hist_avg_pe": 24.884598
+   "baseline_pe": 24.884598
   },
   {
    "key": "gold",
    "name": "Gold (10g)",
-   "price_inr": 135422.9381745933,
-   "price_usd": 1429.4543745849821,
-   "by_nifty": 5.728066076245381,
-   "gold_silver_ratio": 66.67816552651003,
-   "hist_avg_price_inr": 135422.9381745933
+   "price_inr": 135539.7420112003,
+   "price_usd": 1430.6118328586663,
+   "by_nifty": 5.727773542960509,
+   "gold_silver_ratio": 66.61726652133181,
+   "baseline_price_inr": 135539.7420112003
   },
   {
    "key": "silver",
    "name": "Silver (kg)",
-   "price_inr": 203099.37609299045,
-   "price_usd": 2143.811791007743,
-   "by_nifty": 8.5906173797898,
-   "gold_silver_ratio": 66.67816552651003,
-   "hist_avg_price_inr": 203099.37609299045
+   "price_inr": 203460.3776001504,
+   "price_usd": 2147.509058181731,
+   "by_nifty": 8.598031474507277,
+   "gold_silver_ratio": 66.61726652133181,
+   "baseline_price_inr": 203460.3776001504
   }
  ]
 }

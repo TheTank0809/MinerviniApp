@@ -160,6 +160,13 @@ h1 {
 .ratios-table td { text-align: right; padding: 10px 12px; border-bottom: 1px solid var(--surface-2); color: var(--text); }
 .ratios-table tr:last-child td { border-bottom: none; }
 .ratios-table td.gs-ratio { color: var(--growth); }
+.ratios-table td button.ratio-price-btn {
+  background: none; border: none; padding: 0; margin: 0; font: inherit; color: inherit;
+  cursor: pointer; -webkit-appearance: none; appearance: none;
+  text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 2px;
+}
+.ratios-table td button.ratio-price-btn:focus-visible { outline: 2px solid var(--amber); outline-offset: 1px; }
+.ratios-table td button.ratio-price-btn:active { opacity: .7; }
 .ratios-note { margin-top: 10px; font-size: 11px; color: var(--muted); line-height: 1.5; }
 
 /* ---------------- controls ---------------- */

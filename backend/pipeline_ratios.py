@@ -15,13 +15,21 @@ Sources, chosen after checking each one actually returns real data:
   retail buyer actually means (gold per 10g, silver per kg), then to INR via
   live USD/INR (INR=X).
 
-"Historical average" has no ready-made source (no free API publishes a running
-historical average P/E for these indices) — instead of guessing at one or hiding
-it, this builds a real one over time: every run appends this week's snapshot to
-ratios_history.json, and the historical average shown is the mean of every
-snapshot collected so far. It starts as just this week's value and gets more
-meaningful every week, the same way docs/data/history/<ticker>.json already
-works for individual stock scores — not a fabricated long-run number.
+Baseline P/E (docs/data/ratios_baseline.json): a ONE-TIME reference value, not a
+rolling average — captured on whichever run first sees a given (key, metric) and
+then left untouched forever after, so it stays a fixed comparison point. Every
+other field (price, P/E, By Nifty) still refreshes every run.
+
+Weekly price history (docs/data/ratios_pricehist.json): powers the "click price to
+see a graph" chart. Nifty 50 / S&P 500 / Gold / Silver get a real one-time 1-year
+weekly backfill from Yahoo Finance on first run (see fetch_weekly_backfill below);
+every run after that just appends/overwrites this week's point. Nifty Smallcap 100
+and Midcap 100 have NO free historical source — Yahoo carries no matching index
+ticker for either, and NSE's own historical-index API (which does have both) blocks
+requests from outside India with a 503 bot-mitigation page even with a fully primed
+session (checked directly). So those two series simply start now and build up one
+point per week going forward, same as everything else did before this pipeline
+existed.
 
 Usage:  python backend/pipeline_ratios.py
 """
@@ -33,18 +41,25 @@ import datetime
 import requests
 
 sys.path.insert(0, os.path.dirname(__file__))
-import technicals as T
 from pipeline import load_json, save_json, DATA_DIR
 
 RATIOS_PATH = os.path.join(DATA_DIR, "ratios.json")
-HISTORY_PATH = os.path.join(DATA_DIR, "ratios_history.json")
-HISTORY_MAX_POINTS = 260  # ~5 years of weekly snapshots
+BASELINE_PATH = os.path.join(DATA_DIR, "ratios_baseline.json")
+PRICEHIST_PATH = os.path.join(DATA_DIR, "ratios_pricehist.json")
+PRICEHIST_MAX_POINTS = 55  # a little over a year of weekly points
+
+GRAMS_PER_TROY_OZ = 31.1034768
 
 NSE_INDEX_NAMES = {
     "nifty50": "NIFTY 50",
     "smallcap100": "NIFTY SMALLCAP 100",
     "midcap100": "NIFTY MIDCAP 100",
 }
+
+# Yahoo tickers for the 4 assets that DO have a clean weekly series there —
+# used only for the one-time backfill, never for the live weekly figures
+# (those keep coming from fetch_nse_indices/fetch_yahoo_values as before).
+BACKFILL_TICKERS = ["^NSEI", "^GSPC", "GC=F", "SI=F", "INR=X"]
 
 
 def fetch_nse_indices():
@@ -71,6 +86,7 @@ def fetch_nse_indices():
 
 
 def fetch_yahoo_values():
+    import technicals as T
     hist = T.download_history(["^GSPC", "SPY", "GC=F", "SI=F", "INR=X"], years=1)
     import yfinance as yf
     spy_pe = yf.Ticker("SPY").info.get("trailingPE")
@@ -81,31 +97,65 @@ def fetch_yahoo_values():
         "silver_price_usd": float(hist["SI=F"]["Close"].iloc[-1]),
         "usd_inr": float(hist["INR=X"]["Close"].iloc[-1]),
         # The actual trading day this data is from — the pipeline runs Saturday
-        # morning, but this will be Friday's date, since markets were closed
-        # Saturday and no new bar exists for it. Used as the stored/displayed
-        # date instead of today() (the run date), which would mislabel every
-        # snapshot by a day.
+        # morning, but this will usually be Friday's date, since markets were
+        # closed Saturday and no new bar exists for it. Used as the stored/
+        # displayed date instead of today() (the run date), which would
+        # mislabel every snapshot.
         "as_of": str(hist["^GSPC"].index[-1].date()),
     }
 
 
-def update_history_and_get_avg(history, key, metric, value, as_of):
-    """Appends (or overwrites same-day) a snapshot for (key, metric) and returns
-    the mean of every snapshot collected so far, including this one. `as_of` is
-    the trading date the value actually reflects — the pipeline runs Saturday
-    morning but the prices are Friday's close, so this must NOT default to
-    today()'s run date or every snapshot would be mislabeled by a day."""
-    series = history.setdefault(key, {}).setdefault(metric, [])
-    date = as_of
+def fetch_weekly_backfill():
+    """One-time full 1-year weekly backfill for nifty50/sp500/gold/silver, all
+    converted to the same units/currency the live rows use (see module docstring
+    for why smallcap100/midcap100 aren't included here)."""
+    import yfinance as yf
+    import pandas as pd
+
+    data = yf.download(BACKFILL_TICKERS, period="1y", interval="1wk",
+                        group_by="ticker", auto_adjust=True, progress=False, threads=True)
+    out = {"nifty50": [], "sp500": [], "gold": [], "silver": []}
+    idx = data["^NSEI"].index
+    for ts in idx:
+        try:
+            nifty = float(data["^NSEI"]["Close"].loc[ts])
+            spx = float(data["^GSPC"]["Close"].loc[ts])
+            gold_oz = float(data["GC=F"]["Close"].loc[ts])
+            silver_oz = float(data["SI=F"]["Close"].loc[ts])
+            fx = float(data["INR=X"]["Close"].loc[ts])
+        except (KeyError, ValueError):
+            continue
+        if any(pd.isna(v) for v in (nifty, spx, gold_oz, silver_oz, fx)):
+            continue
+        date = str(ts.date())
+        gold_10g_usd = gold_oz * 10 / GRAMS_PER_TROY_OZ
+        silver_kg_usd = silver_oz * 1000 / GRAMS_PER_TROY_OZ
+        out["nifty50"].append({"date": date, "price_inr": nifty, "price_usd": nifty / fx})
+        out["sp500"].append({"date": date, "price_inr": spx * fx, "price_usd": spx})
+        out["gold"].append({"date": date, "price_inr": gold_10g_usd * fx, "price_usd": gold_10g_usd})
+        out["silver"].append({"date": date, "price_inr": silver_kg_usd * fx, "price_usd": silver_kg_usd})
+    return out
+
+
+def get_or_set_baseline(baseline, key, metric, value, as_of):
+    """A one-time reference value: captured the first run that ever sees this
+    (key, metric) and left untouched on every run after — a fixed comparison
+    point, not a rolling average."""
+    entry = baseline.setdefault(key, {})
+    if metric not in entry or entry[metric].get("value") is None:
+        entry[metric] = {"value": value, "captured_on": as_of}
+    return entry[metric]["value"]
+
+
+def upsert_price_point(pricehist, key, date, price_inr, price_usd):
+    series = pricehist.setdefault(key, [])
     for i, p in enumerate(series):
         if p.get("date") == date:
-            series[i] = {"date": date, "value": value}
+            series[i] = {"date": date, "price_inr": price_inr, "price_usd": price_usd}
             break
     else:
-        series.append({"date": date, "value": value})
-    history[key][metric] = series[-HISTORY_MAX_POINTS:]
-    vals = [p["value"] for p in history[key][metric] if p.get("value") is not None]
-    return sum(vals) / len(vals) if vals else None
+        series.append({"date": date, "price_inr": price_inr, "price_usd": price_usd})
+    pricehist[key] = series[-PRICEHIST_MAX_POINTS:]
 
 
 def main():
@@ -119,9 +169,8 @@ def main():
     # Yahoo Finance quotes gold/silver (GC=F/SI=F) per troy ounce (31.1034768g) — the
     # international bullion convention, not what a retail Indian buyer means by "gold
     # price" (per 10g) or "silver price" (per kg). Converting at the source here so
-    # every downstream value (By Nifty, historical average) is in the same real unit
-    # as the displayed price, not just the display itself.
-    GRAMS_PER_TROY_OZ = 31.1034768
+    # every downstream value is in the same real unit as the displayed price, not
+    # just the display itself.
     gold_price_usd_10g = yahoo["gold_price_usd"] * 10 / GRAMS_PER_TROY_OZ
     silver_price_usd_kg = yahoo["silver_price_usd"] * 1000 / GRAMS_PER_TROY_OZ
     gold_price_inr = gold_price_usd_10g * fx
@@ -132,7 +181,10 @@ def main():
     gold_silver_ratio = (yahoo["gold_price_usd"] / yahoo["silver_price_usd"]
                          if yahoo["silver_price_usd"] else None)
 
-    history = load_json(HISTORY_PATH, {})
+    baseline = load_json(BASELINE_PATH, {})
+    pricehist = load_json(PRICEHIST_PATH, {})
+    if "nifty50" not in pricehist:
+        pricehist.update(fetch_weekly_backfill())
 
     rows = [
         {
@@ -140,46 +192,50 @@ def main():
             "price_inr": nifty_price, "price_usd": nifty_price / fx,
             "by_nifty": 1.0,
             "pe": nse["nifty50"]["pe"],
-            "hist_avg_pe": update_history_and_get_avg(history, "nifty50", "pe", nse["nifty50"]["pe"], as_of),
+            "baseline_pe": get_or_set_baseline(baseline, "nifty50", "pe", nse["nifty50"]["pe"], as_of),
         },
         {
             "key": "smallcap100", "name": "Smallcap 100",
             "price_inr": nse["smallcap100"]["price"], "price_usd": nse["smallcap100"]["price"] / fx,
             "by_nifty": nse["smallcap100"]["price"] / nifty_price,
             "pe": nse["smallcap100"]["pe"],
-            "hist_avg_pe": update_history_and_get_avg(history, "smallcap100", "pe", nse["smallcap100"]["pe"], as_of),
+            "baseline_pe": get_or_set_baseline(baseline, "smallcap100", "pe", nse["smallcap100"]["pe"], as_of),
         },
         {
             "key": "midcap100", "name": "Midcap 100",
             "price_inr": nse["midcap100"]["price"], "price_usd": nse["midcap100"]["price"] / fx,
             "by_nifty": nse["midcap100"]["price"] / nifty_price,
             "pe": nse["midcap100"]["pe"],
-            "hist_avg_pe": update_history_and_get_avg(history, "midcap100", "pe", nse["midcap100"]["pe"], as_of),
+            "baseline_pe": get_or_set_baseline(baseline, "midcap100", "pe", nse["midcap100"]["pe"], as_of),
         },
         {
             "key": "sp500", "name": "S&P 500",
             "price_inr": sp500_price_inr, "price_usd": yahoo["sp500_price_usd"],
             "by_nifty": sp500_price_inr / nifty_price,
             "pe": yahoo["sp500_pe"],
-            "hist_avg_pe": update_history_and_get_avg(history, "sp500", "pe", yahoo["sp500_pe"], as_of),
+            "baseline_pe": get_or_set_baseline(baseline, "sp500", "pe", yahoo["sp500_pe"], as_of),
         },
         {
             "key": "gold", "name": "Gold (10g)",
             "price_inr": gold_price_inr, "price_usd": gold_price_usd_10g,
             "by_nifty": gold_price_inr / nifty_price,
             "gold_silver_ratio": gold_silver_ratio,
-            "hist_avg_price_inr": update_history_and_get_avg(history, "gold", "price_inr", gold_price_inr, as_of),
+            "baseline_price_inr": get_or_set_baseline(baseline, "gold", "price_inr", gold_price_inr, as_of),
         },
         {
             "key": "silver", "name": "Silver (kg)",
             "price_inr": silver_price_inr, "price_usd": silver_price_usd_kg,
             "by_nifty": silver_price_inr / nifty_price,
             "gold_silver_ratio": gold_silver_ratio,
-            "hist_avg_price_inr": update_history_and_get_avg(history, "silver", "price_inr", silver_price_inr, as_of),
+            "baseline_price_inr": get_or_set_baseline(baseline, "silver", "price_inr", silver_price_inr, as_of),
         },
     ]
 
-    save_json(HISTORY_PATH, history)
+    for r in rows:
+        upsert_price_point(pricehist, r["key"], as_of, r["price_inr"], r["price_usd"])
+
+    save_json(BASELINE_PATH, baseline)
+    save_json(PRICEHIST_PATH, pricehist)
     save_json(RATIOS_PATH, {
         "generated_at": datetime.datetime.utcnow().isoformat() + "Z",
         "as_of": as_of,
@@ -188,9 +244,9 @@ def main():
     })
     print("done. ratios.json written, fx=%.2f" % fx)
     for r in rows:
-        print(" %-14s price=%.2f  by_nifty=%.3f  pe=%s  hist_avg=%s" % (
+        print(" %-14s price=%.2f  by_nifty=%.3f  pe=%s  baseline=%s" % (
             r["name"], r["price_inr"], r["by_nifty"],
-            r.get("pe"), r.get("hist_avg_pe") or r.get("hist_avg_price_inr")))
+            r.get("pe"), r.get("baseline_pe") or r.get("baseline_price_inr")))
 
 
 if __name__ == "__main__":

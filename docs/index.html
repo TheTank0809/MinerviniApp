@@ -16,7 +16,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <!-- bump ?v= on app.css/app.js (and CACHE in sw.js) on every change — GitHub Pages
      doesn't fingerprint asset URLs, so browsers can otherwise keep serving a stale copy -->
-<link rel="stylesheet" href="app.css?v=28">
+<link rel="stylesheet" href="app.css?v=29">
 </head>
 <body>
 
@@ -70,12 +70,13 @@
   <div class="ratios-table-wrap">
     <table class="ratios-table">
       <thead>
-        <tr><th>Asset</th><th>Price</th><th>By Nifty</th><th>P/E</th><th>Hist avg P/E</th></tr>
+        <tr><th>Asset</th><th>Price</th><th>By Nifty</th><th>P/E</th>
+          <th title="Captured once, the first time this pipeline ran — a fixed reference point, not a rolling average">Baseline P/E</th></tr>
       </thead>
       <tbody id="ratios-rows"></tbody>
     </table>
   </div>
-  <div class="ratios-note">Historical average builds up from real weekly snapshots — starts at just this week's value and gets more meaningful over time.</div>
+  <div class="ratios-note">Baseline P/E is a one-time reference, captured once and never recalculated. Price, P/E and By Nifty refresh every week. Tap a price to see its weekly chart over the last year — Smallcap 100 and Midcap 100 have no historical source, so those two build up from scratch, one point a week.</div>
 </section>
 
 <nav class="controls">
@@ -134,7 +135,7 @@
 </footer>
 
 <script type="module" src="firebase-sync.js?v=1"></script>
-<script src="app.js?v=33"></script>
+<script src="app.js?v=34"></script>
 </body>
 </html>
 

@@ -1,0 +1,38 @@
+{
+ "nifty50": {
+  "pe": {
+   "value": 20.1,
+   "captured_on": "2026-09-04"
+  }
+ },
+ "smallcap100": {
+  "pe": {
+   "value": 31.84,
+   "captured_on": "2026-09-04"
+  }
+ },
+ "midcap100": {
+  "pe": {
+   "value": 30.26,
+   "captured_on": "2026-09-04"
+  }
+ },
+ "sp500": {
+  "pe": {
+   "value": 24.884598,
+   "captured_on": "2026-09-04"
+  }
+ },
+ "gold": {
+  "price_inr": {
+   "value": 135539.7420112003,
+   "captured_on": "2026-09-04"
+  }
+ },
+ "silver": {
+  "price_inr": {
+   "value": 203460.3776001504,
+   "captured_on": "2026-09-04"
+  }
+ }
+}
