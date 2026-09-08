@@ -700,11 +700,18 @@
     var sub = state.tab === "dropped"
       ? "Joined " + fmtDate(entry.joined_date) + " · Left " + fmtDate(entry.dropped_date) + (reason ? " · " + reason : "")
       : "Joined " + fmtDate(entry.joined_date) + (statusText ? " · " + statusText : "");
+    // Global's tickers are often non-indicative of the company (foreign-exchange
+    // codes, alphanumeric IDs) — so for that universe only, the name leads and
+    // the ticker becomes the secondary line, swapped from the India universes'
+    // ticker-first layout where the ticker itself is the familiar identifier.
+    var isGlobal = state.universeKey === "global";
+    var leadText = isGlobal ? (entry.name || entry.ticker) : entry.ticker;
+    var subText = isGlobal ? entry.ticker : (entry.name || "");
     var cells =
-      '<span class="stockcell"><span class="ticker">' + esc(entry.ticker) + "</span>" +
+      '<span class="stockcell"><span class="ticker">' + esc(leadText) + "</span>" +
       membershipPills(entry) + markPills(entry) +
       (entry.isNew ? '<span class="newpill">NEW</span>' : "") +
-      '<div class="sname">' + esc(entry.name || "") + '</div>' +
+      '<div class="sname">' + esc(subText) + '</div>' +
       '<div class="sub' + (reason && state.tab !== "dropped" ? " reject" : "") + '" title="' + esc(sub) + '">' + esc(sub) + "</div></span>" +
       '<span class="score ' + scoreCls + '">' + (tot == null ? "—" : tot) + '<span class="of">/100</span></span>' +
       gatebar(sc);
@@ -791,8 +798,11 @@
     var isShortlisted = !!state.shortlist[entry.ticker];
     var isBought = !!state.bought[entry.ticker];
 
-    var html = '<div class="sheet-head"><div><h2>' + esc(entry.ticker) + "</h2>" +
-      '<div class="sname">' + esc(entry.name || "") + "</div>" +
+    var sheetIsGlobal = state.universeKey === "global";
+    var sheetLead = sheetIsGlobal ? (entry.name || entry.ticker) : entry.ticker;
+    var sheetSub = sheetIsGlobal ? entry.ticker : (entry.name || "");
+    var html = '<div class="sheet-head"><div><h2>' + esc(sheetLead) + "</h2>" +
+      '<div class="sname">' + esc(sheetSub) + "</div>" +
       (rec.joined_date ? '<div class="sjoined">Joined ' + esc(fmtDate(rec.joined_date)) + "</div>" : "") +
       "</div>" +
       '<button class="close" aria-label="Close">✕</button></div>';
