@@ -1,6 +1,80 @@
 {
  "runs": [
   {
+   "run_date": "2026-09-12",
+   "mode": "WEEKLY",
+   "regime": {
+    "score": 3,
+    "label": "CAUTION",
+    "checks": {
+     "close_above_50dma": false,
+     "close_above_200dma": false,
+     "50dma_above_200dma": true,
+     "distribution_days_25": 7,
+     "distribution_days_ok": false,
+     "pct_universe_above_200dma": 98.0,
+     "universe_above_200dma_ok": true,
+     "net_new_highs_positive": true
+    },
+    "exposure_guidance": "New buys at half risk; only score >=85 setups."
+   },
+   "counts": {
+    "active": 56,
+    "new": 9,
+    "dropped": 9,
+    "errors": 1
+   },
+   "new_tickers": [
+    "TIPSMUSIC",
+    "GVT&D",
+    "VMARCIND",
+    "GROWW",
+    "SEDEMAC",
+    "ACUTAAS",
+    "SJS",
+    "MILKYMIST",
+    "AIIL"
+   ],
+   "dropped_tickers": [
+    "RAMRAT",
+    "DIXON",
+    "NUVAMA",
+    "GOKULAGRO",
+    "CEMPRO",
+    "VIYASH",
+    "ANANTRAJ",
+    "ZENTEC",
+    "HOMEFIRST"
+   ],
+   "actionable_now": [],
+   "alerts": [
+    {
+     "ticker": "SKIPPER",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "BALUFORGE",
+     "alert": "RS_DOWNGRADE"
+    }
+   ],
+   "errors": [
+    {
+     "ticker": "MILKYMIST",
+     "error": "no OHLCV data on Yahoo Finance"
+    }
+   ],
+   "llm": {
+    "enabled": true,
+    "model": "claude-sonnet-5"
+   },
+   "rs_universe": {
+    "source": "Nifty 500",
+    "attempted": 500,
+    "succeeded": 500,
+    "used": true
+   }
+  },
+  {
    "run_date": "2026-09-05",
    "mode": "WEEKLY",
    "regime": {
