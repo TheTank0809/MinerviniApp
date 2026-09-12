@@ -1,6 +1,178 @@
 {
  "runs": [
   {
+   "run_date": "2026-09-12",
+   "regime": {
+    "score": 5,
+    "label": "CONFIRMED_UPTREND",
+    "checks": {
+     "close_above_50dma": true,
+     "close_above_200dma": true,
+     "50dma_above_200dma": true,
+     "distribution_days_25": 4,
+     "distribution_days_ok": true,
+     "pct_universe_above_200dma": 69.2,
+     "universe_above_200dma_ok": true,
+     "net_new_highs_positive": false
+    },
+    "exposure_guidance": "New buys allowed; full risk budget."
+   },
+   "counts": {
+    "active": 144,
+    "new": 19,
+    "dropped": 41,
+    "errors": 19
+   },
+   "new_tickers": [
+    "EMSTEEL",
+    "SLYG",
+    "8313",
+    "800",
+    "XTB",
+    "KERJAYA",
+    "MVZ.A",
+    "CMRY",
+    "ADES",
+    "HBMNG",
+    "1303",
+    "BPV",
+    "CIE/B",
+    "MSIN",
+    "EMAARDEV",
+    "PANI",
+    "MI",
+    "8230",
+    "MFPC"
+   ],
+   "dropped_tickers": [
+    "603893",
+    "6834",
+    "WPM",
+    "603986",
+    "329180",
+    "300408",
+    "EXEL",
+    "FN",
+    "AGX",
+    "6871",
+    "PAYC",
+    "3939",
+    "002192",
+    "605098",
+    "002558",
+    "300033",
+    "603444",
+    "688049",
+    "7747",
+    "ARM",
+    "TW",
+    "300223",
+    "688123",
+    "064350",
+    "2124",
+    "603379",
+    "DRD",
+    "600338",
+    "FCIT",
+    "688271",
+    "001270",
+    "ACAD",
+    "UCB",
+    "SII",
+    "AGYS",
+    "OBK",
+    "VH2",
+    "RVLV",
+    "SIP",
+    "1523",
+    "039200"
+   ],
+   "actionable_now": [],
+   "errors": [
+    {
+     "ticker": "EMAARDEV",
+     "error": "exchange 'DFM' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "PANI",
+     "error": "exchange 'IDX' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "XTB",
+     "error": "exchange 'GPW' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "1303",
+     "error": "exchange 'TADAWUL' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "HBMNG",
+     "error": "exchange 'NSENG' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "8230",
+     "error": "exchange 'TADAWUL' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "8313",
+     "error": "exchange 'TADAWUL' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "MFPC",
+     "error": "exchange 'EGX' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "EMSTEEL",
+     "error": "exchange 'ADX' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "800",
+     "error": "mapped to '800.HK' but Yahoo Finance returned no data for it"
+    },
+    {
+     "ticker": "CMRY",
+     "error": "exchange 'IDX' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "SLYG",
+     "error": "exchange 'BSESOF' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "MI",
+     "error": "exchange 'MYX' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "MVZ.A",
+     "error": "exchange 'BVCV' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "BPV",
+     "error": "exchange 'BVCV' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "KERJAYA",
+     "error": "exchange 'MYX' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "ADES",
+     "error": "exchange 'IDX' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "CIE/B",
+     "error": "exchange 'BMV' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "MSIN",
+     "error": "exchange 'IDX' has no Yahoo Finance suffix mapping yet"
+    }
+   ],
+   "llm": {
+    "enabled": true,
+    "model": "deepseek-chat",
+    "provider": "deepseek"
+   }
+  },
+  {
    "run_date": "2026-09-05",
    "regime": {
     "score": 5,
