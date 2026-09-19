@@ -1,0 +1,11 @@
+{
+ "ticker": "BHMG",
+ "points": [
+  {
+   "date": "2026-09-19",
+   "score": 26,
+   "bucket": "AVOID",
+   "price": 421.0
+  }
+ ]
+}
