@@ -6,7 +6,16 @@ on:
     # GitHub Actions cron has no native "last day of month" trigger; the 28th exists in
     # every month and lands close enough to end-of-month without extra scripting.
     - cron: "30 9 28 * *"
-  workflow_dispatch: {}    # run it manually from the Actions tab any time
+  workflow_dispatch:       # run it manually from the Actions tab any time
+    inputs:
+      only_tickers:
+        description: >-
+          Comma-separated ticker codes to rescore. Leave blank for a normal full
+          scan. Every other constituent keeps its current scorecard untouched —
+          use this to verify a fix for one stock cheaply without rescanning the
+          whole index. Ignored on the very first (bootstrap) run.
+        required: false
+        default: ""
 
 permissions:
   contents: write
@@ -78,6 +87,7 @@ jobs:
           SCREENER_SESSIONID: ${{ secrets.SCREENER_SESSIONID }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          ONLY_TICKERS: ${{ inputs.only_tickers }}
         run: python backend/pipeline_nifty.py
 
       # A push made with this job's own default GITHUB_TOKEN does NOT trigger

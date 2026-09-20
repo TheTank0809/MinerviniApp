@@ -162,11 +162,19 @@ stocks *approaching* a pass (gate-flip candidates).
 
 ## GATE 2 — INVESTABILITY (hard gate)
 
-- 50-day median daily traded value ≥ config threshold → else `FAIL_LIQUIDITY`
+- 50-day median daily traded value ≥ config threshold → else `FAIL_LIQUIDITY`. A
+  stock too newly listed to have 50 days of price history yet is exempt from this
+  check (unverifiable, not actually thin) rather than auto-failed — see
+  scorecard.py's investability().
 - Promoter pledge ≤ config threshold → else `FAIL_PLEDGE`
 - No active auditor resignation, SEBI action, fraud investigation, or major governance
   event in the last 12 months → else `FAIL_GOVERNANCE`
 - Not a habitual circuit-to-circuit illiquid microcap → else `FAIL_LIQUIDITY`
+
+Same as Gate 1: a FAIL here no longer stops scoring — the stock still gets a full
+A–H score for visibility/comparison, but the gate still forces `action_bucket =
+AVOID` and blocks the trade plan outright. A high score never overrides a failed
+gate — see scorecard.py's evaluate().
 
 ---
 

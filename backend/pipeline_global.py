@@ -44,7 +44,7 @@ import scorecard as SC
 import llm as LLM
 import tradingview_client as TV
 from fundamentals_tradingview import build_fundamental_payload
-from pipeline import load_json, save_json, today, update_history, DATA_DIR
+from pipeline import load_json, save_json, today, update_history, ticker_filter, DATA_DIR
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROMPT_PATH = os.path.join(ROOT, "PROMPT.md")
@@ -136,6 +136,11 @@ def process_global(universe_key, uni, gcfg, settings):
     dropped_codes = [c for c in prior_by_code if c not in current_codes]
     print("  new: %s" % (new_codes or "none"))
     print("  dropped: %s" % (dropped_codes or "none"))
+
+    only = ticker_filter()
+    if only:
+        print("  ONLY_TICKERS set — rescoring just %s; every other tracked stock "
+              "keeps its current scorecard untouched this run" % sorted(only))
 
     for code in dropped_codes:
         rec = prior_by_code.pop(code)
@@ -230,6 +235,10 @@ def process_global(universe_key, uni, gcfg, settings):
     for code, row in row_by_code.items():
         prior_rec = prior_by_code.get(code)
         is_new = prior_rec is None
+        if only and code not in only:
+            if prior_rec:  # carry forward unchanged; a genuinely new stock outside
+                out_stocks.append(prior_rec)  # the filter just waits for the next unscoped run
+            continue
         try:
             if code in fetch_errors:
                 raise fetch_errors[code]

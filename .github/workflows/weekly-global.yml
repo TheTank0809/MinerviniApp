@@ -5,7 +5,16 @@ on:
     # Saturday, 11:30 UTC — after the weekly India-S scan (09:30) and the Ratios
     # scan (03:00), each in their own slot so none compete for runner/rate limits.
     - cron: "30 11 * * 6"
-  workflow_dispatch: {}    # run it manually from the Actions tab any time
+  workflow_dispatch:       # run it manually from the Actions tab any time
+    inputs:
+      only_tickers:
+        description: >-
+          Comma-separated ticker codes to rescore. Leave blank for a normal full
+          scan. Every other tracked stock keeps its current scorecard untouched —
+          use this to verify a fix for one stock cheaply without rescanning the
+          whole universe.
+        required: false
+        default: ""
 
 permissions:
   contents: write
@@ -75,6 +84,7 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          ONLY_TICKERS: ${{ inputs.only_tickers }}
         run: python backend/pipeline_global.py
 
       # A push made with this job's own default GITHUB_TOKEN does NOT trigger

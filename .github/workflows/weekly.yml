@@ -3,7 +3,16 @@ name: Weekly Minervini scan
 on:
   schedule:
     - cron: "30 9 * * 6"   # every Saturday 09:30 UTC = 15:00 IST
-  workflow_dispatch: {}    # run it manually from the Actions tab any time
+  workflow_dispatch:       # run it manually from the Actions tab any time
+    inputs:
+      only_tickers:
+        description: >-
+          Comma-separated ticker codes to rescore (e.g. SBIFUNDS,INFY). Leave blank
+          for a normal full scan. Every other tracked stock keeps its current
+          scorecard untouched — use this to verify a fix for one stock cheaply
+          without rescanning/re-scraping the whole screen.
+        required: false
+        default: ""
 
 permissions:
   contents: write
@@ -74,6 +83,7 @@ jobs:
         env:
           SCREENER_SESSIONID: ${{ secrets.SCREENER_SESSIONID }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          ONLY_TICKERS: ${{ inputs.only_tickers }}
         run: python backend/pipeline.py
 
       # Always commit + deploy, pipeline failure or not: pipeline.py writes a

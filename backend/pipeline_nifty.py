@@ -44,7 +44,7 @@ from fundamentals import build_fundamental_payload
 from screener_client import ScreenerClient
 from pipeline import (  # reuse rather than reimplement — see pipeline.py
     load_json, save_json, today, update_history, load_rs_universe_symbols,
-    load_rs_universe_industries, DATA_DIR,
+    load_rs_universe_industries, ticker_filter, DATA_DIR,
 )
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -91,6 +91,15 @@ def process_index(client, universe_key, uni, index_cfg, settings):
     current = load_index_constituents(index_cfg["constituents_csv"])
     current_codes = {s["code"] for s in current}
     print("  index has %d constituents%s" % (len(current), " (bootstrap load)" if is_bootstrap else ""))
+
+    only = ticker_filter()
+    if only and is_bootstrap:
+        print("  ONLY_TICKERS ignored on a bootstrap (first-ever) run — there's no "
+              "prior scorecard yet for the rest of the index to fall back to")
+        only = None
+    elif only:
+        print("  ONLY_TICKERS set — rescoring just %s; every other constituent "
+              "keeps its current scorecard untouched this run" % sorted(only))
 
     # Unlike a screener.in screen, there's no "left the screen" concept here — a
     # ticker no longer in this month's constituent CSV just doesn't appear in
@@ -173,6 +182,8 @@ def process_index(client, universe_key, uni, index_cfg, settings):
                 prev_rs = ((prior_scorecard or {}).get("technicals") or {}).get("rs_percentile")
             tech_by_code[code] = T.build_technical_payload(
                 df, rs_percentile=rs_pct.get(code), rs_percentile_prev=prev_rs)
+            if only and code not in only:
+                continue  # not being rescored this run — skip the screener.in fetch for it
             fund_by_code[code] = build_fundamental_payload(client.fetch_company(code))
         except Exception as exc:
             fetch_errors[code] = exc
@@ -228,6 +239,10 @@ def process_index(client, universe_key, uni, index_cfg, settings):
         code = s["code"]
         prior_rec = prior_by_code.get(code)
         is_new = (not is_bootstrap) and prior_rec is None
+        if only and code not in only:
+            if prior_rec:  # carry forward unchanged; a genuinely new constituent outside
+                out_stocks.append(prior_rec)  # the filter just waits for the next unscoped run
+            continue
         try:
             if code in fetch_errors:
                 raise fetch_errors[code]

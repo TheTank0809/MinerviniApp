@@ -138,6 +138,18 @@ def today():
     return str(datetime.date.today())
 
 
+def ticker_filter():
+    """Comma-separated ticker allowlist for a scoped manual run (ONLY_TICKERS env
+    var) — e.g. re-verifying one stock's fix without paying the time/rate-limit cost
+    of rescraping the whole screen. Returns None (no filtering, the default) or an
+    uppercased set of codes. A code outside the set keeps its existing scorecard
+    untouched this run; shared across pipeline.py/pipeline_global.py/pipeline_nifty.py."""
+    raw = os.environ.get("ONLY_TICKERS", "")
+    if not raw.strip():
+        return None
+    return {t.strip().upper() for t in raw.split(",") if t.strip()}
+
+
 def process_screen(client, universe_key, uni, screen, settings):
     if not screen.get("url"):
         raise ScreenerError(
@@ -163,6 +175,11 @@ def process_screen(client, universe_key, uni, screen, settings):
     current = client.fetch_screen_stocks(screen["url"], screen_name=screen["name"])
     current_codes = {s["code"] for s in current}
     print("  screen returned %d stocks" % len(current))
+
+    only = ticker_filter()
+    if only:
+        print("  ONLY_TICKERS set — rescoring just %s; every other tracked stock "
+              "keeps its current scorecard untouched this run" % sorted(only))
 
     new_codes = [s for s in current if s["code"] not in prior_by_code]
     dropped_codes = [c for c in prior_by_code if c not in current_codes]
@@ -255,6 +272,8 @@ def process_screen(client, universe_key, uni, screen, settings):
                 prev_rs = ((prior_scorecard or {}).get("technicals") or {}).get("rs_percentile")
             tech_by_code[code] = T.build_technical_payload(
                 df, rs_percentile=rs_pct.get(code), rs_percentile_prev=prev_rs)
+            if only and code not in only:
+                continue  # not being rescored this run — skip the screener.in fetch for it
             fund_by_code[code] = build_fundamental_payload(client.fetch_company(code))
         except Exception as exc:
             fetch_errors[code] = exc
@@ -322,6 +341,10 @@ def process_screen(client, universe_key, uni, screen, settings):
         code = s["code"]
         prior_rec = prior_by_code.get(code)
         is_new = prior_rec is None
+        if only and code not in only:
+            if prior_rec:  # carry forward unchanged; a genuinely new stock outside the
+                out_stocks.append(prior_rec)  # filter just waits for the next unscoped run
+            continue
         try:
             if code in fetch_errors:
                 raise fetch_errors[code]
@@ -367,9 +390,9 @@ def process_screen(client, universe_key, uni, screen, settings):
                 "scorecard": card,
             }
             out_stocks.append(rec)
-            # SCORED and SCORED_NO_TREND both carry a real numeric score — only the
-            # FAIL_* gate-2 statuses (liquidity/pledge) don't. Governance no longer
-            # gates this at all — see scorecard.py's investability().
+            # Every status (including FAIL_* gate-2 failures) carries a real numeric
+            # score now — see scorecard.py's evaluate(); a hard gate still fully
+            # controls action_bucket/trade_plan, just not whether a score exists.
             score_total = (card.get("scores") or {}).get("total")
             if score_total is not None:
                 update_history(code, today(), score_total, card.get("action_bucket"),
