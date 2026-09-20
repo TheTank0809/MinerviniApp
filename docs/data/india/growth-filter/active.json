@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-19",
+ "generated_at": "2026-09-20",
  "stocks": [
   {
    "ticker": "MCX",
@@ -16006,6 +16006,203 @@
    }
   },
   {
+   "ticker": "SBIFUNDS",
+   "name": "SBI Funds Mgt.",
+   "joined_date": "2026-09-05",
+   "last_updated": "2026-09-20",
+   "scorecard": {
+    "ticker": "SBIFUNDS",
+    "name": "SBI Funds Mgt.",
+    "as_of": "2026-09-18",
+    "mode": "WEEKLY",
+    "gates": {
+     "trend_template": {
+      "c1": false,
+      "c2": false,
+      "c3": false,
+      "c4": false,
+      "c5": false,
+      "c6": false,
+      "c7": true,
+      "c8": false,
+      "pass": false,
+      "near_miss_notes": ""
+     },
+     "investability": {
+      "liquidity": true,
+      "pledge": true,
+      "governance_flag": false,
+      "governance_note": "No verifiable auditor resignation, SEBI action, fraud investigation, or major governance event found for SBI Funds Management in the trailing 12 months from available knowledge; cannot confirm with a dateable source, so marked false per no-fabrication rule.",
+      "governance": true,
+      "pass": true
+     }
+    },
+    "llm_checks": {
+     "h3_catalyst_found": false,
+     "h3_citation": "",
+     "governance_flag": false,
+     "governance_note": "No verifiable auditor resignation, SEBI action, fraud investigation, or major governance event found for SBI Funds Management in the trailing 12 months from available knowledge; cannot confirm with a dateable source, so marked false per no-fabrication rule.",
+     "checked_date": "2026-09-05"
+    },
+    "scores": {
+     "earnings": {
+      "A1": 0,
+      "A2": 0,
+      "A3": 2,
+      "A4": 4,
+      "A5": 2,
+      "subtotal": 8
+     },
+     "revenue": {
+      "B1": 0,
+      "B2": 0,
+      "B3": 3,
+      "B4": 0,
+      "subtotal": 3
+     },
+     "profitability": {
+      "C1": 3,
+      "C2": 0,
+      "C3": 2,
+      "C4": 2,
+      "subtotal": 7
+     },
+     "balance_sheet": {
+      "D1": 2,
+      "D2": 1,
+      "D3": 0,
+      "D4": 1,
+      "subtotal": 4
+     },
+     "sponsorship": {
+      "E1": 0,
+      "E2": 0,
+      "E3": 0,
+      "E4": 0,
+      "subtotal": 0
+     },
+     "rs_trend": {
+      "F1": 0,
+      "F2": 2,
+      "F3": 0,
+      "F4": 0,
+      "subtotal": 2
+     },
+     "base_structure": {
+      "G1": 0,
+      "G2": 0,
+      "G3": 3,
+      "G4": 0,
+      "G5": 0,
+      "G6": 0,
+      "subtotal": 3
+     },
+     "leadership": {
+      "H1": 0,
+      "H2": 0,
+      "H3": 0,
+      "subtotal": 0
+     },
+     "total": 27
+    },
+    "quality_band": "Reject",
+    "action_bucket": "AVOID",
+    "red_flags": [],
+    "risk_level": "LOW",
+    "valuation_context": {
+     "pe": 36.9,
+     "peg": null,
+     "vs_own_5yr": "",
+     "note": "Valuation is context only, never a criterion."
+    },
+    "base": {
+     "pattern_label": "",
+     "pivot": 579.0,
+     "pct_from_pivot": -3.05,
+     "base_count": null,
+     "depth_pct": 15.9,
+     "weeks": 8.8
+    },
+    "trade_plan": null,
+    "delta": {
+     "score_change": 27,
+     "gate_flips": [],
+     "bucket_change": "",
+     "alerts": []
+    },
+    "violations": {
+     "count": 0,
+     "items": [],
+     "recommendation": ""
+    },
+    "verdict": {
+     "summary": "SBIFUNDS (27/100) \u2014 Reject / AVOID. Score is informational only \u2014 gate not confirmed, so not an actionable setup yet.",
+     "strengths": [],
+     "weaknesses": [
+      "Fails Trend Template: c1, c2, c3, c4, c5, c6, c8",
+      "Earnings block weak (8/25)",
+      "No valid base yet (3/20)",
+      "16 unverified fields scored 0"
+     ],
+     "catalysts": [],
+     "biggest_risk": "None flagged",
+     "conviction_0_10": 0
+    },
+    "data_quality": {
+     "unverified_fields": [
+      "base_count",
+      "eps_acceleration",
+      "eps_revenue_support",
+      "eps_yoy_latest",
+      "group_leadership_rank",
+      "industry_group_rs",
+      "institutional_holding",
+      "marquee_institution",
+      "median_daily_traded_value",
+      "mf_scheme_count",
+      "net_margin_trend",
+      "new_catalyst",
+      "promoter_holding_trend",
+      "rs_percentile",
+      "sales_acceleration",
+      "sales_yoy_latest"
+     ],
+     "proxy_fields": [],
+     "unverified_reasons": {},
+     "sources": [
+      {
+       "field": "technicals",
+       "source": "Yahoo Finance OHLCV",
+       "as_of": "2026-09-18"
+      },
+      {
+       "field": "fundamentals",
+       "source": "screener.in",
+       "as_of": "2026-09-18"
+      }
+     ]
+    },
+    "technicals": {
+     "price": 561.35,
+     "rs_percentile": null,
+     "pct_below_52w_high": 10.2,
+     "pct_above_52w_low": 6.9,
+     "dma_50": 564.05,
+     "dma_200": 564.05,
+     "up_down_volume_ratio_50d": 0.44,
+     "industry_sector": null,
+     "industry_group_rs_quartile": null,
+     "group_leadership_rank": null,
+     "group_leadership_of": null,
+     "rsi": 45.2,
+     "roce": 56.5,
+     "fcf_latest_cr": 2460.0,
+     "fcf_source": "reported"
+    },
+    "status": "SCORED_NO_TREND"
+   }
+  },
+  {
    "ticker": "JAINREC",
    "name": "Jain Resource",
    "joined_date": "2026-07-14",
@@ -21273,125 +21470,6 @@
      "fcf_source": null
     },
     "status": "SCORED_NO_TREND"
-   }
-  },
-  {
-   "ticker": "SBIFUNDS",
-   "name": "SBI Funds Mgt.",
-   "joined_date": "2026-09-05",
-   "last_updated": "2026-09-19",
-   "scorecard": {
-    "ticker": "SBIFUNDS",
-    "name": "SBI Funds Mgt.",
-    "as_of": "2026-09-18",
-    "mode": "WEEKLY",
-    "gates": {
-     "trend_template": {
-      "c1": false,
-      "c2": false,
-      "c3": false,
-      "c4": false,
-      "c5": false,
-      "c6": false,
-      "c7": true,
-      "c8": false,
-      "pass": false,
-      "near_miss_notes": ""
-     },
-     "investability": {
-      "liquidity": false,
-      "pledge": true,
-      "governance_flag": false,
-      "governance_note": "No verifiable auditor resignation, SEBI action, fraud investigation, or major governance event found for SBI Funds Management in the trailing 12 months from available knowledge; cannot confirm with a dateable source, so marked false per no-fabrication rule.",
-      "governance": true,
-      "pass": false
-     }
-    },
-    "llm_checks": {
-     "h3_catalyst_found": false,
-     "h3_citation": "",
-     "governance_flag": false,
-     "governance_note": "No verifiable auditor resignation, SEBI action, fraud investigation, or major governance event found for SBI Funds Management in the trailing 12 months from available knowledge; cannot confirm with a dateable source, so marked false per no-fabrication rule.",
-     "checked_date": "2026-09-05"
-    },
-    "scores": null,
-    "quality_band": "Reject",
-    "action_bucket": "AVOID",
-    "red_flags": [],
-    "risk_level": null,
-    "valuation_context": {
-     "pe": 36.9,
-     "peg": null,
-     "vs_own_5yr": "",
-     "note": "Valuation is context only, never a criterion."
-    },
-    "base": {
-     "pattern_label": "",
-     "pivot": 579.0,
-     "pct_from_pivot": -3.05,
-     "base_count": null,
-     "depth_pct": 15.9,
-     "weeks": 8.8
-    },
-    "trade_plan": null,
-    "delta": {
-     "score_change": 0,
-     "gate_flips": [],
-     "bucket_change": "",
-     "alerts": []
-    },
-    "violations": {
-     "count": 0,
-     "items": [],
-     "recommendation": ""
-    },
-    "verdict": {
-     "summary": "Fails investability gate: LIQUIDITY.",
-     "strengths": [],
-     "weaknesses": [],
-     "catalysts": [],
-     "biggest_risk": "",
-     "conviction_0_10": 0
-    },
-    "data_quality": {
-     "unverified_fields": [
-      "median_daily_traded_value",
-      "net_margin_trend",
-      "rs_percentile"
-     ],
-     "proxy_fields": [],
-     "unverified_reasons": {},
-     "sources": [
-      {
-       "field": "technicals",
-       "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-09-18"
-      },
-      {
-       "field": "fundamentals",
-       "source": "screener.in",
-       "as_of": "2026-09-18"
-      }
-     ]
-    },
-    "technicals": {
-     "price": 561.35,
-     "rs_percentile": null,
-     "pct_below_52w_high": 10.2,
-     "pct_above_52w_low": 6.9,
-     "dma_50": 564.05,
-     "dma_200": 564.05,
-     "up_down_volume_ratio_50d": 0.44,
-     "industry_sector": null,
-     "industry_group_rs_quartile": null,
-     "group_leadership_rank": null,
-     "group_leadership_of": null,
-     "rsi": 45.2,
-     "roce": 56.5,
-     "fcf_latest_cr": 2460.0,
-     "fcf_source": "reported"
-    },
-    "status": "FAIL_LIQUIDITY"
    }
   },
   {

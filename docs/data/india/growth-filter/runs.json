@@ -1,6 +1,136 @@
 {
  "runs": [
   {
+   "run_date": "2026-09-20",
+   "mode": "WEEKLY",
+   "regime": {
+    "score": 3,
+    "label": "CAUTION",
+    "checks": {
+     "close_above_50dma": false,
+     "close_above_200dma": false,
+     "50dma_above_200dma": true,
+     "distribution_days_25": 6,
+     "distribution_days_ok": false,
+     "pct_universe_above_200dma": 67.6,
+     "universe_above_200dma_ok": true,
+     "net_new_highs_positive": true
+    },
+    "exposure_guidance": "New buys at half risk; only score >=85 setups."
+   },
+   "counts": {
+    "active": 119,
+    "new": 4,
+    "dropped": 0,
+    "errors": 0
+   },
+   "new_tickers": [
+    "MILKYMIST",
+    "VERTIS",
+    "LEAPIND",
+    "NHIT"
+   ],
+   "dropped_tickers": [],
+   "actionable_now": [],
+   "alerts": [
+    {
+     "ticker": "KALYANKJIL",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "SENORES",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "GOKULAGRO",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "GOKULAGRO",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "ATLANTAELE",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "PREMIERENE",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "APOLLO",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "APOLLO",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "CHOLAFIN",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "GROWW",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "VIYASH",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "SBFC",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "SBFC",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "GENUSPOWER",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "GENUSPOWER",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "OLECTRA",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "PGEL",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "CCAVENUE",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "BORORENEW",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "DATAPATTNS",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "NETWEB",
+     "alert": "CLOSED_BELOW_50DMA"
+    }
+   ],
+   "errors": [],
+   "llm": {
+    "enabled": true,
+    "model": "claude-sonnet-5"
+   },
+   "rs_universe": {
+    "source": "Nifty 500",
+    "attempted": 500,
+    "succeeded": 500,
+    "used": true
+   }
+  },
+  {
    "run_date": "2026-09-19",
    "mode": "WEEKLY",
    "regime": {
