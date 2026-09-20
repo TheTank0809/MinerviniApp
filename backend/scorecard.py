@@ -57,8 +57,13 @@ def investability(t, f, cfg, unverified, llm_checks=None):
     mtv = t.get("median_daily_traded_value_50d")
     min_cr = cfg.get("min_median_daily_traded_value_cr", 5)
     if mtv is None:
+        # technicals.py only computes this once a stock has 50 trading days on Yahoo
+        # Finance — a recent listing hasn't accumulated that yet. Exempt it rather than
+        # blanket-failing on a data-availability technicality (same treatment as a
+        # missing pledge figure below); it's still surfaced via unverified_fields, and
+        # the real check applies again automatically once 50 days of history exist.
         unverified.append("median_daily_traded_value")
-        g["liquidity"] = False
+        g["liquidity"] = True
     else:
         g["liquidity"] = mtv >= min_cr * 1e7  # ₹ crore -> ₹
     pledge = f.get("promoter_pledge_pct")
