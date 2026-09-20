@@ -1042,6 +1042,16 @@
 
   function fmtPrice(v) { return String(Math.round(v * 100) / 100); }
 
+  // Simple mean is a bad summary for a ratio series that can spike when its denominator
+  // nears zero (P/E when earnings ~0) — a few such months drag the mean well above where
+  // the series actually spends most of its time. Median is far more robust to that, so
+  // both are shown side by side rather than picking one.
+  function median(vals) {
+    var sorted = vals.slice().sort(function (a, b) { return a - b; });
+    var mid = Math.floor(sorted.length / 2);
+    return sorted.length % 2 ? sorted[mid] : (sorted[mid - 1] + sorted[mid]) / 2;
+  }
+
   // Per-metric plumbing for the history popup — score has a fixed [0,100] domain, price
   // a dynamic one padded around its own min/max. Everything else (dots, grid, axis,
   // year-coloring) is shared, so only the value/domain/text pieces need to vary.
@@ -1051,11 +1061,6 @@
       valueOf: function (p) { return p.score; },
       domain: function () { return [0, 100]; },
       headline: function (last) { return last.score + "/100"; },
-      deltaText: function (first, last, n) {
-        var d = last.score - first.score;
-        return { cls: d > 0 ? "up" : d < 0 ? "down" : "",
-          text: (d > 0 ? "+" : "") + d + " over " + (n - 1) + (n - 1 === 1 ? " week" : " weeks") };
-      },
       tooltip: function (p) {
         return fmtDate(p.date) + " · score " + p.score + (p.bucket ? " · " + p.bucket.replace(/_/g, " ") : "");
       }
@@ -1071,14 +1076,6 @@
         return [lo - pad, hi + pad];
       },
       headline: function (last) { return "₹" + fmtPrice(last.price); },
-      deltaText: function (first, last, n) {
-        var d = last.price - first.price;
-        var pct = first.price ? (d / first.price * 100) : 0;
-        var sign = d > 0 ? "+" : d < 0 ? "-" : "";
-        return { cls: d > 0 ? "up" : d < 0 ? "down" : "",
-          text: sign + "₹" + fmtPrice(Math.abs(d)) + " (" + sign + Math.abs(pct).toFixed(1) + "%) over " +
-            (n - 1) + (n - 1 === 1 ? " week" : " weeks") };
-      },
       tooltip: function (p) { return fmtDate(p.date) + " · ₹" + fmtPrice(p.price); }
     },
     ratio_price: {
@@ -1104,8 +1101,9 @@
         var vals = points.map(function (p) { return state.currency === "usd" ? p.price_usd : p.price_inr; })
           .filter(function (v) { return v != null; });
         if (!vals.length) return "";
-        var avg = vals.reduce(function (a, b) { return a + b; }, 0) / vals.length;
-        return "Avg " + ratiosSym() + fmtPrice(avg) + " over " + vals.length + (vals.length === 1 ? " week" : " weeks");
+        var mean = vals.reduce(function (a, b) { return a + b; }, 0) / vals.length;
+        return "Mean " + ratiosSym() + fmtPrice(mean) + " · Median " + ratiosSym() + fmtPrice(median(vals)) +
+          " over " + vals.length + (vals.length === 1 ? " week" : " weeks");
       }
     },
     ratio_pe: {
@@ -1119,20 +1117,13 @@
         return [lo - pad, hi + pad];
       },
       headline: function (last) { return last.value.toFixed(2); },
-      deltaText: function (first, last, n) {
-        var d = last.value - first.value;
-        var pct = first.value ? (d / first.value * 100) : 0;
-        var sign = d > 0 ? "+" : d < 0 ? "-" : "";
-        return { cls: d > 0 ? "up" : d < 0 ? "down" : "",
-          text: sign + Math.abs(d).toFixed(2) + " (" + sign + Math.abs(pct).toFixed(1) + "%) over " +
-            (n - 1) + (n - 1 === 1 ? " month" : " months") };
-      },
       tooltip: function (p) { return fmtDate(p.date) + " · " + p.value.toFixed(2); },
       avgText: function (points) {
         var vals = points.map(function (p) { return p.value; }).filter(function (v) { return v != null; });
         if (!vals.length) return "";
-        var avg = vals.reduce(function (a, b) { return a + b; }, 0) / vals.length;
-        return "Avg " + avg.toFixed(2) + " over " + vals.length + (vals.length === 1 ? " month" : " months");
+        var mean = vals.reduce(function (a, b) { return a + b; }, 0) / vals.length;
+        return "Mean " + mean.toFixed(2) + " · Median " + median(vals).toFixed(2) +
+          " over " + vals.length + (vals.length === 1 ? " month" : " months");
       }
     },
     ratio_bynifty: {
@@ -1146,20 +1137,13 @@
         return [lo - pad, hi + pad];
       },
       headline: function (last) { return last.value.toFixed(3); },
-      deltaText: function (first, last, n) {
-        var d = last.value - first.value;
-        var pct = first.value ? (d / first.value * 100) : 0;
-        var sign = d > 0 ? "+" : d < 0 ? "-" : "";
-        return { cls: d > 0 ? "up" : d < 0 ? "down" : "",
-          text: sign + Math.abs(d).toFixed(3) + " (" + sign + Math.abs(pct).toFixed(1) + "%) over " +
-            (n - 1) + (n - 1 === 1 ? " month" : " months") };
-      },
       tooltip: function (p) { return fmtDate(p.date) + " · " + p.value.toFixed(3); },
       avgText: function (points) {
         var vals = points.map(function (p) { return p.value; }).filter(function (v) { return v != null; });
         if (!vals.length) return "";
-        var avg = vals.reduce(function (a, b) { return a + b; }, 0) / vals.length;
-        return "Avg " + avg.toFixed(3) + " over " + vals.length + (vals.length === 1 ? " month" : " months");
+        var mean = vals.reduce(function (a, b) { return a + b; }, 0) / vals.length;
+        return "Mean " + mean.toFixed(3) + " · Median " + median(vals).toFixed(3) +
+          " over " + vals.length + (vals.length === 1 ? " month" : " months");
       }
     }
   };
@@ -1176,9 +1160,8 @@
     if (!points || points.length < 2) {
       return '<p class="uv">Not enough history yet — check back after next week’s scan.</p>';
     }
-    var n = points.length, first = points[0], last = points[n - 1];
+    var n = points.length, last = points[n - 1];
     var domain = metric.domain(points);
-    var d = metric.deltaText ? metric.deltaText(first, last, n) : null;
 
     var linePts = points.map(function (p, i) { return histX(i, n) + "," + histY(metric.valueOf(p), domain); }).join(" ");
     var areaPts = linePts + " " + histX(n - 1, n) + "," + (HIST_PAD_T + HIST_PLOT_H) +
@@ -1228,8 +1211,7 @@
 
     var avg = metric.avgText ? metric.avgText(points) : "";
 
-    return '<div class="hist-summary"><span class="hist-score">' + metric.headline(last) + '</span>' +
-      (d ? '<span class="hist-delta ' + d.cls + '">' + esc(d.text) + "</span>" : "") + "</div>" +
+    return '<div class="hist-summary"><span class="hist-score">' + metric.headline(last) + '</span></div>' +
       (avg ? '<div class="hist-avg">' + esc(avg) + "</div>" : "") +
       svg +
       '<div class="hist-axis">' + axis + "</div>" +
