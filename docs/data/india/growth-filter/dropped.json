@@ -207,7 +207,8 @@
      "fcf_latest_cr": null,
      "fcf_source": null
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    },
    "dropped_date": "2026-09-12",
    "frozen": true
@@ -390,7 +391,8 @@
      "fcf_latest_cr": -264.0,
      "fcf_source": "reported"
     },
-    "status": "SCORED"
+    "status": "SCORED",
+    "setup_flag": null
    },
    "dropped_date": "2026-09-12",
    "frozen": true
@@ -589,7 +591,8 @@
      "fcf_latest_cr": 17.0,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    },
    "dropped_date": "2026-09-05",
    "frozen": true
@@ -774,7 +777,8 @@
      "fcf_latest_cr": 2962.0,
      "fcf_source": "reported"
     },
-    "status": "SCORED"
+    "status": "SCORED",
+    "setup_flag": null
    },
    "dropped_date": "2026-08-30",
    "frozen": true
@@ -959,7 +963,8 @@
      "fcf_latest_cr": -221.0,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    },
    "dropped_date": "2026-08-23",
    "frozen": true
@@ -1163,7 +1168,8 @@
      "group_leadership_rank": null,
      "group_leadership_of": null
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    },
    "dropped_date": "2026-08-16",
    "frozen": true
@@ -1344,7 +1350,8 @@
      "group_leadership_rank": 50,
      "group_leadership_of": 63
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    },
    "dropped_date": "2026-08-16",
    "frozen": true
@@ -1523,7 +1530,8 @@
      "dma_200": 210.07,
      "up_down_volume_ratio_50d": 1.78
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    },
    "dropped_date": "2026-07-28",
    "frozen": true
@@ -1700,7 +1708,8 @@
      "dma_200": 854.96,
      "up_down_volume_ratio_50d": 1.79
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    },
    "dropped_date": "2026-07-28",
    "frozen": true

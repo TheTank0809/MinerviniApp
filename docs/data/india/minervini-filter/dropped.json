@@ -192,7 +192,8 @@
      "fcf_latest_cr": -6.0,
      "fcf_source": "reported"
     },
-    "status": "SCORED"
+    "status": "SCORED",
+    "setup_flag": "momentum"
    },
    "dropped_date": "2026-09-19",
    "frozen": true
@@ -403,7 +404,8 @@
      "fcf_latest_cr": null,
      "fcf_source": null
     },
-    "status": "SCORED"
+    "status": "SCORED",
+    "setup_flag": "momentum"
    },
    "dropped_date": "2026-09-19",
    "frozen": true
@@ -606,7 +608,8 @@
      "fcf_latest_cr": null,
      "fcf_source": null
     },
-    "status": "SCORED"
+    "status": "SCORED",
+    "setup_flag": "momentum"
    },
    "dropped_date": "2026-09-19",
    "frozen": true
@@ -796,7 +799,8 @@
      "fcf_latest_cr": -514.0,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    },
    "dropped_date": "2026-09-19",
    "frozen": true
@@ -984,7 +988,8 @@
      "fcf_latest_cr": -33.0,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    },
    "dropped_date": "2026-09-19",
    "frozen": true
@@ -1170,7 +1175,8 @@
      "fcf_latest_cr": -30263.0,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    },
    "dropped_date": "2026-09-19",
    "frozen": true
@@ -1360,7 +1366,8 @@
      "fcf_latest_cr": 68.0,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    },
    "dropped_date": "2026-09-19",
    "frozen": true
@@ -1548,7 +1555,8 @@
      "fcf_latest_cr": -357.0,
      "fcf_source": "reported"
     },
-    "status": "SCORED"
+    "status": "SCORED",
+    "setup_flag": null
    },
    "dropped_date": "2026-09-19",
    "frozen": true
@@ -1736,7 +1744,8 @@
      "fcf_latest_cr": -203.0,
      "fcf_source": "reported"
     },
-    "status": "SCORED"
+    "status": "SCORED",
+    "setup_flag": null
    },
    "dropped_date": "2026-09-19",
    "frozen": true
@@ -1938,7 +1947,8 @@
      "fcf_latest_cr": null,
      "fcf_source": null
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    },
    "dropped_date": "2026-09-12",
    "frozen": true
@@ -2129,7 +2139,8 @@
      "fcf_latest_cr": 185.0,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": "momentum"
    },
    "dropped_date": "2026-09-12",
    "frozen": true
@@ -2316,7 +2327,8 @@
      "fcf_latest_cr": -796.0,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    },
    "dropped_date": "2026-09-12",
    "frozen": true
@@ -2498,7 +2510,8 @@
      "fcf_latest_cr": 225.0,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    },
    "dropped_date": "2026-09-12",
    "frozen": true
@@ -2684,7 +2697,8 @@
      "fcf_latest_cr": 274.0,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": "momentum"
    },
    "dropped_date": "2026-09-12",
    "frozen": true
@@ -2877,7 +2891,8 @@
      "fcf_latest_cr": 220.0,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    },
    "dropped_date": "2026-09-12",
    "frozen": true
@@ -3062,7 +3077,8 @@
      "fcf_latest_cr": -3041.0,
      "fcf_source": "reported"
     },
-    "status": "SCORED"
+    "status": "SCORED",
+    "setup_flag": "momentum"
    },
    "dropped_date": "2026-09-12",
    "frozen": true
@@ -3249,7 +3265,8 @@
      "fcf_latest_cr": 724.0,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": "early"
    },
    "dropped_date": "2026-09-12",
    "frozen": true
@@ -3437,7 +3454,8 @@
      "fcf_latest_cr": -264.0,
      "fcf_source": "reported"
     },
-    "status": "SCORED"
+    "status": "SCORED",
+    "setup_flag": null
    },
    "dropped_date": "2026-09-12",
    "frozen": true
@@ -3649,7 +3667,8 @@
      "fcf_latest_cr": null,
      "fcf_source": null
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    },
    "dropped_date": "2026-09-05",
    "frozen": true
@@ -3848,7 +3867,8 @@
      "fcf_latest_cr": 17.0,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    },
    "dropped_date": "2026-09-05",
    "frozen": true
@@ -4033,7 +4053,8 @@
      "fcf_latest_cr": 729.0,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    },
    "dropped_date": "2026-09-05",
    "frozen": true
@@ -4220,7 +4241,8 @@
      "fcf_latest_cr": -2382.0,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    },
    "dropped_date": "2026-09-05",
    "frozen": true
@@ -4408,7 +4430,8 @@
      "fcf_latest_cr": 1184.0,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    },
    "dropped_date": "2026-09-05",
    "frozen": true
@@ -4599,7 +4622,8 @@
      "fcf_latest_cr": -717.0,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    },
    "dropped_date": "2026-09-05",
    "frozen": true
@@ -4793,7 +4817,8 @@
      "fcf_latest_cr": -343.0,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    },
    "dropped_date": "2026-09-05",
    "frozen": true
@@ -4983,7 +5008,8 @@
      "fcf_latest_cr": 230.0,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    },
    "dropped_date": "2026-09-05",
    "frozen": true
@@ -5172,7 +5198,8 @@
      "fcf_latest_cr": -36.0,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    },
    "dropped_date": "2026-09-05",
    "frozen": true
@@ -5363,7 +5390,8 @@
      "fcf_latest_cr": 142.0,
      "fcf_source": "reported"
     },
-    "status": "SCORED"
+    "status": "SCORED",
+    "setup_flag": null
    },
    "dropped_date": "2026-09-05",
    "frozen": true
@@ -5550,7 +5578,8 @@
      "fcf_latest_cr": -33.0,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    },
    "dropped_date": "2026-08-30",
    "frozen": true
@@ -5747,7 +5776,8 @@
      "fcf_latest_cr": -129.0,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": "early"
    },
    "dropped_date": "2026-08-30",
    "frozen": true
@@ -5927,7 +5957,8 @@
      "fcf_latest_cr": -1736.0,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": "early"
    },
    "dropped_date": "2026-08-30",
    "frozen": true
@@ -6113,7 +6144,8 @@
      "fcf_latest_cr": 613.0,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": "early"
    },
    "dropped_date": "2026-08-30",
    "frozen": true
@@ -6298,7 +6330,8 @@
      "fcf_latest_cr": 2962.0,
      "fcf_source": "reported"
     },
-    "status": "SCORED"
+    "status": "SCORED",
+    "setup_flag": null
    },
    "dropped_date": "2026-08-30",
    "frozen": true
@@ -6496,7 +6529,8 @@
      "fcf_latest_cr": null,
      "fcf_source": null
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": "momentum"
    },
    "dropped_date": "2026-08-23",
    "frozen": true
@@ -6683,7 +6717,8 @@
      "fcf_latest_cr": 226.0,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    },
    "dropped_date": "2026-08-23",
    "frozen": true
@@ -6869,7 +6904,8 @@
      "fcf_latest_cr": 931.0,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    },
    "dropped_date": "2026-08-23",
    "frozen": true
@@ -7052,7 +7088,8 @@
      "fcf_latest_cr": 274.0,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": "momentum"
    },
    "dropped_date": "2026-08-23",
    "frozen": true
@@ -7236,7 +7273,8 @@
      "fcf_latest_cr": -357.0,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    },
    "dropped_date": "2026-08-23",
    "frozen": true
@@ -7419,7 +7457,8 @@
      "fcf_latest_cr": 2340.0,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": "early"
    },
    "dropped_date": "2026-08-23",
    "frozen": true
@@ -7600,7 +7639,8 @@
      "fcf_latest_cr": -7040.0,
      "fcf_source": "reported"
     },
-    "status": "SCORED"
+    "status": "SCORED",
+    "setup_flag": null
    },
    "dropped_date": "2026-08-23",
    "frozen": true
@@ -7804,7 +7844,8 @@
      "group_leadership_rank": null,
      "group_leadership_of": null
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    },
    "dropped_date": "2026-08-16",
    "frozen": true
@@ -7989,7 +8030,8 @@
      "group_leadership_rank": null,
      "group_leadership_of": null
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    },
    "dropped_date": "2026-08-16",
    "frozen": true
@@ -8170,7 +8212,8 @@
      "group_leadership_rank": null,
      "group_leadership_of": null
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": "early"
    },
    "dropped_date": "2026-08-16",
    "frozen": true
@@ -8346,7 +8389,8 @@
      "group_leadership_rank": 37,
      "group_leadership_of": 63
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": "early"
    },
    "dropped_date": "2026-08-16",
    "frozen": true
@@ -8533,7 +8577,8 @@
      "group_leadership_rank": null,
      "group_leadership_of": null
     },
-    "status": "SCORED"
+    "status": "SCORED",
+    "setup_flag": null
    },
    "dropped_date": "2026-08-16",
    "frozen": true
@@ -8717,7 +8762,8 @@
      "group_leadership_rank": 11,
      "group_leadership_of": 101
     },
-    "status": "SCORED"
+    "status": "SCORED",
+    "setup_flag": null
    },
    "dropped_date": "2026-08-16",
    "frozen": true
@@ -8896,7 +8942,8 @@
      "group_leadership_rank": 21,
      "group_leadership_of": 38
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": "early"
    },
    "dropped_date": "2026-08-16",
    "frozen": true
@@ -9077,7 +9124,8 @@
      "group_leadership_rank": null,
      "group_leadership_of": null
     },
-    "status": "SCORED"
+    "status": "SCORED",
+    "setup_flag": null
    },
    "dropped_date": "2026-08-16",
    "frozen": true
@@ -9265,7 +9313,8 @@
      "group_leadership_rank": 2,
      "group_leadership_of": 48
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    },
    "dropped_date": "2026-08-16",
    "frozen": true
@@ -9463,7 +9512,8 @@
      "group_leadership_rank": null,
      "group_leadership_of": null
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": "momentum"
    },
    "dropped_date": "2026-08-09",
    "frozen": true
@@ -9641,7 +9691,8 @@
      "group_leadership_rank": 3,
      "group_leadership_of": 8
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": "momentum"
    },
    "dropped_date": "2026-08-09",
    "frozen": true
@@ -9824,7 +9875,8 @@
      "group_leadership_rank": null,
      "group_leadership_of": null
     },
-    "status": "SCORED"
+    "status": "SCORED",
+    "setup_flag": "momentum"
    },
    "dropped_date": "2026-08-09",
    "frozen": true
@@ -10003,7 +10055,8 @@
      "group_leadership_rank": 12,
      "group_leadership_of": 12
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    },
    "dropped_date": "2026-08-09",
    "frozen": true
@@ -10184,7 +10237,8 @@
      "group_leadership_rank": 5,
      "group_leadership_of": 5
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    },
    "dropped_date": "2026-08-09",
    "frozen": true
@@ -10364,7 +10418,8 @@
      "group_leadership_rank": 3,
      "group_leadership_of": 3
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": "early"
    },
    "dropped_date": "2026-08-09",
    "frozen": true
@@ -10541,7 +10596,8 @@
      "group_leadership_rank": 9,
      "group_leadership_of": 12
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": "early"
    },
    "dropped_date": "2026-08-09",
    "frozen": true
@@ -10720,7 +10776,8 @@
      "group_leadership_rank": 5,
      "group_leadership_of": 5
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": "early"
    },
    "dropped_date": "2026-08-09",
    "frozen": true
@@ -10908,7 +10965,8 @@
      "dma_200": 3352.61,
      "up_down_volume_ratio_50d": 1.61
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": "momentum"
    },
    "dropped_date": "2026-08-02",
    "frozen": true
@@ -11105,7 +11163,8 @@
      "dma_200": 3937.16,
      "up_down_volume_ratio_50d": 2.38
     },
-    "status": "SCORED"
+    "status": "SCORED",
+    "setup_flag": "momentum"
    },
    "dropped_date": "2026-08-02",
    "frozen": true
@@ -11286,7 +11345,8 @@
      "dma_200": null,
      "up_down_volume_ratio_50d": 2.32
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": "early"
    },
    "dropped_date": "2026-08-02",
    "frozen": true
@@ -11463,7 +11523,8 @@
      "dma_200": 746.17,
      "up_down_volume_ratio_50d": 0.79
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    },
    "dropped_date": "2026-08-02",
    "frozen": true
@@ -11647,7 +11708,8 @@
      "dma_200": 2326.69,
      "up_down_volume_ratio_50d": 1.44
     },
-    "status": "SCORED"
+    "status": "SCORED",
+    "setup_flag": null
    },
    "dropped_date": "2026-08-02",
    "frozen": true
@@ -11824,7 +11886,8 @@
      "dma_200": 386.91,
      "up_down_volume_ratio_50d": 2.61
     },
-    "status": "SCORED"
+    "status": "SCORED",
+    "setup_flag": null
    },
    "dropped_date": "2026-08-02",
    "frozen": true
@@ -11929,7 +11992,8 @@
      "dma_200": 432.48,
      "up_down_volume_ratio_50d": 0.82
     },
-    "status": "FAIL_LIQUIDITY"
+    "status": "FAIL_LIQUIDITY",
+    "setup_flag": null
    },
    "dropped_date": "2026-07-28",
    "frozen": true
@@ -12108,7 +12172,8 @@
      "dma_200": 540.58,
      "up_down_volume_ratio_50d": 1.27
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    },
    "dropped_date": "2026-07-28",
    "frozen": true
@@ -12285,7 +12350,8 @@
      "dma_200": 854.96,
      "up_down_volume_ratio_50d": 1.79
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    },
    "dropped_date": "2026-07-28",
    "frozen": true
@@ -12459,7 +12525,8 @@
      "dma_200": 1491.38,
      "up_down_volume_ratio_50d": 1.88
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": "momentum"
    },
    "dropped_date": "2026-07-28",
    "frozen": true
@@ -12636,7 +12703,8 @@
      "dma_200": null,
      "up_down_volume_ratio_50d": 0.83
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    },
    "dropped_date": "2026-07-28",
    "frozen": true
@@ -12814,7 +12882,8 @@
      "dma_200": 951.86,
      "up_down_volume_ratio_50d": 0.41
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": "early"
    },
    "dropped_date": "2026-07-28",
    "frozen": true
@@ -12989,7 +13058,8 @@
      "dma_200": 220.86,
      "up_down_volume_ratio_50d": 1.63
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    },
    "dropped_date": "2026-07-28",
    "frozen": true
@@ -13166,7 +13236,8 @@
      "dma_200": 291.61,
      "up_down_volume_ratio_50d": 2.37
     },
-    "status": "SCORED"
+    "status": "SCORED",
+    "setup_flag": null
    },
    "dropped_date": "2026-07-28",
    "frozen": true
@@ -13339,7 +13410,8 @@
      "dma_200": 454.0,
      "up_down_volume_ratio_50d": 1.24
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": "early"
    },
    "dropped_date": "2026-07-28",
    "frozen": true
@@ -13513,7 +13585,8 @@
      "dma_200": 938.27,
      "up_down_volume_ratio_50d": 1.68
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": "early"
    },
    "dropped_date": "2026-07-28",
    "frozen": true
@@ -13703,7 +13776,8 @@
      "dma_200": 3688.3,
      "up_down_volume_ratio_50d": 1.23
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    },
    "dropped_date": "2026-07-19",
    "frozen": true
@@ -13885,7 +13959,8 @@
      "dma_200": 1130.77,
      "up_down_volume_ratio_50d": 1.01
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    },
    "dropped_date": "2026-07-19",
    "frozen": true
@@ -14057,7 +14132,8 @@
      "dma_200": 8011.11,
      "up_down_volume_ratio_50d": 1.82
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    },
    "dropped_date": "2026-07-19",
    "frozen": true
@@ -14232,7 +14308,8 @@
      "dma_200": 2426.64,
      "up_down_volume_ratio_50d": 0.87
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": "early"
    },
    "dropped_date": "2026-07-19",
    "frozen": true
@@ -14405,7 +14482,8 @@
      "dma_200": 1244.02,
      "up_down_volume_ratio_50d": 2.56
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": "early"
    },
    "dropped_date": "2026-07-19",
    "frozen": true
@@ -14596,7 +14674,8 @@
      "dma_200": 3263.13,
      "up_down_volume_ratio_50d": 1.32
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": "momentum"
    },
    "dropped_date": "2026-07-14",
    "frozen": true
@@ -14778,7 +14857,8 @@
      "dma_200": null,
      "up_down_volume_ratio_50d": 1.11
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    },
    "dropped_date": "2026-07-14",
    "frozen": true
@@ -14950,7 +15030,8 @@
      "dma_200": 194.53,
      "up_down_volume_ratio_50d": 1.11
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": "early"
    },
    "dropped_date": "2026-07-14",
    "frozen": true
@@ -15125,7 +15206,8 @@
      "dma_200": 17251.99,
      "up_down_volume_ratio_50d": 1.59
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": "early"
    },
    "dropped_date": "2026-07-14",
    "frozen": true
@@ -15227,7 +15309,8 @@
      "dma_200": 215.96,
      "up_down_volume_ratio_50d": 1.12
     },
-    "status": "FAILS_TREND_TEMPLATE"
+    "status": "FAILS_TREND_TEMPLATE",
+    "setup_flag": null
    },
    "dropped_date": "2026-07-12",
    "frozen": true
@@ -15329,7 +15412,8 @@
      "dma_200": 3380.56,
      "up_down_volume_ratio_50d": 1.58
     },
-    "status": "FAILS_TREND_TEMPLATE"
+    "status": "FAILS_TREND_TEMPLATE",
+    "setup_flag": null
    },
    "dropped_date": "2026-07-12",
    "frozen": true
@@ -15431,7 +15515,8 @@
      "dma_200": 7944.52,
      "up_down_volume_ratio_50d": 1.72
     },
-    "status": "FAILS_TREND_TEMPLATE"
+    "status": "FAILS_TREND_TEMPLATE",
+    "setup_flag": null
    },
    "dropped_date": "2026-07-12",
    "frozen": true
@@ -15533,7 +15618,8 @@
      "dma_200": 51.81,
      "up_down_volume_ratio_50d": 1.26
     },
-    "status": "FAILS_TREND_TEMPLATE"
+    "status": "FAILS_TREND_TEMPLATE",
+    "setup_flag": null
    },
    "dropped_date": "2026-07-12",
    "frozen": true
@@ -15645,7 +15731,8 @@
      "dma_200": 3647.52,
      "up_down_volume_ratio_50d": 1.43
     },
-    "status": "FAILS_TREND_TEMPLATE"
+    "status": "FAILS_TREND_TEMPLATE",
+    "setup_flag": null
    },
    "dropped_date": "2026-07-12",
    "frozen": true
@@ -15757,7 +15844,8 @@
      "dma_200": 2572.49,
      "up_down_volume_ratio_50d": 1.55
     },
-    "status": "FAILS_TREND_TEMPLATE"
+    "status": "FAILS_TREND_TEMPLATE",
+    "setup_flag": null
    },
    "dropped_date": "2026-07-12",
    "frozen": true
@@ -15864,7 +15952,8 @@
      "dma_200": null,
      "up_down_volume_ratio_50d": 0.96
     },
-    "status": "FAILS_TREND_TEMPLATE"
+    "status": "FAILS_TREND_TEMPLATE",
+    "setup_flag": null
    },
    "dropped_date": "2026-07-12",
    "frozen": true

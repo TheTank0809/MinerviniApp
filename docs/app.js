@@ -69,6 +69,21 @@
     if (state.bought[entry.ticker]) html += '<span class="markpill buy" title="Bought">BUY</span>';
     return html;
   }
+  // Early/Momentum — informational-only tags computed by the scorecard engine
+  // (backend/scorecard.py: classify_setup_flag), shown only for India-S and
+  // Global — the two continuously re-screened universes this is meant for.
+  var SETUP_FLAG_META = {
+    early: { cls: "early", label: "EARLY",
+      title: "Fundamentals or base structure already strong, but the Trend Template (price/RS momentum) hasn't confirmed yet" },
+    momentum: { cls: "momentum", label: "MOM",
+      title: "Trend Template near/fully confirmed, but fundamentals are still weak — price moving ahead of the numbers" }
+  };
+  function setupPill(sc) {
+    if (state.universeKey !== "india" && state.universeKey !== "global") return "";
+    var meta = SETUP_FLAG_META[sc && sc.setup_flag];
+    if (!meta) return "";
+    return '<span class="setuppill ' + meta.cls + '" title="' + esc(meta.title) + '">' + meta.label + "</span>";
+  }
   function markedEntriesFor(marks) {
     var byTicker = {};
     state.data.active.concat(state.data.dropped).forEach(function (e) {
@@ -518,6 +533,25 @@
       state.filter = "new"; state.newPeriod = "all"; renderFilterChips(); renderList();
     };
     box.appendChild(newBtn);
+
+    // Early/Momentum — India-S and Global only (the two continuously re-screened
+    // universes classify_setup_flag was built for).
+    if (state.universeKey === "india" || state.universeKey === "global") {
+      ["early", "momentum"].forEach(function (flag) {
+        var meta = SETUP_FLAG_META[flag];
+        var count = state.data.active.filter(function (e) {
+          return (e.primary.scorecard || {}).setup_flag === flag;
+        }).length;
+        var b = document.createElement("button");
+        b.className = "chip" + (state.filter === flag ? " active" : "");
+        b.textContent = meta.label + (count ? " " + count : "");
+        b.title = meta.title;
+        b.onclick = function () {
+          state.filter = flag; state.newPeriod = "all"; renderFilterChips(); renderList();
+        };
+        box.appendChild(b);
+      });
+    }
     renderNewFilter();
   }
 
@@ -618,6 +652,9 @@
         if (state.newPeriod !== "all") {
           list = list.filter(function (e) { return newPeriod(e) === state.newPeriod; });
         }
+      } else if (state.filter === "early" || state.filter === "momentum") {
+        var wantFlag = state.filter;
+        list = list.filter(function (e) { return (e.primary.scorecard || {}).setup_flag === wantFlag; });
       } else if (state.filter) {
         // Scoped to the tab being shown: a stock that dropped out of screen X but is
         // still active via screen Y must not count as "X only" on the In-screen tab —
@@ -709,7 +746,7 @@
     var subText = isGlobal ? entry.ticker : (entry.name || "");
     var cells =
       '<span class="stockcell"><span class="ticker">' + esc(leadText) + "</span>" +
-      membershipPills(entry) + markPills(entry) +
+      membershipPills(entry) + markPills(entry) + setupPill(sc) +
       (entry.isNew ? '<span class="newpill">NEW</span>' : "") +
       '<div class="sname">' + esc(subText) + '</div>' +
       '<div class="sub' + (reason && state.tab !== "dropped" ? " reject" : "") + '" title="' + esc(sub) + '">' + esc(sub) + "</div></span>" +
@@ -831,6 +868,10 @@
     if (scores) html += '<button type="button" class="badge band hist-open" data-ticker="' + esc(entry.ticker) +
       '" data-metric="score" title="Tap to see score history">' + esc(sc.quality_band) + " · " + scores.total + "/100</button>";
     html += '<span class="badge">' + esc((sc.action_bucket || sc.status || "").replace(/_/g, " ")) + "</span>";
+    if ((state.universeKey === "india" || state.universeKey === "global") && SETUP_FLAG_META[sc.setup_flag]) {
+      var sfMeta = SETUP_FLAG_META[sc.setup_flag];
+      html += '<span class="badge setup-' + sfMeta.cls + '" title="' + esc(sfMeta.title) + '">' + esc(sfMeta.label) + "</span>";
+    }
     if (rec.dropped_date) html += '<span class="badge frozen">Left screen ' + fmtDate(rec.dropped_date) + " · frozen</span>";
     var reason = rejectReason(sc);
     if (reason) html += '<span class="badge flag">' + esc(reason) + "</span>";

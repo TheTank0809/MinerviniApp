@@ -195,7 +195,8 @@
      "fcf_latest_cr": 438.2,
      "fcf_source": "reported"
     },
-    "status": "SCORED"
+    "status": "SCORED",
+    "setup_flag": null
    }
   },
   {
@@ -391,7 +392,8 @@
      "fcf_latest_cr": 673.5,
      "fcf_source": "reported"
     },
-    "status": "SCORED"
+    "status": "SCORED",
+    "setup_flag": null
    }
   },
   {
@@ -587,7 +589,8 @@
      "fcf_latest_cr": 1029.3,
      "fcf_source": "reported"
     },
-    "status": "SCORED"
+    "status": "SCORED",
+    "setup_flag": null
    }
   },
   {
@@ -781,7 +784,8 @@
      "fcf_latest_cr": 370.7,
      "fcf_source": "reported"
     },
-    "status": "SCORED"
+    "status": "SCORED",
+    "setup_flag": null
    }
   },
   {
@@ -975,7 +979,8 @@
      "fcf_latest_cr": 9667.6,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    }
   },
   {
@@ -1173,7 +1178,8 @@
      "fcf_latest_cr": 166.1,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": "early"
    }
   },
   {
@@ -1366,7 +1372,8 @@
      "fcf_latest_cr": 323.3,
      "fcf_source": "reported"
     },
-    "status": "SCORED"
+    "status": "SCORED",
+    "setup_flag": null
    }
   },
   {
@@ -1559,7 +1566,8 @@
      "fcf_latest_cr": 571.5,
      "fcf_source": "reported"
     },
-    "status": "SCORED"
+    "status": "SCORED",
+    "setup_flag": null
    }
   },
   {
@@ -1756,7 +1764,8 @@
      "fcf_latest_cr": -179.7,
      "fcf_source": "reported"
     },
-    "status": "SCORED"
+    "status": "SCORED",
+    "setup_flag": null
    }
   },
   {
@@ -1954,7 +1963,8 @@
      "fcf_latest_cr": -82.1,
      "fcf_source": "reported"
     },
-    "status": "SCORED"
+    "status": "SCORED",
+    "setup_flag": null
    }
   },
   {
@@ -2152,7 +2162,8 @@
      "fcf_latest_cr": 210.1,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": "early"
    }
   },
   {
@@ -2352,7 +2363,8 @@
      "fcf_latest_cr": -25.9,
      "fcf_source": "reported"
     },
-    "status": "SCORED"
+    "status": "SCORED",
+    "setup_flag": null
    }
   },
   {
@@ -2551,7 +2563,8 @@
      "fcf_latest_cr": 21.8,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    }
   },
   {
@@ -2750,7 +2763,8 @@
      "fcf_latest_cr": 10.2,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": "early"
    }
   },
   {
@@ -2950,7 +2964,8 @@
      "fcf_latest_cr": 692.2,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": "early"
    }
   },
   {
@@ -3147,7 +3162,8 @@
      "fcf_latest_cr": 30217.0,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    }
   },
   {
@@ -3348,7 +3364,8 @@
      "fcf_latest_cr": 337.3,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": "early"
    }
   },
   {
@@ -3545,7 +3562,8 @@
      "fcf_latest_cr": 821.1,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": "early"
    }
   },
   {
@@ -3739,7 +3757,8 @@
      "fcf_latest_cr": -1.8,
      "fcf_source": "reported"
     },
-    "status": "SCORED"
+    "status": "SCORED",
+    "setup_flag": "momentum"
    }
   },
   {
@@ -3939,7 +3958,8 @@
      "fcf_latest_cr": -3.2,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    }
   },
   {
@@ -4136,7 +4156,8 @@
      "fcf_latest_cr": 8.3,
      "fcf_source": "reported"
     },
-    "status": "SCORED"
+    "status": "SCORED",
+    "setup_flag": "momentum"
    }
   },
   {
@@ -4334,7 +4355,8 @@
      "fcf_latest_cr": 194.7,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": "early"
    }
   },
   {
@@ -4531,7 +4553,8 @@
      "fcf_latest_cr": 611.4,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": "early"
    }
   },
   {
@@ -4726,7 +4749,8 @@
      "fcf_latest_cr": 293.8,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": "early"
    }
   },
   {
@@ -4928,7 +4952,8 @@
      "fcf_latest_cr": 152.3,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": "early"
    }
   },
   {
@@ -5127,7 +5152,8 @@
      "fcf_latest_cr": 37.2,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": "early"
    }
   },
   {
@@ -5327,7 +5353,8 @@
      "fcf_latest_cr": 26.5,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    }
   },
   {
@@ -5529,7 +5556,8 @@
      "fcf_latest_cr": 61.7,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": "early"
    }
   },
   {
@@ -5728,7 +5756,8 @@
      "fcf_latest_cr": 140.0,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    }
   },
   {
@@ -5922,7 +5951,8 @@
      "fcf_latest_cr": 222.9,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": "early"
    }
   },
   {
@@ -6120,7 +6150,8 @@
      "fcf_latest_cr": -20.8,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    }
   },
   {
@@ -6317,7 +6348,8 @@
      "fcf_latest_cr": 23.9,
      "fcf_source": "reported"
     },
-    "status": "SCORED"
+    "status": "SCORED",
+    "setup_flag": null
    }
   },
   {
@@ -6514,7 +6546,8 @@
      "fcf_latest_cr": 5.5,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": "momentum"
    }
   },
   {
@@ -6712,7 +6745,8 @@
      "fcf_latest_cr": 1234.7,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    }
   },
   {
@@ -6909,7 +6943,8 @@
      "fcf_latest_cr": 178.3,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": "early"
    }
   },
   {
@@ -7110,7 +7145,8 @@
      "fcf_latest_cr": 3101.8,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": "early"
    }
   },
   {
@@ -7308,7 +7344,8 @@
      "fcf_latest_cr": 87.5,
      "fcf_source": "reported"
     },
-    "status": "SCORED"
+    "status": "SCORED",
+    "setup_flag": "momentum"
    }
   },
   {
@@ -7505,7 +7542,8 @@
      "fcf_latest_cr": -6.6,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    }
   },
   {
@@ -7705,7 +7743,8 @@
      "fcf_latest_cr": 638.3,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": "early"
    }
   },
   {
@@ -7901,7 +7940,8 @@
      "fcf_latest_cr": 10020.0,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": "early"
    }
   },
   {
@@ -8102,7 +8142,8 @@
      "fcf_latest_cr": 10.1,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    }
   },
   {
@@ -8300,7 +8341,8 @@
      "fcf_latest_cr": -10.2,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": "momentum"
    }
   },
   {
@@ -8497,7 +8539,8 @@
      "fcf_latest_cr": 146.0,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": "momentum"
    }
   },
   {
@@ -8696,7 +8739,8 @@
      "fcf_latest_cr": 213.8,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    }
   },
   {
@@ -8888,7 +8932,8 @@
      "fcf_latest_cr": 1723.5,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    }
   },
   {
@@ -9086,7 +9131,8 @@
      "fcf_latest_cr": 1230.9,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": "early"
    }
   },
   {
@@ -9286,7 +9332,8 @@
      "fcf_latest_cr": -6.1,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": "early"
    }
   },
   {
@@ -9485,7 +9532,8 @@
      "fcf_latest_cr": 68.4,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    }
   },
   {
@@ -9679,7 +9727,8 @@
      "fcf_latest_cr": 48.3,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    }
   },
   {
@@ -9882,7 +9931,8 @@
      "fcf_latest_cr": 60.8,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    }
   },
   {
@@ -10080,7 +10130,8 @@
      "fcf_latest_cr": 775.3,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    }
   },
   {
@@ -10283,7 +10334,8 @@
      "fcf_latest_cr": 14.2,
      "fcf_source": "reported"
     },
-    "status": "SCORED"
+    "status": "SCORED",
+    "setup_flag": "momentum"
    }
   },
   {
@@ -10482,7 +10534,8 @@
      "fcf_latest_cr": -1.7,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": "momentum"
    }
   },
   {
@@ -10678,7 +10731,8 @@
      "fcf_latest_cr": 17364.3,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    }
   },
   {
@@ -10877,7 +10931,8 @@
      "fcf_latest_cr": 8.0,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    }
   },
   {
@@ -11074,7 +11129,8 @@
      "fcf_latest_cr": 600.6,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    }
   },
   {
@@ -11270,7 +11326,8 @@
      "fcf_latest_cr": 3.7,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    }
   },
   {
@@ -11467,7 +11524,8 @@
      "fcf_latest_cr": 19.7,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    }
   },
   {
@@ -11668,7 +11726,8 @@
      "fcf_latest_cr": -28.9,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    }
   },
   {
@@ -11870,7 +11929,8 @@
      "fcf_latest_cr": 138.0,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    }
   },
   {
@@ -12069,7 +12129,8 @@
      "fcf_latest_cr": 1.3,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    }
   },
   {
@@ -12269,7 +12330,8 @@
      "fcf_latest_cr": 40.7,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    }
   },
   {
@@ -12470,7 +12532,8 @@
      "fcf_latest_cr": 2270.0,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    }
   },
   {
@@ -12671,7 +12734,8 @@
      "fcf_latest_cr": -104.0,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    }
   },
   {
@@ -12870,7 +12934,8 @@
      "fcf_latest_cr": 35.2,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    }
   },
   {
@@ -13070,7 +13135,8 @@
      "fcf_latest_cr": 167.0,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    }
   },
   {
@@ -13266,7 +13332,8 @@
      "fcf_latest_cr": 193.1,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    }
   },
   {
@@ -13465,7 +13532,8 @@
      "fcf_latest_cr": 9.2,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    }
   },
   {
@@ -13659,7 +13727,8 @@
      "fcf_latest_cr": 250.7,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    }
   },
   {
@@ -13856,7 +13925,8 @@
      "fcf_latest_cr": 37.0,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    }
   },
   {
@@ -14054,7 +14124,8 @@
      "fcf_latest_cr": 58.9,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    }
   },
   {
@@ -14264,7 +14335,8 @@
      "fcf_latest_cr": 29.8,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    }
   },
   {
@@ -14464,7 +14536,8 @@
      "fcf_latest_cr": 327.8,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    }
   },
   {
@@ -14663,7 +14736,8 @@
      "fcf_latest_cr": 18.7,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    }
   },
   {
@@ -14874,7 +14948,8 @@
      "fcf_latest_cr": -3.5,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    }
   },
   {
@@ -15073,7 +15148,8 @@
      "fcf_latest_cr": 12.3,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    }
   },
   {
@@ -15273,7 +15349,8 @@
      "fcf_latest_cr": 1.0,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    }
   },
   {
@@ -15472,7 +15549,8 @@
      "fcf_latest_cr": 117.3,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    }
   },
   {
@@ -15672,7 +15750,8 @@
      "fcf_latest_cr": 1018.3,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    }
   },
   {
@@ -15874,7 +15953,8 @@
      "fcf_latest_cr": null,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    }
   },
   {
@@ -16078,7 +16158,8 @@
      "fcf_latest_cr": null,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": "momentum"
    }
   },
   {
@@ -16277,7 +16358,8 @@
      "fcf_latest_cr": 21.7,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    }
   },
   {
@@ -16480,7 +16562,8 @@
      "fcf_latest_cr": 12.7,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    }
   },
   {
@@ -16674,7 +16757,8 @@
      "fcf_latest_cr": 6.2,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    }
   },
   {
@@ -16874,7 +16958,8 @@
      "fcf_latest_cr": 112.0,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    }
   },
   {
@@ -17073,7 +17158,8 @@
      "fcf_latest_cr": -1.8,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    }
   },
   {
@@ -17273,7 +17359,8 @@
      "fcf_latest_cr": 1.6,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": "momentum"
    }
   },
   {
@@ -17476,7 +17563,8 @@
      "fcf_latest_cr": 90.9,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    }
   },
   {
@@ -17670,7 +17758,8 @@
      "fcf_latest_cr": 28.6,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    }
   },
   {
@@ -17870,7 +17959,8 @@
      "fcf_latest_cr": 1085.8,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    }
   },
   {
@@ -18071,7 +18161,8 @@
      "fcf_latest_cr": -6.5,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    }
   },
   {
@@ -18274,7 +18365,8 @@
      "fcf_latest_cr": 289.0,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    }
   },
   {
@@ -18471,7 +18563,8 @@
      "fcf_latest_cr": 14.5,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    }
   },
   {
@@ -18670,7 +18763,8 @@
      "fcf_latest_cr": 6.6,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    }
   },
   {
@@ -18875,7 +18969,8 @@
      "fcf_latest_cr": -14.0,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    }
   },
   {
@@ -19074,7 +19169,8 @@
      "fcf_latest_cr": 13.8,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    }
   },
   {
@@ -19277,7 +19373,8 @@
      "fcf_latest_cr": -22.7,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    }
   },
   {
@@ -19474,7 +19571,8 @@
      "fcf_latest_cr": 4.0,
      "fcf_source": "reported"
     },
-    "status": "SCORED_NO_TREND"
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
    }
   },
   {
@@ -19599,7 +19697,8 @@
      "fcf_latest_cr": 921.2,
      "fcf_source": "reported"
     },
-    "status": "FAIL_LIQUIDITY"
+    "status": "FAIL_LIQUIDITY",
+    "setup_flag": null
    }
   },
   {
@@ -19725,7 +19824,8 @@
      "fcf_latest_cr": 132.5,
      "fcf_source": "reported"
     },
-    "status": "FAIL_LIQUIDITY"
+    "status": "FAIL_LIQUIDITY",
+    "setup_flag": null
    }
   },
   {
@@ -19855,7 +19955,8 @@
      "fcf_latest_cr": 13.6,
      "fcf_source": "reported"
     },
-    "status": "FAIL_LIQUIDITY"
+    "status": "FAIL_LIQUIDITY",
+    "setup_flag": null
    }
   },
   {
@@ -19978,7 +20079,8 @@
      "fcf_latest_cr": -3.0,
      "fcf_source": "reported"
     },
-    "status": "FAIL_LIQUIDITY"
+    "status": "FAIL_LIQUIDITY",
+    "setup_flag": null
    }
   },
   {
@@ -20108,7 +20210,8 @@
      "fcf_latest_cr": 77.6,
      "fcf_source": "reported"
     },
-    "status": "FAIL_LIQUIDITY"
+    "status": "FAIL_LIQUIDITY",
+    "setup_flag": null
    }
   },
   {
@@ -20231,7 +20334,8 @@
      "fcf_latest_cr": 12.7,
      "fcf_source": "reported"
     },
-    "status": "FAIL_LIQUIDITY"
+    "status": "FAIL_LIQUIDITY",
+    "setup_flag": null
    }
   },
   {
@@ -20356,7 +20460,8 @@
      "fcf_latest_cr": 75.6,
      "fcf_source": "reported"
     },
-    "status": "FAIL_LIQUIDITY"
+    "status": "FAIL_LIQUIDITY",
+    "setup_flag": null
    }
   },
   {
@@ -20479,7 +20584,8 @@
      "fcf_latest_cr": 9.1,
      "fcf_source": "reported"
     },
-    "status": "FAIL_LIQUIDITY"
+    "status": "FAIL_LIQUIDITY",
+    "setup_flag": null
    }
   },
   {
@@ -20613,7 +20719,8 @@
      "fcf_latest_cr": 225.6,
      "fcf_source": "reported"
     },
-    "status": "FAIL_LIQUIDITY"
+    "status": "FAIL_LIQUIDITY",
+    "setup_flag": null
    }
   },
   {
@@ -20740,7 +20847,8 @@
      "fcf_latest_cr": 16.2,
      "fcf_source": "reported"
     },
-    "status": "FAIL_LIQUIDITY"
+    "status": "FAIL_LIQUIDITY",
+    "setup_flag": null
    }
   },
   {
@@ -20870,7 +20978,8 @@
      "fcf_latest_cr": 88.4,
      "fcf_source": "reported"
     },
-    "status": "FAIL_LIQUIDITY"
+    "status": "FAIL_LIQUIDITY",
+    "setup_flag": null
    }
   },
   {
@@ -20993,7 +21102,8 @@
      "fcf_latest_cr": 27.7,
      "fcf_source": "reported"
     },
-    "status": "FAIL_LIQUIDITY"
+    "status": "FAIL_LIQUIDITY",
+    "setup_flag": null
    }
   },
   {
@@ -21118,7 +21228,8 @@
      "fcf_latest_cr": -7.3,
      "fcf_source": "reported"
     },
-    "status": "FAIL_LIQUIDITY"
+    "status": "FAIL_LIQUIDITY",
+    "setup_flag": null
    }
   },
   {
@@ -21246,7 +21357,8 @@
      "fcf_latest_cr": 58.4,
      "fcf_source": "reported"
     },
-    "status": "FAIL_LIQUIDITY"
+    "status": "FAIL_LIQUIDITY",
+    "setup_flag": null
    }
   },
   {
@@ -21371,7 +21483,8 @@
      "fcf_latest_cr": 41.9,
      "fcf_source": "reported"
     },
-    "status": "FAIL_LIQUIDITY"
+    "status": "FAIL_LIQUIDITY",
+    "setup_flag": null
    }
   },
   {
@@ -21496,7 +21609,8 @@
      "fcf_latest_cr": 16.2,
      "fcf_source": "reported"
     },
-    "status": "FAIL_LIQUIDITY"
+    "status": "FAIL_LIQUIDITY",
+    "setup_flag": null
    }
   },
   {
@@ -21619,7 +21733,8 @@
      "fcf_latest_cr": -6.9,
      "fcf_source": "reported"
     },
-    "status": "FAIL_LIQUIDITY"
+    "status": "FAIL_LIQUIDITY",
+    "setup_flag": null
    }
   },
   {
@@ -21745,7 +21860,8 @@
      "fcf_latest_cr": 44.3,
      "fcf_source": "reported"
     },
-    "status": "FAIL_LIQUIDITY"
+    "status": "FAIL_LIQUIDITY",
+    "setup_flag": null
    }
   },
   {
@@ -21868,7 +21984,8 @@
      "fcf_latest_cr": 7.8,
      "fcf_source": "reported"
     },
-    "status": "FAIL_LIQUIDITY"
+    "status": "FAIL_LIQUIDITY",
+    "setup_flag": null
    }
   },
   {
@@ -21996,7 +22113,8 @@
      "fcf_latest_cr": -18.2,
      "fcf_source": "reported"
     },
-    "status": "FAIL_LIQUIDITY"
+    "status": "FAIL_LIQUIDITY",
+    "setup_flag": null
    }
   },
   {
@@ -22121,7 +22239,8 @@
      "fcf_latest_cr": 9.8,
      "fcf_source": "reported"
     },
-    "status": "FAIL_LIQUIDITY"
+    "status": "FAIL_LIQUIDITY",
+    "setup_flag": null
    }
   },
   {
@@ -22244,7 +22363,8 @@
      "fcf_latest_cr": 19.2,
      "fcf_source": "reported"
     },
-    "status": "FAIL_LIQUIDITY"
+    "status": "FAIL_LIQUIDITY",
+    "setup_flag": null
    }
   },
   {
@@ -22372,7 +22492,8 @@
      "fcf_latest_cr": 549.3,
      "fcf_source": "reported"
     },
-    "status": "FAIL_LIQUIDITY"
+    "status": "FAIL_LIQUIDITY",
+    "setup_flag": null
    }
   },
   {
@@ -22502,7 +22623,8 @@
      "fcf_latest_cr": 0.5,
      "fcf_source": "reported"
     },
-    "status": "FAIL_LIQUIDITY"
+    "status": "FAIL_LIQUIDITY",
+    "setup_flag": null
    }
   },
   {
@@ -22629,7 +22751,8 @@
      "fcf_latest_cr": -37.8,
      "fcf_source": "reported"
     },
-    "status": "FAIL_LIQUIDITY"
+    "status": "FAIL_LIQUIDITY",
+    "setup_flag": null
    }
   },
   {
@@ -22757,7 +22880,8 @@
      "fcf_latest_cr": -4.8,
      "fcf_source": "reported"
     },
-    "status": "FAIL_LIQUIDITY"
+    "status": "FAIL_LIQUIDITY",
+    "setup_flag": null
    }
   },
   {
@@ -22887,7 +23011,8 @@
      "fcf_latest_cr": 37.9,
      "fcf_source": "reported"
     },
-    "status": "FAIL_LIQUIDITY"
+    "status": "FAIL_LIQUIDITY",
+    "setup_flag": null
    }
   },
   {
@@ -23015,7 +23140,8 @@
      "fcf_latest_cr": 31.8,
      "fcf_source": "reported"
     },
-    "status": "FAIL_LIQUIDITY"
+    "status": "FAIL_LIQUIDITY",
+    "setup_flag": null
    }
   },
   {
@@ -23138,7 +23264,8 @@
      "fcf_latest_cr": 58.3,
      "fcf_source": "reported"
     },
-    "status": "FAIL_LIQUIDITY"
+    "status": "FAIL_LIQUIDITY",
+    "setup_flag": null
    }
   },
   {
@@ -23264,7 +23391,8 @@
      "fcf_latest_cr": -286.7,
      "fcf_source": "reported"
     },
-    "status": "FAIL_LIQUIDITY"
+    "status": "FAIL_LIQUIDITY",
+    "setup_flag": null
    }
   },
   {
@@ -23392,7 +23520,8 @@
      "fcf_latest_cr": null,
      "fcf_source": "reported"
     },
-    "status": "FAIL_LIQUIDITY"
+    "status": "FAIL_LIQUIDITY",
+    "setup_flag": null
    }
   },
   {
@@ -23517,7 +23646,8 @@
      "fcf_latest_cr": 14.3,
      "fcf_source": "reported"
     },
-    "status": "FAIL_LIQUIDITY"
+    "status": "FAIL_LIQUIDITY",
+    "setup_flag": null
    }
   },
   {
@@ -23645,7 +23775,8 @@
      "fcf_latest_cr": -0.7,
      "fcf_source": "reported"
     },
-    "status": "FAIL_LIQUIDITY"
+    "status": "FAIL_LIQUIDITY",
+    "setup_flag": null
    }
   },
   {
@@ -23773,7 +23904,8 @@
      "fcf_latest_cr": -4.3,
      "fcf_source": "reported"
     },
-    "status": "FAIL_LIQUIDITY"
+    "status": "FAIL_LIQUIDITY",
+    "setup_flag": null
    }
   },
   {
@@ -23898,7 +24030,8 @@
      "fcf_latest_cr": 11.5,
      "fcf_source": "reported"
     },
-    "status": "FAIL_LIQUIDITY"
+    "status": "FAIL_LIQUIDITY",
+    "setup_flag": null
    }
   },
   {
@@ -24028,7 +24161,8 @@
      "fcf_latest_cr": 3.1,
      "fcf_source": "reported"
     },
-    "status": "FAIL_LIQUIDITY"
+    "status": "FAIL_LIQUIDITY",
+    "setup_flag": null
    }
   },
   {
@@ -24151,7 +24285,8 @@
      "fcf_latest_cr": 0.5,
      "fcf_source": "reported"
     },
-    "status": "FAIL_LIQUIDITY"
+    "status": "FAIL_LIQUIDITY",
+    "setup_flag": null
    }
   },
   {
@@ -24274,7 +24409,8 @@
      "fcf_latest_cr": 1.8,
      "fcf_source": "reported"
     },
-    "status": "FAIL_LIQUIDITY"
+    "status": "FAIL_LIQUIDITY",
+    "setup_flag": null
    }
   },
   {
@@ -24400,7 +24536,8 @@
      "fcf_latest_cr": 21.9,
      "fcf_source": "reported"
     },
-    "status": "FAIL_LIQUIDITY"
+    "status": "FAIL_LIQUIDITY",
+    "setup_flag": null
    }
   },
   {
@@ -24530,7 +24667,8 @@
      "fcf_latest_cr": 16.8,
      "fcf_source": "reported"
     },
-    "status": "FAIL_LIQUIDITY"
+    "status": "FAIL_LIQUIDITY",
+    "setup_flag": null
    }
   },
   {
@@ -24653,7 +24791,8 @@
      "fcf_latest_cr": 9.8,
      "fcf_source": "reported"
     },
-    "status": "FAIL_LIQUIDITY"
+    "status": "FAIL_LIQUIDITY",
+    "setup_flag": null
    }
   },
   {
@@ -24776,7 +24915,8 @@
      "fcf_latest_cr": 0.0,
      "fcf_source": "reported"
     },
-    "status": "FAIL_LIQUIDITY"
+    "status": "FAIL_LIQUIDITY",
+    "setup_flag": null
    }
   },
   {
@@ -24899,7 +25039,8 @@
      "fcf_latest_cr": 2.9,
      "fcf_source": "reported"
     },
-    "status": "FAIL_LIQUIDITY"
+    "status": "FAIL_LIQUIDITY",
+    "setup_flag": null
    }
   },
   {
@@ -25027,7 +25168,8 @@
      "fcf_latest_cr": 38.3,
      "fcf_source": "reported"
     },
-    "status": "FAIL_LIQUIDITY"
+    "status": "FAIL_LIQUIDITY",
+    "setup_flag": null
    }
   },
   {
@@ -25157,7 +25299,8 @@
      "fcf_latest_cr": null,
      "fcf_source": "reported"
     },
-    "status": "FAIL_LIQUIDITY"
+    "status": "FAIL_LIQUIDITY",
+    "setup_flag": null
    }
   },
   {
@@ -25282,7 +25425,8 @@
      "fcf_latest_cr": 0.2,
      "fcf_source": "reported"
     },
-    "status": "FAIL_LIQUIDITY"
+    "status": "FAIL_LIQUIDITY",
+    "setup_flag": null
    }
   },
   {
@@ -25414,7 +25558,8 @@
      "fcf_latest_cr": null,
      "fcf_source": "reported"
     },
-    "status": "FAIL_LIQUIDITY"
+    "status": "FAIL_LIQUIDITY",
+    "setup_flag": null
    }
   },
   {
@@ -25542,7 +25687,8 @@
      "fcf_latest_cr": -4.3,
      "fcf_source": "reported"
     },
-    "status": "FAIL_LIQUIDITY"
+    "status": "FAIL_LIQUIDITY",
+    "setup_flag": null
    }
   }
  ]

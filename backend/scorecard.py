@@ -372,6 +372,32 @@ def assess_risk(f, t, flags):
     return level
 
 
+def classify_setup_flag(scores, tt):
+    """Two mutually-exclusive, informational-only tags (not scored, not gating) —
+    shown on the site for India-S and Global only (see docs/app.js):
+
+    - "early": fundamentals (A-E, /60) or base structure (G, /20) are already
+      strong, but the Trend Template's 8 binary technical checks haven't
+      confirmed yet (<=6/8) — a stock quietly improving before the market
+      (and its RS rating) has caught on.
+    - "momentum": Trend Template is nearly/fully confirmed (>=7/8) despite weak
+      fundamentals (<50% of the 60-pt fundamental total) — price/RS moving on
+      something other than the numbers, worth a second look either way.
+
+    Mutually exclusive by construction (<=6/8 vs >=7/8 trend count never both
+    match). Thresholds are a first pass — easy to retune here."""
+    fund_subtotal = sum(scores[k]["subtotal"] for k in
+                         ("earnings", "revenue", "profitability", "balance_sheet", "sponsorship"))
+    fund_pct = fund_subtotal / 60.0 * 100
+    base_subtotal = scores["base_structure"]["subtotal"]
+    trend_count = sum(1 for k in ("c1", "c2", "c3", "c4", "c5", "c6", "c7", "c8") if tt.get(k))
+    if trend_count <= 6 and (fund_pct >= 60 or base_subtotal >= 14):
+        return "early"
+    if trend_count >= 7 and fund_pct < 50:
+        return "momentum"
+    return None
+
+
 # ---------------------------------------------------------------- main entry
 
 def evaluate(ticker, name, tech, fund, regime, cfg, mode="FULL", prior=None, llm_verdict=None):
@@ -399,7 +425,7 @@ def evaluate(ticker, name, tech, fund, regime, cfg, mode="FULL", prior=None, llm
         "ticker": ticker, "name": name, "as_of": tech.get("as_of"), "mode": mode,
         "gates": {"trend_template": tt, "investability": inv},
         "llm_checks": llm_checks,
-        "scores": None, "quality_band": None, "action_bucket": None,
+        "scores": None, "quality_band": None, "action_bucket": None, "setup_flag": None,
         "red_flags": [], "risk_level": None,
         "valuation_context": {"pe": fund.get("pe"), "peg": None, "vs_own_5yr": "",
                               "note": "Valuation is context only, never a criterion."},
@@ -458,6 +484,7 @@ def evaluate(ticker, name, tech, fund, regime, cfg, mode="FULL", prior=None, llm
     total = sum(sec["subtotal"] for sec in s.values())
     s["total"] = total
     card["scores"] = s
+    card["setup_flag"] = classify_setup_flag(s, tt)
     card["red_flags"] = sorted(set(flags))
     card["risk_level"] = assess_risk(fund, tech, card["red_flags"])
     card["quality_band"] = quality_band(total)
