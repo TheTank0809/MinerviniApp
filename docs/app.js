@@ -1052,6 +1052,21 @@
     return sorted.length % 2 ? sorted[mid] : (sorted[mid - 1] + sorted[mid]) / 2;
   }
 
+  function meanMedianText(vals, fmt, unit) {
+    var mean = vals.reduce(function (a, b) { return a + b; }, 0) / vals.length;
+    return "Mean " + fmt(mean) + " · Median " + fmt(median(vals)) +
+      " over " + vals.length + (vals.length === 1 ? " " + unit : " " + unit + "s");
+  }
+
+  // NSE switched every index's P/E from standalone to consolidated company earnings in
+  // April 2021 (consolidated earnings run higher, so index P/E dropped mechanically —
+  // nothing to do with valuation). Nifty/Smallcap/Midcap 100 P/E readings from before
+  // that date are on a different accounting basis than today's live reading, so an
+  // all-time average silently blends two incompatible numbers. Shown as two labeled
+  // lines instead of picking one, so the basis split isn't easy to forget.
+  var PE_BASIS_CUTOFF = "2021-04-01";
+  var PE_BASIS_CUTOFF_KEYS = { nifty50: true, smallcap100: true, midcap100: true };
+
   // Per-metric plumbing for the history popup — score has a fixed [0,100] domain, price
   // a dynamic one padded around its own min/max. Everything else (dots, grid, axis,
   // year-coloring) is shared, so only the value/domain/text pieces need to vary.
@@ -1100,10 +1115,8 @@
       avgText: function (points) {
         var vals = points.map(function (p) { return state.currency === "usd" ? p.price_usd : p.price_inr; })
           .filter(function (v) { return v != null; });
-        if (!vals.length) return "";
-        var mean = vals.reduce(function (a, b) { return a + b; }, 0) / vals.length;
-        return "Mean " + ratiosSym() + fmtPrice(mean) + " · Median " + ratiosSym() + fmtPrice(median(vals)) +
-          " over " + vals.length + (vals.length === 1 ? " week" : " weeks");
+        if (!vals.length) return [];
+        return [meanMedianText(vals, function (v) { return ratiosSym() + fmtPrice(v); }, "week")];
       }
     },
     ratio_pe: {
@@ -1118,12 +1131,16 @@
       },
       headline: function (last) { return last.value.toFixed(2); },
       tooltip: function (p) { return fmtDate(p.date) + " · " + p.value.toFixed(2); },
-      avgText: function (points) {
-        var vals = points.map(function (p) { return p.value; }).filter(function (v) { return v != null; });
-        if (!vals.length) return "";
-        var mean = vals.reduce(function (a, b) { return a + b; }, 0) / vals.length;
-        return "Mean " + mean.toFixed(2) + " · Median " + median(vals).toFixed(2) +
-          " over " + vals.length + (vals.length === 1 ? " month" : " months");
+      avgText: function (points, assetKey) {
+        var fmt = function (v) { return v.toFixed(2); };
+        var all = points.map(function (p) { return p.value; }).filter(function (v) { return v != null; });
+        if (!all.length) return [];
+        if (!PE_BASIS_CUTOFF_KEYS[assetKey]) return [meanMedianText(all, fmt, "month")];
+        var post = points.filter(function (p) { return p.date >= PE_BASIS_CUTOFF && p.value != null; })
+          .map(function (p) { return p.value; });
+        var lines = ["All-time: " + meanMedianText(all, fmt, "month")];
+        if (post.length) lines.push("Since Apr 2021 (NSE: consolidated-earnings basis): " + meanMedianText(post, fmt, "month"));
+        return lines;
       }
     },
     ratio_bynifty: {
@@ -1140,10 +1157,8 @@
       tooltip: function (p) { return fmtDate(p.date) + " · " + p.value.toFixed(3); },
       avgText: function (points) {
         var vals = points.map(function (p) { return p.value; }).filter(function (v) { return v != null; });
-        if (!vals.length) return "";
-        var mean = vals.reduce(function (a, b) { return a + b; }, 0) / vals.length;
-        return "Mean " + mean.toFixed(3) + " · Median " + median(vals).toFixed(3) +
-          " over " + vals.length + (vals.length === 1 ? " month" : " months");
+        if (!vals.length) return [];
+        return [meanMedianText(vals, function (v) { return v.toFixed(3); }, "month")];
       }
     }
   };
@@ -1155,7 +1170,7 @@
     return HIST_PAD_T + (1 - (s - lo) / (hi - lo)) * HIST_PLOT_H;
   }
 
-  function renderHistoryChart(points, metricKey) {
+  function renderHistoryChart(points, metricKey, assetKey) {
     var metric = HIST_METRICS[metricKey] || HIST_METRICS.score;
     if (!points || points.length < 2) {
       return '<p class="uv">Not enough history yet — check back after next week’s scan.</p>';
@@ -1209,10 +1224,10 @@
       return '<span class="' + (isYearAlt(p) ? "hist-year-alt" : "") + '">' + text + "</span>";
     }).join("");
 
-    var avg = metric.avgText ? metric.avgText(points) : "";
+    var avgLines = metric.avgText ? metric.avgText(points, assetKey) : [];
 
     return '<div class="hist-summary"><span class="hist-score">' + metric.headline(last) + '</span></div>' +
-      (avg ? '<div class="hist-avg">' + esc(avg) + "</div>" : "") +
+      avgLines.map(function (line) { return '<div class="hist-avg">' + esc(line) + "</div>"; }).join("") +
       svg +
       '<div class="hist-axis">' + axis + "</div>" +
       '<div class="hist-tip" hidden></div>';
@@ -1434,7 +1449,7 @@
     var box = popup.querySelector(".hist-chart");
     var src = cfg.source();
     var points = (src && src[key]) || [];
-    box.innerHTML = renderHistoryChart(points, cfg.metric);
+    box.innerHTML = renderHistoryChart(points, cfg.metric, key);
     wireHistoryChart(box, points, cfg.metric);
   }
   function openRatios() {
