@@ -42,6 +42,12 @@
    "score": 28,
    "bucket": "AVOID",
    "price": 179.89
+  },
+  {
+   "date": "2026-09-26",
+   "score": 32,
+   "bucket": "AVOID",
+   "price": 187.24
   }
  ]
 }

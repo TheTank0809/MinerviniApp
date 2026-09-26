@@ -1,6 +1,167 @@
 {
  "runs": [
   {
+   "run_date": "2026-09-26",
+   "mode": "WEEKLY",
+   "regime": {
+    "score": 3,
+    "label": "CAUTION",
+    "checks": {
+     "close_above_50dma": false,
+     "close_above_200dma": false,
+     "50dma_above_200dma": true,
+     "distribution_days_25": 5,
+     "distribution_days_ok": false,
+     "pct_universe_above_200dma": 66.0,
+     "universe_above_200dma_ok": true,
+     "net_new_highs_positive": true
+    },
+    "exposure_guidance": "New buys at half risk; only score >=85 setups."
+   },
+   "counts": {
+    "active": 118,
+    "new": 7,
+    "dropped": 2,
+    "errors": 7
+   },
+   "new_tickers": [
+    "AUGMONT",
+    "ESDS",
+    "MOLBIO",
+    "MILKYMIST",
+    "VERTIS",
+    "LEAPIND",
+    "NHIT"
+   ],
+   "dropped_tickers": [
+    "ASHAPURMIN",
+    "VMARCIND"
+   ],
+   "actionable_now": [],
+   "alerts": [
+    {
+     "ticker": "RUBICON",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "ACUTAAS",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "SJS",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "PARAS",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "EMMVEE",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "COFORGE",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "ANANDRATHI",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "CHOLAFIN",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "GROWW",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "POLICYBZR",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "POLICYBZR",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "BALUFORGE",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "NEPHROPLUS",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "SAATVIKGL",
+     "alert": "EPS_DECELERATION"
+    },
+    {
+     "ticker": "GVT&D",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "GVT&D",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "INOXWIND",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "HOMEFIRST",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "HOMEFIRST",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "BAJAJHFL",
+     "alert": "CLOSED_BELOW_50DMA"
+    }
+   ],
+   "errors": [
+    {
+     "ticker": "AUGMONT",
+     "error": "no OHLCV data on Yahoo Finance"
+    },
+    {
+     "ticker": "ESDS",
+     "error": "no OHLCV data on Yahoo Finance"
+    },
+    {
+     "ticker": "526433",
+     "error": "no OHLCV data on Yahoo Finance"
+    },
+    {
+     "ticker": "MOLBIO",
+     "error": "no OHLCV data on Yahoo Finance"
+    },
+    {
+     "ticker": "MILKYMIST",
+     "error": "no OHLCV data on Yahoo Finance"
+    },
+    {
+     "ticker": "VERTIS",
+     "error": "no OHLCV data on Yahoo Finance"
+    },
+    {
+     "ticker": "NHIT",
+     "error": "no OHLCV data on Yahoo Finance"
+    }
+   ],
+   "llm": {
+    "enabled": true,
+    "model": "claude-sonnet-5"
+   },
+   "rs_universe": {
+    "source": "Nifty 500",
+    "attempted": 500,
+    "succeeded": 500,
+    "used": true
+   }
+  },
+  {
    "run_date": "2026-09-20",
    "mode": "WEEKLY",
    "regime": {

@@ -1,0 +1,11 @@
+{
+ "ticker": "JNPR",
+ "points": [
+  {
+   "date": "2026-09-26",
+   "score": 14,
+   "bucket": "AVOID",
+   "price": 266.05
+  }
+ ]
+}

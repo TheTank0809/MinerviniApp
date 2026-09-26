@@ -1,0 +1,11 @@
+{
+ "ticker": "TSFINV",
+ "points": [
+  {
+   "date": "2026-09-26",
+   "score": 22,
+   "bucket": "AVOID",
+   "price": 456.85
+  }
+ ]
+}

@@ -1,0 +1,11 @@
+{
+ "ticker": "SPECTRUM",
+ "points": [
+  {
+   "date": "2026-09-26",
+   "score": 64,
+   "bucket": "AVOID",
+   "price": 3518.8
+  }
+ ]
+}
