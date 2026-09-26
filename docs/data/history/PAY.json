@@ -1,0 +1,11 @@
+{
+ "ticker": "PAY",
+ "points": [
+  {
+   "date": "2026-09-26",
+   "score": 39,
+   "bucket": "AVOID",
+   "price": 30.17
+  }
+ ]
+}

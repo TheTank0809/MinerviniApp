@@ -1,0 +1,11 @@
+{
+ "ticker": "ASA",
+ "points": [
+  {
+   "date": "2026-09-26",
+   "score": 16,
+   "bucket": "AVOID",
+   "price": 56.68
+  }
+ ]
+}

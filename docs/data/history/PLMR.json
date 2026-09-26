@@ -1,0 +1,11 @@
+{
+ "ticker": "PLMR",
+ "points": [
+  {
+   "date": "2026-09-26",
+   "score": 43,
+   "bucket": "AVOID",
+   "price": 123.99
+  }
+ ]
+}

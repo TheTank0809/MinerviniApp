@@ -1,6 +1,141 @@
 {
  "runs": [
   {
+   "run_date": "2026-09-26",
+   "regime": {
+    "score": 4,
+    "label": "CAUTION",
+    "checks": {
+     "close_above_50dma": true,
+     "close_above_200dma": true,
+     "50dma_above_200dma": true,
+     "distribution_days_25": 5,
+     "distribution_days_ok": false,
+     "pct_universe_above_200dma": 62.9,
+     "universe_above_200dma_ok": true,
+     "net_new_highs_positive": false
+    },
+    "exposure_guidance": "New buys at half risk; only score >=85 setups."
+   },
+   "counts": {
+    "active": 144,
+    "new": 20,
+    "dropped": 3,
+    "errors": 19
+   },
+   "new_tickers": [
+    "MFPC",
+    "EMSTEEL",
+    "MI",
+    "VEID",
+    "HBMNG",
+    "ADES",
+    "CMRY",
+    "EMAARDEV",
+    "KERJAYA",
+    "MVZ.A",
+    "BPV",
+    "PANI",
+    "XTB",
+    "CIE/B",
+    "1303",
+    "688073",
+    "8230",
+    "8313",
+    "SLYG",
+    "800"
+   ],
+   "dropped_tickers": [
+    "ANSGR",
+    "TEHOL",
+    "JMGI"
+   ],
+   "actionable_now": [],
+   "errors": [
+    {
+     "ticker": "EMAARDEV",
+     "error": "exchange 'DFM' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "PANI",
+     "error": "exchange 'IDX' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "XTB",
+     "error": "exchange 'GPW' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "1303",
+     "error": "exchange 'TADAWUL' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "HBMNG",
+     "error": "exchange 'NSENG' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "8313",
+     "error": "exchange 'TADAWUL' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "8230",
+     "error": "exchange 'TADAWUL' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "MFPC",
+     "error": "exchange 'EGX' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "EMSTEEL",
+     "error": "exchange 'ADX' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "CMRY",
+     "error": "exchange 'IDX' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "800",
+     "error": "mapped to '800.HK' but Yahoo Finance returned no data for it"
+    },
+    {
+     "ticker": "MVZ.A",
+     "error": "exchange 'BVCV' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "SLYG",
+     "error": "exchange 'BSESOF' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "BPV",
+     "error": "exchange 'BVCV' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "MI",
+     "error": "exchange 'MYX' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "VEID",
+     "error": "mapped to 'VEID.L' but Yahoo Finance returned no data for it"
+    },
+    {
+     "ticker": "ADES",
+     "error": "exchange 'IDX' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "KERJAYA",
+     "error": "exchange 'MYX' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "CIE/B",
+     "error": "exchange 'BMV' has no Yahoo Finance suffix mapping yet"
+    }
+   ],
+   "llm": {
+    "enabled": true,
+    "model": "deepseek-chat",
+    "provider": "deepseek"
+   }
+  },
+  {
    "run_date": "2026-09-19",
    "regime": {
     "score": 4,

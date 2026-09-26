@@ -1,0 +1,11 @@
+{
+ "ticker": "HAPN",
+ "points": [
+  {
+   "date": "2026-09-26",
+   "score": 36,
+   "bucket": "AVOID",
+   "price": 15.03
+  }
+ ]
+}

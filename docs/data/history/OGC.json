@@ -1,0 +1,11 @@
+{
+ "ticker": "OGC",
+ "points": [
+  {
+   "date": "2026-09-26",
+   "score": 48,
+   "bucket": "AVOID",
+   "price": 39.88
+  }
+ ]
+}

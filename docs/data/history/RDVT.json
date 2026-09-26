@@ -1,0 +1,11 @@
+{
+ "ticker": "RDVT",
+ "points": [
+  {
+   "date": "2026-09-26",
+   "score": 55,
+   "bucket": "AVOID",
+   "price": 78.55
+  }
+ ]
+}

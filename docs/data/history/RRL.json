@@ -1,0 +1,11 @@
+{
+ "ticker": "RRL",
+ "points": [
+  {
+   "date": "2026-09-26",
+   "score": 27,
+   "bucket": "AVOID",
+   "price": 7.72
+  }
+ ]
+}

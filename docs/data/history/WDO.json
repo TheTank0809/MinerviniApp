@@ -1,0 +1,11 @@
+{
+ "ticker": "WDO",
+ "points": [
+  {
+   "date": "2026-09-26",
+   "score": 52,
+   "bucket": "AVOID",
+   "price": 36.61
+  }
+ ]
+}

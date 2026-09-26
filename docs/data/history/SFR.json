@@ -1,0 +1,11 @@
+{
+ "ticker": "SFR",
+ "points": [
+  {
+   "date": "2026-09-26",
+   "score": 41,
+   "bucket": "AVOID",
+   "price": 22.38
+  }
+ ]
+}

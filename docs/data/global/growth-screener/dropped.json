@@ -1,6 +1,609 @@
 {
  "stocks": [
   {
+   "ticker": "JMGI",
+   "name": "JPMorgan Emerging Markets Growth & Income PLC GBP",
+   "joined_date": null,
+   "last_updated": "2026-09-19",
+   "scorecard": {
+    "ticker": "JMGI",
+    "name": "JPMorgan Emerging Markets Growth & Income PLC GBP",
+    "as_of": "2026-09-18",
+    "mode": "MONTHLY",
+    "gates": {
+     "trend_template": {
+      "c1": true,
+      "c2": true,
+      "c3": true,
+      "c4": true,
+      "c5": true,
+      "c6": true,
+      "c7": true,
+      "c8": false,
+      "pass": false,
+      "near_miss_notes": ""
+     },
+     "investability": {
+      "liquidity": true,
+      "pledge": true,
+      "governance_flag": false,
+      "governance_note": "",
+      "governance": true,
+      "pass": true
+     }
+    },
+    "llm_checks": {
+     "h3_catalyst_found": false,
+     "h3_citation": "",
+     "governance_flag": false,
+     "governance_note": "",
+     "checked_date": "2026-09-05"
+    },
+    "scores": {
+     "earnings": {
+      "A1": 0,
+      "A2": 0,
+      "A3": 0,
+      "A4": 0,
+      "A5": 0,
+      "subtotal": 0
+     },
+     "revenue": {
+      "B1": 0,
+      "B2": 0,
+      "B3": 1,
+      "B4": 0,
+      "subtotal": 1
+     },
+     "profitability": {
+      "C1": 3,
+      "C2": 0,
+      "C3": 0,
+      "C4": 2,
+      "subtotal": 5
+     },
+     "balance_sheet": {
+      "D1": 2,
+      "D2": 0,
+      "D3": 0,
+      "D4": 1,
+      "subtotal": 3
+     },
+     "sponsorship": {
+      "E1": 0,
+      "E2": 0,
+      "E3": 0,
+      "E4": 0,
+      "subtotal": 0
+     },
+     "rs_trend": {
+      "F1": 0,
+      "F2": 2,
+      "F3": 0,
+      "F4": 0,
+      "subtotal": 2
+     },
+     "base_structure": {
+      "G1": 0,
+      "G2": 4,
+      "G3": 3,
+      "G4": 0,
+      "G5": 1,
+      "G6": 2,
+      "subtotal": 10
+     },
+     "leadership": {
+      "H1": 0,
+      "H2": 0,
+      "H3": 0,
+      "subtotal": 0
+     },
+     "total": 21
+    },
+    "quality_band": "Reject",
+    "action_bucket": "AVOID",
+    "red_flags": [],
+    "risk_level": "LOW",
+    "valuation_context": {
+     "pe": 6.190299888930025,
+     "peg": null,
+     "vs_own_5yr": "",
+     "note": "Valuation is context only, never a criterion."
+    },
+    "base": {
+     "pattern_label": "",
+     "pivot": 171.8,
+     "pct_from_pivot": -2.68,
+     "base_count": 2,
+     "depth_pct": 15.1,
+     "weeks": 12.8
+    },
+    "trade_plan": null,
+    "delta": {
+     "score_change": -2,
+     "gate_flips": [],
+     "bucket_change": "",
+     "alerts": []
+    },
+    "violations": {
+     "count": 0,
+     "items": [],
+     "recommendation": ""
+    },
+    "verdict": {
+     "summary": "JMGI (21/100) \u2014 Reject / AVOID. Score is informational only \u2014 Gate 1 not confirmed, so not an actionable setup yet.",
+     "strengths": [],
+     "weaknesses": [
+      "Fails Trend Template: c8",
+      "Earnings block weak (0/25)",
+      "17 unverified fields scored 0"
+     ],
+     "catalysts": [],
+     "biggest_risk": "None flagged",
+     "conviction_0_10": 0
+    },
+    "data_quality": {
+     "unverified_fields": [
+      "eps_acceleration",
+      "eps_cagr_3y",
+      "eps_quarterly",
+      "eps_revenue_support",
+      "eps_yoy_latest",
+      "institutional_holding",
+      "interest_coverage",
+      "marquee_institution",
+      "mf_scheme_count",
+      "new_catalyst",
+      "ocf_to_pat_3y",
+      "other_income_pct_pbt",
+      "promoter_holding_trend",
+      "promoter_pledge_pct",
+      "sales_acceleration",
+      "sales_yoy_latest",
+      "share_count_growth"
+     ],
+     "proxy_fields": [
+      "group_leadership_rank",
+      "industry_group_rs"
+     ],
+     "unverified_reasons": {},
+     "sources": [
+      {
+       "field": "technicals",
+       "source": "Yahoo Finance OHLCV",
+       "as_of": "2026-09-18"
+      },
+      {
+       "field": "fundamentals",
+       "source": "screener.in",
+       "as_of": "2026-09-18"
+      }
+     ]
+    },
+    "technicals": {
+     "price": 167.2,
+     "rs_percentile": 43,
+     "pct_below_52w_high": 7.7,
+     "pct_above_52w_low": 32.5,
+     "dma_50": 165.0,
+     "dma_200": 155.59,
+     "up_down_volume_ratio_50d": 1.02,
+     "industry_sector": "Miscellaneous",
+     "industry_group_rs_quartile": 3,
+     "group_leadership_rank": 6,
+     "group_leadership_of": 18,
+     "rsi": 51.7,
+     "roce": 19.2133780110918,
+     "fcf_latest_cr": 1.6,
+     "fcf_source": "reported"
+    },
+    "status": "SCORED_NO_TREND",
+    "setup_flag": "momentum"
+   },
+   "dropped_date": "2026-09-26",
+   "frozen": true
+  },
+  {
+   "ticker": "TEHOL",
+   "name": "Tera Yatirim Teknoloji Holding A.S.",
+   "joined_date": null,
+   "last_updated": "2026-09-19",
+   "scorecard": {
+    "ticker": "TEHOL",
+    "name": "Tera Yatirim Teknoloji Holding A.S.",
+    "as_of": "2026-09-18",
+    "mode": "MONTHLY",
+    "gates": {
+     "trend_template": {
+      "c1": true,
+      "c2": true,
+      "c3": true,
+      "c4": true,
+      "c5": false,
+      "c6": true,
+      "c7": false,
+      "c8": false,
+      "pass": false,
+      "near_miss_notes": ""
+     },
+     "investability": {
+      "liquidity": true,
+      "pledge": true,
+      "governance_flag": false,
+      "governance_note": "",
+      "governance": true,
+      "pass": true
+     }
+    },
+    "llm_checks": {
+     "h3_catalyst_found": false,
+     "h3_citation": "",
+     "governance_flag": false,
+     "governance_note": "",
+     "checked_date": "2026-09-12"
+    },
+    "scores": {
+     "earnings": {
+      "A1": 0,
+      "A2": 0,
+      "A3": 4,
+      "A4": 4,
+      "A5": 0,
+      "subtotal": 8
+     },
+     "revenue": {
+      "B1": 6,
+      "B2": 0,
+      "B3": 3,
+      "B4": 0,
+      "subtotal": 9
+     },
+     "profitability": {
+      "C1": 3,
+      "C2": 0,
+      "C3": 0,
+      "C4": 2,
+      "subtotal": 5
+     },
+     "balance_sheet": {
+      "D1": 2,
+      "D2": 0,
+      "D3": 0,
+      "D4": 1,
+      "subtotal": 3
+     },
+     "sponsorship": {
+      "E1": 0,
+      "E2": 0,
+      "E3": 0,
+      "E4": 0,
+      "subtotal": 0
+     },
+     "rs_trend": {
+      "F1": 0,
+      "F2": 0,
+      "F3": 0,
+      "F4": 2,
+      "subtotal": 2
+     },
+     "base_structure": {
+      "G1": 0,
+      "G2": 4,
+      "G3": 0,
+      "G4": 0,
+      "G5": 0,
+      "G6": 0,
+      "subtotal": 4
+     },
+     "leadership": {
+      "H1": 0,
+      "H2": 2,
+      "H3": 0,
+      "subtotal": 2
+     },
+     "total": 33
+    },
+    "quality_band": "Reject",
+    "action_bucket": "AVOID",
+    "red_flags": [],
+    "risk_level": "LOW",
+    "valuation_context": {
+     "pe": 22.16150962577038,
+     "peg": null,
+     "vs_own_5yr": "",
+     "note": "Valuation is context only, never a criterion."
+    },
+    "base": {
+     "pattern_label": "",
+     "pivot": 53.4,
+     "pct_from_pivot": -34.68,
+     "base_count": 2,
+     "depth_pct": 76.0,
+     "weeks": 47.6
+    },
+    "trade_plan": null,
+    "delta": {
+     "score_change": -12,
+     "gate_flips": [
+      "c5: True -> False",
+      "c7: True -> False",
+      "c8: True -> False"
+     ],
+     "bucket_change": "",
+     "alerts": [
+      "RS_DOWNGRADE",
+      "CLOSED_BELOW_50DMA"
+     ]
+    },
+    "violations": {
+     "count": 0,
+     "items": [],
+     "recommendation": ""
+    },
+    "verdict": {
+     "summary": "TEHOL (33/100) \u2014 Reject / AVOID. Score is informational only \u2014 Gate 1 not confirmed, so not an actionable setup yet.",
+     "strengths": [],
+     "weaknesses": [
+      "Fails Trend Template: c5, c7, c8",
+      "Earnings block weak (8/25)",
+      "No valid base yet (4/20)",
+      "11 unverified fields scored 0"
+     ],
+     "catalysts": [],
+     "biggest_risk": "None flagged",
+     "conviction_0_10": 0
+    },
+    "data_quality": {
+     "unverified_fields": [
+      "eps_acceleration",
+      "institutional_holding",
+      "interest_coverage",
+      "marquee_institution",
+      "mf_scheme_count",
+      "new_catalyst",
+      "ocf_to_pat_3y",
+      "other_income_pct_pbt",
+      "promoter_holding_trend",
+      "promoter_pledge_pct",
+      "share_count_growth"
+     ],
+     "proxy_fields": [
+      "group_leadership_rank",
+      "industry_group_rs"
+     ],
+     "unverified_reasons": {},
+     "sources": [
+      {
+       "field": "technicals",
+       "source": "Yahoo Finance OHLCV",
+       "as_of": "2026-09-18"
+      },
+      {
+       "field": "fundamentals",
+       "source": "screener.in",
+       "as_of": "2026-09-18"
+      }
+     ]
+    },
+    "technicals": {
+     "price": 34.88,
+     "rs_percentile": 58,
+     "pct_below_52w_high": 34.7,
+     "pct_above_52w_low": 172.7,
+     "dma_50": 44.9,
+     "dma_200": 29.49,
+     "up_down_volume_ratio_50d": 5.04,
+     "industry_sector": "Finance",
+     "industry_group_rs_quartile": 3,
+     "group_leadership_rank": 3,
+     "group_leadership_of": 14,
+     "rsi": 31.8,
+     "roce": 41.0579089394128,
+     "fcf_latest_cr": 138.0,
+     "fcf_source": "reported"
+    },
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
+   },
+   "dropped_date": "2026-09-26",
+   "frozen": true
+  },
+  {
+   "ticker": "ANSGR",
+   "name": "Anadolu Anonim Turk Sigorta Sirketi A.S.",
+   "joined_date": null,
+   "last_updated": "2026-09-19",
+   "scorecard": {
+    "ticker": "ANSGR",
+    "name": "Anadolu Anonim Turk Sigorta Sirketi A.S.",
+    "as_of": "2026-09-18",
+    "mode": "MONTHLY",
+    "gates": {
+     "trend_template": {
+      "c1": false,
+      "c2": true,
+      "c3": true,
+      "c4": true,
+      "c5": false,
+      "c6": true,
+      "c7": true,
+      "c8": false,
+      "pass": false,
+      "near_miss_notes": ""
+     },
+     "investability": {
+      "liquidity": true,
+      "pledge": true,
+      "governance_flag": false,
+      "governance_note": "",
+      "governance": true,
+      "pass": true
+     }
+    },
+    "llm_checks": {
+     "h3_catalyst_found": false,
+     "h3_citation": "",
+     "governance_flag": false,
+     "governance_note": "",
+     "checked_date": "2026-09-19"
+    },
+    "scores": {
+     "earnings": {
+      "A1": 2,
+      "A2": 1,
+      "A3": 2,
+      "A4": 4,
+      "A5": 2,
+      "subtotal": 11
+     },
+     "revenue": {
+      "B1": 6,
+      "B2": 0,
+      "B3": 3,
+      "B4": 2,
+      "subtotal": 11
+     },
+     "profitability": {
+      "C1": 3,
+      "C2": 0,
+      "C3": 0,
+      "C4": 2,
+      "subtotal": 5
+     },
+     "balance_sheet": {
+      "D1": 2,
+      "D2": 0,
+      "D3": 0,
+      "D4": 1,
+      "subtotal": 3
+     },
+     "sponsorship": {
+      "E1": 0,
+      "E2": 0,
+      "E3": 0,
+      "E4": 0,
+      "subtotal": 0
+     },
+     "rs_trend": {
+      "F1": 0,
+      "F2": 2,
+      "F3": 0,
+      "F4": 0,
+      "subtotal": 2
+     },
+     "base_structure": {
+      "G1": 0,
+      "G2": 4,
+      "G3": 3,
+      "G4": 0,
+      "G5": 0,
+      "G6": 0,
+      "subtotal": 7
+     },
+     "leadership": {
+      "H1": 0,
+      "H2": 0,
+      "H3": 0,
+      "subtotal": 0
+     },
+     "total": 39
+    },
+    "quality_band": "Reject",
+    "action_bucket": "AVOID",
+    "red_flags": [],
+    "risk_level": "LOW",
+    "valuation_context": {
+     "pe": 3.4726671621517724,
+     "peg": null,
+     "vs_own_5yr": "",
+     "note": "Valuation is context only, never a criterion."
+    },
+    "base": {
+     "pattern_label": "",
+     "pivot": 29.68,
+     "pct_from_pivot": -8.69,
+     "base_count": 2,
+     "depth_pct": 20.9,
+     "weeks": 19.8
+    },
+    "trade_plan": null,
+    "delta": {
+     "score_change": 0,
+     "gate_flips": [],
+     "bucket_change": "",
+     "alerts": []
+    },
+    "violations": {
+     "count": 0,
+     "items": [],
+     "recommendation": ""
+    },
+    "verdict": {
+     "summary": "ANSGR (39/100) \u2014 Reject / AVOID. Score is informational only \u2014 Gate 1 not confirmed, so not an actionable setup yet.",
+     "strengths": [],
+     "weaknesses": [
+      "Fails Trend Template: c1, c5, c8",
+      "10 unverified fields scored 0"
+     ],
+     "catalysts": [],
+     "biggest_risk": "None flagged",
+     "conviction_0_10": 0
+    },
+    "data_quality": {
+     "unverified_fields": [
+      "institutional_holding",
+      "interest_coverage",
+      "marquee_institution",
+      "mf_scheme_count",
+      "new_catalyst",
+      "ocf_to_pat_3y",
+      "other_income_pct_pbt",
+      "promoter_holding_trend",
+      "promoter_pledge_pct",
+      "share_count_growth"
+     ],
+     "proxy_fields": [
+      "group_leadership_rank",
+      "industry_group_rs"
+     ],
+     "unverified_reasons": {},
+     "sources": [
+      {
+       "field": "technicals",
+       "source": "Yahoo Finance OHLCV",
+       "as_of": "2026-09-18"
+      },
+      {
+       "field": "fundamentals",
+       "source": "screener.in",
+       "as_of": "2026-09-18"
+      }
+     ]
+    },
+    "technicals": {
+     "price": 27.1,
+     "rs_percentile": 36,
+     "pct_below_52w_high": 14.0,
+     "pct_above_52w_low": 40.7,
+     "dma_50": 27.51,
+     "dma_200": 26.55,
+     "up_down_volume_ratio_50d": 0.7,
+     "industry_sector": "Finance",
+     "industry_group_rs_quartile": 3,
+     "group_leadership_rank": 8,
+     "group_leadership_of": 14,
+     "rsi": 50.7,
+     "roce": 46.5662142731582,
+     "fcf_latest_cr": 1723.5,
+     "fcf_source": "reported"
+    },
+    "status": "SCORED_NO_TREND",
+    "setup_flag": null
+   },
+   "dropped_date": "2026-09-26",
+   "frozen": true
+  },
+  {
    "ticker": "039200",
    "name": "Oscotec Inc.",
    "joined_date": "2026-09-05",

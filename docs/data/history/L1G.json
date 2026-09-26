@@ -1,0 +1,11 @@
+{
+ "ticker": "L1G",
+ "points": [
+  {
+   "date": "2026-09-26",
+   "score": 24,
+   "bucket": "AVOID",
+   "price": 1.17
+  }
+ ]
+}

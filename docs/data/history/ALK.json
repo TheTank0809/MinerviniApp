@@ -1,0 +1,11 @@
+{
+ "ticker": "ALK",
+ "points": [
+  {
+   "date": "2026-09-26",
+   "score": 40,
+   "bucket": "AVOID",
+   "price": 1.89
+  }
+ ]
+}

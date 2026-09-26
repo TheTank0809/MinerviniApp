@@ -1,0 +1,11 @@
+{
+ "ticker": "PGNY",
+ "points": [
+  {
+   "date": "2026-09-26",
+   "score": 31,
+   "bucket": "AVOID",
+   "price": 25.44
+  }
+ ]
+}

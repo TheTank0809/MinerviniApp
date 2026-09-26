@@ -1,0 +1,11 @@
+{
+ "ticker": "WGX",
+ "points": [
+  {
+   "date": "2026-09-26",
+   "score": 28,
+   "bucket": "AVOID",
+   "price": 5.46
+  }
+ ]
+}

@@ -1,0 +1,11 @@
+{
+ "ticker": "HCI",
+ "points": [
+  {
+   "date": "2026-09-26",
+   "score": 33,
+   "bucket": "AVOID",
+   "price": 174.94
+  }
+ ]
+}
