@@ -68,17 +68,25 @@ def backfill_price_history(ticker, df, years=1):
     """Fill in trailing `years` of weekly close prices (price-only points, no score
     or bucket) for dates that predate score-tracking — either a brand-new stock's
     first run, or a stock that was already tracked before this backfill existed.
-    Never overwrites a date that already has a point (a scored weekly snapshot
-    always wins), and reuses the OHLCV already downloaded for scoring rather than
-    making a separate Yahoo Finance call."""
-    weekly = T.weekly_close_series(df, years=years)
-    if not weekly:
-        return
+    Runs the full year-long walk only once per ticker (marked by price_backfilled
+    in its history file); every run after that just appends this week's close,
+    so a stock that's already been backfilled doesn't re-check a year of dates on
+    every pipeline run. Never overwrites a date that already has a point (a scored
+    weekly snapshot always wins), and reuses the OHLCV already downloaded for
+    scoring rather than making a separate Yahoo Finance call."""
     os.makedirs(HISTORY_DIR, exist_ok=True)
     path = os.path.join(HISTORY_DIR, ticker + ".json")
     obj = load_json(path, {"ticker": ticker, "points": []})
     points = obj.get("points") or []
     existing_dates = {p.get("date") for p in points}
+    already_backfilled = bool(obj.get("price_backfilled"))
+
+    if already_backfilled:
+        latest = T.latest_week_close(df)
+        weekly = [latest] if latest else []
+    else:
+        weekly = T.weekly_close_series(df, years=years)
+
     added = False
     for date, price in weekly:
         if date in existing_dates:
@@ -86,9 +94,11 @@ def backfill_price_history(ticker, df, years=1):
         points.append({"date": date, "score": None, "bucket": None, "price": price})
         existing_dates.add(date)
         added = True
-    if added:
+
+    if added or not already_backfilled:
         points.sort(key=lambda p: p["date"])
         obj["points"] = points[-HISTORY_MAX_POINTS:]
+        obj["price_backfilled"] = True
         save_json(path, obj)
 
 

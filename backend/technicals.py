@@ -127,6 +127,23 @@ def weekly_close_series(df, years=1):
     return [(ts.date().isoformat(), round(float(price), 2)) for ts, price in weekly.items()]
 
 
+def latest_week_close(df):
+    """Just this week's close (Friday, or the week's last trading day) — the
+    single-point counterpart to weekly_close_series, used once a ticker's price
+    history has already been backfilled so later runs only append this week's
+    point instead of re-walking a year of dates. Returns (iso_date, price) or None."""
+    if df is None or df.empty or "Close" not in df.columns:
+        return None
+    close = df["Close"].dropna()
+    if close.empty:
+        return None
+    weekly = close.resample("W-FRI").last().dropna()
+    if weekly.empty:
+        return None
+    ts = weekly.index[-1]
+    return (ts.date().isoformat(), round(float(weekly.iloc[-1]), 2))
+
+
 # --------------------------------------------------------------------------- helpers
 
 def _sma(close, n):
