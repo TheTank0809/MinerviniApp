@@ -124,7 +124,6 @@ def process_global(universe_key, uni, gcfg, settings):
         exclude_countries=gcfg.get("exclude_countries", []),
         min_market_cap=gcfg.get("min_market_cap", 10_000_000_000),
         min_eps_growth_pct=gcfg.get("min_eps_growth_pct", 25),
-        max_debt_to_equity=gcfg.get("max_debt_to_equity", 0.1),
         limit=gcfg.get("scan_limit", 1000),
     )
     min_rev_cagr = gcfg.get("min_revenue_cagr_5y_pct", 25)

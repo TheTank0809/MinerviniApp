@@ -92,7 +92,7 @@ universes:
         slug: "growth-screener"
         short: "GR"
         enabled: true
-        # Mirrors the 3 active thresholds on the TradingView screen this was built
+        # Mirrors the active thresholds on the TradingView screen this was built
         # from (https://in.tradingview.com/screener/LskWhbOz/, "Growth Screener",
         # Entire world) — everything else on that screen is a display column, not
         # an actual filter. "will improve later" per the original request; these
@@ -103,7 +103,10 @@ universes:
                                      # see pipeline_global.py). Raised 15 -> 20 per explicit request;
                                      # originally lowered from 25 -> 15 since the strict calc cuts
                                      # much harder than TradingView's own version.
-        max_debt_to_equity: 0.1      # Debt/equity, FY
+        # Debt/equity < 0.1 removed per explicit request (Sept 2026) — was screening out
+        # otherwise-qualifying growth names too aggressively. D/E is still fetched and
+        # scored (scorecard.py's D1, PROMPT.md Section D), just no longer a hard gate at
+        # the TradingView query stage.
         min_market_cap: 1000000000   # $1B floor — matches the actual TradingView screen (which
                                      # has no market-cap filter at all; this is still a deliberate
                                      # narrowing for cost, not a match to "no floor").

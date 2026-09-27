@@ -39,7 +39,7 @@ class TradingViewError(Exception):
     pass
 
 
-def fetch_universe(exclude_countries, min_market_cap, min_eps_growth_pct, max_debt_to_equity,
+def fetch_universe(exclude_countries, min_market_cap, min_eps_growth_pct,
                     limit=1000):
     """Returns a list of raw scanner rows (dict of column -> value) matching the
     configured growth-screen criteria, primary listings only, excluding the given
@@ -51,7 +51,6 @@ def fetch_universe(exclude_countries, min_market_cap, min_eps_growth_pct, max_de
         {"left": "market_cap_basic", "operation": "greater", "right": min_market_cap},
         {"left": "earnings_per_share_diluted_yoy_growth_ttm", "operation": "greater",
          "right": min_eps_growth_pct},
-        {"left": "debt_to_equity_fy", "operation": "less", "right": max_debt_to_equity},
     ]
     for country in exclude_countries:
         filters.append({"left": "country", "operation": "nequal", "right": country})
