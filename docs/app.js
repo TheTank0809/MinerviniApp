@@ -7,6 +7,9 @@
 
   var state = { manifest: null, universeKey: null, universes: {}, universeData: {}, screens: [],
                 tab: "active", sort: "score", filter: null, newPeriod: "all", searchQuery: "",
+                // null = every country included (the default, no filter). Once narrowed, an
+                // object map of the countries still checked — see openCountryPopup/renderList.
+                countrySelected: null,
                 shortlist: {}, bought: {}, activeSheet: null, ratios: null, ratiosHist: null, ratiosPeHist: null,
                 ratiosByNiftyHist: null, currency: "inr", data: { active: [], dropped: [] } };
   var $ = function (sel) { return document.querySelector(sel); };
@@ -602,7 +605,33 @@
         box.appendChild(b);
       });
     }
+
+    // Country — Global only, and only once there's actual country data to filter by
+    // (a fresh universe, or one that predates the country field being recorded, has
+    // none yet — see backend/pipeline_global.py).
+    if (state.universeKey === "global") {
+      var countries = availableCountries();
+      if (countries.length) {
+        var selectedCount = state.countrySelected ? Object.keys(state.countrySelected).length : countries.length;
+        var cbtn = document.createElement("button");
+        cbtn.className = "chip" + (state.countrySelected ? " active" : "");
+        cbtn.textContent = "Country" + (state.countrySelected ? " " + selectedCount + "/" + countries.length : "");
+        cbtn.onclick = openCountryPopup;
+        box.appendChild(cbtn);
+      }
+    }
     renderNewFilter();
+  }
+
+  // All distinct countries seen across the currently loaded Global stocks (both tabs
+  // share the same universe, so In-screen and Left-the-screen offer the same list).
+  function availableCountries() {
+    var set = {};
+    state.data.active.concat(state.data.dropped).forEach(function (e) {
+      var c = e.primary && e.primary.country;
+      if (c) set[c] = true;
+    });
+    return Object.keys(set).sort();
   }
 
   function renderNewFilter() {
@@ -725,6 +754,14 @@
           return state.tab === "dropped" ? !!e.droppedRecs[state.filter] : !!e.activeRecs[state.filter];
         });
       }
+    }
+    // Country narrows In-screen/Left-the-screen independently of the filter chip above —
+    // orthogonal to it, not another mutually-exclusive option — and only ever applies to
+    // Global's own tabs, never to the cross-universe Shortlist/Buy list.
+    if (state.countrySelected && state.universeKey === "global" &&
+        state.tab !== "shortlist" && state.tab !== "buy") {
+      var wantCountries = state.countrySelected;
+      list = list.filter(function (e) { return e.primary && wantCountries[e.primary.country]; });
     }
     if (state.searchQuery) {
       var q = state.searchQuery;
@@ -1421,6 +1458,91 @@
     if (reduced) finish(); else histPopupCloseTimer = setTimeout(finish, 200);
   }
 
+  // Country filter popup (Global only) — a checkbox per country plus Select all/Clear
+  // all, applied live as each box is toggled rather than needing an explicit Apply.
+  var countryPopupCloseTimer = null;
+  function renderCountryPopupBody() {
+    var countries = availableCountries();
+    var selected = state.countrySelected;
+    return '<div class="country-actions">' +
+        '<button type="button" class="stbtn" id="country-select-all">Select all</button>' +
+        '<button type="button" class="stbtn" id="country-clear-all">Clear all</button>' +
+      "</div>" +
+      '<div class="country-list">' +
+      countries.map(function (c) {
+        var checked = !selected || !!selected[c];
+        return '<label class="country-row"><input type="checkbox" data-country="' + esc(c) + '"' +
+          (checked ? " checked" : "") + "><span>" + esc(c) + "</span></label>";
+      }).join("") +
+      "</div>";
+  }
+  function refreshCountryPopup(popup) {
+    var body = popup.querySelectorAll(".country-actions, .country-list");
+    body.forEach(function (el) { el.remove(); });
+    popup.insertAdjacentHTML("beforeend", renderCountryPopupBody());
+    wireCountryPopupBody(popup);
+    renderFilterChips();
+    renderList();
+  }
+  function wireCountryPopupBody(popup) {
+    var countries = availableCountries();
+    popup.querySelector("#country-select-all").onclick = function () {
+      state.countrySelected = null;
+      refreshCountryPopup(popup);
+    };
+    popup.querySelector("#country-clear-all").onclick = function () {
+      state.countrySelected = {};
+      refreshCountryPopup(popup);
+    };
+    popup.querySelectorAll('.country-row input[type="checkbox"]').forEach(function (cb) {
+      cb.onchange = function () {
+        // "all selected" is represented as null, not a materialized full set — the
+        // first uncheck from that state has to build the full set minus this one.
+        var next = {};
+        if (state.countrySelected) {
+          Object.keys(state.countrySelected).forEach(function (c) { next[c] = true; });
+        } else {
+          countries.forEach(function (c) { next[c] = true; });
+        }
+        if (cb.checked) next[cb.dataset.country] = true; else delete next[cb.dataset.country];
+        // Checking every box back on is the same as no filter — collapse to null so the
+        // chip drops its "active"/count styling instead of showing e.g. "12/12".
+        state.countrySelected = Object.keys(next).length === countries.length ? null : next;
+        renderFilterChips();
+        renderList();
+      };
+    });
+  }
+  function openCountryPopup() {
+    var popup = $("#country-popup");
+    var backdrop = $("#country-backdrop");
+    if (countryPopupCloseTimer) { clearTimeout(countryPopupCloseTimer); countryPopupCloseTimer = null; }
+    popup.innerHTML = '<div class="sheet-head"><h2>Filter by country</h2>' +
+      '<button type="button" class="close" aria-label="Close">✕</button></div>' +
+      renderCountryPopupBody();
+    popup.querySelector(".close").onclick = closeCountryPopup;
+    wireCountryPopupBody(popup);
+    popup.hidden = false;
+    backdrop.hidden = false;
+    popup.classList.remove("show");
+    backdrop.classList.remove("show");
+    void popup.offsetHeight;
+    requestAnimationFrame(function () {
+      popup.classList.add("show");
+      backdrop.classList.add("show");
+    });
+  }
+  function closeCountryPopup() {
+    var popup = $("#country-popup");
+    var backdrop = $("#country-backdrop");
+    popup.classList.remove("show");
+    backdrop.classList.remove("show");
+    if (countryPopupCloseTimer) clearTimeout(countryPopupCloseTimer);
+    var finish = function () { countryPopupCloseTimer = null; popup.hidden = true; backdrop.hidden = true; };
+    var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduced) finish(); else countryPopupCloseTimer = setTimeout(finish, 200);
+  }
+
   var sheetCloseTimer = null;
   function closeSheet() {
     var sheet = $("#sheet");
@@ -1622,8 +1744,11 @@
 
   $("#backdrop").onclick = closeSheet;
   $("#hist-backdrop").onclick = closeHistoryPopup;
+  $("#country-backdrop").onclick = closeCountryPopup;
   document.addEventListener("keydown", function (e) {
     if (e.key !== "Escape") return;
+    var countryPopup = $("#country-popup");
+    if (countryPopup && !countryPopup.hidden) { closeCountryPopup(); return; }
     var popup = $("#hist-popup");
     if (popup && !popup.hidden) { closeHistoryPopup(); return; }
     closeSheet();

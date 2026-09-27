@@ -278,6 +278,7 @@ def process_global(universe_key, uni, gcfg, settings):
 
             rec = {
                 "ticker": code, "name": row.get("description") or code,
+                "country": row.get("country"),
                 "joined_date": prior_rec["joined_date"] if prior_rec else today(),
                 "last_updated": today(),
                 "scorecard": card,

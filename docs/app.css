@@ -390,6 +390,18 @@ main { padding: 0 10px 30px; max-width: 1100px; margin: 0 auto; }
 .hist-popup .close:focus-visible { outline: 2px solid var(--amber); border-radius: 4px; }
 .hist-popup .hist-chart { margin-top: 6px; }
 
+/* ---------------- country filter popup (Global universe only) ---------------- */
+.country-actions { display: flex; gap: 8px; margin-top: 10px; }
+.country-list {
+  margin-top: 10px; max-height: 50vh; overflow-y: auto; -webkit-overflow-scrolling: touch;
+  display: flex; flex-direction: column; gap: 2px;
+}
+.country-row {
+  display: flex; align-items: center; gap: 10px; padding: 8px 2px;
+  font-size: 13px; color: var(--text); border-bottom: 1px solid var(--line);
+}
+.country-row input { width: 18px; height: 18px; accent-color: var(--amber); flex: none; }
+
 .screentoggle { display: flex; gap: 8px; margin: 10px 0 0; flex-wrap: wrap; }
 .stbtn {
   font-family: var(--mono); font-size: 11.5px; font-weight: 600; color: var(--muted);
