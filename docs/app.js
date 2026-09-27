@@ -70,16 +70,19 @@
     return html;
   }
   // Early/Momentum — informational-only tags computed by the scorecard engine
-  // (backend/scorecard.py: classify_setup_flag), shown only for India-S and
-  // Global — the two continuously re-screened universes this is meant for.
+  // (backend/scorecard.py: classify_setup_flag) for every stock in every universe;
+  // shown on India-S, India-Nifty, and Global.
   var SETUP_FLAG_META = {
     early: { cls: "early", label: "EARLY",
       title: "Fundamentals or base structure already strong, but the Trend Template (price/RS momentum) hasn't confirmed yet" },
     momentum: { cls: "momentum", label: "MOM",
       title: "Trend Template near/fully confirmed, but fundamentals are still weak — price moving ahead of the numbers" }
   };
+  function showsSetupFlag() {
+    return state.universeKey === "india" || state.universeKey === "india-nifty" || state.universeKey === "global";
+  }
   function setupPill(sc) {
-    if (state.universeKey !== "india" && state.universeKey !== "global") return "";
+    if (!showsSetupFlag()) return "";
     var meta = SETUP_FLAG_META[sc && sc.setup_flag];
     if (!meta) return "";
     return '<span class="setuppill ' + meta.cls + '" title="' + esc(meta.title) + '">' + meta.label + "</span>";
@@ -534,9 +537,8 @@
     };
     box.appendChild(newBtn);
 
-    // Early/Momentum — India-S and Global only (the two continuously re-screened
-    // universes classify_setup_flag was built for).
-    if (state.universeKey === "india" || state.universeKey === "global") {
+    // Early/Momentum — India-S, India-Nifty, and Global (every universe classify_setup_flag runs for).
+    if (showsSetupFlag()) {
       ["early", "momentum"].forEach(function (flag) {
         var meta = SETUP_FLAG_META[flag];
         var count = state.data.active.filter(function (e) {
@@ -868,7 +870,7 @@
     if (scores) html += '<button type="button" class="badge band hist-open" data-ticker="' + esc(entry.ticker) +
       '" data-metric="score" title="Tap to see score history">' + esc(sc.quality_band) + " · " + scores.total + "/100</button>";
     html += '<span class="badge">' + esc((sc.action_bucket || sc.status || "").replace(/_/g, " ")) + "</span>";
-    if ((state.universeKey === "india" || state.universeKey === "global") && SETUP_FLAG_META[sc.setup_flag]) {
+    if (showsSetupFlag() && SETUP_FLAG_META[sc.setup_flag]) {
       var sfMeta = SETUP_FLAG_META[sc.setup_flag];
       html += '<span class="badge setup-' + sfMeta.cls + '" title="' + esc(sfMeta.title) + '">' + esc(sfMeta.label) + "</span>";
     }
