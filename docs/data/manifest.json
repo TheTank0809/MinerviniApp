@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-26T15:04:08.212040Z",
+ "generated_at": "2026-09-27T13:32:15.021724Z",
  "sample": false,
  "screens": [
   {
@@ -9,10 +9,10 @@
    "short": "GR",
    "universe_label": "Global",
    "counts": {
-    "active": 144,
-    "new": 20,
-    "dropped": 3,
-    "errors": 19
+    "active": 160,
+    "new": 147,
+    "dropped": 106,
+    "errors": 25
    },
    "regime": {
     "label": "CAUTION",
