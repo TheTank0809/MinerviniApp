@@ -107,6 +107,15 @@ universes:
         # otherwise-qualifying growth names too aggressively. D/E is still fetched and
         # scored (scorecard.py's D1, PROMPT.md Section D), just no longer a hard gate at
         # the TradingView query stage.
+        require_positive_fcf: true  # Latest fiscal year's free cash flow > 0 (see
+                                     # pipeline_global.py's latest_annual_fcf). Computed
+                                     # client-side from data already fetched for scoring,
+                                     # not a native TradingView query field — same reasoning
+                                     # as the revenue CAGR filter above. A true TTM figure
+                                     # would need a new, unverified scanner field (this repo's
+                                     # TradingView field names are reverse-engineered, no
+                                     # official catalog — see tradingview_client.py), so this
+                                     # uses the latest annual figure instead.
         min_market_cap: 1000000000   # $1B floor — matches the actual TradingView screen (which
                                      # has no market-cap filter at all; this is still a deliberate
                                      # narrowing for cost, not a match to "no floor").

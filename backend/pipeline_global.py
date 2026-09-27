@@ -105,6 +105,17 @@ def compute_5y_revenue_cagr(row):
     return ((fy[0] / fy[5]) ** (1.0 / 5.0) - 1.0) * 100.0
 
 
+def latest_annual_fcf(row):
+    """Most recent fiscal year's free cash flow, from the same free_cash_flow_fy_h
+    history fundamentals_tradingview.py already uses for the fcf_positive_count
+    score — no separate TradingView field/call needed. TradingView's scanner has no
+    documented field catalog (see tradingview_client.py), so this deliberately reuses
+    data already verified to come back correctly rather than guessing at a TTM field
+    name (e.g. free_cash_flow_ttm) that's never been tested against the live API."""
+    fy = row.get("free_cash_flow_fy_h")
+    return fy[0] if fy and fy[0] is not None else None
+
+
 def process_global(universe_key, uni, gcfg, settings):
     slug = gcfg["slug"]
     sdir = os.path.join(DATA_DIR, universe_key, slug)
@@ -128,8 +139,11 @@ def process_global(universe_key, uni, gcfg, settings):
     )
     min_rev_cagr = gcfg.get("min_revenue_cagr_5y_pct", 25)
     rows = [r for r in raw_rows if (compute_5y_revenue_cagr(r) or -999) >= min_rev_cagr]
-    print("  TradingView: %d matched base filters, %d clear the 5y revenue CAGR bar too" %
-          (len(raw_rows), len(rows)))
+    require_positive_fcf = gcfg.get("require_positive_fcf", True)
+    if require_positive_fcf:
+        rows = [r for r in rows if (latest_annual_fcf(r) or -1) > 0]
+    print("  TradingView: %d matched base filters, %d clear the 5y revenue CAGR bar%s" %
+          (len(raw_rows), len(rows), " and positive latest-year FCF" if require_positive_fcf else ""))
 
     row_by_code = {r["name"]: r for r in rows}
     current_codes = set(row_by_code.keys())
