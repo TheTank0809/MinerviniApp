@@ -5,7 +5,7 @@
 (function () {
   "use strict";
 
-  var state = { manifest: null, universeKey: null, universes: {}, screens: [],
+  var state = { manifest: null, universeKey: null, universes: {}, universeData: {}, screens: [],
                 tab: "active", sort: "score", filter: null, newPeriod: "all", searchQuery: "",
                 shortlist: {}, bought: {}, activeSheet: null, ratios: null, ratiosHist: null, ratiosPeHist: null,
                 ratiosByNiftyHist: null, currency: "inr", data: { active: [], dropped: [] } };
@@ -78,19 +78,27 @@
     momentum: { cls: "momentum", label: "MOM",
       title: "Trend Template near/fully confirmed, but fundamentals are still weak — price moving ahead of the numbers" }
   };
-  function showsSetupFlag() {
-    return state.universeKey === "india" || state.universeKey === "india-nifty" || state.universeKey === "global";
+  function showsSetupFlag(universeKey) {
+    var uk = universeKey || state.universeKey;
+    return uk === "india" || uk === "india-nifty" || uk === "global";
   }
-  function setupPill(sc) {
-    if (!showsSetupFlag()) return "";
+  function setupPill(sc, universeKey) {
+    if (!showsSetupFlag(universeKey)) return "";
     var meta = SETUP_FLAG_META[sc && sc.setup_flag];
     if (!meta) return "";
     return '<span class="setuppill ' + meta.cls + '" title="' + esc(meta.title) + '">' + meta.label + "</span>";
   }
   function markedEntriesFor(marks) {
+    // Shortlist/Buy are personal tags, not tied to whichever universe happens to be
+    // selected in the dropdown — pull from every universe fetched so far (see
+    // state.universeData, filled in by loadUniverse) so a stock shortlisted while
+    // browsing India-S still shows up here after switching to Global.
     var byTicker = {};
-    state.data.active.concat(state.data.dropped).forEach(function (e) {
-      if (!byTicker[e.ticker]) byTicker[e.ticker] = e;
+    Object.keys(state.universeData).forEach(function (uk) {
+      var d = state.universeData[uk];
+      d.active.concat(d.dropped).forEach(function (e) {
+        if (!byTicker[e.ticker]) byTicker[e.ticker] = e;
+      });
     });
     return Object.keys(marks).map(function (t) { return byTicker[t]; }).filter(Boolean);
   }
@@ -227,10 +235,11 @@
     var sc = (entry.primary || {}).scorecard || {};
     return (sc.scores && sc.scores.total) || 0;
   }
-  function screenMeta(slug) {
+  function screenMeta(slug, screens) {
+    screens = screens || state.screens;
     var found = null;
-    for (var i = 0; i < state.screens.length; i++) {
-      if (state.screens[i].screen === slug) { found = state.screens[i]; break; }
+    for (var i = 0; i < screens.length; i++) {
+      if (screens[i].screen === slug) { found = screens[i]; break; }
     }
     var base = found || { screen: slug, label: slug };
     return { screen: base.screen, label: base.label, short: base.short || slug.slice(0, 2).toUpperCase() };
@@ -307,7 +316,18 @@
         var keys = Object.keys(state.universes).filter(function (k) { return !PLACEHOLDER_UNIVERSES[k]; });
         state.universeKey = keys[0] || null;
         renderChips();
-        return state.universeKey ? loadUniverse(state.universeKey) : renderList();
+        var initial = state.universeKey ? loadUniverse(state.universeKey) : Promise.resolve();
+        if (!state.universeKey) renderList();
+        // Shortlist/Buy are personal tags that span every universe (see markedEntriesFor),
+        // so every universe's data needs to be in state.universeData, not just whichever
+        // one happens to be selected in the dropdown right now. Fetched in the background,
+        // after the selected universe, so the visible tab still paints first.
+        initial.then(function () {
+          Object.keys(state.universes).forEach(function (k) {
+            if (k !== state.universeKey) loadUniverse(k);
+          });
+        });
+        return initial;
       })
       .catch(function () {
         var el = $("#error-banner");
@@ -336,15 +356,10 @@
     el.hidden = false;
   }
 
-  function loadUniverse(universeKey) {
+  function fetchUniverseData(universeKey) {
     var screens = (state.universes[universeKey] || []).filter(function (s) { return !s.error; });
-    state.screens = screens;
-    renderFilterChips();
     if (!screens.length) {
-      state.data.active = []; state.data.dropped = [];
-      renderRegime(null);
-      renderList();
-      return;
+      return Promise.resolve({ screens: screens, active: [], dropped: [], run: null });
     }
     return Promise.all(screens.map(function (s) {
       var base = "data/" + s.universe + "/" + s.screen + "/";
@@ -357,11 +372,44 @@
       });
     })).then(function (results) {
       var merged = mergeScreens(results);
-      state.data.active = merged.active;
-      state.data.dropped = merged.dropped;
-      renderRegime(results[0] && results[0].run);
+      // Tag each entry with the universe it came from. Shortlist/Buy merge marked
+      // entries across every universe (see markedEntriesFor), so row/sheet rendering
+      // needs to know which universe's screens/label a cross-universe entry belongs
+      // to, rather than assuming whichever universe happens to be selected right now.
+      merged.active.forEach(function (e) { e._universeKey = universeKey; });
+      merged.dropped.forEach(function (e) { e._universeKey = universeKey; });
+      return { screens: screens, active: merged.active, dropped: merged.dropped, run: results[0] && results[0].run };
+    });
+  }
+
+  function applyUniverseData(universeKey, data) {
+    state.screens = data.screens;
+    state.data.active = data.active;
+    state.data.dropped = data.dropped;
+    renderRegime(data.run);
+    renderFilterChips();
+    renderList();
+  }
+
+  function loadUniverse(universeKey) {
+    if (state.universeKey === universeKey) {
+      state.screens = (state.universes[universeKey] || []).filter(function (s) { return !s.error; });
       renderFilterChips();
-      renderList();
+    }
+    // Already fetched (initial load, or an earlier background/eager fetch) — reuse it
+    // rather than re-hitting the network every time the dropdown switches back to a
+    // universe it's already seen.
+    var cached = state.universeData[universeKey];
+    var dataPromise = cached ? Promise.resolve(cached) : fetchUniverseData(universeKey);
+    return dataPromise.then(function (data) {
+      state.universeData[universeKey] = data;
+      if (state.universeKey === universeKey) {
+        applyUniverseData(universeKey, data);
+      } else if (state.tab === "shortlist" || state.tab === "buy") {
+        // A background fetch for a universe other than the one on screen just added
+        // (or updated) entries the cross-universe Shortlist/Buy list can now show.
+        renderList();
+      }
     });
   }
 
@@ -624,15 +672,27 @@
     return html + "</span>";
   }
 
+  // A cross-universe entry (shown on Shortlist/Buy, which merge marked stocks from
+  // every universe — see markedEntriesFor) carries its own origin universe's screens
+  // via _universeKey, since that can differ from whichever universe is currently
+  // selected in the dropdown. Falls back to the currently selected universe's screens
+  // for entries from the normal In-screen/Left-the-screen tabs.
+  function entryScreens(entry) {
+    var uk = entry._universeKey || state.universeKey;
+    var data = state.universeData[uk];
+    return data ? data.screens : state.screens;
+  }
+
   function membershipPills(entry) {
+    var screens = entryScreens(entry);
     // With only one screen/index tracked (e.g. India-Nifty's single Nifty 100 list),
     // every listed stock is trivially "in" it — the badge would just say the same
     // thing on every row and carry no information. Only worth showing once there's
     // more than one to actually distinguish between (matches the same >1 gate the
     // top filter chips already use).
-    if (state.screens.length <= 1) return "";
-    return state.screens.map(function (raw) {
-      var s = screenMeta(raw.screen);
+    if (screens.length <= 1) return "";
+    return screens.map(function (raw) {
+      var s = screenMeta(raw.screen, screens);
       var on = !!entry.activeRecs[s.screen];
       var droppedRec = entry.droppedRecs[s.screen];
       var title = s.label + (on ? " — active" : droppedRec ? " — left " + fmtDate(droppedRec.dropped_date) : " — not in this screen");
@@ -743,12 +803,13 @@
     // codes, alphanumeric IDs) — so for that universe only, the name leads and
     // the ticker becomes the secondary line, swapped from the India universes'
     // ticker-first layout where the ticker itself is the familiar identifier.
-    var isGlobal = state.universeKey === "global";
+    var entryUniverseKey = entry._universeKey || state.universeKey;
+    var isGlobal = entryUniverseKey === "global";
     var leadText = isGlobal ? (entry.name || entry.ticker) : entry.ticker;
     var subText = isGlobal ? entry.ticker : (entry.name || "");
     var cells =
       '<span class="stockcell"><span class="ticker">' + esc(leadText) + "</span>" +
-      membershipPills(entry) + markPills(entry) + setupPill(sc) +
+      membershipPills(entry) + markPills(entry) + setupPill(sc, entryUniverseKey) +
       (entry.isNew ? '<span class="newpill">NEW</span>' : "") +
       '<div class="sname">' + esc(subText) + '</div>' +
       '<div class="sub' + (reason && state.tab !== "dropped" ? " reject" : "") + '" title="' + esc(sub) + '">' + esc(sub) + "</div></span>" +
@@ -837,7 +898,8 @@
     var isShortlisted = !!state.shortlist[entry.ticker];
     var isBought = !!state.bought[entry.ticker];
 
-    var sheetIsGlobal = state.universeKey === "global";
+    var entryUniverseKey = entry._universeKey || state.universeKey;
+    var sheetIsGlobal = entryUniverseKey === "global";
     var sheetLead = sheetIsGlobal ? (entry.name || entry.ticker) : entry.ticker;
     var sheetSub = sheetIsGlobal ? entry.ticker : (entry.name || "");
     var html = '<div class="sheet-head"><div><h2>' + esc(sheetLead) + "</h2>" +
@@ -858,8 +920,9 @@
     var allSlugs = Object.keys(entry.activeRecs).concat(
       Object.keys(entry.droppedRecs).filter(function (s) { return !entry.activeRecs[s]; }));
     if (allSlugs.length > 1) {
+      var sheetScreens = entryScreens(entry);
       html += '<div class="screentoggle">' + allSlugs.map(function (s2) {
-        var meta = screenMeta(s2);
+        var meta = screenMeta(s2, sheetScreens);
         var isDropped = !entry.activeRecs[s2];
         return '<button class="stbtn' + (s2 === slug ? " active" : "") + (isDropped ? " dropped" : "") +
           '" data-slug="' + esc(s2) + '">' + esc(meta.short) + (isDropped ? " ✕" : "") + "</button>";
@@ -870,7 +933,7 @@
     if (scores) html += '<button type="button" class="badge band hist-open" data-ticker="' + esc(entry.ticker) +
       '" data-metric="score" title="Tap to see score history">' + esc(sc.quality_band) + " · " + scores.total + "/100</button>";
     html += '<span class="badge">' + esc((sc.action_bucket || sc.status || "").replace(/_/g, " ")) + "</span>";
-    if (showsSetupFlag() && SETUP_FLAG_META[sc.setup_flag]) {
+    if (showsSetupFlag(entryUniverseKey) && SETUP_FLAG_META[sc.setup_flag]) {
       var sfMeta = SETUP_FLAG_META[sc.setup_flag];
       html += '<span class="badge setup-' + sfMeta.cls + '" title="' + esc(sfMeta.title) + '">' + esc(sfMeta.label) + "</span>";
     }
@@ -883,9 +946,9 @@
 
     html += '<div class="kv">' +
       kvBtn("Price", t.price != null ? "₹" + t.price : "—", entry.ticker, "price", "Tap to see price history") +
-      kv("RS pct" + (state.universeKey === "global" ? " ⓘ" : ""),
+      kv("RS pct" + (sheetIsGlobal ? " ⓘ" : ""),
         t.rs_percentile != null ? t.rs_percentile : "—",
-        state.universeKey === "global"
+        sheetIsGlobal
           ? "Relative Strength percentile — ranked only within this tracked list (the growth-screened " +
             "universe), not the full global market. No broad reference universe exists for Global yet, " +
             "unlike India-S/India-Nifty (ranked against the Nifty 500). Not the same as RSI."
