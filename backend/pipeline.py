@@ -30,7 +30,7 @@ from screener_client import ScreenerClient, ScreenerError
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_DIR = os.path.join(ROOT, "docs", "data")
 HISTORY_DIR = os.path.join(DATA_DIR, "history")
-HISTORY_MAX_POINTS = 104  # ~2 years of weekly runs
+HISTORY_MAX_POINTS = 160  # ~2 years of weekly runs, plus a 1-year weekly price backfill
 PROMPT_PATH = os.path.join(ROOT, "PROMPT.md")
 
 
@@ -62,6 +62,34 @@ def update_history(ticker, date, score, bucket, price):
     points.sort(key=lambda p: p["date"])
     obj["points"] = points[-HISTORY_MAX_POINTS:]
     save_json(path, obj)
+
+
+def backfill_price_history(ticker, df, years=1):
+    """Fill in trailing `years` of weekly close prices (price-only points, no score
+    or bucket) for dates that predate score-tracking — either a brand-new stock's
+    first run, or a stock that was already tracked before this backfill existed.
+    Never overwrites a date that already has a point (a scored weekly snapshot
+    always wins), and reuses the OHLCV already downloaded for scoring rather than
+    making a separate Yahoo Finance call."""
+    weekly = T.weekly_close_series(df, years=years)
+    if not weekly:
+        return
+    os.makedirs(HISTORY_DIR, exist_ok=True)
+    path = os.path.join(HISTORY_DIR, ticker + ".json")
+    obj = load_json(path, {"ticker": ticker, "points": []})
+    points = obj.get("points") or []
+    existing_dates = {p.get("date") for p in points}
+    added = False
+    for date, price in weekly:
+        if date in existing_dates:
+            continue
+        points.append({"date": date, "score": None, "bucket": None, "price": price})
+        existing_dates.add(date)
+        added = True
+    if added:
+        points.sort(key=lambda p: p["date"])
+        obj["points"] = points[-HISTORY_MAX_POINTS:]
+        save_json(path, obj)
 
 
 _rs_universe_cache = {}
@@ -272,6 +300,7 @@ def process_screen(client, universe_key, uni, screen, settings):
                 prev_rs = ((prior_scorecard or {}).get("technicals") or {}).get("rs_percentile")
             tech_by_code[code] = T.build_technical_payload(
                 df, rs_percentile=rs_pct.get(code), rs_percentile_prev=prev_rs)
+            backfill_price_history(code, df)
             if only and code not in only:
                 continue  # not being rescored this run — skip the screener.in fetch for it
             fund_by_code[code] = build_fundamental_payload(client.fetch_company(code))

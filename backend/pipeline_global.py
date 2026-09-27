@@ -44,7 +44,9 @@ import scorecard as SC
 import llm as LLM
 import tradingview_client as TV
 from fundamentals_tradingview import build_fundamental_payload
-from pipeline import load_json, save_json, today, update_history, ticker_filter, DATA_DIR
+from pipeline import (
+    load_json, save_json, today, update_history, backfill_price_history, ticker_filter, DATA_DIR,
+)
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROMPT_PATH = os.path.join(ROOT, "PROMPT.md")
@@ -212,6 +214,7 @@ def process_global(universe_key, uni, gcfg, settings):
             if prior_rec:
                 prev_rs = ((prior_scorecard or {}).get("technicals") or {}).get("rs_percentile")
             tech = T.build_technical_payload(df, rs_percentile=rs_pct.get(code), rs_percentile_prev=prev_rs)
+            backfill_price_history(code, df)
             sec = tracked_sector.get(code)
             if sec in quartile_of:
                 rank, of = rank_of[sec].get(code, (None, None))

@@ -43,8 +43,8 @@ import llm as LLM
 from fundamentals import build_fundamental_payload
 from screener_client import ScreenerClient
 from pipeline import (  # reuse rather than reimplement — see pipeline.py
-    load_json, save_json, today, update_history, load_rs_universe_symbols,
-    load_rs_universe_industries, ticker_filter, DATA_DIR,
+    load_json, save_json, today, update_history, backfill_price_history,
+    load_rs_universe_symbols, load_rs_universe_industries, ticker_filter, DATA_DIR,
 )
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -182,6 +182,7 @@ def process_index(client, universe_key, uni, index_cfg, settings):
                 prev_rs = ((prior_scorecard or {}).get("technicals") or {}).get("rs_percentile")
             tech_by_code[code] = T.build_technical_payload(
                 df, rs_percentile=rs_pct.get(code), rs_percentile_prev=prev_rs)
+            backfill_price_history(code, df)
             if only and code not in only:
                 continue  # not being rescored this run — skip the screener.in fetch for it
             fund_by_code[code] = build_fundamental_payload(client.fetch_company(code))

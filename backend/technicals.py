@@ -111,6 +111,22 @@ def yahoo_symbol_candidates(code, suffixes):
     return [code + s for s in suffixes]
 
 
+def weekly_close_series(df, years=1):
+    """Trailing `years` of weekly close prices from a daily OHLCV frame — one point
+    per week (Friday, or the week's last trading day when Friday is a holiday).
+    Used to backfill a stock's price history from data already downloaded for
+    scoring, rather than a separate Yahoo Finance call. Returns [(iso_date, price)],
+    oldest first."""
+    if df is None or df.empty or "Close" not in df.columns:
+        return []
+    close = df["Close"].dropna()
+    if close.empty:
+        return []
+    cutoff = close.index.max() - pd.DateOffset(years=years)
+    weekly = close[close.index >= cutoff].resample("W-FRI").last().dropna()
+    return [(ts.date().isoformat(), round(float(price), 2)) for ts, price in weekly.items()]
+
+
 # --------------------------------------------------------------------------- helpers
 
 def _sma(close, n):

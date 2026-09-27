@@ -1211,8 +1211,18 @@
     return HIST_PAD_T + (1 - (s - lo) / (hi - lo)) * HIST_PLOT_H;
   }
 
+  // A ticker's history file can mix two kinds of points: weekly scorecard snapshots
+  // (score + bucket + price) and price-only weekly backfill points added for dates
+  // before score-tracking began (score/bucket left null). Each metric only cares
+  // about points where its own value is present, so filter per-metric before
+  // rendering rather than assuming every point has every field.
+  function pointsForMetric(points, metric) {
+    return (points || []).filter(function (p) { return metric.valueOf(p) != null; });
+  }
+
   function renderHistoryChart(points, metricKey, assetKey) {
     var metric = HIST_METRICS[metricKey] || HIST_METRICS.score;
+    points = pointsForMetric(points, metric);
     if (!points || points.length < 2) {
       return '<p class="uv">Not enough history yet — check back after next week’s scan.</p>';
     }
@@ -1276,6 +1286,7 @@
 
   function wireHistoryChart(box, points, metricKey) {
     var metric = HIST_METRICS[metricKey] || HIST_METRICS.score;
+    points = pointsForMetric(points, metric);
     var svg = box.querySelector(".hist-svg");
     var tip = box.querySelector(".hist-tip");
     if (!svg || !tip || !points || points.length < 2) return;
