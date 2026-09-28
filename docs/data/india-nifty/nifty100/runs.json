@@ -1,6 +1,45 @@
 {
  "runs": [
   {
+   "run_date": "2026-09-28",
+   "mode": "MONTHLY",
+   "regime": {
+    "score": 1,
+    "label": "CORRECTION",
+    "checks": {
+     "close_above_50dma": false,
+     "close_above_200dma": false,
+     "50dma_above_200dma": true,
+     "distribution_days_25": 5,
+     "distribution_days_ok": false,
+     "pct_universe_above_200dma": 41.0,
+     "universe_above_200dma_ok": false,
+     "net_new_highs_positive": false
+    },
+    "exposure_guidance": "No new buys; watchlist maintenance and holdings management only."
+   },
+   "counts": {
+    "active": 100,
+    "new": 0,
+    "removed_from_index": 0,
+    "errors": 0
+   },
+   "new_tickers": [],
+   "actionable_now": [],
+   "errors": [],
+   "llm": {
+    "enabled": true,
+    "model": "deepseek-chat",
+    "provider": "deepseek"
+   },
+   "rs_universe": {
+    "source": "Nifty 500",
+    "attempted": 500,
+    "succeeded": 500,
+    "used": true
+   }
+  },
+  {
    "run_date": "2026-08-30",
    "mode": "BOOTSTRAP",
    "regime": {
