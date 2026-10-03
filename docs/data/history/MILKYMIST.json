@@ -1,65 +1,53 @@
 {
- "ticker": "LEAPIND",
+ "ticker": "MILKYMIST",
  "points": [
-  {
-   "date": "2026-08-14",
-   "score": null,
-   "bucket": null,
-   "price": 144.93
-  },
   {
    "date": "2026-08-21",
    "score": null,
    "bucket": null,
-   "price": 162.02
+   "price": 189.22
   },
   {
    "date": "2026-08-28",
    "score": null,
    "bucket": null,
-   "price": 168.4
+   "price": 214.31
   },
   {
    "date": "2026-09-04",
    "score": null,
    "bucket": null,
-   "price": 150.26
+   "price": 252.43
   },
   {
    "date": "2026-09-11",
    "score": null,
    "bucket": null,
-   "price": 144.34
+   "price": 292.77
   },
   {
    "date": "2026-09-18",
    "score": null,
    "bucket": null,
-   "price": 140.47
+   "price": 274.07
   },
   {
    "date": "2026-09-25",
    "score": null,
    "bucket": null,
-   "price": 139.92
-  },
-  {
-   "date": "2026-09-26",
-   "score": 18,
-   "bucket": "AVOID",
-   "price": 139.92
+   "price": 319.3
   },
   {
    "date": "2026-10-02",
    "score": null,
    "bucket": null,
-   "price": 137.03
+   "price": 308.45
   },
   {
    "date": "2026-10-03",
-   "score": 18,
+   "score": 19,
    "bucket": "AVOID",
-   "price": 137.03
+   "price": 308.45
   }
  ],
  "price_backfilled": true

@@ -1,65 +1,53 @@
 {
- "ticker": "LEAPIND",
+ "ticker": "MOLBIO",
  "points": [
-  {
-   "date": "2026-08-14",
-   "score": null,
-   "bucket": null,
-   "price": 144.93
-  },
   {
    "date": "2026-08-21",
    "score": null,
    "bucket": null,
-   "price": 162.02
+   "price": 1098.45
   },
   {
    "date": "2026-08-28",
    "score": null,
    "bucket": null,
-   "price": 168.4
+   "price": 1094.75
   },
   {
    "date": "2026-09-04",
    "score": null,
    "bucket": null,
-   "price": 150.26
+   "price": 1160.5
   },
   {
    "date": "2026-09-11",
    "score": null,
    "bucket": null,
-   "price": 144.34
+   "price": 1438.2
   },
   {
    "date": "2026-09-18",
    "score": null,
    "bucket": null,
-   "price": 140.47
+   "price": 1288.3
   },
   {
    "date": "2026-09-25",
    "score": null,
    "bucket": null,
-   "price": 139.92
-  },
-  {
-   "date": "2026-09-26",
-   "score": 18,
-   "bucket": "AVOID",
-   "price": 139.92
+   "price": 1246.0
   },
   {
    "date": "2026-10-02",
    "score": null,
    "bucket": null,
-   "price": 137.03
+   "price": 1513.1
   },
   {
    "date": "2026-10-03",
-   "score": 18,
+   "score": 16,
    "bucket": "AVOID",
-   "price": 137.03
+   "price": 1513.1
   }
  ],
  "price_backfilled": true

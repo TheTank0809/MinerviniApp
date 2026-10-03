@@ -1,6 +1,172 @@
 {
  "runs": [
   {
+   "run_date": "2026-10-03",
+   "mode": "WEEKLY",
+   "regime": {
+    "score": 2,
+    "label": "CORRECTION",
+    "checks": {
+     "close_above_50dma": false,
+     "close_above_200dma": false,
+     "50dma_above_200dma": true,
+     "distribution_days_25": 8,
+     "distribution_days_ok": false,
+     "pct_universe_above_200dma": 55.7,
+     "universe_above_200dma_ok": true,
+     "net_new_highs_positive": false
+    },
+    "exposure_guidance": "No new buys; watchlist maintenance and holdings management only."
+   },
+   "counts": {
+    "active": 120,
+    "new": 6,
+    "dropped": 0,
+    "errors": 5
+   },
+   "new_tickers": [
+    "AUGMONT",
+    "ESDS",
+    "MOLBIO",
+    "MILKYMIST",
+    "VERTIS",
+    "NHIT"
+   ],
+   "dropped_tickers": [],
+   "actionable_now": [],
+   "alerts": [
+    {
+     "ticker": "PRICOLLTD",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "DIACABS",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "IKS",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "SKIPPER",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "ETERNAL",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "GENUSPOWER",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "CARTRADE",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "AIIL",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "KAYNES",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "KAYNES",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "ANANTRAJ",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "ANANTRAJ",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "UTLSOLAR",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "CHALET",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "TSFINV",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "TSFINV",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "KRISHANA",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "GODREJPROP",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "TIPSMUSIC",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "TIPSMUSIC",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "ICICIAMC",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "SAATVIKGL",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "GRSE",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "*",
+     "alert": "REGIME_CHANGE CAUTION -> CORRECTION"
+    }
+   ],
+   "errors": [
+    {
+     "ticker": "AUGMONT",
+     "error": "no OHLCV data on Yahoo Finance"
+    },
+    {
+     "ticker": "ESDS",
+     "error": "no OHLCV data on Yahoo Finance"
+    },
+    {
+     "ticker": "526433",
+     "error": "no OHLCV data on Yahoo Finance"
+    },
+    {
+     "ticker": "VERTIS",
+     "error": "no OHLCV data on Yahoo Finance"
+    },
+    {
+     "ticker": "NHIT",
+     "error": "no OHLCV data on Yahoo Finance"
+    }
+   ],
+   "llm": {
+    "enabled": true,
+    "model": "deepseek-chat",
+    "provider": "deepseek"
+   },
+   "rs_universe": {
+    "source": "Nifty 500",
+    "attempted": 500,
+    "succeeded": 500,
+    "used": true
+   }
+  },
+  {
    "run_date": "2026-09-26",
    "mode": "WEEKLY",
    "regime": {

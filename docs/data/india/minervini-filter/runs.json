@@ -1,6 +1,89 @@
 {
  "runs": [
   {
+   "run_date": "2026-10-03",
+   "mode": "WEEKLY",
+   "regime": {
+    "score": 3,
+    "label": "CAUTION",
+    "checks": {
+     "close_above_50dma": false,
+     "close_above_200dma": false,
+     "50dma_above_200dma": true,
+     "distribution_days_25": 8,
+     "distribution_days_ok": false,
+     "pct_universe_above_200dma": 100.0,
+     "universe_above_200dma_ok": true,
+     "net_new_highs_positive": true
+    },
+    "exposure_guidance": "New buys at half risk; only score >=85 setups."
+   },
+   "counts": {
+    "active": 36,
+    "new": 6,
+    "dropped": 12,
+    "errors": 3
+   },
+   "new_tickers": [
+    "AUGMONT",
+    "ATLANTAELE",
+    "ESDS",
+    "MOLBIO",
+    "OMNI",
+    "MILKYMIST"
+   ],
+   "dropped_tickers": [
+    "PRICOLLTD",
+    "RUBICON",
+    "KALYANKJIL",
+    "ACUTAAS",
+    "IKS",
+    "ETERNAL",
+    "SKIPPER",
+    "CARTRADE",
+    "ANANTRAJ",
+    "AIIL",
+    "UTLSOLAR",
+    "TIPSMUSIC"
+   ],
+   "actionable_now": [],
+   "alerts": [
+    {
+     "ticker": "DIACABS",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "KRISHANA",
+     "alert": "CLOSED_BELOW_50DMA"
+    }
+   ],
+   "errors": [
+    {
+     "ticker": "AUGMONT",
+     "error": "no OHLCV data on Yahoo Finance"
+    },
+    {
+     "ticker": "ESDS",
+     "error": "no OHLCV data on Yahoo Finance"
+    },
+    {
+     "ticker": "526433",
+     "error": "no OHLCV data on Yahoo Finance"
+    }
+   ],
+   "llm": {
+    "enabled": true,
+    "model": "deepseek-chat",
+    "provider": "deepseek"
+   },
+   "rs_universe": {
+    "source": "Nifty 500",
+    "attempted": 500,
+    "succeeded": 500,
+    "used": true
+   }
+  },
+  {
    "run_date": "2026-09-26",
    "mode": "WEEKLY",
    "regime": {
