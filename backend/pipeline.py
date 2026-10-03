@@ -371,7 +371,8 @@ def process_screen(client, universe_key, uni, screen, settings):
         tech_by_code[code]["group_leadership_of"] = of
 
     # ---- evaluate every current stock ---------------------------------------
-    llm_model = settings.get("llm_model", "claude-sonnet-5")
+    llm_provider = uni.get("llm_provider", "anthropic")
+    llm_model = uni.get("llm_model") or settings.get("llm_model") or LLM.DEFAULT_MODEL.get(llm_provider)
     llm_budget = settings.get("llm_max_new_stocks_per_run", 25)
     existing_recheck_budget = settings.get("llm_max_existing_catalyst_checks_per_run", 10)
     recheck_days = settings.get("llm_catalyst_recheck_days", 30)
@@ -393,19 +394,19 @@ def process_screen(client, universe_key, uni, screen, settings):
 
             prior_llm_checks = (prior_scorecard or {}).get("llm_checks") or {}
             llm_out, fresh_check = None, False
-            if is_new and LLM.llm_available() and llm_budget > 0:
+            if is_new and LLM.llm_available(llm_provider) and llm_budget > 0:
                 pre = SC.evaluate(code, name_by_code[code], tech, fund, regime, settings,
                                   mode="FULL", prior=None)
-                llm_out = LLM.synthesize_verdict(pre, tech, fund, PROMPT_PATH, model=llm_model)
+                llm_out = LLM.synthesize_verdict(pre, tech, fund, PROMPT_PATH, model=llm_model, provider=llm_provider)
                 llm_budget -= 1
                 fresh_check = llm_out is not None
-            elif not is_new and LLM.llm_available() and existing_recheck_budget > 0:
+            elif not is_new and LLM.llm_available(llm_provider) and existing_recheck_budget > 0:
                 last_checked = prior_llm_checks.get("checked_date")
                 stale = (not last_checked) or (
                     (datetime.date.today() - datetime.date.fromisoformat(last_checked)).days >= recheck_days)
                 if stale:
                     llm_out = LLM.check_catalyst_and_governance(
-                        code, name_by_code[code], PROMPT_PATH, model=llm_model)
+                        code, name_by_code[code], PROMPT_PATH, model=llm_model, provider=llm_provider)
                     existing_recheck_budget -= 1
                     fresh_check = llm_out is not None
 
@@ -468,7 +469,7 @@ def process_screen(client, universe_key, uni, screen, settings):
         "actionable_now": [r["ticker"] for r in out_stocks
                            if r["scorecard"]["action_bucket"] == "ACTIONABLE_NOW"],
         "alerts": alerts, "errors": errors,
-        "llm": {"enabled": LLM.llm_available(), "model": settings.get("llm_model")},
+        "llm": {"enabled": LLM.llm_available(llm_provider), "model": llm_model, "provider": llm_provider},
         "rs_universe": rs_universe_stats,
     }
     runs["runs"] = [run_summary] + runs["runs"][:51]

@@ -23,6 +23,8 @@ universes:
     label: "India-S"
     enabled: true
     currency: "INR"
+    llm_provider: "deepseek"    # "deepseek" or "anthropic" — same switch as India-Nifty/Global
+    llm_model: "deepseek-chat"
     yahoo_suffixes: [".NS", ".BO"]
     # RS percentile is ranked against this list instead of just the tracked stocks below
     # (which, being pre-filtered by the screens, otherwise inflates everyone's RS). Static

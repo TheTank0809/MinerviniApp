@@ -83,6 +83,7 @@ jobs:
         env:
           SCREENER_SESSIONID: ${{ secrets.SCREENER_SESSIONID }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
           ONLY_TICKERS: ${{ inputs.only_tickers }}
         run: python backend/pipeline.py
 
