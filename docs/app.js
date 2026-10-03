@@ -11,7 +11,7 @@
                 // object map of the countries still checked — see openCountryPopup/renderList.
                 countrySelected: null,
                 shortlist: {}, bought: {}, activeSheet: null, ratios: null, ratiosHist: null, ratiosPeHist: null,
-                ratiosByNiftyHist: null, currency: "inr", data: { active: [], dropped: [] } };
+                ratiosByNiftyHist: null, indexGroup: "nifty100", currency: "inr", data: { active: [], dropped: [] } };
   var $ = function (sel) { return document.querySelector(sel); };
   var lastFetchAt = 0;
 
@@ -504,6 +504,31 @@
     }
   }
 
+  // India-Nifty's Nifty 100 / 250 / 500 dropdown. One scan covers all of them; each
+  // stock record carries `index_groups` (see pipeline_nifty.py), and this just picks
+  // which group the list shows. Options come from the manifest so config is the only
+  // place the groups are defined; falls back to the single legacy "Nifty 100" option
+  // before the first Nifty 500 scan has run.
+  function indexGroups() {
+    var screens = (state.universes["india-nifty"] || []).filter(function (s) { return !s.error; });
+    var groups = (screens[0] && screens[0].groups) || [];
+    return groups.length ? groups : [{ key: "nifty100", label: "Nifty 100" }];
+  }
+  function renderIndexSelect() {
+    var sel = $("#index-select");
+    var groups = indexGroups();
+    if (!groups.some(function (g) { return g.key === state.indexGroup; })) state.indexGroup = groups[0].key;
+    sel.innerHTML = "";
+    groups.forEach(function (g) {
+      var opt = document.createElement("option");
+      opt.value = g.key;
+      opt.textContent = g.label;
+      if (g.key === state.indexGroup) opt.selected = true;
+      sel.appendChild(opt);
+    });
+    sel.onchange = function () { state.indexGroup = sel.value; renderList(); };
+  }
+
   function renderChips() {
     var box = $("#screen-chips");
     box.innerHTML = "";
@@ -522,6 +547,7 @@
       renderChips(); loadUniverse(box.value);
     };
     $("#index-select-wrap").hidden = state.universeKey !== "india-nifty";
+    renderIndexSelect();
 
     // "Left the screen" is a screener.in concept — a stock dropping out of a
     // growth/momentum filter. It doesn't map to an index constituent list: a Nifty
@@ -754,6 +780,15 @@
           return state.tab === "dropped" ? !!e.droppedRecs[state.filter] : !!e.activeRecs[state.filter];
         });
       }
+    }
+    // Nifty 100/250/500 dropdown — records without index_groups (data from before the
+    // Nifty 500 scan) are left unfiltered rather than hidden.
+    if (state.universeKey === "india-nifty" && state.tab !== "shortlist" && state.tab !== "buy") {
+      var wantGroup = state.indexGroup;
+      list = list.filter(function (e) {
+        var g = e.primary && e.primary.index_groups;
+        return !g || g.indexOf(wantGroup) !== -1;
+      });
     }
     // Country narrows In-screen/Left-the-screen independently of the filter chip above —
     // orthogonal to it, not another mutually-exclusive option — and only ever applies to

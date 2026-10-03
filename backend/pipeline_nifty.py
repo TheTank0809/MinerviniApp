@@ -32,6 +32,7 @@ import csv
 import os
 import sys
 import datetime
+import shutil
 import traceback
 
 import yaml
@@ -71,6 +72,33 @@ def load_index_constituents(csv_path):
     return out
 
 
+def parse_market_cap_cr(text):
+    """screener.in's "Market Cap" top ratio, e.g. "₹ 5,43,210 Cr." -> 543210.0."""
+    import re
+    m = re.search(r"([\d,]+(?:\.\d+)?)", text or "")
+    return float(m.group(1).replace(",", "")) if m else None
+
+
+def assign_index_groups(stocks, groups_cfg):
+    """Tag each record with the dropdown groups it belongs to. A group is either an
+    explicit constituents CSV, the top N by market cap among the scanned stocks, or
+    (no rule) everything. Records missing a market cap just don't qualify for a
+    top-N group rather than breaking the run."""
+    members = {}
+    for g in groups_cfg:
+        if g.get("constituents_csv"):
+            members[g["key"]] = {r["code"] for r in load_index_constituents(g["constituents_csv"])}
+        elif g.get("top_n_by_market_cap"):
+            ranked = sorted((r for r in stocks if r.get("market_cap_cr")),
+                            key=lambda r: -r["market_cap_cr"])
+            members[g["key"]] = {r["ticker"] for r in ranked[:g["top_n_by_market_cap"]]}
+        else:
+            members[g["key"]] = None  # everything
+    for r in stocks:
+        r["index_groups"] = [g["key"] for g in groups_cfg
+                             if members[g["key"]] is None or r["ticker"] in members[g["key"]]]
+
+
 def process_index(client, universe_key, uni, index_cfg, settings):
     slug = index_cfg["slug"]
     sdir = os.path.join(DATA_DIR, universe_key, slug)
@@ -82,10 +110,21 @@ def process_index(client, universe_key, uni, index_cfg, settings):
     if active.get("sample"):
         active = {"stocks": []}
     prior_by_code = {s["ticker"]: s for s in active["stocks"]}
+    migrate_from = index_cfg.get("migrate_from")
+    legacy_dir = os.path.join(DATA_DIR, universe_key, migrate_from) if migrate_from else None
+    legacy_by_code = {}
+    if legacy_dir and not prior_by_code:
+        legacy_by_code = {s["ticker"]: s for s in
+                          load_json(os.path.join(legacy_dir, "active.json"), {"stocks": []}).get("stocks", [])}
     # First-ever run for this index: every constituent is a bulk load, not a "new
     # joiner" — see module docstring. Detected the same way process_screen() detects
     # a per-stock new joiner (prior_by_code empty), just applied universe-wide.
     is_bootstrap = not prior_by_code
+    if is_bootstrap and legacy_by_code:
+        print("  migrating %d scorecards from the old %s index" % (len(legacy_by_code), migrate_from))
+        # Only the carried-forward LLM checks / RS baseline are used from these (see
+        # below); joined_date stays unset and nothing is tagged New, as for any bootstrap.
+        prior_by_code = dict(legacy_by_code)
 
     print("== %s / %s ==" % (uni["label"], index_cfg["name"]))
     current = load_index_constituents(index_cfg["constituents_csv"])
@@ -169,6 +208,7 @@ def process_index(client, universe_key, uni, index_cfg, settings):
     # ---- fetch fundamentals + technicals for every constituent -------------
     name_by_code = {s["code"]: s["name"] for s in current}
     tech_by_code, fund_by_code, fetch_errors = {}, {}, {}
+    mcap_by_code = {}
     for s in current:
         code = s["code"]
         try:
@@ -185,7 +225,9 @@ def process_index(client, universe_key, uni, index_cfg, settings):
             backfill_price_history(code, df)
             if only and code not in only:
                 continue  # not being rescored this run — skip the screener.in fetch for it
-            fund_by_code[code] = build_fundamental_payload(client.fetch_company(code))
+            raw = client.fetch_company(code)
+            mcap_by_code[code] = parse_market_cap_cr((raw.get("top_ratios") or {}).get("Market Cap"))
+            fund_by_code[code] = build_fundamental_payload(raw)
         except Exception as exc:
             fetch_errors[code] = exc
 
@@ -254,14 +296,16 @@ def process_index(client, universe_key, uni, index_cfg, settings):
             llm_out, fresh_check = None, False
 
             wants_verdict = is_new or is_bootstrap
-            if wants_verdict and LLM.llm_available(llm_provider) and llm_budget > 0:
+            # A migrated stock already has a verdict's worth of LLM checks on file.
+            skip_llm_verdict = is_bootstrap and bool(prior_llm_checks)
+            if wants_verdict and not skip_llm_verdict and LLM.llm_available(llm_provider) and llm_budget > 0:
                 pre = SC.evaluate(code, name_by_code[code], tech, fund, regime, settings,
                                   mode="FULL", prior=None)
                 llm_out = LLM.synthesize_verdict(pre, tech, fund, PROMPT_PATH,
                                                   model=llm_model, provider=llm_provider)
                 llm_budget -= 1
                 fresh_check = llm_out is not None
-            elif not wants_verdict and LLM.llm_available(llm_provider) and existing_recheck_budget > 0:
+            elif not wants_verdict and not skip_llm_verdict and LLM.llm_available(llm_provider) and existing_recheck_budget > 0:
                 last_checked = prior_llm_checks.get("checked_date")
                 stale = (not last_checked) or (
                     (datetime.date.today() - datetime.date.fromisoformat(last_checked)).days >= recheck_days)
@@ -291,6 +335,7 @@ def process_index(client, universe_key, uni, index_cfg, settings):
                 # in a later monthly run (NSE rebalance) gets a real one below.
                 "joined_date": None if is_bootstrap else (prior_rec["joined_date"] if prior_rec else today()),
                 "last_updated": today(),
+                "market_cap_cr": mcap_by_code.get(code) or (prior_rec or {}).get("market_cap_cr"),
                 "scorecard": card,
             }
             out_stocks.append(rec)
@@ -308,6 +353,7 @@ def process_index(client, universe_key, uni, index_cfg, settings):
                 prior_rec["last_error"] = str(exc)
                 out_stocks.append(prior_rec)
 
+    assign_index_groups(out_stocks, index_cfg.get("groups") or [])
     out_stocks.sort(key=lambda r: -((r["scorecard"].get("scores") or {}).get("total") or 0))
 
     run_summary = {
@@ -326,9 +372,12 @@ def process_index(client, universe_key, uni, index_cfg, settings):
 
     save_json(active_path, {"generated_at": today(), "stocks": out_stocks})
     save_json(runs_path, runs)
+    if legacy_dir and os.path.isdir(legacy_dir) and out_stocks:
+        shutil.rmtree(legacy_dir)  # superseded by this index; migration is one-time
     return {"universe": universe_key, "screen": slug, "label": index_cfg["name"],
             "short": index_cfg.get("short") or index_cfg["name"][:2].upper(),
             "universe_label": uni["label"], "counts": run_summary["counts"],
+            "groups": [{"key": g["key"], "label": g["label"]} for g in (index_cfg.get("groups") or [])],
             "regime": {"label": regime["label"], "score": regime["score"]}}
 
 
@@ -342,6 +391,7 @@ def main():
     manifest["generated_at"] = datetime.datetime.utcnow().isoformat() + "Z"
     manifest["screens"] = []
     failures = 0
+    cfg = {}
     try:
         with open(os.path.join(ROOT, "backend", "config.yaml")) as fh:
             cfg = yaml.safe_load(fh)
@@ -370,6 +420,15 @@ def main():
         manifest["fatal_error"] = str(exc)
 
     existing_keys = {(s.get("universe"), s.get("screen")) for s in manifest["screens"]}
+    # An index that replaced an older one (config `migrate_from`) retires the old
+    # manifest entry once the new one has real data.
+    for s in manifest["screens"]:
+        if s.get("error"):
+            continue
+        for uni_key, uni in cfg.get("universes", {}).items():
+            for index_cfg in uni.get("indices", []):
+                if index_cfg.get("slug") == s.get("screen") and index_cfg.get("migrate_from"):
+                    existing_keys.add((uni_key, index_cfg["migrate_from"]))
     for s in prior_screens:
         key = (s.get("universe"), s.get("screen"))
         if key not in existing_keys:
