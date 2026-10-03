@@ -1,6 +1,396 @@
 {
  "stocks": [
   {
+   "ticker": "LTMC",
+   "name": "Lottomatica Group S.P.A.",
+   "country": "Italy",
+   "joined_date": "2026-09-27",
+   "last_updated": "2026-09-27",
+   "scorecard": {
+    "ticker": "LTMC",
+    "name": "Lottomatica Group S.P.A.",
+    "as_of": "2026-09-25",
+    "mode": "FULL",
+    "gates": {
+     "trend_template": {
+      "c1": true,
+      "c2": true,
+      "c3": true,
+      "c4": false,
+      "c5": true,
+      "c6": true,
+      "c7": true,
+      "c8": false,
+      "pass": false,
+      "near_miss_notes": ""
+     },
+     "investability": {
+      "liquidity": false,
+      "pledge": true,
+      "governance_flag": false,
+      "governance_note": "",
+      "governance": true,
+      "pass": false
+     }
+    },
+    "llm_checks": null,
+    "scores": {
+     "earnings": {
+      "A1": 8,
+      "A2": 3,
+      "A3": 4,
+      "A4": 4,
+      "A5": 2,
+      "subtotal": 21
+     },
+     "revenue": {
+      "B1": 0,
+      "B2": 0,
+      "B3": 1,
+      "B4": 2,
+      "subtotal": 3
+     },
+     "profitability": {
+      "C1": 3,
+      "C2": 3,
+      "C3": 0,
+      "C4": 2,
+      "subtotal": 8
+     },
+     "balance_sheet": {
+      "D1": 0,
+      "D2": 0,
+      "D3": 0,
+      "D4": 1,
+      "subtotal": 1
+     },
+     "sponsorship": {
+      "E1": 0,
+      "E2": 0,
+      "E3": 0,
+      "E4": 0,
+      "subtotal": 0
+     },
+     "rs_trend": {
+      "F1": 0,
+      "F2": 2,
+      "F3": 2,
+      "F4": 0,
+      "subtotal": 4
+     },
+     "base_structure": {
+      "G1": 0,
+      "G2": 4,
+      "G3": 0,
+      "G4": 0,
+      "G5": 0,
+      "G6": 0,
+      "subtotal": 4
+     },
+     "leadership": {
+      "H1": 0,
+      "H2": 2,
+      "H3": 0,
+      "subtotal": 2
+     },
+     "total": 43
+    },
+    "quality_band": "Reject",
+    "action_bucket": "AVOID",
+    "setup_flag": null,
+    "red_flags": [],
+    "risk_level": "MEDIUM",
+    "valuation_context": {
+     "pe": 29.590812799643214,
+     "peg": null,
+     "vs_own_5yr": "",
+     "note": "Valuation is context only, never a criterion."
+    },
+    "base": {
+     "pattern_label": "",
+     "pivot": 28.13,
+     "pct_from_pivot": -5.65,
+     "base_count": 2,
+     "depth_pct": 6.5,
+     "weeks": 0.6
+    },
+    "trade_plan": null,
+    "delta": {
+     "score_change": 0,
+     "gate_flips": [],
+     "bucket_change": "",
+     "alerts": []
+    },
+    "violations": {
+     "count": 0,
+     "items": [],
+     "recommendation": ""
+    },
+    "verdict": {
+     "summary": "LTMC (43/100) \u2014 Reject / AVOID. Score is informational only \u2014 gates not confirmed, so not an actionable setup yet.",
+     "strengths": [
+      "Latest EPS YoY >=50%"
+     ],
+     "weaknesses": [
+      "Fails investability gate: LIQUIDITY",
+      "Fails Trend Template: c4, c8",
+      "No valid base yet (4/20)",
+      "11 unverified fields scored 0"
+     ],
+     "catalysts": [],
+     "biggest_risk": "None flagged",
+     "conviction_0_10": 0
+    },
+    "data_quality": {
+     "unverified_fields": [
+      "governance_events",
+      "institutional_holding",
+      "interest_coverage",
+      "marquee_institution",
+      "mf_scheme_count",
+      "new_catalyst",
+      "ocf_to_pat_3y",
+      "other_income_pct_pbt",
+      "promoter_holding_trend",
+      "promoter_pledge_pct",
+      "share_count_growth"
+     ],
+     "proxy_fields": [
+      "group_leadership_rank",
+      "industry_group_rs"
+     ],
+     "unverified_reasons": {},
+     "sources": [
+      {
+       "field": "technicals",
+       "source": "Yahoo Finance OHLCV",
+       "as_of": "2026-09-25"
+      },
+      {
+       "field": "fundamentals",
+       "source": "screener.in",
+       "as_of": "2026-09-25"
+      }
+     ]
+    },
+    "technicals": {
+     "price": 26.54,
+     "rs_percentile": 45,
+     "pct_below_52w_high": 5.7,
+     "pct_above_52w_low": 44.7,
+     "dma_50": 25.16,
+     "dma_200": 24.1,
+     "up_down_volume_ratio_50d": 0.71,
+     "industry_sector": "Consumer Services",
+     "industry_group_rs_quartile": 4,
+     "group_leadership_rank": 1,
+     "group_leadership_of": 8,
+     "rsi": 52.7,
+     "roce": 8.54147360911322,
+     "fcf_latest_cr": 44.7,
+     "fcf_source": "reported"
+    },
+    "status": "FAIL_LIQUIDITY"
+   },
+   "dropped_date": "2026-10-03",
+   "frozen": true
+  },
+  {
+   "ticker": "SEPL",
+   "name": "Seplat Energy PLC",
+   "country": "Nigeria",
+   "joined_date": "2026-09-27",
+   "last_updated": "2026-09-27",
+   "scorecard": {
+    "ticker": "SEPL",
+    "name": "Seplat Energy PLC",
+    "as_of": "2026-09-25",
+    "mode": "FULL",
+    "gates": {
+     "trend_template": {
+      "c1": true,
+      "c2": true,
+      "c3": true,
+      "c4": true,
+      "c5": true,
+      "c6": true,
+      "c7": true,
+      "c8": true,
+      "pass": true,
+      "near_miss_notes": ""
+     },
+     "investability": {
+      "liquidity": true,
+      "pledge": true,
+      "governance_flag": false,
+      "governance_note": "",
+      "governance": true,
+      "pass": true
+     }
+    },
+    "llm_checks": null,
+    "scores": {
+     "earnings": {
+      "A1": 8,
+      "A2": 0,
+      "A3": 0,
+      "A4": 4,
+      "A5": 0,
+      "subtotal": 12
+     },
+     "revenue": {
+      "B1": 6,
+      "B2": 0,
+      "B3": 3,
+      "B4": 2,
+      "subtotal": 11
+     },
+     "profitability": {
+      "C1": 1,
+      "C2": 0,
+      "C3": 0,
+      "C4": 2,
+      "subtotal": 3
+     },
+     "balance_sheet": {
+      "D1": 1,
+      "D2": 0,
+      "D3": 0,
+      "D4": 1,
+      "subtotal": 2
+     },
+     "sponsorship": {
+      "E1": 0,
+      "E2": 0,
+      "E3": 0,
+      "E4": 0,
+      "subtotal": 0
+     },
+     "rs_trend": {
+      "F1": 7,
+      "F2": 4,
+      "F3": 2,
+      "F4": 2,
+      "subtotal": 15
+     },
+     "base_structure": {
+      "G1": 3,
+      "G2": 2,
+      "G3": 0,
+      "G4": 0,
+      "G5": 0,
+      "G6": 0,
+      "subtotal": 5
+     },
+     "leadership": {
+      "H1": 2,
+      "H2": 2,
+      "H3": 0,
+      "subtotal": 4
+     },
+     "total": 52
+    },
+    "quality_band": "Reject",
+    "action_bucket": "AVOID",
+    "setup_flag": "momentum",
+    "red_flags": [],
+    "risk_level": "LOW",
+    "valuation_context": {
+     "pe": 23.57084800866974,
+     "peg": null,
+     "vs_own_5yr": "",
+     "note": "Valuation is context only, never a criterion."
+    },
+    "base": {
+     "pattern_label": "",
+     "pivot": 892.0,
+     "pct_from_pivot": -2.47,
+     "base_count": 3,
+     "depth_pct": 3.6,
+     "weeks": 0.4
+    },
+    "trade_plan": null,
+    "delta": {
+     "score_change": 0,
+     "gate_flips": [],
+     "bucket_change": "",
+     "alerts": []
+    },
+    "violations": {
+     "count": 0,
+     "items": [],
+     "recommendation": ""
+    },
+    "verdict": {
+     "summary": "SEPL (52/100) \u2014 Reject / AVOID.",
+     "strengths": [
+      "RS percentile 95",
+      "Latest EPS YoY >=50%"
+     ],
+     "weaknesses": [
+      "No valid base yet (5/20)",
+      "12 unverified fields scored 0"
+     ],
+     "catalysts": [],
+     "biggest_risk": "None flagged",
+     "conviction_0_10": 2
+    },
+    "data_quality": {
+     "unverified_fields": [
+      "eps_acceleration",
+      "governance_events",
+      "institutional_holding",
+      "interest_coverage",
+      "marquee_institution",
+      "mf_scheme_count",
+      "new_catalyst",
+      "ocf_to_pat_3y",
+      "other_income_pct_pbt",
+      "promoter_holding_trend",
+      "promoter_pledge_pct",
+      "share_count_growth"
+     ],
+     "proxy_fields": [
+      "group_leadership_rank",
+      "industry_group_rs"
+     ],
+     "unverified_reasons": {},
+     "sources": [
+      {
+       "field": "technicals",
+       "source": "Yahoo Finance OHLCV",
+       "as_of": "2026-09-25"
+      },
+      {
+       "field": "fundamentals",
+       "source": "screener.in",
+       "as_of": "2026-09-25"
+      }
+     ]
+    },
+    "technicals": {
+     "price": 870.0,
+     "rs_percentile": 95,
+     "pct_below_52w_high": 2.5,
+     "pct_above_52w_low": 265.7,
+     "dma_50": 673.12,
+     "dma_200": 506.56,
+     "up_down_volume_ratio_50d": 21.64,
+     "industry_sector": "Energy Minerals",
+     "industry_group_rs_quartile": 1,
+     "group_leadership_rank": 1,
+     "group_leadership_of": 6,
+     "rsi": 77.1,
+     "roce": 10.9436062879305,
+     "fcf_latest_cr": 61.0,
+     "fcf_source": "reported"
+    },
+    "status": "SCORED"
+   },
+   "dropped_date": "2026-10-03",
+   "frozen": true
+  },
+  {
    "ticker": "RXRX",
    "name": "Recursion Pharmaceuticals, Inc. Class A",
    "joined_date": null,
