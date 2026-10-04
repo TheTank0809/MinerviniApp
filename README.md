@@ -24,7 +24,7 @@ stock's detail sheet has a small toggle to switch and see either screen's full s
 screener.in (your saved screen)          Yahoo Finance (OHLCV)
         │                                        │
         ▼                                        ▼
-GitHub Action, every Sunday 9:30 AM IST  (backend/pipeline.py)
+GitHub Action, every Saturday 3:00 PM IST  (backend/pipeline.py)
   • diff screen vs tracked stocks
   • NEW stocks  -> joined_date + MODE=FULL scorecard (optional LLM verdict)
   • EXISTING    -> MODE=WEEKLY delta (score changes, gate flips, alerts)
@@ -95,7 +95,7 @@ universes; only a US data fetcher needs to be added.
 | `backend/llm.py` | Optional Claude verdict layer |
 | `docs/` | The website / PWA (GitHub Pages serves this folder) |
 | `docs/data/` | All state: active.json, dropped.json, runs.json per screen |
-| `.github/workflows/weekly.yml` | Sunday cron + manual trigger |
+| `.github/workflows/weekly.yml` | Saturday cron + manual trigger |
 
 ## Running locally
 

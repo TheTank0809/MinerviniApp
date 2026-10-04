@@ -2,8 +2,8 @@ name: Weekly Global scan
 
 on:
   schedule:
-    # Saturday, 11:30 UTC — after the weekly India-S scan (09:30) and the Ratios
-    # scan (03:00), each in their own slot so none compete for runner/rate limits.
+    # Saturday 17:00 IST (cron is UTC: 11:30) — after the weekly India-S scan (15:00 IST)
+    # and the Ratios scan (08:30 IST), each in their own slot so none compete for runner/rate limits.
     - cron: "30 11 * * 6"
   workflow_dispatch:       # run it manually from the Actions tab any time
     inputs:

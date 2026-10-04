@@ -2,7 +2,7 @@ name: Monthly Nifty scan
 
 on:
   schedule:
-    # 28th of every month, 09:30 UTC = 15:00 IST — same time-of-day as the weekly scan.
+    # 28th of every month, 15:00 IST (cron is UTC: 09:30) — same time-of-day as the weekly scan.
     # GitHub Actions cron has no native "last day of month" trigger; the 28th exists in
     # every month and lands close enough to end-of-month without extra scripting.
     - cron: "30 9 28 * *"
