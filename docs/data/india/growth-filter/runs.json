@@ -1,6 +1,152 @@
 {
  "runs": [
   {
+   "run_date": "2026-10-10",
+   "mode": "WEEKLY",
+   "regime": {
+    "score": 3,
+    "label": "CAUTION",
+    "checks": {
+     "close_above_50dma": false,
+     "close_above_200dma": false,
+     "50dma_above_200dma": true,
+     "distribution_days_25": 8,
+     "distribution_days_ok": false,
+     "pct_universe_above_200dma": 58.9,
+     "universe_above_200dma_ok": true,
+     "net_new_highs_positive": true
+    },
+    "exposure_guidance": "New buys at half risk; only score >=85 setups."
+   },
+   "counts": {
+    "active": 120,
+    "new": 8,
+    "dropped": 1,
+    "errors": 8
+   },
+   "new_tickers": [
+    "AUGMONT",
+    "KANOHAR",
+    "DPABHUSHAN",
+    "ESDS",
+    "KARAMTARA",
+    "RENTOMOJO",
+    "VERTIS",
+    "NHIT"
+   ],
+   "dropped_tickers": [
+    "JSLL"
+   ],
+   "actionable_now": [],
+   "alerts": [
+    {
+     "ticker": "LUMAXTECH",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "CGCL",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "SJS",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "APOLLO",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "V2RETAIL",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "CCAVENUE",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "HBLENGINE",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "HBLENGINE",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "AEGISVOPAK",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "IREDA",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "KPIGREEN",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "TECHNOE",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "KSHINTL",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "HOMEFIRST",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "*",
+     "alert": "REGIME_CHANGE CORRECTION -> CAUTION"
+    }
+   ],
+   "errors": [
+    {
+     "ticker": "AUGMONT",
+     "error": "no OHLCV data on Yahoo Finance"
+    },
+    {
+     "ticker": "KANOHAR",
+     "error": "no OHLCV data on Yahoo Finance"
+    },
+    {
+     "ticker": "ESDS",
+     "error": "no OHLCV data on Yahoo Finance"
+    },
+    {
+     "ticker": "526433",
+     "error": "no OHLCV data on Yahoo Finance"
+    },
+    {
+     "ticker": "KARAMTARA",
+     "error": "no OHLCV data on Yahoo Finance"
+    },
+    {
+     "ticker": "RENTOMOJO",
+     "error": "no OHLCV data on Yahoo Finance"
+    },
+    {
+     "ticker": "VERTIS",
+     "error": "no OHLCV data on Yahoo Finance"
+    },
+    {
+     "ticker": "NHIT",
+     "error": "no OHLCV data on Yahoo Finance"
+    }
+   ],
+   "llm": {
+    "enabled": true,
+    "model": "deepseek-chat",
+    "provider": "deepseek"
+   },
+   "rs_universe": {
+    "source": "Nifty 500",
+    "attempted": 500,
+    "succeeded": 500,
+    "used": true
+   }
+  },
+  {
    "run_date": "2026-10-03",
    "mode": "WEEKLY",
    "regime": {

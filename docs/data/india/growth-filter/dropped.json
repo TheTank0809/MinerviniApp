@@ -1,6 +1,197 @@
 {
  "stocks": [
   {
+   "ticker": "JSLL",
+   "name": "Jeena Sikho",
+   "joined_date": "2026-07-14",
+   "last_updated": "2026-10-03",
+   "scorecard": {
+    "ticker": "JSLL",
+    "name": "Jeena Sikho",
+    "as_of": "2026-10-01",
+    "mode": "WEEKLY",
+    "gates": {
+     "trend_template": {
+      "c1": false,
+      "c2": false,
+      "c3": false,
+      "c4": false,
+      "c5": false,
+      "c6": false,
+      "c7": false,
+      "c8": false,
+      "pass": false,
+      "near_miss_notes": ""
+     },
+     "investability": {
+      "liquidity": true,
+      "pledge": true,
+      "governance_flag": false,
+      "governance_note": "unverified - no concrete, dateable source available in knowledge",
+      "governance": true,
+      "pass": true
+     }
+    },
+    "llm_checks": {
+     "h3_catalyst_found": false,
+     "h3_citation": "",
+     "governance_flag": false,
+     "governance_note": "unverified - no concrete, dateable source available in knowledge",
+     "checked_date": "2026-09-26"
+    },
+    "scores": {
+     "earnings": {
+      "A1": 4,
+      "A2": 0,
+      "A3": 0,
+      "A4": 4,
+      "A5": 4,
+      "subtotal": 12
+     },
+     "revenue": {
+      "B1": 6,
+      "B2": 0,
+      "B3": 3,
+      "B4": 2,
+      "subtotal": 11
+     },
+     "profitability": {
+      "C1": 3,
+      "C2": 1,
+      "C3": 2,
+      "C4": 2,
+      "subtotal": 8
+     },
+     "balance_sheet": {
+      "D1": 2,
+      "D2": 1,
+      "D3": 0,
+      "D4": 1,
+      "subtotal": 4
+     },
+     "sponsorship": {
+      "E1": 0,
+      "E2": 0,
+      "E3": 0,
+      "E4": 1,
+      "subtotal": 1
+     },
+     "rs_trend": {
+      "F1": 0,
+      "F2": 0,
+      "F3": 0,
+      "F4": 0,
+      "subtotal": 0
+     },
+     "base_structure": {
+      "G1": 0,
+      "G2": 0,
+      "G3": 0,
+      "G4": 0,
+      "G5": 0,
+      "G6": 0,
+      "subtotal": 0
+     },
+     "leadership": {
+      "H1": 0,
+      "H2": 0,
+      "H3": 0,
+      "subtotal": 0
+     },
+     "total": 36
+    },
+    "quality_band": "Reject",
+    "action_bucket": "AVOID",
+    "setup_flag": "early",
+    "red_flags": [
+     "EPS_DECELERATION"
+    ],
+    "risk_level": "LOW",
+    "valuation_context": {
+     "pe": 25.3,
+     "peg": null,
+     "vs_own_5yr": "",
+     "note": "Valuation is context only, never a criterion."
+    },
+    "base": {
+     "pattern_label": "",
+     "pivot": 831.6,
+     "pct_from_pivot": -42.18,
+     "base_count": null,
+     "depth_pct": 43.0,
+     "weeks": 50.2
+    },
+    "trade_plan": null,
+    "delta": {
+     "score_change": 0,
+     "gate_flips": [],
+     "bucket_change": "",
+     "alerts": []
+    },
+    "violations": {
+     "count": 0,
+     "items": [],
+     "recommendation": ""
+    },
+    "verdict": {
+     "summary": "JSLL (36/100) \u2014 Reject / AVOID. Score is informational only \u2014 gate not confirmed, so not an actionable setup yet.",
+     "strengths": [],
+     "weaknesses": [
+      "Fails Trend Template: c1, c2, c3, c4, c5, c6, c7, c8",
+      "No valid base yet (0/20)",
+      "6 unverified fields scored 0"
+     ],
+     "catalysts": [],
+     "biggest_risk": "EPS_DECELERATION",
+     "conviction_0_10": 0
+    },
+    "data_quality": {
+     "unverified_fields": [
+      "base_count",
+      "group_leadership_rank",
+      "industry_group_rs",
+      "marquee_institution",
+      "mf_scheme_count",
+      "new_catalyst"
+     ],
+     "proxy_fields": [],
+     "unverified_reasons": {},
+     "sources": [
+      {
+       "field": "technicals",
+       "source": "Yahoo Finance OHLCV",
+       "as_of": "2026-10-01"
+      },
+      {
+       "field": "fundamentals",
+       "source": "screener.in",
+       "as_of": "2026-10-01"
+      }
+     ]
+    },
+    "technicals": {
+     "price": 480.8,
+     "rs_percentile": 6,
+     "pct_below_52w_high": 42.2,
+     "pct_above_52w_low": 1.4,
+     "dma_50": 521.13,
+     "dma_200": 610.74,
+     "up_down_volume_ratio_50d": 0.72,
+     "industry_sector": null,
+     "industry_group_rs_quartile": null,
+     "group_leadership_rank": null,
+     "group_leadership_of": null,
+     "rsi": 38.1,
+     "roce": 64.4,
+     "fcf_latest_cr": 221.0,
+     "fcf_source": "reported"
+    },
+    "status": "SCORED_NO_TREND"
+   },
+   "dropped_date": "2026-10-10",
+   "frozen": true
+  },
+  {
    "ticker": "VMARCIND",
    "name": "V-Marc India",
    "joined_date": "2026-09-12",
