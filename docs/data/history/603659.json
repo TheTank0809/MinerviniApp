@@ -1,353 +1,323 @@
 {
- "ticker": "PODD",
+ "ticker": "603659",
  "points": [
-  {
-   "date": "2025-09-26",
-   "score": null,
-   "bucket": null,
-   "price": 318.0
-  },
-  {
-   "date": "2025-10-03",
-   "score": null,
-   "bucket": null,
-   "price": 309.12
-  },
   {
    "date": "2025-10-10",
    "score": null,
    "bucket": null,
-   "price": 314.52
+   "price": 27.53
   },
   {
    "date": "2025-10-17",
    "score": null,
    "bucket": null,
-   "price": 318.59
+   "price": 26.21
   },
   {
    "date": "2025-10-24",
    "score": null,
    "bucket": null,
-   "price": 320.91
+   "price": 26.73
   },
   {
    "date": "2025-10-31",
    "score": null,
    "bucket": null,
-   "price": 313.01
+   "price": 29.04
   },
   {
    "date": "2025-11-07",
    "score": null,
    "bucket": null,
-   "price": 319.82
+   "price": 29.86
   },
   {
    "date": "2025-11-14",
    "score": null,
    "bucket": null,
-   "price": 332.7
+   "price": 30.13
   },
   {
    "date": "2025-11-21",
    "score": null,
    "bucket": null,
-   "price": 331.17
+   "price": 26.23
   },
   {
    "date": "2025-11-28",
    "score": null,
    "bucket": null,
-   "price": 327.19
+   "price": 26.49
   },
   {
    "date": "2025-12-05",
    "score": null,
    "bucket": null,
-   "price": 304.49
+   "price": 26.32
   },
   {
    "date": "2025-12-12",
    "score": null,
    "bucket": null,
-   "price": 295.7
+   "price": 26.05
   },
   {
    "date": "2025-12-19",
    "score": null,
    "bucket": null,
-   "price": 289.62
+   "price": 26.48
   },
   {
    "date": "2025-12-26",
    "score": null,
    "bucket": null,
-   "price": 288.63
+   "price": 27.92
   },
   {
    "date": "2026-01-02",
    "score": null,
    "bucket": null,
-   "price": 282.92
+   "price": 27.16
   },
   {
    "date": "2026-01-09",
    "score": null,
    "bucket": null,
-   "price": 289.04
+   "price": 27.53
   },
   {
    "date": "2026-01-16",
    "score": null,
    "bucket": null,
-   "price": 287.7
+   "price": 27.99
   },
   {
    "date": "2026-01-23",
    "score": null,
    "bucket": null,
-   "price": 271.6
+   "price": 29.82
   },
   {
    "date": "2026-01-30",
    "score": null,
    "bucket": null,
-   "price": 255.81
+   "price": 27.53
   },
   {
    "date": "2026-02-06",
    "score": null,
    "bucket": null,
-   "price": 241.93
+   "price": 28.15
   },
   {
    "date": "2026-02-13",
    "score": null,
    "bucket": null,
-   "price": 242.74
-  },
-  {
-   "date": "2026-02-20",
-   "score": null,
-   "bucket": null,
-   "price": 241.89
+   "price": 28.1
   },
   {
    "date": "2026-02-27",
    "score": null,
    "bucket": null,
-   "price": 246.61
+   "price": 28.24
   },
   {
    "date": "2026-03-06",
    "score": null,
    "bucket": null,
-   "price": 237.01
+   "price": 26.44
   },
   {
    "date": "2026-03-13",
    "score": null,
    "bucket": null,
-   "price": 219.84
+   "price": 32.2
   },
   {
    "date": "2026-03-20",
    "score": null,
    "bucket": null,
-   "price": 227.1
+   "price": 31.4
   },
   {
    "date": "2026-03-27",
    "score": null,
    "bucket": null,
-   "price": 208.22
+   "price": 34.08
   },
   {
    "date": "2026-04-03",
    "score": null,
    "bucket": null,
-   "price": 204.31
+   "price": 29.7
   },
   {
    "date": "2026-04-10",
    "score": null,
    "bucket": null,
-   "price": 196.93
+   "price": 33.43
   },
   {
    "date": "2026-04-17",
    "score": null,
    "bucket": null,
-   "price": 203.73
+   "price": 35.91
   },
   {
    "date": "2026-04-24",
    "score": null,
    "bucket": null,
-   "price": 189.56
+   "price": 36.71
   },
   {
    "date": "2026-05-01",
    "score": null,
    "bucket": null,
-   "price": 175.04
+   "price": 36.27
   },
   {
    "date": "2026-05-08",
    "score": null,
    "bucket": null,
-   "price": 154.16
+   "price": 33.99
   },
   {
    "date": "2026-05-15",
    "score": null,
    "bucket": null,
-   "price": 147.46
+   "price": 32.21
   },
   {
    "date": "2026-05-22",
    "score": null,
    "bucket": null,
-   "price": 154.87
+   "price": 32.36
   },
   {
    "date": "2026-05-29",
    "score": null,
    "bucket": null,
-   "price": 144.94
+   "price": 30.63
   },
   {
    "date": "2026-06-05",
    "score": null,
    "bucket": null,
-   "price": 153.22
+   "price": 27.61
   },
   {
    "date": "2026-06-12",
    "score": null,
    "bucket": null,
-   "price": 149.7
+   "price": 28.34
   },
   {
    "date": "2026-06-19",
    "score": null,
    "bucket": null,
-   "price": 145.76
+   "price": 29.5
   },
   {
    "date": "2026-06-26",
    "score": null,
    "bucket": null,
-   "price": 158.25
+   "price": 26.4
   },
   {
    "date": "2026-07-03",
    "score": null,
    "bucket": null,
-   "price": 164.48
+   "price": 28.12
   },
   {
    "date": "2026-07-10",
    "score": null,
    "bucket": null,
-   "price": 161.28
+   "price": 24.6
   },
   {
    "date": "2026-07-17",
    "score": null,
    "bucket": null,
-   "price": 164.06
+   "price": 21.7
   },
   {
    "date": "2026-07-24",
    "score": null,
    "bucket": null,
-   "price": 163.26
+   "price": 23.83
   },
   {
    "date": "2026-07-31",
    "score": null,
    "bucket": null,
-   "price": 165.35
+   "price": 23.8
   },
   {
    "date": "2026-08-07",
    "score": null,
    "bucket": null,
-   "price": 141.17
+   "price": 24.1
   },
   {
    "date": "2026-08-14",
    "score": null,
    "bucket": null,
-   "price": 143.34
+   "price": 24.57
   },
   {
    "date": "2026-08-21",
    "score": null,
    "bucket": null,
-   "price": 148.16
+   "price": 24.18
   },
   {
    "date": "2026-08-28",
    "score": null,
    "bucket": null,
-   "price": 145.13
+   "price": 23.82
   },
   {
    "date": "2026-09-04",
    "score": null,
    "bucket": null,
-   "price": 147.48
+   "price": 22.45
   },
   {
    "date": "2026-09-11",
    "score": null,
    "bucket": null,
-   "price": 131.96
+   "price": 21.38
   },
   {
    "date": "2026-09-18",
    "score": null,
    "bucket": null,
-   "price": 140.6
+   "price": 22.27
   },
   {
    "date": "2026-09-25",
    "score": null,
    "bucket": null,
-   "price": 136.13
-  },
-  {
-   "date": "2026-09-27",
-   "score": 39,
-   "bucket": "AVOID",
-   "price": 136.13
+   "price": 21.5
   },
   {
    "date": "2026-10-02",
    "score": null,
    "bucket": null,
-   "price": 131.69
-  },
-  {
-   "date": "2026-10-03",
-   "score": 39,
-   "bucket": "AVOID",
-   "price": 131.69
+   "price": 21.45
   },
   {
    "date": "2026-10-09",
    "score": null,
    "bucket": null,
-   "price": 135.28
+   "price": 22.33
   },
   {
    "date": "2026-10-10",
-   "score": 39,
+   "score": 28,
    "bucket": "AVOID",
-   "price": 135.28
+   "price": 22.33
   }
  ],
  "price_backfilled": true
