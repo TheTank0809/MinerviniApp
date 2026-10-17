@@ -1,6 +1,1417 @@
 {
  "stocks": [
   {
+   "ticker": "688017",
+   "name": "Leader Harmonious Drive Systems Co., Ltd. Class A",
+   "country": "China",
+   "joined_date": null,
+   "last_updated": "2026-10-10",
+   "scorecard": {
+    "ticker": "688017",
+    "name": "Leader Harmonious Drive Systems Co., Ltd. Class A",
+    "as_of": "2026-10-09",
+    "mode": "MONTHLY",
+    "gates": {
+     "trend_template": {
+      "c1": false,
+      "c2": true,
+      "c3": true,
+      "c4": true,
+      "c5": false,
+      "c6": true,
+      "c7": false,
+      "c8": false,
+      "pass": false,
+      "near_miss_notes": ""
+     },
+     "investability": {
+      "liquidity": true,
+      "pledge": true,
+      "governance_flag": false,
+      "governance_note": "No specific auditor resignation, SEBI action, or fraud investigation found in the supplied data for the last 12 months. However, institutional holding, promoter pledge, and share count trend are unverified \u2014 governance cannot be fully confirmed.",
+      "governance": true,
+      "pass": true
+     }
+    },
+    "llm_checks": {
+     "h3_catalyst_found": false,
+     "h3_citation": "",
+     "governance_flag": false,
+     "governance_note": "No specific auditor resignation, SEBI action, or fraud investigation found in the supplied data for the last 12 months. However, institutional holding, promoter pledge, and share count trend are unverified \u2014 governance cannot be fully confirmed.",
+     "checked_date": "2026-08-30"
+    },
+    "scores": {
+     "earnings": {
+      "A1": 0,
+      "A2": 0,
+      "A3": 4,
+      "A4": 0,
+      "A5": 0,
+      "subtotal": 4
+     },
+     "revenue": {
+      "B1": 6,
+      "B2": 0,
+      "B3": 0,
+      "B4": 2,
+      "subtotal": 8
+     },
+     "profitability": {
+      "C1": 0,
+      "C2": 3,
+      "C3": 0,
+      "C4": 2,
+      "subtotal": 5
+     },
+     "balance_sheet": {
+      "D1": 2,
+      "D2": 0,
+      "D3": 0,
+      "D4": 1,
+      "subtotal": 3
+     },
+     "sponsorship": {
+      "E1": 0,
+      "E2": 0,
+      "E3": 0,
+      "E4": 0,
+      "subtotal": 0
+     },
+     "rs_trend": {
+      "F1": 0,
+      "F2": 0,
+      "F3": 0,
+      "F4": 0,
+      "subtotal": 0
+     },
+     "base_structure": {
+      "G1": 0,
+      "G2": 0,
+      "G3": 0,
+      "G4": 0,
+      "G5": 0,
+      "G6": 0,
+      "subtotal": 0
+     },
+     "leadership": {
+      "H1": 2,
+      "H2": 0,
+      "H3": 0,
+      "subtotal": 2
+     },
+     "total": 22
+    },
+    "quality_band": "Reject",
+    "action_bucket": "AVOID",
+    "setup_flag": null,
+    "red_flags": [
+     "LATE_STAGE_BASE"
+    ],
+    "risk_level": "LOW",
+    "valuation_context": {
+     "pe": 342.76803118908384,
+     "peg": null,
+     "vs_own_5yr": "",
+     "note": "Valuation is context only, never a criterion."
+    },
+    "base": {
+     "pattern_label": "",
+     "pivot": 495.41,
+     "pct_from_pivot": -46.76,
+     "base_count": 5,
+     "depth_pct": 50.6,
+     "weeks": 13.0
+    },
+    "trade_plan": null,
+    "delta": {
+     "score_change": 0,
+     "gate_flips": [],
+     "bucket_change": "",
+     "alerts": []
+    },
+    "violations": {
+     "count": 0,
+     "items": [],
+     "recommendation": ""
+    },
+    "verdict": {
+     "summary": "688017 (22/100) \u2014 Reject / AVOID. Score is informational only \u2014 gate not confirmed, so not an actionable setup yet.",
+     "strengths": [],
+     "weaknesses": [
+      "Fails Trend Template: c1, c5, c7, c8",
+      "Earnings block weak (4/25)",
+      "No valid base yet (0/20)",
+      "11 unverified fields scored 0"
+     ],
+     "catalysts": [],
+     "biggest_risk": "LATE_STAGE_BASE",
+     "conviction_0_10": 0
+    },
+    "data_quality": {
+     "unverified_fields": [
+      "eps_acceleration",
+      "institutional_holding",
+      "interest_coverage",
+      "marquee_institution",
+      "mf_scheme_count",
+      "new_catalyst",
+      "ocf_to_pat_3y",
+      "other_income_pct_pbt",
+      "promoter_holding_trend",
+      "promoter_pledge_pct",
+      "share_count_growth"
+     ],
+     "proxy_fields": [
+      "group_leadership_rank",
+      "industry_group_rs"
+     ],
+     "unverified_reasons": {},
+     "sources": [
+      {
+       "field": "technicals",
+       "source": "Yahoo Finance OHLCV",
+       "as_of": "2026-10-09"
+      },
+      {
+       "field": "fundamentals",
+       "source": "screener.in",
+       "as_of": "2026-10-09"
+      }
+     ]
+    },
+    "technicals": {
+     "price": 263.76,
+     "rs_percentile": 52,
+     "pct_below_52w_high": 46.8,
+     "pct_above_52w_low": 89.0,
+     "dma_50": 302.72,
+     "dma_200": 268.54,
+     "up_down_volume_ratio_50d": 1.07,
+     "industry_sector": "Producer Manufacturing",
+     "industry_group_rs_quartile": 1,
+     "group_leadership_rank": 8,
+     "group_leadership_of": 15,
+     "rsi": 37.0,
+     "roce": 3.99138287539441,
+     "fcf_latest_cr": 12.3,
+     "fcf_source": "reported"
+    },
+    "status": "SCORED_NO_TREND"
+   },
+   "dropped_date": "2026-10-17",
+   "frozen": true
+  },
+  {
+   "ticker": "603659",
+   "name": "Shanghai Putailai New Energy Technology Co., Ltd. Class A",
+   "country": "China",
+   "joined_date": "2026-10-10",
+   "last_updated": "2026-10-10",
+   "scorecard": {
+    "ticker": "603659",
+    "name": "Shanghai Putailai New Energy Technology Co., Ltd. Class A",
+    "as_of": "2026-10-09",
+    "mode": "FULL",
+    "gates": {
+     "trend_template": {
+      "c1": false,
+      "c2": true,
+      "c3": false,
+      "c4": false,
+      "c5": false,
+      "c6": false,
+      "c7": false,
+      "c8": false,
+      "pass": false,
+      "near_miss_notes": ""
+     },
+     "investability": {
+      "liquidity": true,
+      "pledge": true,
+      "governance_flag": false,
+      "governance_note": "No auditor resignation, SEBI action, fraud investigation, or major governance event within the last 12 months can be confirmed from the supplied data or any concrete dateable source. Governance events remain unverified; no red flag asserted (Prime Directive 1 \u2014 no fabrication).",
+      "governance": true,
+      "pass": true
+     }
+    },
+    "llm_checks": {
+     "h3_catalyst_found": false,
+     "h3_citation": "",
+     "governance_flag": false,
+     "governance_note": "No auditor resignation, SEBI action, fraud investigation, or major governance event within the last 12 months can be confirmed from the supplied data or any concrete dateable source. Governance events remain unverified; no red flag asserted (Prime Directive 1 \u2014 no fabrication).",
+     "checked_date": "2026-10-10"
+    },
+    "scores": {
+     "earnings": {
+      "A1": 4,
+      "A2": 0,
+      "A3": 4,
+      "A4": 0,
+      "A5": 0,
+      "subtotal": 8
+     },
+     "revenue": {
+      "B1": 6,
+      "B2": 4,
+      "B3": 0,
+      "B4": 2,
+      "subtotal": 12
+     },
+     "profitability": {
+      "C1": 1,
+      "C2": 3,
+      "C3": 0,
+      "C4": 0,
+      "subtotal": 4
+     },
+     "balance_sheet": {
+      "D1": 1,
+      "D2": 0,
+      "D3": 0,
+      "D4": 1,
+      "subtotal": 2
+     },
+     "sponsorship": {
+      "E1": 0,
+      "E2": 0,
+      "E3": 0,
+      "E4": 0,
+      "subtotal": 0
+     },
+     "rs_trend": {
+      "F1": 0,
+      "F2": 0,
+      "F3": 0,
+      "F4": 0,
+      "subtotal": 0
+     },
+     "base_structure": {
+      "G1": 0,
+      "G2": 0,
+      "G3": 0,
+      "G4": 0,
+      "G5": 0,
+      "G6": 0,
+      "subtotal": 0
+     },
+     "leadership": {
+      "H1": 2,
+      "H2": 0,
+      "H3": 0,
+      "subtotal": 2
+     },
+     "total": 28
+    },
+    "quality_band": "Reject",
+    "action_bucket": "AVOID",
+    "setup_flag": null,
+    "red_flags": [
+     "LATE_STAGE_BASE"
+    ],
+    "risk_level": "LOW",
+    "valuation_context": {
+     "pe": 17.04970603955104,
+     "peg": null,
+     "vs_own_5yr": "",
+     "note": "Valuation is context only, never a criterion."
+    },
+    "base": {
+     "pattern_label": "",
+     "pivot": 37.66,
+     "pct_from_pivot": -40.71,
+     "base_count": 5,
+     "depth_pct": 45.0,
+     "weeks": 21.6
+    },
+    "trade_plan": null,
+    "delta": {
+     "score_change": 0,
+     "gate_flips": [],
+     "bucket_change": "",
+     "alerts": []
+    },
+    "violations": {
+     "count": 0,
+     "items": [],
+     "recommendation": ""
+    },
+    "verdict": {
+     "summary": "603659 (Shanghai Putailai New Energy Technology, Class A) scores 28/100 and fails the Minervini Trend Template on 7 of 8 criteria, so it is not a Superperformance candidate now and is classified Reject / AVOID. Price (22.33) sits below the 50 DMA (23.19), 150 DMA (27.89) and 200 DMA (27.80); the 200 DMA is falling and the 50 DMA is not above the longer averages \u2014 the stock is in a downtrend, not Stage 2. It is only 7.7% above its 52-week low and 40.7% below its 52-week high, with an RS percentile of 8 (bottom decile), and it is 40.7% below a 21.6-week, 45%-deep, 5th-count base \u2014 a broken late-stage structure (LATE_STAGE_BASE red flag). Fundamentals are mixed: latest-quarter EPS +33.8% YoY and revenue +48.8% YoY with margin expansion, but 3-yr EPS CAGR is -8.7%, the earnings block is weak (8/25), institutional sponsorship is 0/5, and the technical/RS block is 0/15. 12 fields are unverified and scored 0. Not actionable; no valid pivot, base, or trade plan. Watch only for a trend repair (reclaim of the 50/200 DMA and a fresh base), which is not present today.",
+     "strengths": [
+      "Latest-quarter revenue +48.8% YoY and EPS +33.8% YoY",
+      "Net margin expanding YoY (+618 bps) \u2014 C2 full points",
+      "Low risk level with no governance red flag identified; D/E 0.66 and no pledge reported",
+      "Positive reported FCF (\u20b9118.6 cr latest)"
+     ],
+     "weaknesses": [
+      "Fails Trend Template on c1, c3, c4, c5, c6, c7, c8 \u2014 stock in a downtrend, not Stage 2",
+      "RS percentile 8 (bottom decile); 40.7% below 52-week high and only 7.7% above 52-week low",
+      "Base structure broken: 5th base, 45% deep, 21.6 weeks, 40.7% below pivot \u2014 LATE_STAGE_BASE",
+      "3-yr EPS CAGR negative (-8.7%); earnings block only 8/25; A2/A4/A5 = 0",
+      "Institutional sponsorship 0/5; rs_trend 0/15",
+      "12 fields unverified and scored 0 (pledge, interest coverage, OCF/PAT, share count, institutional holdings, catalyst)"
+     ],
+     "catalysts": [],
+     "biggest_risk": "Continued downtrend / failed late-stage base with bottom-decile RS \u2014 a 45%-deep 5th-stage structure that has not repaired; no identifiable new dateable catalyst verified from supplied data.",
+     "conviction_0_10": 0
+    },
+    "data_quality": {
+     "unverified_fields": [
+      "eps_acceleration",
+      "institutional_holding",
+      "interest_coverage",
+      "marquee_institution",
+      "mf_scheme_count",
+      "new_catalyst",
+      "ocf_to_pat_3y",
+      "other_income_pct_pbt",
+      "promoter_holding_trend",
+      "promoter_pledge_pct",
+      "share_count_growth"
+     ],
+     "proxy_fields": [
+      "group_leadership_rank",
+      "industry_group_rs"
+     ],
+     "unverified_reasons": {},
+     "sources": [
+      {
+       "field": "technicals",
+       "source": "Yahoo Finance OHLCV",
+       "as_of": "2026-10-09"
+      },
+      {
+       "field": "fundamentals",
+       "source": "screener.in",
+       "as_of": "2026-10-09"
+      }
+     ]
+    },
+    "technicals": {
+     "price": 22.33,
+     "rs_percentile": 8,
+     "pct_below_52w_high": 40.7,
+     "pct_above_52w_low": 7.7,
+     "dma_50": 23.19,
+     "dma_200": 27.8,
+     "up_down_volume_ratio_50d": 1.02,
+     "industry_sector": "Producer Manufacturing",
+     "industry_group_rs_quartile": 1,
+     "group_leadership_rank": 14,
+     "group_leadership_of": 15,
+     "rsi": 49.7,
+     "roce": 11.2028561963519,
+     "fcf_latest_cr": 118.6,
+     "fcf_source": "reported"
+    },
+    "status": "SCORED_NO_TREND"
+   },
+   "dropped_date": "2026-10-17",
+   "frozen": true
+  },
+  {
+   "ticker": "300037",
+   "name": "Shenzhen Capchem Technology Co., Ltd. Class A",
+   "country": "China",
+   "joined_date": "2026-09-27",
+   "last_updated": "2026-10-10",
+   "scorecard": {
+    "ticker": "300037",
+    "name": "Shenzhen Capchem Technology Co., Ltd. Class A",
+    "as_of": "2026-10-09",
+    "mode": "MONTHLY",
+    "gates": {
+     "trend_template": {
+      "c1": false,
+      "c2": true,
+      "c3": true,
+      "c4": false,
+      "c5": false,
+      "c6": true,
+      "c7": false,
+      "c8": false,
+      "pass": false,
+      "near_miss_notes": ""
+     },
+     "investability": {
+      "liquidity": true,
+      "pledge": true,
+      "governance_flag": false,
+      "governance_note": "",
+      "governance": true,
+      "pass": true
+     }
+    },
+    "llm_checks": null,
+    "scores": {
+     "earnings": {
+      "A1": 8,
+      "A2": 3,
+      "A3": 2,
+      "A4": 0,
+      "A5": 2,
+      "subtotal": 15
+     },
+     "revenue": {
+      "B1": 6,
+      "B2": 4,
+      "B3": 0,
+      "B4": 2,
+      "subtotal": 12
+     },
+     "profitability": {
+      "C1": 1,
+      "C2": 0,
+      "C3": 0,
+      "C4": 2,
+      "subtotal": 3
+     },
+     "balance_sheet": {
+      "D1": 2,
+      "D2": 0,
+      "D3": 0,
+      "D4": 1,
+      "subtotal": 3
+     },
+     "sponsorship": {
+      "E1": 0,
+      "E2": 0,
+      "E3": 0,
+      "E4": 0,
+      "subtotal": 0
+     },
+     "rs_trend": {
+      "F1": 0,
+      "F2": 0,
+      "F3": 0,
+      "F4": 0,
+      "subtotal": 0
+     },
+     "base_structure": {
+      "G1": 0,
+      "G2": 4,
+      "G3": 0,
+      "G4": 0,
+      "G5": 0,
+      "G6": 0,
+      "subtotal": 4
+     },
+     "leadership": {
+      "H1": 0,
+      "H2": 0,
+      "H3": 0,
+      "subtotal": 0
+     },
+     "total": 37
+    },
+    "quality_band": "Reject",
+    "action_bucket": "AVOID",
+    "setup_flag": null,
+    "red_flags": [],
+    "risk_level": "LOW",
+    "valuation_context": {
+     "pe": 31.393545886229287,
+     "peg": null,
+     "vs_own_5yr": "",
+     "note": "Valuation is context only, never a criterion."
+    },
+    "base": {
+     "pattern_label": "",
+     "pivot": 96.08,
+     "pct_from_pivot": -32.57,
+     "base_count": 1,
+     "depth_pct": 42.4,
+     "weeks": 13.4
+    },
+    "trade_plan": null,
+    "delta": {
+     "score_change": -2,
+     "gate_flips": [
+      "c5: True -> False"
+     ],
+     "bucket_change": "",
+     "alerts": [
+      "CLOSED_BELOW_50DMA"
+     ]
+    },
+    "violations": {
+     "count": 0,
+     "items": [],
+     "recommendation": ""
+    },
+    "verdict": {
+     "summary": "300037 (37/100) \u2014 Reject / AVOID. Score is informational only \u2014 gate not confirmed, so not an actionable setup yet.",
+     "strengths": [
+      "Latest EPS YoY >=50%"
+     ],
+     "weaknesses": [
+      "Fails Trend Template: c1, c4, c5, c7, c8",
+      "No valid base yet (4/20)",
+      "11 unverified fields scored 0"
+     ],
+     "catalysts": [],
+     "biggest_risk": "None flagged",
+     "conviction_0_10": 0
+    },
+    "data_quality": {
+     "unverified_fields": [
+      "governance_events",
+      "institutional_holding",
+      "interest_coverage",
+      "marquee_institution",
+      "mf_scheme_count",
+      "new_catalyst",
+      "ocf_to_pat_3y",
+      "other_income_pct_pbt",
+      "promoter_holding_trend",
+      "promoter_pledge_pct",
+      "share_count_growth"
+     ],
+     "proxy_fields": [
+      "group_leadership_rank",
+      "industry_group_rs"
+     ],
+     "unverified_reasons": {},
+     "sources": [
+      {
+       "field": "technicals",
+       "source": "Yahoo Finance OHLCV",
+       "as_of": "2026-10-09"
+      },
+      {
+       "field": "fundamentals",
+       "source": "screener.in",
+       "as_of": "2026-10-09"
+      }
+     ]
+    },
+    "technicals": {
+     "price": 64.79,
+     "rs_percentile": 45,
+     "pct_below_52w_high": 32.6,
+     "pct_above_52w_low": 47.6,
+     "dma_50": 66.29,
+     "dma_200": 63.42,
+     "up_down_volume_ratio_50d": 1.08,
+     "industry_sector": "Process Industries",
+     "industry_group_rs_quartile": 3,
+     "group_leadership_rank": 3,
+     "group_leadership_of": 6,
+     "rsi": 41.0,
+     "roce": 12.4991466959894,
+     "fcf_latest_cr": 21.0,
+     "fcf_source": "reported"
+    },
+    "status": "SCORED_NO_TREND"
+   },
+   "dropped_date": "2026-10-17",
+   "frozen": true
+  },
+  {
+   "ticker": "071050",
+   "name": "KOREA INVESTMENT HOLDINGS CO LTD",
+   "country": "South Korea",
+   "joined_date": "2026-09-27",
+   "last_updated": "2026-10-10",
+   "scorecard": {
+    "ticker": "071050",
+    "name": "KOREA INVESTMENT HOLDINGS CO LTD",
+    "as_of": "2026-10-08",
+    "mode": "MONTHLY",
+    "gates": {
+     "trend_template": {
+      "c1": false,
+      "c2": true,
+      "c3": true,
+      "c4": false,
+      "c5": false,
+      "c6": false,
+      "c7": false,
+      "c8": false,
+      "pass": false,
+      "near_miss_notes": "c6 near miss: 26.1% above 52w low"
+     },
+     "investability": {
+      "liquidity": true,
+      "pledge": true,
+      "governance_flag": false,
+      "governance_note": "",
+      "governance": true,
+      "pass": true
+     }
+    },
+    "llm_checks": null,
+    "scores": {
+     "earnings": {
+      "A1": 6,
+      "A2": 0,
+      "A3": 4,
+      "A4": 4,
+      "A5": 2,
+      "subtotal": 16
+     },
+     "revenue": {
+      "B1": 6,
+      "B2": 2,
+      "B3": 3,
+      "B4": 2,
+      "subtotal": 13
+     },
+     "profitability": {
+      "C1": 3,
+      "C2": 3,
+      "C3": 0,
+      "C4": 2,
+      "subtotal": 8
+     },
+     "balance_sheet": {
+      "D1": 0,
+      "D2": 0,
+      "D3": 0,
+      "D4": 1,
+      "subtotal": 1
+     },
+     "sponsorship": {
+      "E1": 0,
+      "E2": 0,
+      "E3": 0,
+      "E4": 0,
+      "subtotal": 0
+     },
+     "rs_trend": {
+      "F1": 0,
+      "F2": 0,
+      "F3": 0,
+      "F4": 0,
+      "subtotal": 0
+     },
+     "base_structure": {
+      "G1": 0,
+      "G2": 0,
+      "G3": 0,
+      "G4": 0,
+      "G5": 0,
+      "G6": 0,
+      "subtotal": 0
+     },
+     "leadership": {
+      "H1": 0,
+      "H2": 0,
+      "H3": 0,
+      "subtotal": 0
+     },
+     "total": 38
+    },
+    "quality_band": "Reject",
+    "action_bucket": "AVOID",
+    "setup_flag": "early",
+    "red_flags": [
+     "EPS_DECELERATION",
+     "LATE_STAGE_BASE"
+    ],
+    "risk_level": "MEDIUM",
+    "valuation_context": {
+     "pe": 3.356126708736531,
+     "peg": null,
+     "vs_own_5yr": "",
+     "note": "Valuation is context only, never a criterion."
+    },
+    "base": {
+     "pattern_label": "",
+     "pivot": 297000.0,
+     "pct_from_pivot": -43.23,
+     "base_count": 6,
+     "depth_pct": 43.2,
+     "weeks": 21.0
+    },
+    "trade_plan": null,
+    "delta": {
+     "score_change": 0,
+     "gate_flips": [
+      "c6: True -> False"
+     ],
+     "bucket_change": "",
+     "alerts": [
+      "RS_DOWNGRADE"
+     ]
+    },
+    "violations": {
+     "count": 0,
+     "items": [],
+     "recommendation": ""
+    },
+    "verdict": {
+     "summary": "071050 (38/100) \u2014 Reject / AVOID. Score is informational only \u2014 gate not confirmed, so not an actionable setup yet.",
+     "strengths": [
+      "Latest EPS YoY >=50%"
+     ],
+     "weaknesses": [
+      "Fails Trend Template: c1, c4, c5, c6, c7, c8",
+      "No valid base yet (0/20)",
+      "11 unverified fields scored 0"
+     ],
+     "catalysts": [],
+     "biggest_risk": "EPS_DECELERATION",
+     "conviction_0_10": 0
+    },
+    "data_quality": {
+     "unverified_fields": [
+      "governance_events",
+      "institutional_holding",
+      "interest_coverage",
+      "marquee_institution",
+      "mf_scheme_count",
+      "new_catalyst",
+      "ocf_to_pat_3y",
+      "other_income_pct_pbt",
+      "promoter_holding_trend",
+      "promoter_pledge_pct",
+      "share_count_growth"
+     ],
+     "proxy_fields": [
+      "group_leadership_rank",
+      "industry_group_rs"
+     ],
+     "unverified_reasons": {},
+     "sources": [
+      {
+       "field": "technicals",
+       "source": "Yahoo Finance OHLCV",
+       "as_of": "2026-10-08"
+      },
+      {
+       "field": "fundamentals",
+       "source": "screener.in",
+       "as_of": "2026-10-08"
+      }
+     ]
+    },
+    "technicals": {
+     "price": 168600.0,
+     "rs_percentile": 15,
+     "pct_below_52w_high": 43.2,
+     "pct_above_52w_low": 26.1,
+     "dma_50": 189866.0,
+     "dma_200": 213065.56,
+     "up_down_volume_ratio_50d": 0.75,
+     "industry_sector": "Finance",
+     "industry_group_rs_quartile": 3,
+     "group_leadership_rank": 26,
+     "group_leadership_of": 28,
+     "rsi": 29.4,
+     "roce": 6.9731977445392594,
+     "fcf_latest_cr": 226140.4,
+     "fcf_source": "reported"
+    },
+    "status": "SCORED_NO_TREND"
+   },
+   "dropped_date": "2026-10-17",
+   "frozen": true
+  },
+  {
+   "ticker": "603979",
+   "name": "JCHX MINING MANAGEMENT CO LTD Class A",
+   "country": "China",
+   "joined_date": "2026-10-10",
+   "last_updated": "2026-10-10",
+   "scorecard": {
+    "ticker": "603979",
+    "name": "JCHX MINING MANAGEMENT CO LTD Class A",
+    "as_of": "2026-10-09",
+    "mode": "FULL",
+    "gates": {
+     "trend_template": {
+      "c1": true,
+      "c2": false,
+      "c3": true,
+      "c4": true,
+      "c5": false,
+      "c6": true,
+      "c7": true,
+      "c8": false,
+      "pass": false,
+      "near_miss_notes": ""
+     },
+     "investability": {
+      "liquidity": true,
+      "pledge": true,
+      "governance_flag": false,
+      "governance_note": "",
+      "governance": true,
+      "pass": true
+     }
+    },
+    "llm_checks": {
+     "h3_catalyst_found": false,
+     "h3_citation": "",
+     "governance_flag": false,
+     "governance_note": "",
+     "checked_date": "2026-10-10"
+    },
+    "scores": {
+     "earnings": {
+      "A1": 4,
+      "A2": 3,
+      "A3": 4,
+      "A4": 4,
+      "A5": 2,
+      "subtotal": 17
+     },
+     "revenue": {
+      "B1": 4,
+      "B2": 0,
+      "B3": 3,
+      "B4": 2,
+      "subtotal": 9
+     },
+     "profitability": {
+      "C1": 3,
+      "C2": 3,
+      "C3": 0,
+      "C4": 2,
+      "subtotal": 8
+     },
+     "balance_sheet": {
+      "D1": 1,
+      "D2": 0,
+      "D3": 0,
+      "D4": 1,
+      "subtotal": 2
+     },
+     "sponsorship": {
+      "E1": 0,
+      "E2": 0,
+      "E3": 0,
+      "E4": 0,
+      "subtotal": 0
+     },
+     "rs_trend": {
+      "F1": 0,
+      "F2": 1,
+      "F3": 0,
+      "F4": 0,
+      "subtotal": 1
+     },
+     "base_structure": {
+      "G1": 0,
+      "G2": 4,
+      "G3": 0,
+      "G4": 0,
+      "G5": 0,
+      "G6": 0,
+      "subtotal": 4
+     },
+     "leadership": {
+      "H1": 0,
+      "H2": 2,
+      "H3": 0,
+      "subtotal": 2
+     },
+     "total": 43
+    },
+    "quality_band": "Reject",
+    "action_bucket": "AVOID",
+    "setup_flag": "early",
+    "red_flags": [],
+    "risk_level": "LOW",
+    "valuation_context": {
+     "pe": 17.796168073603337,
+     "peg": null,
+     "vs_own_5yr": "",
+     "note": "Valuation is context only, never a criterion."
+    },
+    "base": {
+     "pattern_label": "",
+     "pivot": 88.86,
+     "pct_from_pivot": -15.54,
+     "base_count": 2,
+     "depth_pct": 41.9,
+     "weeks": 33.0
+    },
+    "trade_plan": null,
+    "delta": {
+     "score_change": 0,
+     "gate_flips": [],
+     "bucket_change": "",
+     "alerts": []
+    },
+    "violations": {
+     "count": 0,
+     "items": [],
+     "recommendation": ""
+    },
+    "verdict": {
+     "summary": "603979 (43/100) \u2014 Reject / AVOID. Fails the Trend Template (price below the 50 DMA and 150/200 DMA configuration broken; RS percentile 56, below the 70 floor), and the base structure is a 33-week, 41.9%-deep, second-stage base with price ~15.5% below pivot \u2014 no valid, tight, Stage-2 setup exists. Score is informational only; under Prime Directive 4 a Trend Template failure terminates the trade case regardless of the relatively healthy fundamental trend. No new buys; watch only.",
+     "strengths": [
+      "Earnings trend is genuinely strong: latest-quarter EPS +41.3% YoY, 3-yr EPS CAGR ~56%, latest annual EPS growth ~47.7%",
+      "Revenue growth accelerating: latest-quarter sales +34.1% YoY, 3-yr sales CAGR ~37.5%",
+      "Profitability solid: ROE ~25.5%, ROCE ~19.9%, net margin expanding ~90 bps YoY",
+      "In-group leadership: top-3 of 12 in its group by combined growth+RS",
+      "Low risk level, adequate liquidity \u2014 survived investability gate"
+     ],
+     "weaknesses": [
+      "Fails Trend Template on c2 (150 DMA > 200 DMA), c5 (price 75.05 below 50 DMA 75.71), c8 (RS percentile 56 < 70)",
+      "No valid base: 41.9% deep over 33 weeks is a corrective structure, not a VCP; price -15.5% from pivot",
+      "Sponsorship 0/5 and RS-trend 1/15 \u2014 no confirmed institutional leadership",
+      "11 fields unverified and scored 0; weak balance-sheet score (2/5, D/E ~0.61, no interest-coverage data)"
+     ],
+     "catalysts": [],
+     "biggest_risk": "Trend/RS failure in a stock still 15% below its pivot inside a large, loose correction \u2014 buying here is bottom-fishing a broken Stage-2, which is a direct Minervini rule violation; a deeper break of the 200 DMA would confirm deterioration.",
+     "conviction_0_10": 1
+    },
+    "data_quality": {
+     "unverified_fields": [
+      "institutional_holding",
+      "interest_coverage",
+      "marquee_institution",
+      "mf_scheme_count",
+      "new_catalyst",
+      "ocf_to_pat_3y",
+      "other_income_pct_pbt",
+      "promoter_holding_trend",
+      "promoter_pledge_pct",
+      "share_count_growth"
+     ],
+     "proxy_fields": [
+      "group_leadership_rank",
+      "industry_group_rs"
+     ],
+     "unverified_reasons": {},
+     "sources": [
+      {
+       "field": "technicals",
+       "source": "Yahoo Finance OHLCV",
+       "as_of": "2026-10-09"
+      },
+      {
+       "field": "fundamentals",
+       "source": "screener.in",
+       "as_of": "2026-10-09"
+      }
+     ]
+    },
+    "technicals": {
+     "price": 75.05,
+     "rs_percentile": 56,
+     "pct_below_52w_high": 15.5,
+     "pct_above_52w_low": 45.3,
+     "dma_50": 75.71,
+     "dma_200": 69.99,
+     "up_down_volume_ratio_50d": 1.05,
+     "industry_sector": "Non-Energy Minerals",
+     "industry_group_rs_quartile": 2,
+     "group_leadership_rank": 3,
+     "group_leadership_of": 12,
+     "rsi": 50.9,
+     "roce": 19.8938204976936,
+     "fcf_latest_cr": 295.6,
+     "fcf_source": "reported"
+    },
+    "status": "SCORED_NO_TREND"
+   },
+   "dropped_date": "2026-10-17",
+   "frozen": true
+  },
+  {
+   "ticker": "301200",
+   "name": "Shenzhen Han's CNC Technology Co., Ltd. Class A",
+   "country": "China",
+   "joined_date": "2026-09-27",
+   "last_updated": "2026-10-10",
+   "scorecard": {
+    "ticker": "301200",
+    "name": "Shenzhen Han's CNC Technology Co., Ltd. Class A",
+    "as_of": "2026-10-09",
+    "mode": "MONTHLY",
+    "gates": {
+     "trend_template": {
+      "c1": false,
+      "c2": true,
+      "c3": true,
+      "c4": true,
+      "c5": false,
+      "c6": true,
+      "c7": false,
+      "c8": false,
+      "pass": false,
+      "near_miss_notes": "c8 near miss: RS 65"
+     },
+     "investability": {
+      "liquidity": true,
+      "pledge": true,
+      "governance_flag": false,
+      "governance_note": "No verifiable governance red flag found. No dateable source in the supplied payload or in my own knowledge identifies an auditor resignation, SEBI action, fraud investigation, or comparable major governance event for Shenzhen Han's CNC Technology (301200) in the 12 months to 2026-09-24; the payload itself leaves governance_events and promoter_pledge_pct unverified. Absence of a citable event is not a clean bill of health \u2014 treat governance as unverified, not confirmed.",
+      "governance": true,
+      "pass": true
+     }
+    },
+    "llm_checks": {
+     "h3_catalyst_found": false,
+     "h3_citation": "",
+     "governance_flag": false,
+     "governance_note": "No verifiable governance red flag found. No dateable source in the supplied payload or in my own knowledge identifies an auditor resignation, SEBI action, fraud investigation, or comparable major governance event for Shenzhen Han's CNC Technology (301200) in the 12 months to 2026-09-24; the payload itself leaves governance_events and promoter_pledge_pct unverified. Absence of a citable event is not a clean bill of health \u2014 treat governance as unverified, not confirmed.",
+     "checked_date": "2026-09-27"
+    },
+    "scores": {
+     "earnings": {
+      "A1": 8,
+      "A2": 1,
+      "A3": 4,
+      "A4": 2,
+      "A5": 2,
+      "subtotal": 17
+     },
+     "revenue": {
+      "B1": 6,
+      "B2": 2,
+      "B3": 3,
+      "B4": 2,
+      "subtotal": 13
+     },
+     "profitability": {
+      "C1": 3,
+      "C2": 3,
+      "C3": 0,
+      "C4": 2,
+      "subtotal": 8
+     },
+     "balance_sheet": {
+      "D1": 2,
+      "D2": 0,
+      "D3": 0,
+      "D4": 1,
+      "subtotal": 3
+     },
+     "sponsorship": {
+      "E1": 0,
+      "E2": 0,
+      "E3": 0,
+      "E4": 0,
+      "subtotal": 0
+     },
+     "rs_trend": {
+      "F1": 0,
+      "F2": 0,
+      "F3": 0,
+      "F4": 0,
+      "subtotal": 0
+     },
+     "base_structure": {
+      "G1": 0,
+      "G2": 0,
+      "G3": 0,
+      "G4": 0,
+      "G5": 0,
+      "G6": 0,
+      "subtotal": 0
+     },
+     "leadership": {
+      "H1": 2,
+      "H2": 0,
+      "H3": 0,
+      "subtotal": 2
+     },
+     "total": 43
+    },
+    "quality_band": "Reject",
+    "action_bucket": "AVOID",
+    "setup_flag": "early",
+    "red_flags": [
+     "LATE_STAGE_BASE"
+    ],
+    "risk_level": "LOW",
+    "valuation_context": {
+     "pe": 64.62694741966894,
+     "peg": null,
+     "vs_own_5yr": "",
+     "note": "Valuation is context only, never a criterion."
+    },
+    "base": {
+     "pattern_label": "",
+     "pivot": 395.36,
+     "pct_from_pivot": -46.28,
+     "base_count": 9,
+     "depth_pct": 49.7,
+     "weeks": 14.2
+    },
+    "trade_plan": null,
+    "delta": {
+     "score_change": 0,
+     "gate_flips": [],
+     "bucket_change": "",
+     "alerts": []
+    },
+    "violations": {
+     "count": 0,
+     "items": [],
+     "recommendation": ""
+    },
+    "verdict": {
+     "summary": "301200 (43/100) \u2014 Reject / AVOID. Score is informational only \u2014 gate not confirmed, so not an actionable setup yet.",
+     "strengths": [
+      "Latest EPS YoY >=50%"
+     ],
+     "weaknesses": [
+      "Fails Trend Template: c1, c5, c7, c8",
+      "No valid base yet (0/20)",
+      "10 unverified fields scored 0"
+     ],
+     "catalysts": [],
+     "biggest_risk": "LATE_STAGE_BASE",
+     "conviction_0_10": 0
+    },
+    "data_quality": {
+     "unverified_fields": [
+      "institutional_holding",
+      "interest_coverage",
+      "marquee_institution",
+      "mf_scheme_count",
+      "new_catalyst",
+      "ocf_to_pat_3y",
+      "other_income_pct_pbt",
+      "promoter_holding_trend",
+      "promoter_pledge_pct",
+      "share_count_growth"
+     ],
+     "proxy_fields": [
+      "group_leadership_rank",
+      "industry_group_rs"
+     ],
+     "unverified_reasons": {},
+     "sources": [
+      {
+       "field": "technicals",
+       "source": "Yahoo Finance OHLCV",
+       "as_of": "2026-10-09"
+      },
+      {
+       "field": "fundamentals",
+       "source": "screener.in",
+       "as_of": "2026-10-09"
+      }
+     ]
+    },
+    "technicals": {
+     "price": 212.39,
+     "rs_percentile": 65,
+     "pct_below_52w_high": 46.3,
+     "pct_above_52w_low": 143.6,
+     "dma_50": 261.11,
+     "dma_200": 217.09,
+     "up_down_volume_ratio_50d": 0.81,
+     "industry_sector": "Producer Manufacturing",
+     "industry_group_rs_quartile": 1,
+     "group_leadership_rank": 7,
+     "group_leadership_of": 15,
+     "rsi": 29.2,
+     "roce": 17.2059932563656,
+     "fcf_latest_cr": 2.6,
+     "fcf_source": "reported"
+    },
+    "status": "SCORED_NO_TREND"
+   },
+   "dropped_date": "2026-10-17",
+   "frozen": true
+  },
+  {
+   "ticker": "688630",
+   "name": "Circuit Fabology Microelectronics Equipment Co.,Ltd. Class A",
+   "country": "China",
+   "joined_date": "2026-09-27",
+   "last_updated": "2026-10-10",
+   "scorecard": {
+    "ticker": "688630",
+    "name": "Circuit Fabology Microelectronics Equipment Co.,Ltd. Class A",
+    "as_of": "2026-10-09",
+    "mode": "MONTHLY",
+    "gates": {
+     "trend_template": {
+      "c1": true,
+      "c2": true,
+      "c3": true,
+      "c4": true,
+      "c5": false,
+      "c6": true,
+      "c7": false,
+      "c8": true,
+      "pass": false,
+      "near_miss_notes": ""
+     },
+     "investability": {
+      "liquidity": true,
+      "pledge": true,
+      "governance_flag": false,
+      "governance_note": "",
+      "governance": true,
+      "pass": true
+     }
+    },
+    "llm_checks": null,
+    "scores": {
+     "earnings": {
+      "A1": 6,
+      "A2": 0,
+      "A3": 4,
+      "A4": 4,
+      "A5": 2,
+      "subtotal": 16
+     },
+     "revenue": {
+      "B1": 6,
+      "B2": 2,
+      "B3": 3,
+      "B4": 2,
+      "subtotal": 13
+     },
+     "profitability": {
+      "C1": 0,
+      "C2": 3,
+      "C3": 0,
+      "C4": 0,
+      "subtotal": 3
+     },
+     "balance_sheet": {
+      "D1": 2,
+      "D2": 0,
+      "D3": 0,
+      "D4": 1,
+      "subtotal": 3
+     },
+     "sponsorship": {
+      "E1": 0,
+      "E2": 0,
+      "E3": 0,
+      "E4": 0,
+      "subtotal": 0
+     },
+     "rs_trend": {
+      "F1": 5,
+      "F2": 0,
+      "F3": 0,
+      "F4": 0,
+      "subtotal": 5
+     },
+     "base_structure": {
+      "G1": 0,
+      "G2": 0,
+      "G3": 0,
+      "G4": 0,
+      "G5": 0,
+      "G6": 0,
+      "subtotal": 0
+     },
+     "leadership": {
+      "H1": 2,
+      "H2": 2,
+      "H3": 0,
+      "subtotal": 4
+     },
+     "total": 44
+    },
+    "quality_band": "Reject",
+    "action_bucket": "AVOID",
+    "setup_flag": null,
+    "red_flags": [
+     "EPS_DECELERATION",
+     "LATE_STAGE_BASE"
+    ],
+    "risk_level": "LOW",
+    "valuation_context": {
+     "pe": 110.36826154835155,
+     "peg": null,
+     "vs_own_5yr": "",
+     "note": "Valuation is context only, never a criterion."
+    },
+    "base": {
+     "pattern_label": "",
+     "pivot": 577.66,
+     "pct_from_pivot": -37.59,
+     "base_count": 7,
+     "depth_pct": 48.5,
+     "weeks": 13.4
+    },
+    "trade_plan": null,
+    "delta": {
+     "score_change": 2,
+     "gate_flips": [],
+     "bucket_change": "",
+     "alerts": []
+    },
+    "violations": {
+     "count": 0,
+     "items": [],
+     "recommendation": ""
+    },
+    "verdict": {
+     "summary": "688630 (44/100) \u2014 Reject / AVOID. Score is informational only \u2014 gate not confirmed, so not an actionable setup yet.",
+     "strengths": [
+      "RS percentile 85",
+      "Latest EPS YoY >=50%"
+     ],
+     "weaknesses": [
+      "Fails Trend Template: c5, c7",
+      "No valid base yet (0/20)",
+      "11 unverified fields scored 0"
+     ],
+     "catalysts": [],
+     "biggest_risk": "EPS_DECELERATION",
+     "conviction_0_10": 0
+    },
+    "data_quality": {
+     "unverified_fields": [
+      "governance_events",
+      "institutional_holding",
+      "interest_coverage",
+      "marquee_institution",
+      "mf_scheme_count",
+      "new_catalyst",
+      "ocf_to_pat_3y",
+      "other_income_pct_pbt",
+      "promoter_holding_trend",
+      "promoter_pledge_pct",
+      "share_count_growth"
+     ],
+     "proxy_fields": [
+      "group_leadership_rank",
+      "industry_group_rs"
+     ],
+     "unverified_reasons": {},
+     "sources": [
+      {
+       "field": "technicals",
+       "source": "Yahoo Finance OHLCV",
+       "as_of": "2026-10-09"
+      },
+      {
+       "field": "fundamentals",
+       "source": "screener.in",
+       "as_of": "2026-10-09"
+      }
+     ]
+    },
+    "technicals": {
+     "price": 360.54,
+     "rs_percentile": 85,
+     "pct_below_52w_high": 37.6,
+     "pct_above_52w_low": 241.1,
+     "dma_50": 404.2,
+     "dma_200": 295.4,
+     "up_down_volume_ratio_50d": 0.98,
+     "industry_sector": "Producer Manufacturing",
+     "industry_group_rs_quartile": 1,
+     "group_leadership_rank": 4,
+     "group_leadership_of": 15,
+     "rsi": 35.9,
+     "roce": 11.5868204271902,
+     "fcf_latest_cr": 1.4,
+     "fcf_source": "reported"
+    },
+    "status": "SCORED_NO_TREND"
+   },
+   "dropped_date": "2026-10-17",
+   "frozen": true
+  },
+  {
    "ticker": "688578",
    "name": "Shanghai Allist Pharmaceuticals Co. Ltd. Class A",
    "country": "China",

@@ -342,6 +342,18 @@
    "score": 55,
    "bucket": "AVOID",
    "price": 44.05
+  },
+  {
+   "date": "2026-10-16",
+   "score": null,
+   "bucket": null,
+   "price": 45.75
+  },
+  {
+   "date": "2026-10-17",
+   "score": 61,
+   "bucket": "WATCH",
+   "price": 45.75
   }
  ],
  "price_backfilled": true

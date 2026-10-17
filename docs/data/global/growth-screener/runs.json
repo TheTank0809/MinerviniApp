@@ -1,6 +1,178 @@
 {
  "runs": [
   {
+   "run_date": "2026-10-17",
+   "regime": {
+    "score": 3,
+    "label": "CAUTION",
+    "checks": {
+     "close_above_50dma": false,
+     "close_above_200dma": true,
+     "50dma_above_200dma": true,
+     "distribution_days_25": 7,
+     "distribution_days_ok": false,
+     "pct_universe_above_200dma": 50.3,
+     "universe_above_200dma_ok": true,
+     "net_new_highs_positive": false
+    },
+    "exposure_guidance": "New buys at half risk; only score >=85 setups."
+   },
+   "counts": {
+    "active": 157,
+    "new": 29,
+    "dropped": 7,
+    "errors": 25
+   },
+   "new_tickers": [
+    "VAR",
+    "MTNN",
+    "AVOL",
+    "IHC",
+    "LTM",
+    "SEPL",
+    "EMAARDEV",
+    "ALE",
+    "BPAC3",
+    "BUACEMENT",
+    "RENT3",
+    "601456",
+    "SUNWAY",
+    "4280",
+    "ALPHADHABI",
+    "SQM_A",
+    "MODON",
+    "196170",
+    "MALLPLAZA",
+    "BUAFOODS",
+    "EMAAR",
+    "COMI",
+    "BROS",
+    "ADPORTS",
+    "DANGCEM",
+    "PKN",
+    "BUENAVC1",
+    "ALDAR",
+    "KBHL"
+   ],
+   "dropped_tickers": [
+    "688630",
+    "301200",
+    "603979",
+    "071050",
+    "300037",
+    "603659",
+    "688017"
+   ],
+   "actionable_now": [],
+   "errors": [
+    {
+     "ticker": "IHC",
+     "error": "exchange 'ADX' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "BPAC3",
+     "error": "exchange 'BMFBOVESPA' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "PKN",
+     "error": "exchange 'GPW' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "EMAAR",
+     "error": "exchange 'DFM' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "ALPHADHABI",
+     "error": "exchange 'ADX' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "ALDAR",
+     "error": "exchange 'ADX' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "SQM_A",
+     "error": "exchange 'BCS' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "VAR",
+     "error": "exchange 'OSL' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "ALE",
+     "error": "exchange 'GPW' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "EMAARDEV",
+     "error": "exchange 'DFM' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "LTM",
+     "error": "exchange 'BCS' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "4280",
+     "error": "exchange 'TADAWUL' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "MODON",
+     "error": "exchange 'ADX' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "DANGCEM",
+     "error": "exchange 'NSENG' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "MTNN",
+     "error": "exchange 'NSENG' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "196170",
+     "error": "mapped to '196170.KS' but Yahoo Finance returned no data for it"
+    },
+    {
+     "ticker": "RENT3",
+     "error": "exchange 'BMFBOVESPA' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "BUAFOODS",
+     "error": "exchange 'NSENG' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "ADPORTS",
+     "error": "exchange 'ADX' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "MALLPLAZA",
+     "error": "exchange 'BCS' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "COMI",
+     "error": "exchange 'EGX' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "BUENAVC1",
+     "error": "exchange 'BVL' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "BUACEMENT",
+     "error": "exchange 'NSENG' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "SUNWAY",
+     "error": "exchange 'MYX' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "KBHL",
+     "error": "exchange 'OMXCOP' has no Yahoo Finance suffix mapping yet"
+    }
+   ],
+   "llm": {
+    "enabled": true,
+    "model": "deepseek-chat",
+    "provider": "deepseek"
+   }
+  },
+  {
    "run_date": "2026-10-10",
    "regime": {
     "score": 4,
