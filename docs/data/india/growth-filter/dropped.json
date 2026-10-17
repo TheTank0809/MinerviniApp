@@ -1,6 +1,195 @@
 {
  "stocks": [
   {
+   "ticker": "CCAVENUE",
+   "name": "AvenuesAI",
+   "joined_date": "2026-07-14",
+   "last_updated": "2026-10-10",
+   "scorecard": {
+    "ticker": "CCAVENUE",
+    "name": "AvenuesAI",
+    "as_of": "2026-10-09",
+    "mode": "WEEKLY",
+    "gates": {
+     "trend_template": {
+      "c1": false,
+      "c2": false,
+      "c3": false,
+      "c4": true,
+      "c5": false,
+      "c6": false,
+      "c7": false,
+      "c8": false,
+      "pass": false,
+      "near_miss_notes": "c7 near miss: 27.3% below 52w high"
+     },
+     "investability": {
+      "liquidity": true,
+      "pledge": true,
+      "governance_flag": false,
+      "governance_note": "",
+      "governance": true,
+      "pass": true
+     }
+    },
+    "llm_checks": null,
+    "scores": {
+     "earnings": {
+      "A1": 2,
+      "A2": 1,
+      "A3": 0,
+      "A4": 4,
+      "A5": 2,
+      "subtotal": 9
+     },
+     "revenue": {
+      "B1": 6,
+      "B2": 0,
+      "B3": 3,
+      "B4": 0,
+      "subtotal": 9
+     },
+     "profitability": {
+      "C1": 0,
+      "C2": 0,
+      "C3": 2,
+      "C4": 2,
+      "subtotal": 4
+     },
+     "balance_sheet": {
+      "D1": 2,
+      "D2": 1,
+      "D3": 0,
+      "D4": 1,
+      "subtotal": 4
+     },
+     "sponsorship": {
+      "E1": 2,
+      "E2": 0,
+      "E3": 0,
+      "E4": 1,
+      "subtotal": 3
+     },
+     "rs_trend": {
+      "F1": 0,
+      "F2": 0,
+      "F3": 0,
+      "F4": 2,
+      "subtotal": 2
+     },
+     "base_structure": {
+      "G1": 0,
+      "G2": 0,
+      "G3": 0,
+      "G4": 0,
+      "G5": 3,
+      "G6": 0,
+      "subtotal": 3
+     },
+     "leadership": {
+      "H1": 0,
+      "H2": 0,
+      "H3": 0,
+      "subtotal": 0
+     },
+     "total": 34
+    },
+    "quality_band": "Reject",
+    "action_bucket": "AVOID",
+    "setup_flag": null,
+    "red_flags": [
+     "OTHER_INCOME_DRIVEN"
+    ],
+    "risk_level": "MEDIUM",
+    "valuation_context": {
+     "pe": 17.5,
+     "peg": null,
+     "vs_own_5yr": "",
+     "note": "Valuation is context only, never a criterion."
+    },
+    "base": {
+     "pattern_label": "",
+     "pivot": 16.86,
+     "pct_from_pivot": -11.63,
+     "base_count": null,
+     "depth_pct": 37.0,
+     "weeks": 44.2
+    },
+    "trade_plan": null,
+    "delta": {
+     "score_change": 2,
+     "gate_flips": [],
+     "bucket_change": "",
+     "alerts": [
+      "RS_DOWNGRADE"
+     ]
+    },
+    "violations": {
+     "count": 0,
+     "items": [],
+     "recommendation": ""
+    },
+    "verdict": {
+     "summary": "CCAVENUE (34/100) \u2014 Reject / AVOID. Score is informational only \u2014 gate not confirmed, so not an actionable setup yet.",
+     "strengths": [],
+     "weaknesses": [
+      "Fails Trend Template: c1, c2, c3, c5, c6, c7, c8",
+      "Earnings block weak (9/25)",
+      "No valid base yet (3/20)",
+      "7 unverified fields scored 0"
+     ],
+     "catalysts": [],
+     "biggest_risk": "OTHER_INCOME_DRIVEN",
+     "conviction_0_10": 0
+    },
+    "data_quality": {
+     "unverified_fields": [
+      "base_count",
+      "governance_events",
+      "group_leadership_rank",
+      "industry_group_rs",
+      "marquee_institution",
+      "mf_scheme_count",
+      "new_catalyst"
+     ],
+     "proxy_fields": [],
+     "unverified_reasons": {},
+     "sources": [
+      {
+       "field": "technicals",
+       "source": "Yahoo Finance OHLCV",
+       "as_of": "2026-10-09"
+      },
+      {
+       "field": "fundamentals",
+       "source": "screener.in",
+       "as_of": "2026-10-09"
+      }
+     ]
+    },
+    "technicals": {
+     "price": 14.9,
+     "rs_percentile": 31,
+     "pct_below_52w_high": 27.3,
+     "pct_above_52w_low": 15.3,
+     "dma_50": 15.72,
+     "dma_200": 15.61,
+     "up_down_volume_ratio_50d": 1.2,
+     "industry_sector": null,
+     "industry_group_rs_quartile": null,
+     "group_leadership_rank": null,
+     "group_leadership_of": null,
+     "rsi": 41.3,
+     "roce": 7.72,
+     "fcf_latest_cr": 196.0,
+     "fcf_source": "reported"
+    },
+    "status": "SCORED_NO_TREND"
+   },
+   "dropped_date": "2026-10-17",
+   "frozen": true
+  },
+  {
    "ticker": "JSLL",
    "name": "Jeena Sikho",
    "joined_date": "2026-07-14",

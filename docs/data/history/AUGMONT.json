@@ -1,0 +1,54 @@
+{
+ "ticker": "AUGMONT",
+ "points": [
+  {
+   "date": "2026-09-04",
+   "score": null,
+   "bucket": null,
+   "price": 901.5
+  },
+  {
+   "date": "2026-09-11",
+   "score": null,
+   "bucket": null,
+   "price": 886.15
+  },
+  {
+   "date": "2026-09-18",
+   "score": null,
+   "bucket": null,
+   "price": 874.35
+  },
+  {
+   "date": "2026-09-25",
+   "score": null,
+   "bucket": null,
+   "price": 877.9
+  },
+  {
+   "date": "2026-10-02",
+   "score": null,
+   "bucket": null,
+   "price": 1195.2
+  },
+  {
+   "date": "2026-10-09",
+   "score": null,
+   "bucket": null,
+   "price": 1337.8
+  },
+  {
+   "date": "2026-10-16",
+   "score": null,
+   "bucket": null,
+   "price": 1343.0
+  },
+  {
+   "date": "2026-10-17",
+   "score": 26,
+   "bucket": "AVOID",
+   "price": 1343.0
+  }
+ ],
+ "price_backfilled": true
+}

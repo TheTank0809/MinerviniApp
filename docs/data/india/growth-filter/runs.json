@@ -1,6 +1,181 @@
 {
  "runs": [
   {
+   "run_date": "2026-10-17",
+   "mode": "WEEKLY",
+   "regime": {
+    "score": 2,
+    "label": "CORRECTION",
+    "checks": {
+     "close_above_50dma": false,
+     "close_above_200dma": false,
+     "50dma_above_200dma": true,
+     "distribution_days_25": 9,
+     "distribution_days_ok": false,
+     "pct_universe_above_200dma": 59.6,
+     "universe_above_200dma_ok": true,
+     "net_new_highs_positive": false
+    },
+    "exposure_guidance": "No new buys; watchlist maintenance and holdings management only."
+   },
+   "counts": {
+    "active": 121,
+    "new": 9,
+    "dropped": 1,
+    "errors": 8
+   },
+   "new_tickers": [
+    "AUGMONT",
+    "KANOHAR",
+    "ESDS",
+    "SSRETAIL",
+    "KARAMTARA",
+    "RENTOMOJO",
+    "SAMBHV",
+    "VERTIS",
+    "NHIT"
+   ],
+   "dropped_tickers": [
+    "CCAVENUE"
+   ],
+   "actionable_now": [],
+   "alerts": [
+    {
+     "ticker": "MCX",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "LENSKART",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "TDPOWERSYS",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "KALYANKJIL",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "ATLANTAELE",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "ENTERO",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "GROWW",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "DIXON",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "EMMVEE",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "SANDUMA",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "NUVAMA",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "AZAD",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "NTPCGREEN",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "NTPCGREEN",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "PGEL",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "JAINREC",
+     "alert": "EPS_DECELERATION"
+    },
+    {
+     "ticker": "ANANTRAJ",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "SAATVIKGL",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "KUSUMGAR",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "ICICIAMC",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "NIVABUPA",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "*",
+     "alert": "REGIME_CHANGE CAUTION -> CORRECTION"
+    }
+   ],
+   "errors": [
+    {
+     "ticker": "KANOHAR",
+     "error": "no OHLCV data on Yahoo Finance"
+    },
+    {
+     "ticker": "ESDS",
+     "error": "no OHLCV data on Yahoo Finance"
+    },
+    {
+     "ticker": "526433",
+     "error": "no OHLCV data on Yahoo Finance"
+    },
+    {
+     "ticker": "SSRETAIL",
+     "error": "no OHLCV data on Yahoo Finance"
+    },
+    {
+     "ticker": "KARAMTARA",
+     "error": "no OHLCV data on Yahoo Finance"
+    },
+    {
+     "ticker": "RENTOMOJO",
+     "error": "no OHLCV data on Yahoo Finance"
+    },
+    {
+     "ticker": "VERTIS",
+     "error": "no OHLCV data on Yahoo Finance"
+    },
+    {
+     "ticker": "NHIT",
+     "error": "no OHLCV data on Yahoo Finance"
+    }
+   ],
+   "llm": {
+    "enabled": true,
+    "model": "deepseek-chat",
+    "provider": "deepseek"
+   },
+   "rs_universe": {
+    "source": "Nifty 500",
+    "attempted": 500,
+    "succeeded": 500,
+    "used": true
+   }
+  },
+  {
    "run_date": "2026-10-10",
    "mode": "WEEKLY",
    "regime": {

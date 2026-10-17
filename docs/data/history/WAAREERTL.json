@@ -384,6 +384,18 @@
    "score": 38,
    "bucket": "AVOID",
    "price": 802.45
+  },
+  {
+   "date": "2026-10-16",
+   "score": null,
+   "bucket": null,
+   "price": 837.1
+  },
+  {
+   "date": "2026-10-17",
+   "score": 38,
+   "bucket": "AVOID",
+   "price": 837.1
   }
  ],
  "price_backfilled": true
