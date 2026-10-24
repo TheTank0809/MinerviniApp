@@ -1,7 +1,24 @@
 {
- "generated_at": "2026-10-24T13:32:07.735820Z",
+ "generated_at": "2026-10-24T14:44:06.568725Z",
  "sample": false,
  "screens": [
+  {
+   "universe": "global",
+   "screen": "growth-screener",
+   "label": "Growth Screener",
+   "short": "GR",
+   "universe_label": "Global",
+   "counts": {
+    "active": 152,
+    "new": 31,
+    "dropped": 11,
+    "errors": 25
+   },
+   "regime": {
+    "label": "CORRECTION",
+    "score": 2
+   }
+  },
   {
    "universe": "india",
    "screen": "minervini-filter",
@@ -34,23 +51,6 @@
    "regime": {
     "label": "CORRECTION",
     "score": 0
-   }
-  },
-  {
-   "universe": "global",
-   "screen": "growth-screener",
-   "label": "Growth Screener",
-   "short": "GR",
-   "universe_label": "Global",
-   "counts": {
-    "active": 157,
-    "new": 29,
-    "dropped": 7,
-    "errors": 25
-   },
-   "regime": {
-    "label": "CAUTION",
-    "score": 3
    }
   },
   {

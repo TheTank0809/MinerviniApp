@@ -1,6 +1,184 @@
 {
  "runs": [
   {
+   "run_date": "2026-10-24",
+   "regime": {
+    "score": 2,
+    "label": "CORRECTION",
+    "checks": {
+     "close_above_50dma": false,
+     "close_above_200dma": true,
+     "50dma_above_200dma": true,
+     "distribution_days_25": 5,
+     "distribution_days_ok": false,
+     "pct_universe_above_200dma": 44.7,
+     "universe_above_200dma_ok": false,
+     "net_new_highs_positive": false
+    },
+    "exposure_guidance": "No new buys; watchlist maintenance and holdings management only."
+   },
+   "counts": {
+    "active": 152,
+    "new": 31,
+    "dropped": 11,
+    "errors": 25
+   },
+   "new_tickers": [
+    "IHC",
+    "SQM_A",
+    "4280",
+    "EMAARDEV",
+    "BUAFOODS",
+    "VAR",
+    "COMI",
+    "196170",
+    "COLB",
+    "BUACEMENT",
+    "LTM",
+    "BPAC3",
+    "EMAAR",
+    "DANGCEM",
+    "LTMC",
+    "MALLPLAZA",
+    "KBHL",
+    "SUNWAY",
+    "ALDAR",
+    "603129",
+    "ALE",
+    "MODON",
+    "688017",
+    "MTNN",
+    "ADPORTS",
+    "301200",
+    "688322",
+    "BUENAVC1",
+    "RENT3",
+    "PKN",
+    "ALPHADHABI"
+   ],
+   "dropped_tickers": [
+    "NLY",
+    "600988",
+    "207940",
+    "CS",
+    "KNSL",
+    "600415",
+    "002028",
+    "SFR",
+    "AGNC",
+    "BE",
+    "LVS"
+   ],
+   "actionable_now": [],
+   "errors": [
+    {
+     "ticker": "IHC",
+     "error": "exchange 'ADX' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "BPAC3",
+     "error": "exchange 'BMFBOVESPA' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "PKN",
+     "error": "exchange 'GPW' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "EMAAR",
+     "error": "exchange 'DFM' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "ALPHADHABI",
+     "error": "exchange 'ADX' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "SQM_A",
+     "error": "exchange 'BCS' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "ALDAR",
+     "error": "exchange 'ADX' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "VAR",
+     "error": "exchange 'OSL' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "ALE",
+     "error": "exchange 'GPW' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "EMAARDEV",
+     "error": "exchange 'DFM' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "LTM",
+     "error": "exchange 'BCS' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "DANGCEM",
+     "error": "exchange 'NSENG' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "MODON",
+     "error": "exchange 'ADX' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "MTNN",
+     "error": "exchange 'NSENG' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "4280",
+     "error": "exchange 'TADAWUL' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "196170",
+     "error": "mapped to '196170.KS' but Yahoo Finance returned no data for it"
+    },
+    {
+     "ticker": "RENT3",
+     "error": "exchange 'BMFBOVESPA' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "BUAFOODS",
+     "error": "exchange 'NSENG' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "ADPORTS",
+     "error": "exchange 'ADX' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "MALLPLAZA",
+     "error": "exchange 'BCS' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "BUENAVC1",
+     "error": "exchange 'BVL' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "COMI",
+     "error": "exchange 'EGX' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "BUACEMENT",
+     "error": "exchange 'NSENG' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "SUNWAY",
+     "error": "exchange 'MYX' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "KBHL",
+     "error": "exchange 'OMXCOP' has no Yahoo Finance suffix mapping yet"
+    }
+   ],
+   "llm": {
+    "enabled": true,
+    "model": "deepseek-chat",
+    "provider": "deepseek"
+   }
+  },
+  {
    "run_date": "2026-10-17",
    "regime": {
     "score": 3,
