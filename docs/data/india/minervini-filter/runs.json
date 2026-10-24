@@ -1,6 +1,85 @@
 {
  "runs": [
   {
+   "run_date": "2026-10-24",
+   "mode": "WEEKLY",
+   "regime": {
+    "score": 2,
+    "label": "CORRECTION",
+    "checks": {
+     "close_above_50dma": false,
+     "close_above_200dma": false,
+     "50dma_above_200dma": false,
+     "distribution_days_25": 11,
+     "distribution_days_ok": false,
+     "pct_universe_above_200dma": 100.0,
+     "universe_above_200dma_ok": true,
+     "net_new_highs_positive": true
+    },
+    "exposure_guidance": "No new buys; watchlist maintenance and holdings management only."
+   },
+   "counts": {
+    "active": 14,
+    "new": 0,
+    "dropped": 24,
+    "errors": 0
+   },
+   "new_tickers": [],
+   "dropped_tickers": [
+    "LUMAXTECH",
+    "RAMRAT",
+    "SYRMA",
+    "SAMBHV",
+    "LLOYDSME",
+    "DIACABS",
+    "526433",
+    "MANORAMA",
+    "GROWW",
+    "BSE",
+    "APOLLO",
+    "JYOTICNC",
+    "MARINE",
+    "UNIMECH",
+    "ETERNAL",
+    "YATHARTH",
+    "QPOWER",
+    "PAISALO",
+    "CARTRADE",
+    "DPABHUSHAN",
+    "AIIL",
+    "KISSHT",
+    "SEDEMAC",
+    "MOLBIO"
+   ],
+   "actionable_now": [],
+   "alerts": [
+    {
+     "ticker": "COFORGE",
+     "alert": "EPS_DECELERATION"
+    },
+    {
+     "ticker": "MILKYMIST",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "*",
+     "alert": "REGIME_CHANGE CAUTION -> CORRECTION"
+    }
+   ],
+   "errors": [],
+   "llm": {
+    "enabled": true,
+    "model": "deepseek-chat",
+    "provider": "deepseek"
+   },
+   "rs_universe": {
+    "source": "Nifty 500",
+    "attempted": 500,
+    "succeeded": 500,
+    "used": true
+   }
+  },
+  {
    "run_date": "2026-10-17",
    "mode": "WEEKLY",
    "regime": {

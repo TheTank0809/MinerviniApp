@@ -1,0 +1,60 @@
+{
+ "ticker": "ESDS",
+ "points": [
+  {
+   "date": "2026-09-04",
+   "score": null,
+   "bucket": null,
+   "price": 908.4
+  },
+  {
+   "date": "2026-09-11",
+   "score": null,
+   "bucket": null,
+   "price": 1740.4
+  },
+  {
+   "date": "2026-09-18",
+   "score": null,
+   "bucket": null,
+   "price": 1564.55
+  },
+  {
+   "date": "2026-09-25",
+   "score": null,
+   "bucket": null,
+   "price": 1760.5
+  },
+  {
+   "date": "2026-10-02",
+   "score": null,
+   "bucket": null,
+   "price": 1434.1
+  },
+  {
+   "date": "2026-10-09",
+   "score": null,
+   "bucket": null,
+   "price": 1498.2
+  },
+  {
+   "date": "2026-10-16",
+   "score": null,
+   "bucket": null,
+   "price": 1512.1
+  },
+  {
+   "date": "2026-10-23",
+   "score": null,
+   "bucket": null,
+   "price": 1231.7
+  },
+  {
+   "date": "2026-10-24",
+   "score": 25,
+   "bucket": "AVOID",
+   "price": 1231.7
+  }
+ ],
+ "price_backfilled": true
+}

@@ -1,6 +1,251 @@
 {
  "runs": [
   {
+   "run_date": "2026-10-24",
+   "mode": "WEEKLY",
+   "regime": {
+    "score": 0,
+    "label": "CORRECTION",
+    "checks": {
+     "close_above_50dma": false,
+     "close_above_200dma": false,
+     "50dma_above_200dma": false,
+     "distribution_days_25": 11,
+     "distribution_days_ok": false,
+     "pct_universe_above_200dma": 45.6,
+     "universe_above_200dma_ok": false,
+     "net_new_highs_positive": false
+    },
+    "exposure_guidance": "No new buys; watchlist maintenance and holdings management only."
+   },
+   "counts": {
+    "active": 116,
+    "new": 6,
+    "dropped": 6,
+    "errors": 6
+   },
+   "new_tickers": [
+    "KANOHAR",
+    "ESDS",
+    "KARAMTARA",
+    "RENTOMOJO",
+    "VERTIS",
+    "NHIT"
+   ],
+   "dropped_tickers": [
+    "RAMRAT",
+    "SAMBHV",
+    "DPABHUSHAN",
+    "VIKRAMSOLR",
+    "SHAKTIPUMP",
+    "SAATVIKGL"
+   ],
+   "actionable_now": [],
+   "alerts": [
+    {
+     "ticker": "LUMAXTECH",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "SYRMA",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "COFORGE",
+     "alert": "EPS_DECELERATION"
+    },
+    {
+     "ticker": "DIACABS",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "BSE",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "MANORAMA",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "SJS",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "GOKULAGRO",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "GROWW",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "GROWW",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "APOLLO",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "MARINE",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "YATHARTH",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "PAISALO",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "PAISALO",
+     "alert": "EPS_DECELERATION"
+    },
+    {
+     "ticker": "ETERNAL",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "ETERNAL",
+     "alert": "EPS_DECELERATION"
+    },
+    {
+     "ticker": "SKIPPER",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "UNIMECH",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "JYOTICNC",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "EMMVEE",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "QPOWER",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "GENUSPOWER",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "CARTRADE",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "WAAREEENER",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "NTPCGREEN",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "WAAREERTL",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "AEGISVOPAK",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "TRENT",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "AIIL",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "AIIL",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "TRANSRAILL",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "KISSHT",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "GODREJPROP",
+     "alert": "EPS_DECELERATION"
+    },
+    {
+     "ticker": "MILKYMIST",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "ZENTEC",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "TECHNOE",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "SEDEMAC",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "MOLBIO",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "HOMEFIRST",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "JNPR",
+     "alert": "CLOSED_BELOW_50DMA"
+    }
+   ],
+   "errors": [
+    {
+     "ticker": "KANOHAR",
+     "error": "no OHLCV data on Yahoo Finance"
+    },
+    {
+     "ticker": "526433",
+     "error": "no OHLCV data on Yahoo Finance"
+    },
+    {
+     "ticker": "KARAMTARA",
+     "error": "no OHLCV data on Yahoo Finance"
+    },
+    {
+     "ticker": "RENTOMOJO",
+     "error": "no OHLCV data on Yahoo Finance"
+    },
+    {
+     "ticker": "VERTIS",
+     "error": "no OHLCV data on Yahoo Finance"
+    },
+    {
+     "ticker": "NHIT",
+     "error": "no OHLCV data on Yahoo Finance"
+    }
+   ],
+   "llm": {
+    "enabled": true,
+    "model": "deepseek-chat",
+    "provider": "deepseek"
+   },
+   "rs_universe": {
+    "source": "Nifty 500",
+    "attempted": 500,
+    "succeeded": 500,
+    "used": true
+   }
+  },
+  {
    "run_date": "2026-10-17",
    "mode": "WEEKLY",
    "regime": {
