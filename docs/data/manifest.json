@@ -1,7 +1,25 @@
 {
- "generated_at": "2026-10-24T14:44:06.568725Z",
+ "generated_at": "2026-10-28T16:13:39.418801Z",
  "sample": false,
  "screens": [
+  {
+   "universe": "india-nifty",
+   "screen": "nifty100",
+   "label": "Nifty 100",
+   "short": "N100",
+   "universe_label": "India-Nifty",
+   "counts": {
+    "active": 100,
+    "new": 0,
+    "removed_from_index": 0,
+    "errors": 0
+   },
+   "groups": [],
+   "regime": {
+    "label": "CORRECTION",
+    "score": 0
+   }
+  },
   {
    "universe": "global",
    "screen": "growth-screener",
@@ -51,23 +69,6 @@
    "regime": {
     "label": "CORRECTION",
     "score": 0
-   }
-  },
-  {
-   "universe": "india-nifty",
-   "screen": "nifty100",
-   "label": "Nifty 100",
-   "short": "N100",
-   "universe_label": "India-Nifty",
-   "counts": {
-    "active": 100,
-    "new": 0,
-    "removed_from_index": 0,
-    "errors": 0
-   },
-   "regime": {
-    "label": "CORRECTION",
-    "score": 1
    }
   }
  ]
