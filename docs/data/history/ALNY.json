@@ -1,0 +1,330 @@
+{
+ "ticker": "ALNY",
+ "points": [
+  {
+   "date": "2025-10-31",
+   "score": null,
+   "bucket": null,
+   "price": 456.04
+  },
+  {
+   "date": "2025-11-07",
+   "score": null,
+   "bucket": null,
+   "price": 442.7
+  },
+  {
+   "date": "2025-11-14",
+   "score": null,
+   "bucket": null,
+   "price": 449.16
+  },
+  {
+   "date": "2025-11-21",
+   "score": null,
+   "bucket": null,
+   "price": 436.38
+  },
+  {
+   "date": "2025-11-28",
+   "score": null,
+   "bucket": null,
+   "price": 451.23
+  },
+  {
+   "date": "2025-12-05",
+   "score": null,
+   "bucket": null,
+   "price": 458.12
+  },
+  {
+   "date": "2025-12-12",
+   "score": null,
+   "bucket": null,
+   "price": 397.55
+  },
+  {
+   "date": "2025-12-19",
+   "score": null,
+   "bucket": null,
+   "price": 400.23
+  },
+  {
+   "date": "2025-12-26",
+   "score": null,
+   "bucket": null,
+   "price": 400.59
+  },
+  {
+   "date": "2026-01-02",
+   "score": null,
+   "bucket": null,
+   "price": 400.17
+  },
+  {
+   "date": "2026-01-09",
+   "score": null,
+   "bucket": null,
+   "price": 398.29
+  },
+  {
+   "date": "2026-01-16",
+   "score": null,
+   "bucket": null,
+   "price": 359.27
+  },
+  {
+   "date": "2026-01-23",
+   "score": null,
+   "bucket": null,
+   "price": 357.98
+  },
+  {
+   "date": "2026-01-30",
+   "score": null,
+   "bucket": null,
+   "price": 338.06
+  },
+  {
+   "date": "2026-02-06",
+   "score": null,
+   "bucket": null,
+   "price": 328.16
+  },
+  {
+   "date": "2026-02-13",
+   "score": null,
+   "bucket": null,
+   "price": 314.4
+  },
+  {
+   "date": "2026-02-20",
+   "score": null,
+   "bucket": null,
+   "price": 336.19
+  },
+  {
+   "date": "2026-02-27",
+   "score": null,
+   "bucket": null,
+   "price": 332.92
+  },
+  {
+   "date": "2026-03-06",
+   "score": null,
+   "bucket": null,
+   "price": 320.66
+  },
+  {
+   "date": "2026-03-13",
+   "score": null,
+   "bucket": null,
+   "price": 313.41
+  },
+  {
+   "date": "2026-03-20",
+   "score": null,
+   "bucket": null,
+   "price": 312.17
+  },
+  {
+   "date": "2026-03-27",
+   "score": null,
+   "bucket": null,
+   "price": 317.36
+  },
+  {
+   "date": "2026-04-03",
+   "score": null,
+   "bucket": null,
+   "price": 318.85
+  },
+  {
+   "date": "2026-04-10",
+   "score": null,
+   "bucket": null,
+   "price": 322.11
+  },
+  {
+   "date": "2026-04-17",
+   "score": null,
+   "bucket": null,
+   "price": 309.66
+  },
+  {
+   "date": "2026-04-24",
+   "score": null,
+   "bucket": null,
+   "price": 305.54
+  },
+  {
+   "date": "2026-05-01",
+   "score": null,
+   "bucket": null,
+   "price": 296.11
+  },
+  {
+   "date": "2026-05-08",
+   "score": null,
+   "bucket": null,
+   "price": 295.05
+  },
+  {
+   "date": "2026-05-15",
+   "score": null,
+   "bucket": null,
+   "price": 286.98
+  },
+  {
+   "date": "2026-05-22",
+   "score": null,
+   "bucket": null,
+   "price": 297.45
+  },
+  {
+   "date": "2026-05-29",
+   "score": null,
+   "bucket": null,
+   "price": 301.98
+  },
+  {
+   "date": "2026-06-05",
+   "score": null,
+   "bucket": null,
+   "price": 303.05
+  },
+  {
+   "date": "2026-06-12",
+   "score": null,
+   "bucket": null,
+   "price": 282.85
+  },
+  {
+   "date": "2026-06-19",
+   "score": null,
+   "bucket": null,
+   "price": 278.09
+  },
+  {
+   "date": "2026-06-26",
+   "score": null,
+   "bucket": null,
+   "price": 291.37
+  },
+  {
+   "date": "2026-07-03",
+   "score": null,
+   "bucket": null,
+   "price": 312.78
+  },
+  {
+   "date": "2026-07-10",
+   "score": null,
+   "bucket": null,
+   "price": 298.76
+  },
+  {
+   "date": "2026-07-17",
+   "score": null,
+   "bucket": null,
+   "price": 267.47
+  },
+  {
+   "date": "2026-07-24",
+   "score": null,
+   "bucket": null,
+   "price": 271.77
+  },
+  {
+   "date": "2026-07-31",
+   "score": null,
+   "bucket": null,
+   "price": 205.52
+  },
+  {
+   "date": "2026-08-07",
+   "score": null,
+   "bucket": null,
+   "price": 219.2
+  },
+  {
+   "date": "2026-08-14",
+   "score": null,
+   "bucket": null,
+   "price": 228.65
+  },
+  {
+   "date": "2026-08-21",
+   "score": null,
+   "bucket": null,
+   "price": 236.22
+  },
+  {
+   "date": "2026-08-28",
+   "score": null,
+   "bucket": null,
+   "price": 237.1
+  },
+  {
+   "date": "2026-09-04",
+   "score": null,
+   "bucket": null,
+   "price": 266.11
+  },
+  {
+   "date": "2026-09-11",
+   "score": null,
+   "bucket": null,
+   "price": 248.68
+  },
+  {
+   "date": "2026-09-18",
+   "score": null,
+   "bucket": null,
+   "price": 239.56
+  },
+  {
+   "date": "2026-09-25",
+   "score": null,
+   "bucket": null,
+   "price": 255.96
+  },
+  {
+   "date": "2026-10-02",
+   "score": null,
+   "bucket": null,
+   "price": 219.72
+  },
+  {
+   "date": "2026-10-09",
+   "score": null,
+   "bucket": null,
+   "price": 232.68
+  },
+  {
+   "date": "2026-10-16",
+   "score": null,
+   "bucket": null,
+   "price": 231.83
+  },
+  {
+   "date": "2026-10-23",
+   "score": null,
+   "bucket": null,
+   "price": 224.03
+  },
+  {
+   "date": "2026-10-30",
+   "score": null,
+   "bucket": null,
+   "price": 165.0
+  },
+  {
+   "date": "2026-10-31",
+   "score": 28,
+   "bucket": "AVOID",
+   "price": 165.0
+  }
+ ],
+ "price_backfilled": true
+}
