@@ -166,6 +166,19 @@ def _sanitize(obj):
     return obj
 
 
+def failed_screen_entry(prior_screens, universe_key, slug, label, universe_label, exc):
+    """Manifest entry for a screen whose run failed. Keeps the previous successful
+    entry's fields (counts, regime, short badge, groups, ...) and just adds `error`,
+    so the site can keep showing the last good data on disk (active/dropped/runs.json
+    are untouched by a failed run) alongside the failure banner."""
+    prior = next((s for s in prior_screens
+                  if s.get("universe") == universe_key and s.get("screen") == slug), {})
+    entry = {k: v for k, v in prior.items() if k != "error"}
+    entry.update({"universe": universe_key, "screen": slug, "label": label,
+                  "universe_label": universe_label, "error": str(exc)})
+    return entry
+
+
 def save_json(path, obj):
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w") as fh:
@@ -515,9 +528,8 @@ def main():
                     failures += 1
                     print("SCREEN FAILED (%s): %s" % (screen["name"], exc))
                     traceback.print_exc()
-                    manifest["screens"].append(
-                        {"universe": uni_key, "screen": screen["slug"], "label": screen["name"],
-                         "universe_label": uni["label"], "error": str(exc)})
+                    manifest["screens"].append(failed_screen_entry(
+                        prior_screens, uni_key, screen["slug"], screen["name"], uni["label"], exc))
     except Exception as exc:
         # A failure before/outside the per-screen loop (bad config.yaml, etc.) — still
         # write a manifest so the site shows a failure banner instead of going stale

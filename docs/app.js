@@ -359,8 +359,12 @@
     el.hidden = false;
   }
 
+  // A failed run keeps the screen's last good data on disk (and its manifest counts),
+  // so only a screen that has never succeeded is skipped.
+  function hasScreenData(s) { return !s.error || !!s.counts; }
+
   function fetchUniverseData(universeKey) {
-    var screens = (state.universes[universeKey] || []).filter(function (s) { return !s.error; });
+    var screens = (state.universes[universeKey] || []).filter(hasScreenData);
     if (!screens.length) {
       return Promise.resolve({ screens: screens, active: [], dropped: [], run: null });
     }
@@ -396,7 +400,7 @@
 
   function loadUniverse(universeKey) {
     if (state.universeKey === universeKey) {
-      state.screens = (state.universes[universeKey] || []).filter(function (s) { return !s.error; });
+      state.screens = (state.universes[universeKey] || []).filter(hasScreenData);
       renderFilterChips();
     }
     // Already fetched (initial load, or an earlier background/eager fetch) — reuse it
@@ -510,7 +514,7 @@
   // place the groups are defined; falls back to the single legacy "Nifty 100" option
   // before the first Nifty 500 scan has run.
   function indexGroups() {
-    var screens = (state.universes["india-nifty"] || []).filter(function (s) { return !s.error; });
+    var screens = (state.universes["india-nifty"] || []).filter(hasScreenData);
     var groups = (screens[0] && screens[0].groups) || [];
     return groups.length ? groups : [{ key: "nifty100", label: "Nifty 100" }];
   }
