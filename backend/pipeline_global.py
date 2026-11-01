@@ -45,7 +45,7 @@ import llm as LLM
 import tradingview_client as TV
 from fundamentals_tradingview import build_fundamental_payload
 from pipeline import (
-    load_json, save_json, today, update_history, backfill_price_history, ticker_filter, DATA_DIR,
+    load_json, save_json, failed_screen_entry, today, update_history, backfill_price_history, ticker_filter, DATA_DIR,
 )
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -358,9 +358,8 @@ def main():
                     failures += 1
                     print("GLOBAL SCREEN FAILED (%s): %s" % (gcfg["name"], exc))
                     traceback.print_exc()
-                    manifest["screens"].append(
-                        {"universe": uni_key, "screen": gcfg["slug"], "label": gcfg["name"],
-                         "universe_label": uni["label"], "error": str(exc)})
+                    manifest["screens"].append(failed_screen_entry(
+                        prior_screens, uni_key, gcfg["slug"], gcfg["name"], uni["label"], exc))
     except Exception as exc:
         failures += 1
         print("PIPELINE FAILED: %s" % exc)

@@ -43,7 +43,8 @@ import scorecard as SC
 import llm as LLM
 from fundamentals import build_fundamental_payload
 from screener_client import ScreenerClient
-from pipeline import (  # reuse rather than reimplement — see pipeline.py
+from pipeline import (
+    failed_screen_entry,  # reuse rather than reimplement — see pipeline.py
     load_json, save_json, today, update_history, backfill_price_history,
     load_rs_universe_symbols, load_rs_universe_industries, ticker_filter, DATA_DIR,
 )
@@ -410,9 +411,8 @@ def main():
                     failures += 1
                     print("INDEX FAILED (%s): %s" % (index_cfg["name"], exc))
                     traceback.print_exc()
-                    manifest["screens"].append(
-                        {"universe": uni_key, "screen": index_cfg["slug"], "label": index_cfg["name"],
-                         "universe_label": uni["label"], "error": str(exc)})
+                    manifest["screens"].append(failed_screen_entry(
+                        prior_screens, uni_key, index_cfg["slug"], index_cfg["name"], uni["label"], exc))
     except Exception as exc:
         failures += 1
         print("PIPELINE FAILED: %s" % exc)
