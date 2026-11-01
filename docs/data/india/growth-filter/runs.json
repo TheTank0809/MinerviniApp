@@ -1,6 +1,131 @@
 {
  "runs": [
   {
+   "run_date": "2026-11-01",
+   "mode": "WEEKLY",
+   "regime": {
+    "score": 1,
+    "label": "CORRECTION",
+    "checks": {
+     "close_above_50dma": false,
+     "close_above_200dma": false,
+     "50dma_above_200dma": false,
+     "distribution_days_25": 12,
+     "distribution_days_ok": false,
+     "pct_universe_above_200dma": 51.0,
+     "universe_above_200dma_ok": true,
+     "net_new_highs_positive": false
+    },
+    "exposure_guidance": "No new buys; watchlist maintenance and holdings management only."
+   },
+   "counts": {
+    "active": 118,
+    "new": 7,
+    "dropped": 1,
+    "errors": 5
+   },
+   "new_tickers": [
+    "KANOHAR",
+    "KARAMTARA",
+    "RENTOMOJO",
+    "MOTILALOFS",
+    "TI",
+    "VERTIS",
+    "NHIT"
+   ],
+   "dropped_tickers": [
+    "SENCO"
+   ],
+   "actionable_now": [],
+   "alerts": [
+    {
+     "ticker": "KALYANKJIL",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "EBGNG",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "GOKULAGRO",
+     "alert": "EPS_DECELERATION"
+    },
+    {
+     "ticker": "ATLANTAELE",
+     "alert": "EPS_DECELERATION"
+    },
+    {
+     "ticker": "PRICOLLTD",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "PNGJL",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "MUTHOOTFIN",
+     "alert": "EPS_DECELERATION"
+    },
+    {
+     "ticker": "AEGISVOPAK",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "JAINREC",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "JAINREC",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "AUGMONT",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "CARTRADE",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "CARTRADE",
+     "alert": "EPS_DECELERATION"
+    }
+   ],
+   "errors": [
+    {
+     "ticker": "526433",
+     "error": "no OHLCV data on Yahoo Finance"
+    },
+    {
+     "ticker": "KARAMTARA",
+     "error": "no OHLCV data on Yahoo Finance"
+    },
+    {
+     "ticker": "RENTOMOJO",
+     "error": "no OHLCV data on Yahoo Finance"
+    },
+    {
+     "ticker": "VERTIS",
+     "error": "no OHLCV data on Yahoo Finance"
+    },
+    {
+     "ticker": "NHIT",
+     "error": "no OHLCV data on Yahoo Finance"
+    }
+   ],
+   "llm": {
+    "enabled": true,
+    "model": "deepseek-chat",
+    "provider": "deepseek"
+   },
+   "rs_universe": {
+    "source": "Nifty 500",
+    "attempted": 500,
+    "succeeded": 500,
+    "used": true
+   }
+  },
+  {
    "run_date": "2026-10-24",
    "mode": "WEEKLY",
    "regime": {

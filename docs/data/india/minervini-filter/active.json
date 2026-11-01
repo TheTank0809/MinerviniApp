@@ -1,15 +1,412 @@
 {
- "generated_at": "2026-10-24",
+ "generated_at": "2026-11-01",
  "stocks": [
+  {
+   "ticker": "MCX",
+   "name": "Multi Comm. Exc.",
+   "joined_date": "2026-11-01",
+   "last_updated": "2026-11-01",
+   "scorecard": {
+    "ticker": "MCX",
+    "name": "Multi Comm. Exc.",
+    "as_of": "2026-10-30",
+    "mode": "FULL",
+    "gates": {
+     "trend_template": {
+      "c1": true,
+      "c2": true,
+      "c3": true,
+      "c4": true,
+      "c5": false,
+      "c6": true,
+      "c7": true,
+      "c8": true,
+      "pass": false,
+      "near_miss_notes": ""
+     },
+     "investability": {
+      "liquidity": true,
+      "pledge": true,
+      "governance_flag": false,
+      "governance_note": "No auditor resignation, SEBI action, fraud investigation, or major governance event in the last 12 months identified; promoter pledge 0.0% and share count flat (0.0% growth over 2 years). Governance_events is listed as unverified in the app payload \u2014 treat as unconfirmed, not confirmed-clean.",
+      "governance": true,
+      "pass": true
+     }
+    },
+    "llm_checks": {
+     "h3_catalyst_found": false,
+     "h3_citation": "",
+     "governance_flag": false,
+     "governance_note": "No auditor resignation, SEBI action, fraud investigation, or major governance event in the last 12 months identified; promoter pledge 0.0% and share count flat (0.0% growth over 2 years). Governance_events is listed as unverified in the app payload \u2014 treat as unconfirmed, not confirmed-clean.",
+     "checked_date": "2026-11-01"
+    },
+    "scores": {
+     "earnings": {
+      "A1": 8,
+      "A2": 3,
+      "A3": 2,
+      "A4": 4,
+      "A5": 4,
+      "subtotal": 21
+     },
+     "revenue": {
+      "B1": 6,
+      "B2": 2,
+      "B3": 3,
+      "B4": 2,
+      "subtotal": 13
+     },
+     "profitability": {
+      "C1": 3,
+      "C2": 3,
+      "C3": 2,
+      "C4": 2,
+      "subtotal": 10
+     },
+     "balance_sheet": {
+      "D1": 2,
+      "D2": 0,
+      "D3": 1,
+      "D4": 1,
+      "subtotal": 4
+     },
+     "sponsorship": {
+      "E1": 2,
+      "E2": 0,
+      "E3": 0,
+      "E4": 0,
+      "subtotal": 2
+     },
+     "rs_trend": {
+      "F1": 7,
+      "F2": 2,
+      "F3": 0,
+      "F4": 2,
+      "subtotal": 11
+     },
+     "base_structure": {
+      "G1": 0,
+      "G2": 2,
+      "G3": 4,
+      "G4": 0,
+      "G5": 3,
+      "G6": 0,
+      "subtotal": 9
+     },
+     "leadership": {
+      "H1": 0,
+      "H2": 2,
+      "H3": 0,
+      "subtotal": 2
+     },
+     "total": 72
+    },
+    "quality_band": "Watchlist A",
+    "action_bucket": "AVOID",
+    "setup_flag": null,
+    "red_flags": [],
+    "risk_level": "LOW",
+    "valuation_context": {
+     "pe": 52.7,
+     "peg": null,
+     "vs_own_5yr": "",
+     "note": "Valuation is context only, never a criterion."
+    },
+    "base": {
+     "pattern_label": "",
+     "pivot": 3481.4,
+     "pct_from_pivot": -8.4,
+     "base_count": 3,
+     "depth_pct": 14.3,
+     "weeks": 4.8
+    },
+    "trade_plan": null,
+    "delta": {
+     "score_change": 0,
+     "gate_flips": [],
+     "bucket_change": "",
+     "alerts": []
+    },
+    "violations": {
+     "count": 0,
+     "items": [],
+     "recommendation": ""
+    },
+    "verdict": {
+     "summary": "MCX (72/100) \u2014 Watchlist A / AVOID. Fundamentally this is a near-elite earnings story: 56% ROE, 71% ROCE, triple-digit 3-yr EPS CAGR, 2.24x OCF/PAT, near-zero debt, and an 81% advance off the 52-week low with RS 91. But the stock is the textbook 'right company, wrong moment': it is trading below a rising 50 DMA (Trend Template criterion 5 FAIL), so Gate 1 terminates the setup and the action bucket is AVOID regardless of score. Base structure is also late-stage (3rd base since Stage 2) and not yet a clean VCP \u2014 contractions of 9.5%, 4.6%, 12.6% are not successively shallower, so G4 and G1 are 0. With pivot at 3481.4 and price 8.4% below it, this is a name to track, not to buy. Re-qualifies once price reclaims and holds above the ~3247 50 DMA and a proper final contraction forms.",
+     "strengths": [
+      "RS percentile 91 (top decile of universe)",
+      "Latest-quarter EPS YoY +28.6% on a high base; 3-yr EPS CAGR ~165%",
+      "ROE 56.3% / ROCE 71.4% with D/E ~0.00 and FCF positive 3 of 3 years",
+      "OCF/PAT 3-yr cumulative 2.24x \u2014 earnings backed by cash",
+      "Price 81.4% above 52-week low and only 8.4% below 52-week high",
+      "200 DMA rising 13 months, 50 > 150 > 200 DMA stack intact",
+      "Volume dry-up in final contraction (\u221230.2% vs 50d avg)"
+     ],
+     "weaknesses": [
+      "Trend Template FAILS criterion 5: price 3188.8 below 50 DMA 3246.65 (~1.8% below)",
+      "Late-stage base: 3rd base since Stage 2 began (G2 = 2/4; red-flag threshold for 4th+)",
+      "Contractions not successively shallower (9.5% \u2192 4.6% \u2192 12.6%) \u2014 no valid VCP, final contraction 12.6% > 10% (G4 = 0)",
+      "Weekly close tightness 5.28% \u2014 no tight closes (G6 = 0)",
+      "D2 interest coverage unverified \u2192 0 pts; E2/E3/E4 sponsorship sub-items 0/unverified",
+      "6 fields unverified and scored 0, so 72 is a floor, not a ceiling",
+      "P/E 52.7 is a full multiple \u2014 context only, not a scoring input, but it means no valuation cushion if growth decelerates"
+     ],
+     "catalysts": [
+      "RS 91 and 81% off 52-week low indicate the market has already re-rated the earnings inflection \u2014 but no fresh, dateable new catalyst is verifiable from the supplied payload or a citable source"
+     ],
+     "biggest_risk": "Timing risk: buying a fundamentally strong, extended-after-a-huge-run name while it is below its 50 DMA in a late-stage base \u2014 historically the highest-probability way to turn a great stock into a losing trade. No new, citable catalyst exists to justify chasing ahead of a proper base/VCP completion.",
+     "conviction_0_10": 3
+    },
+    "data_quality": {
+     "unverified_fields": [
+      "interest_coverage",
+      "marquee_institution",
+      "mf_scheme_count",
+      "new_catalyst",
+      "promoter_holding_trend"
+     ],
+     "proxy_fields": [
+      "group_leadership_rank",
+      "industry_group_rs"
+     ],
+     "unverified_reasons": {},
+     "sources": [
+      {
+       "field": "technicals",
+       "source": "Yahoo Finance OHLCV",
+       "as_of": "2026-10-30"
+      },
+      {
+       "field": "fundamentals",
+       "source": "screener.in",
+       "as_of": "2026-10-30"
+      }
+     ]
+    },
+    "technicals": {
+     "price": 3188.8,
+     "rs_percentile": 91,
+     "pct_below_52w_high": 8.4,
+     "pct_above_52w_low": 81.4,
+     "dma_50": 3246.65,
+     "dma_200": 2840.44,
+     "up_down_volume_ratio_50d": 1.26,
+     "industry_sector": "Financial Services",
+     "industry_group_rs_quartile": 3,
+     "group_leadership_rank": 3,
+     "group_leadership_of": 100,
+     "rsi": 49.1,
+     "roce": 71.4,
+     "fcf_latest_cr": 2962.0,
+     "fcf_source": "reported"
+    },
+    "status": "SCORED_NO_TREND"
+   }
+  },
+  {
+   "ticker": "LUMAXTECH",
+   "name": "Lumax Auto Tech.",
+   "joined_date": "2026-11-01",
+   "last_updated": "2026-11-01",
+   "scorecard": {
+    "ticker": "LUMAXTECH",
+    "name": "Lumax Auto Tech.",
+    "as_of": "2026-10-30",
+    "mode": "FULL",
+    "gates": {
+     "trend_template": {
+      "c1": true,
+      "c2": true,
+      "c3": true,
+      "c4": true,
+      "c5": true,
+      "c6": true,
+      "c7": true,
+      "c8": true,
+      "pass": true,
+      "near_miss_notes": ""
+     },
+     "investability": {
+      "liquidity": true,
+      "pledge": true,
+      "governance_flag": false,
+      "governance_note": "No auditor resignation, SEBI action, fraud investigation, or major governance event in the last 12 months is verifiable from the supplied data; promoter holding stable at 55.98% for 4 quarters and promoter pledge 0%.",
+      "governance": true,
+      "pass": true
+     }
+    },
+    "llm_checks": {
+     "h3_catalyst_found": false,
+     "h3_citation": "",
+     "governance_flag": false,
+     "governance_note": "No auditor resignation, SEBI action, fraud investigation, or major governance event in the last 12 months is verifiable from the supplied data; promoter holding stable at 55.98% for 4 quarters and promoter pledge 0%.",
+     "checked_date": "2026-11-01"
+    },
+    "scores": {
+     "earnings": {
+      "A1": 6,
+      "A2": 1,
+      "A3": 4,
+      "A4": 4,
+      "A5": 4,
+      "subtotal": 19
+     },
+     "revenue": {
+      "B1": 6,
+      "B2": 2,
+      "B3": 3,
+      "B4": 2,
+      "subtotal": 13
+     },
+     "profitability": {
+      "C1": 3,
+      "C2": 3,
+      "C3": 2,
+      "C4": 2,
+      "subtotal": 10
+     },
+     "balance_sheet": {
+      "D1": 1,
+      "D2": 1,
+      "D3": 1,
+      "D4": 1,
+      "subtotal": 4
+     },
+     "sponsorship": {
+      "E1": 2,
+      "E2": 0,
+      "E3": 0,
+      "E4": 1,
+      "subtotal": 3
+     },
+     "rs_trend": {
+      "F1": 7,
+      "F2": 2,
+      "F3": 0,
+      "F4": 2,
+      "subtotal": 11
+     },
+     "base_structure": {
+      "G1": 3,
+      "G2": 4,
+      "G3": 3,
+      "G4": 0,
+      "G5": 0,
+      "G6": 0,
+      "subtotal": 10
+     },
+     "leadership": {
+      "H1": 0,
+      "H2": 0,
+      "H3": 0,
+      "subtotal": 0
+     },
+     "total": 70
+    },
+    "quality_band": "Watchlist A",
+    "action_bucket": "WATCH",
+    "setup_flag": null,
+    "red_flags": [],
+    "risk_level": "LOW",
+    "valuation_context": {
+     "pe": 37.2,
+     "peg": null,
+     "vs_own_5yr": "",
+     "note": "Valuation is context only, never a criterion."
+    },
+    "base": {
+     "pattern_label": "",
+     "pivot": 2190.0,
+     "pct_from_pivot": -7.64,
+     "base_count": 1,
+     "depth_pct": 21.6,
+     "weeks": 5.2
+    },
+    "trade_plan": null,
+    "delta": {
+     "score_change": 0,
+     "gate_flips": [],
+     "bucket_change": "",
+     "alerts": []
+    },
+    "violations": {
+     "count": 0,
+     "items": [],
+     "recommendation": ""
+    },
+    "verdict": {
+     "summary": "LUMAXTECH (70/100) passes both hard gates but sits in Watchlist A / WATCH: a Stage-2 leader with elite relative strength (RS 93), strong EPS/ revenue growth and clean balance sheet, yet the base structure is incomplete (5.2 weeks, 21.6% deep, -7.64% below a 2190 pivot) and D3/leadership/sponsorship data are thin. Not actionable until the base tightens and price approaches the pivot.",
+     "strengths": [
+      "RS percentile 93 and up/down volume ratio 1.24 \u2014 clear market leadership",
+      "Latest-quarter EPS YoY +83.9% with 3 of 4 recent quarters accelerating in EPS (A1=6)",
+      "Revenue growth robust (latest +40.3% YoY) and supported by margin expansion (C1 ROE 26.4%, C2 +77 bps)",
+      "Balance sheet/liquidity healthy: D/E 0.81, interest cover 7.3x, zero promoter pledge, zero dilution, FCF positive all 3 years",
+      "Trend Template and investability gates both PASS cleanly"
+     ],
+     "weaknesses": [
+      "Base incomplete: only 5.2 weeks, 21.6% deep; price 7.64% below 2190 pivot",
+      "Base structure scores weak (G4=0, G5=0, G6=0) \u2014 no confirmed VCP, no volume dry-up, weekly closes not tight",
+      "Leadership dimension scores 0/5 \u2014 industry-group RS and group rank unverified",
+      "Sponsorship thin (E2/E3=0; 0 unverified fields never filled)",
+      "A2 EPS acceleration only 1 point; F3=0 (50 DMA not rising)"
+     ],
+     "catalysts": [],
+     "biggest_risk": "Setup failure: an unconfirmed, relatively shallow VCP with no volume dry-up in a base only 5 weeks old \u2014 premature entry risks a failed breakout; and industry/leadership context is unverified.",
+     "conviction_0_10": 5
+    },
+    "data_quality": {
+     "unverified_fields": [
+      "group_leadership_rank",
+      "industry_group_rs",
+      "marquee_institution",
+      "mf_scheme_count",
+      "new_catalyst"
+     ],
+     "proxy_fields": [],
+     "unverified_reasons": {},
+     "sources": [
+      {
+       "field": "technicals",
+       "source": "Yahoo Finance OHLCV",
+       "as_of": "2026-10-30"
+      },
+      {
+       "field": "fundamentals",
+       "source": "screener.in",
+       "as_of": "2026-10-30"
+      }
+     ]
+    },
+    "technicals": {
+     "price": 2022.7,
+     "rs_percentile": 93,
+     "pct_below_52w_high": 7.6,
+     "pct_above_52w_low": 81.2,
+     "dma_50": 1961.77,
+     "dma_200": 1694.72,
+     "up_down_volume_ratio_50d": 1.24,
+     "industry_sector": null,
+     "industry_group_rs_quartile": null,
+     "group_leadership_rank": null,
+     "group_leadership_of": null,
+     "rsi": 57.6,
+     "roce": 21.2,
+     "fcf_latest_cr": 214.0,
+     "fcf_source": "reported"
+    },
+    "status": "SCORED"
+   }
+  },
   {
    "ticker": "PTCIL",
    "name": "PTC Industries",
    "joined_date": "2026-07-19",
-   "last_updated": "2026-10-24",
+   "last_updated": "2026-11-01",
    "scorecard": {
     "ticker": "PTCIL",
     "name": "PTC Industries",
-    "as_of": "2026-10-23",
+    "as_of": "2026-10-30",
     "mode": "WEEKLY",
     "gates": {
      "trend_template": {
@@ -110,7 +507,7 @@
     ],
     "risk_level": "MEDIUM",
     "valuation_context": {
-     "pe": 296.0,
+     "pe": 302.0,
      "peg": null,
      "vs_own_5yr": "",
      "note": "Valuation is context only, never a criterion."
@@ -118,14 +515,14 @@
     "base": {
      "pattern_label": "",
      "pivot": 26085.0,
-     "pct_from_pivot": -10.08,
+     "pct_from_pivot": -8.2,
      "base_count": 2,
-     "depth_pct": 10.8,
-     "weeks": 1.6
+     "depth_pct": 11.5,
+     "weeks": 2.6
     },
     "trade_plan": null,
     "delta": {
-     "score_change": -1,
+     "score_change": 0,
      "gate_flips": [],
      "bucket_change": "",
      "alerts": []
@@ -138,7 +535,7 @@
     "verdict": {
      "summary": "PTCIL (67/100) \u2014 Watchlist B / WATCH.",
      "strengths": [
-      "RS percentile 95",
+      "RS percentile 92",
       "Latest EPS YoY >=50%"
      ],
      "weaknesses": [
@@ -163,30 +560,635 @@
       {
        "field": "technicals",
        "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-10-23"
+       "as_of": "2026-10-30"
       },
       {
        "field": "fundamentals",
        "source": "screener.in",
-       "as_of": "2026-10-23"
+       "as_of": "2026-10-30"
       }
      ]
     },
     "technicals": {
-     "price": 23455.0,
-     "rs_percentile": 95,
-     "pct_below_52w_high": 10.1,
-     "pct_above_52w_low": 61.8,
-     "dma_50": 22563.44,
-     "dma_200": 18688.48,
-     "up_down_volume_ratio_50d": 1.99,
+     "price": 23945.0,
+     "rs_percentile": 92,
+     "pct_below_52w_high": 8.2,
+     "pct_above_52w_low": 65.1,
+     "dma_50": 23011.6,
+     "dma_200": 18833.29,
+     "up_down_volume_ratio_50d": 1.7,
      "industry_sector": "Capital Goods",
      "industry_group_rs_quartile": 1,
-     "group_leadership_rank": 5,
+     "group_leadership_rank": 6,
      "group_leadership_of": 62,
-     "rsi": 48.3,
+     "rsi": 51.4,
      "roce": 8.59,
      "fcf_latest_cr": -386.0,
+     "fcf_source": "reported"
+    },
+    "status": "SCORED"
+   }
+  },
+  {
+   "ticker": "ACUTAAS",
+   "name": "Acutaas Chemical",
+   "joined_date": "2026-11-01",
+   "last_updated": "2026-11-01",
+   "scorecard": {
+    "ticker": "ACUTAAS",
+    "name": "Acutaas Chemical",
+    "as_of": "2026-10-30",
+    "mode": "FULL",
+    "gates": {
+     "trend_template": {
+      "c1": true,
+      "c2": true,
+      "c3": true,
+      "c4": true,
+      "c5": true,
+      "c6": true,
+      "c7": true,
+      "c8": true,
+      "pass": true,
+      "near_miss_notes": ""
+     },
+     "investability": {
+      "liquidity": true,
+      "pledge": true,
+      "governance_flag": false,
+      "governance_note": "No red flag identified, but this is a negative finding from absence of evidence, not verification: the scorecard lists governance_events as an unverified field (scored 0). I cannot cite a concrete, dateable source (exchange filing, SEBI order, auditor resignation disclosure) confirming clean governance for Acutaas Chemical in the 12 months to 2026-10-30, so governance remains unverified rather than affirmatively cleared. Promoter pledge is 0.0% and promoter holding flat at 32.66% across 4 quarters per the supplied payload \u2014 supporting evidence, not a governance clearance.",
+      "governance": true,
+      "pass": true
+     }
+    },
+    "llm_checks": {
+     "h3_catalyst_found": false,
+     "h3_citation": "",
+     "governance_flag": false,
+     "governance_note": "No red flag identified, but this is a negative finding from absence of evidence, not verification: the scorecard lists governance_events as an unverified field (scored 0). I cannot cite a concrete, dateable source (exchange filing, SEBI order, auditor resignation disclosure) confirming clean governance for Acutaas Chemical in the 12 months to 2026-10-30, so governance remains unverified rather than affirmatively cleared. Promoter pledge is 0.0% and promoter holding flat at 32.66% across 4 quarters per the supplied payload \u2014 supporting evidence, not a governance clearance.",
+     "checked_date": "2026-11-01"
+    },
+    "scores": {
+     "earnings": {
+      "A1": 6,
+      "A2": 1,
+      "A3": 2,
+      "A4": 4,
+      "A5": 4,
+      "subtotal": 17
+     },
+     "revenue": {
+      "B1": 6,
+      "B2": 0,
+      "B3": 3,
+      "B4": 2,
+      "subtotal": 11
+     },
+     "profitability": {
+      "C1": 3,
+      "C2": 3,
+      "C3": 2,
+      "C4": 0,
+      "subtotal": 8
+     },
+     "balance_sheet": {
+      "D1": 2,
+      "D2": 1,
+      "D3": 1,
+      "D4": 1,
+      "subtotal": 5
+     },
+     "sponsorship": {
+      "E1": 2,
+      "E2": 0,
+      "E3": 0,
+      "E4": 1,
+      "subtotal": 3
+     },
+     "rs_trend": {
+      "F1": 7,
+      "F2": 4,
+      "F3": 2,
+      "F4": 2,
+      "subtotal": 15
+     },
+     "base_structure": {
+      "G1": 3,
+      "G2": 0,
+      "G3": 0,
+      "G4": 0,
+      "G5": 0,
+      "G6": 0,
+      "subtotal": 3
+     },
+     "leadership": {
+      "H1": 2,
+      "H2": 2,
+      "H3": 0,
+      "subtotal": 4
+     },
+     "total": 66
+    },
+    "quality_band": "Watchlist B",
+    "action_bucket": "WATCH",
+    "setup_flag": null,
+    "red_flags": [
+     "LATE_STAGE_BASE"
+    ],
+    "risk_level": "LOW",
+    "valuation_context": {
+     "pe": 74.6,
+     "peg": null,
+     "vs_own_5yr": "",
+     "note": "Valuation is context only, never a criterion."
+    },
+    "base": {
+     "pattern_label": "",
+     "pivot": 4032.2,
+     "pct_from_pivot": -0.71,
+     "base_count": 6,
+     "depth_pct": 8.9,
+     "weeks": 0.4
+    },
+    "trade_plan": null,
+    "delta": {
+     "score_change": 0,
+     "gate_flips": [],
+     "bucket_change": "",
+     "alerts": []
+    },
+    "violations": {
+     "count": 0,
+     "items": [],
+     "recommendation": ""
+    },
+    "verdict": {
+     "summary": "ACUTAAS (66/100) \u2014 Watchlist B / WATCH. Both hard gates pass and the earnings/RS profile is genuinely elite (RS 97th percentile, latest EPS +140% YoY, ROE 24%, ROCE 31.6%, near-zero debt, zero pledge), but the price structure is the disqualifier: 6th base since Stage 2 began with only 0.4 weeks in base, base depth 8.9%, and an empty contraction series \u2014 there is no VCP and no valid pivot structure (G subtotal 3/20). Price sits 0.7% below the 52-week high at \u20b94,003.6 vs pivot \u20b94,032.2, so it is actionable-adjacent, not actionable. Score 66 sits below the 80 threshold for any trade plan, so no trade plan is issued. Unverified fields (governance events, marquee institution, MF scheme count, new catalyst) each scored 0, so 66 is a floor, not a ceiling.",
+     "strengths": [
+      "Relative strength: RS percentile 97, top-quartile industry group (quartile 1), rank 2 of 48 in group \u2014 true leadership profile",
+      "Earnings power: latest-quarter EPS YoY +140%, 3-yr EPS CAGR 109.9%, 3-yr sales CAGR 30.5%, positive EPS all 8 quarters, other income never >30% of PBT in latest quarter",
+      "Quality of returns: ROE 24%, ROCE 31.6%, D/E 0.008, interest coverage 155.75x, share count flat over 2 years (0% dilution)",
+      "Cash-backed earnings: 3-yr cumulative OCF/PAT 0.95",
+      "Sponsorship: MF+FII holding up 4 straight quarters (38.37% \u2192 42.01%), promoter holding flat at 32.66%, zero pledge",
+      "Trend Template 8/8 \u2014 all DMAs stacked correctly, 200 DMA rising 13 months, price 155% above 52-week low, 0.7% below 52-week high",
+      "Liquidity ample: ~\u20b9103.6 crore median daily traded value"
+     ],
+     "weaknesses": [
+      "Base structure fails decisively (G: 3/20): 6th base since Stage 2, 0.4 weeks old, no contraction sequence, no volume dry-up, no weekly tightness \u2014 red flag LATE_STAGE_BASE",
+      "FCF negative in latest year (\u20b9-36 crore) and 0 of 3 years positive (C4 = 0), despite strong OCF/PAT \u2014 capex-heavy growth phase",
+      "EPS growth decelerating in the trend (73% \u2192 68% \u2192 111% \u2192 140% YoY is choppy; A2 only 1/5) and revenue growth not accelerating (B2 = 0)",
+      "Latest annual EPS growth only 23.3% (A3 = 2/4) versus the much stronger quarterly prints \u2014 annual base is smaller than the run-rate implies",
+      "Sponsorship depth thin on verified data: MF scheme count and marquee institution unverified (E2, E3 = 0), so 3/5 is a floor",
+      "Four rubric items scored 0 purely from unverified data (governance events, marquee institution, MF scheme count, new catalyst) \u2014 score understates if these resolve favorably",
+      "Valuation context: P/E 74.6 with negative FCF \u2014 context only under Minervini rules, not a scoring penalty, but it removes any margin-of-safety cushion if growth stalls"
+     ],
+     "catalysts": [],
+     "biggest_risk": "LATE_STAGE_BASE \u2014 6th base since Stage 2 with no contraction structure. Buying a 6th-stage base at 0.7% below the 52-week high after a 155% advance from the low is exactly the late-stage failure pattern Minervini warns against; a failed breakout here has no prior base to lean on.",
+     "conviction_0_10": 4
+    },
+    "data_quality": {
+     "unverified_fields": [
+      "marquee_institution",
+      "mf_scheme_count",
+      "new_catalyst"
+     ],
+     "proxy_fields": [
+      "group_leadership_rank",
+      "industry_group_rs"
+     ],
+     "unverified_reasons": {},
+     "sources": [
+      {
+       "field": "technicals",
+       "source": "Yahoo Finance OHLCV",
+       "as_of": "2026-10-30"
+      },
+      {
+       "field": "fundamentals",
+       "source": "screener.in",
+       "as_of": "2026-10-30"
+      }
+     ]
+    },
+    "technicals": {
+     "price": 4003.6,
+     "rs_percentile": 97,
+     "pct_below_52w_high": 0.7,
+     "pct_above_52w_low": 155.2,
+     "dma_50": 3281.95,
+     "dma_200": 2816.55,
+     "up_down_volume_ratio_50d": 2.04,
+     "industry_sector": "Healthcare",
+     "industry_group_rs_quartile": 1,
+     "group_leadership_rank": 2,
+     "group_leadership_of": 48,
+     "rsi": 72.8,
+     "roce": 31.6,
+     "fcf_latest_cr": -36.0,
+     "fcf_source": "reported"
+    },
+    "status": "SCORED"
+   }
+  },
+  {
+   "ticker": "SYRMA",
+   "name": "Syrma SGS Tech.",
+   "joined_date": "2026-11-01",
+   "last_updated": "2026-11-01",
+   "scorecard": {
+    "ticker": "SYRMA",
+    "name": "Syrma SGS Tech.",
+    "as_of": "2026-10-30",
+    "mode": "FULL",
+    "gates": {
+     "trend_template": {
+      "c1": true,
+      "c2": true,
+      "c3": true,
+      "c4": true,
+      "c5": true,
+      "c6": true,
+      "c7": true,
+      "c8": true,
+      "pass": true,
+      "near_miss_notes": ""
+     },
+     "investability": {
+      "liquidity": true,
+      "pledge": true,
+      "governance_flag": false,
+      "governance_note": "No SEBI action, auditor resignation, fraud investigation, or major governance event attributable to Syrma SGS Technology Ltd. in the trailing 12 months can be cited from a concrete, dateable source in this run; governance_events remains unverified. Note separately that the app flagged OTHER_INCOME_DRIVEN (other income >30% of PBT in the earliest of the 8 quarters shown) \u2014 an accounting-quality concern, not a governance event, and it has normalised to ~6% of PBT in the latest quarter.",
+      "governance": true,
+      "pass": true
+     }
+    },
+    "llm_checks": {
+     "h3_catalyst_found": false,
+     "h3_citation": "",
+     "governance_flag": false,
+     "governance_note": "No SEBI action, auditor resignation, fraud investigation, or major governance event attributable to Syrma SGS Technology Ltd. in the trailing 12 months can be cited from a concrete, dateable source in this run; governance_events remains unverified. Note separately that the app flagged OTHER_INCOME_DRIVEN (other income >30% of PBT in the earliest of the 8 quarters shown) \u2014 an accounting-quality concern, not a governance event, and it has normalised to ~6% of PBT in the latest quarter.",
+     "checked_date": "2026-11-01"
+    },
+    "scores": {
+     "earnings": {
+      "A1": 6,
+      "A2": 1,
+      "A3": 4,
+      "A4": 4,
+      "A5": 2,
+      "subtotal": 17
+     },
+     "revenue": {
+      "B1": 6,
+      "B2": 4,
+      "B3": 3,
+      "B4": 2,
+      "subtotal": 15
+     },
+     "profitability": {
+      "C1": 1,
+      "C2": 1,
+      "C3": 0,
+      "C4": 2,
+      "subtotal": 4
+     },
+     "balance_sheet": {
+      "D1": 2,
+      "D2": 1,
+      "D3": 0,
+      "D4": 1,
+      "subtotal": 4
+     },
+     "sponsorship": {
+      "E1": 2,
+      "E2": 0,
+      "E3": 0,
+      "E4": 0,
+      "subtotal": 2
+     },
+     "rs_trend": {
+      "F1": 7,
+      "F2": 2,
+      "F3": 2,
+      "F4": 2,
+      "subtotal": 13
+     },
+     "base_structure": {
+      "G1": 3,
+      "G2": 0,
+      "G3": 3,
+      "G4": 0,
+      "G5": 1,
+      "G6": 0,
+      "subtotal": 7
+     },
+     "leadership": {
+      "H1": 2,
+      "H2": 2,
+      "H3": 0,
+      "subtotal": 4
+     },
+     "total": 66
+    },
+    "quality_band": "Watchlist B",
+    "action_bucket": "WATCH",
+    "setup_flag": null,
+    "red_flags": [
+     "LATE_STAGE_BASE",
+     "OTHER_INCOME_DRIVEN"
+    ],
+    "risk_level": "MEDIUM",
+    "valuation_context": {
+     "pe": 73.8,
+     "peg": null,
+     "vs_own_5yr": "",
+     "note": "Valuation is context only, never a criterion."
+    },
+    "base": {
+     "pattern_label": "",
+     "pivot": 1822.6,
+     "pct_from_pivot": -10.83,
+     "base_count": 4,
+     "depth_pct": 23.2,
+     "weeks": 4.0
+    },
+    "trade_plan": null,
+    "delta": {
+     "score_change": 0,
+     "gate_flips": [],
+     "bucket_change": "",
+     "alerts": []
+    },
+    "violations": {
+     "count": 0,
+     "items": [],
+     "recommendation": ""
+    },
+    "verdict": {
+     "summary": "SYRMA (66/100) \u2014 Watchlist B / WATCH. A confirmed Stage 2 trend with elite relative strength (RS 96, top-quartile Capital Goods group, #3 of 62) and genuinely impressive top-line/EPS growth, but the stock is on its 4th base since Stage 2 began (LATE_STAGE_BASE), sits 10.8% below a 4-week, 23.2%-deep pivot (1822.6) with a 5th, deeper 18.3% contraction wrecking the VCP shape, is 6% below its 50 DMA when most names are above theirs, and earns only 4/10 on profitability quality (cash conversion 0.55, no MF-scheme increase, flat/mixed sponsorship) with OTHER_INCOME_DRIVEN flagged. Fundamentals are good, not great enough to carry a late-stage, structurally broken base. Not actionable now; the setup needs a fresh, tighter base \u2014 preferably a 1st/2nd-stage one \u2014 before it can be bought.",
+     "strengths": [
+      "Relative strength percentile 96 \u2014 top decile of the universe (F1 7/7)",
+      "Revenue growth: 45%+ latest quarter YoY, 26% 3-yr sales CAGR, sales accelerating 3 straight quarters (B 15/15)",
+      "EPS: 94.5% latest quarter YoY, 32.6% latest annual growth, 53.5% 3-yr EPS CAGR (A 17/25)",
+      "Trend Template fully clean: price above rising 50/150/200 DMA, 200 DMA rising 13 months, 156% above 52-wk low",
+      "Up/down volume ratio 2.28 (accumulation present); industry group RS in top quartile; #3 of 62 by group leadership",
+      "Low leverage (D/E 0.27, interest coverage 14x) and zero promoter pledge"
+     ],
+     "weaknesses": [
+      "LATE_STAGE_BASE \u2014 4th base since Stage 2 began (G2 = 0/4); Minervini late-stage bases have materially higher failure rates",
+      "Base structure is broken as a VCP: a 18.3% final contraction vs 5.0-7.1% prior contractions \u2014 wider, not tighter (G4 = 0/4)",
+      "Price 10.8% below the pivot (1822.6) and 6% below the 50 DMA while the trend is intact \u2014 distribution or a deep shakeout in progress",
+      "Weekly close tightness 11.83% \u2014 no constructive tightness yet (G6 = 0/2)",
+      "Profitability quality weak: ROE 14% (C1 1/3), net margin roughly flat (+47 bps, C2 1/3), 3-yr OCF/PAT 0.55 (C3 0/2, POOR_CASH_CONVERSION territory)",
+      "Sponsorship thin: MF+FII only rising last quarter (1/2), no MF-scheme count increase, no verified marquee institution, promoter holding drifting DOWN over 4 quarters (E = 2/5)",
+      "Dilution: share count up 8.4% over 2 yrs (D3 = 0/1)",
+      "Four fields (governance_events, marquee_institution, mf_scheme_count, new_catalyst) unverified and scored 0 \u2014 score likely understated by ~2-4 points, but not near the 80 threshold",
+      "Valuation context only (P/E 73.8, PEG unverifiable) \u2014 not a Minervini criterion, but it does remove valuation as a cushion if growth decelerates"
+     ],
+     "catalysts": [],
+     "biggest_risk": "LATE_STAGE_BASE + broken VCP: a 4th-stage base is statistically the highest failure-rate base, and the widening final contraction (18.3% vs prior 5-7%) with price already 10.8% below the pivot and 6% below the 50 DMA means an attempted breakout from here has no clean pattern to validate \u2014 the most likely outcome is continued chop or a failed breakout, not a Superperformance leg.",
+     "conviction_0_10": 3
+    },
+    "data_quality": {
+     "unverified_fields": [
+      "marquee_institution",
+      "mf_scheme_count",
+      "new_catalyst"
+     ],
+     "proxy_fields": [
+      "group_leadership_rank",
+      "industry_group_rs"
+     ],
+     "unverified_reasons": {},
+     "sources": [
+      {
+       "field": "technicals",
+       "source": "Yahoo Finance OHLCV",
+       "as_of": "2026-10-30"
+      },
+      {
+       "field": "fundamentals",
+       "source": "screener.in",
+       "as_of": "2026-10-30"
+      }
+     ]
+    },
+    "technicals": {
+     "price": 1625.3,
+     "rs_percentile": 96,
+     "pct_below_52w_high": 10.8,
+     "pct_above_52w_low": 156.4,
+     "dma_50": 1594.65,
+     "dma_200": 1182.71,
+     "up_down_volume_ratio_50d": 2.28,
+     "industry_sector": "Capital Goods",
+     "industry_group_rs_quartile": 1,
+     "group_leadership_rank": 3,
+     "group_leadership_of": 62,
+     "rsi": 51.8,
+     "roce": 16.8,
+     "fcf_latest_cr": 114.0,
+     "fcf_source": "reported"
+    },
+    "status": "SCORED"
+   }
+  },
+  {
+   "ticker": "LENSKART",
+   "name": "Lenskart Solut.",
+   "joined_date": "2026-11-01",
+   "last_updated": "2026-11-01",
+   "scorecard": {
+    "ticker": "LENSKART",
+    "name": "Lenskart Solut.",
+    "as_of": "2026-10-30",
+    "mode": "FULL",
+    "gates": {
+     "trend_template": {
+      "c1": true,
+      "c2": true,
+      "c3": true,
+      "c4": true,
+      "c5": true,
+      "c6": true,
+      "c7": true,
+      "c8": true,
+      "pass": true,
+      "near_miss_notes": ""
+     },
+     "investability": {
+      "liquidity": true,
+      "pledge": true,
+      "governance_flag": false,
+      "governance_note": "No auditor resignation, SEBI action, fraud investigation, or major governance event within the last 12 months can be identified from a cited, dateable source in the supplied data or from my own knowledge as of this run; the payload's governance_events field is unverified (scored 0) and the investability gate records no flag. Absence of a citable event is not a positive attestation of clean governance.",
+      "governance": true,
+      "pass": true
+     }
+    },
+    "llm_checks": {
+     "h3_catalyst_found": false,
+     "h3_citation": "",
+     "governance_flag": false,
+     "governance_note": "No auditor resignation, SEBI action, fraud investigation, or major governance event within the last 12 months can be identified from a cited, dateable source in the supplied data or from my own knowledge as of this run; the payload's governance_events field is unverified (scored 0) and the investability gate records no flag. Absence of a citable event is not a positive attestation of clean governance.",
+     "checked_date": "2026-11-01"
+    },
+    "scores": {
+     "earnings": {
+      "A1": 6,
+      "A2": 3,
+      "A3": 4,
+      "A4": 0,
+      "A5": 2,
+      "subtotal": 15
+     },
+     "revenue": {
+      "B1": 6,
+      "B2": 2,
+      "B3": 3,
+      "B4": 2,
+      "subtotal": 13
+     },
+     "profitability": {
+      "C1": 0,
+      "C2": 3,
+      "C3": 2,
+      "C4": 2,
+      "subtotal": 7
+     },
+     "balance_sheet": {
+      "D1": 2,
+      "D2": 1,
+      "D3": 0,
+      "D4": 1,
+      "subtotal": 4
+     },
+     "sponsorship": {
+      "E1": 2,
+      "E2": 0,
+      "E3": 0,
+      "E4": 1,
+      "subtotal": 3
+     },
+     "rs_trend": {
+      "F1": 7,
+      "F2": 2,
+      "F3": 2,
+      "F4": 2,
+      "subtotal": 13
+     },
+     "base_structure": {
+      "G1": 3,
+      "G2": 0,
+      "G3": 3,
+      "G4": 0,
+      "G5": 3,
+      "G6": 0,
+      "subtotal": 9
+     },
+     "leadership": {
+      "H1": 0,
+      "H2": 2,
+      "H3": 0,
+      "subtotal": 2
+     },
+     "total": 66
+    },
+    "quality_band": "Watchlist B",
+    "action_bucket": "WATCH",
+    "setup_flag": null,
+    "red_flags": [
+     "OTHER_INCOME_DRIVEN"
+    ],
+    "risk_level": "MEDIUM",
+    "valuation_context": {
+     "pe": 179.0,
+     "peg": null,
+     "vs_own_5yr": "",
+     "note": "Valuation is context only, never a criterion."
+    },
+    "base": {
+     "pattern_label": "",
+     "pivot": 725.0,
+     "pct_from_pivot": -6.46,
+     "base_count": null,
+     "depth_pct": 15.1,
+     "weeks": 5.8
+    },
+    "trade_plan": null,
+    "delta": {
+     "score_change": 0,
+     "gate_flips": [],
+     "bucket_change": "",
+     "alerts": []
+    },
+    "violations": {
+     "count": 0,
+     "items": [],
+     "recommendation": ""
+    },
+    "verdict": {
+     "summary": "LENSKART (66/100) \u2014 Watchlist B / WATCH. Passes both hard gates (full 8/8 Trend Template, investability clean) and shows genuine top-decile relative strength (RS 92, price 6.5% below 52w high, 90.5% above 52w low, up/down volume 1.57), but the base is still forming 6.46% below a 725 pivot with a null base count, tightness and VCP items scoring zero, and the fundamental quality is mixed: strong revenue (43%/46%/38%/21% YoY) and an improving margin trajectory offset by a spotty EPS record (one quarter at -59.5% YoY), ROE of only 6.33%, ROCE 8.08%, heavy dilution (share count +2213% over 2 years), and an OTHER_INCOME_DRIVEN red flag. This is a momentum/RS story awaiting a proper base and a volume-confirmed breakout, not a Minervini-grade earnings superperformer yet. Valuation (P/E 179) is explicitly not a scoring input.",
+     "strengths": [
+      "RS percentile 92 with price only 6.5% below 52w high and 90.5% above 52w low \u2014 top-decile relative strength",
+      "All 8 Trend Template criteria pass; both hard gates pass",
+      "Revenue growth strong and broad-based: +43.3%, +45.6%, +38.3%, +20.7% YoY",
+      "Operating margin expansion 16%\u219222% over the quarterly series; net margin up 518 bps YoY",
+      "Up/down volume ratio 1.57 and final contraction volume -60.7% vs 50d avg \u2014 healthy accumulation and dry-up",
+      "FCF positive in 3 of 3 years; D/E 0.35; interest coverage 10.5x; zero promoter pledge; OCF/PAT 3y at 4.30"
+     ],
+     "weaknesses": [
+      "EPS record inconsistent: -59.5% YoY in one of the last four quarters; 3-yr EPS CAGR unverified (A4=0)",
+      "ROE 6.33% and ROCE 8.08% \u2014 well below Minervini quality thresholds",
+      "Share count grew 2213% over 2 years \u2014 severe dilution (D3=0)",
+      "Base unconfirmed: base_count null, G2/G4/G6 all zero, pivot 725 still 6.46% away",
+      "OTHER_INCOME_DRIVEN red flag \u2014 other income exceeded 30% of PBT in multiple recent quarters",
+      "6 fields unverified and scored 0 (base_count, eps_cagr_3y, governance_events, marquee_institution, mf_scheme_count, new_catalyst)"
+     ],
+     "catalysts": [],
+     "biggest_risk": "OTHER_INCOME_DRIVEN \u2014 earnings quality is partly supported by non-operating income rather than core operations, compounded by an unproven base structure and a stock still 6.5% below its pivot.",
+     "conviction_0_10": 4
+    },
+    "data_quality": {
+     "unverified_fields": [
+      "base_count",
+      "eps_cagr_3y",
+      "marquee_institution",
+      "mf_scheme_count",
+      "new_catalyst"
+     ],
+     "proxy_fields": [
+      "group_leadership_rank",
+      "industry_group_rs"
+     ],
+     "unverified_reasons": {},
+     "sources": [
+      {
+       "field": "technicals",
+       "source": "Yahoo Finance OHLCV",
+       "as_of": "2026-10-30"
+      },
+      {
+       "field": "fundamentals",
+       "source": "screener.in",
+       "as_of": "2026-10-30"
+      }
+     ]
+    },
+    "technicals": {
+     "price": 678.2,
+     "rs_percentile": 92,
+     "pct_below_52w_high": 6.5,
+     "pct_above_52w_low": 90.5,
+     "dma_50": 668.35,
+     "dma_200": 550.32,
+     "up_down_volume_ratio_50d": 1.57,
+     "industry_sector": "Consumer Services",
+     "industry_group_rs_quartile": 2,
+     "group_leadership_rank": 2,
+     "group_leadership_of": 29,
+     "rsi": 55.5,
+     "roce": 8.08,
+     "fcf_latest_cr": 846.0,
      "fcf_source": "reported"
     },
     "status": "SCORED"
@@ -196,11 +1198,11 @@
    "ticker": "CUPID",
    "name": "Cupid",
    "joined_date": "2026-07-05",
-   "last_updated": "2026-10-24",
+   "last_updated": "2026-11-01",
    "scorecard": {
     "ticker": "CUPID",
     "name": "Cupid",
-    "as_of": "2026-10-23",
+    "as_of": "2026-10-30",
     "mode": "WEEKLY",
     "gates": {
      "trend_template": {
@@ -219,7 +1221,7 @@
       "liquidity": true,
       "pledge": true,
       "governance_flag": false,
-      "governance_note": "unverified",
+      "governance_note": "No dateable governance event verifiable from my own knowledge within the last 12 months; unverified rather than confirmed clean.",
       "governance": true,
       "pass": true
      }
@@ -228,8 +1230,8 @@
      "h3_catalyst_found": false,
      "h3_citation": "",
      "governance_flag": false,
-     "governance_note": "unverified",
-     "checked_date": "2026-09-26"
+     "governance_note": "No dateable governance event verifiable from my own knowledge within the last 12 months; unverified rather than confirmed clean.",
+     "checked_date": "2026-11-01"
     },
     "scores": {
      "earnings": {
@@ -270,10 +1272,10 @@
      },
      "rs_trend": {
       "F1": 7,
-      "F2": 1,
+      "F2": 2,
       "F3": 2,
       "F4": 2,
-      "subtotal": 12
+      "subtotal": 13
      },
      "base_structure": {
       "G1": 3,
@@ -290,7 +1292,7 @@
       "H3": 0,
       "subtotal": 0
      },
-     "total": 64
+     "total": 65
     },
     "quality_band": "Watchlist B",
     "action_bucket": "WATCH",
@@ -302,7 +1304,7 @@
     ],
     "risk_level": "MEDIUM",
     "valuation_context": {
-     "pe": 300.0,
+     "pe": 318.0,
      "peg": null,
      "vs_own_5yr": "",
      "note": "Valuation is context only, never a criterion."
@@ -310,14 +1312,14 @@
     "base": {
      "pattern_label": "",
      "pivot": 368.95,
-     "pct_from_pivot": -16.94,
+     "pct_from_pivot": -12.03,
      "base_count": 5,
      "depth_pct": 18.1,
-     "weeks": 1.8
+     "weeks": 2.8
     },
     "trade_plan": null,
     "delta": {
-     "score_change": -3,
+     "score_change": 1,
      "gate_flips": [],
      "bucket_change": "",
      "alerts": []
@@ -328,7 +1330,7 @@
      "recommendation": ""
     },
     "verdict": {
-     "summary": "CUPID (64/100) \u2014 Watchlist B / WATCH.",
+     "summary": "CUPID (65/100) \u2014 Watchlist B / WATCH.",
      "strengths": [
       "RS percentile 99",
       "Latest EPS YoY >=50%"
@@ -355,221 +1357,30 @@
       {
        "field": "technicals",
        "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-10-23"
+       "as_of": "2026-10-30"
       },
       {
        "field": "fundamentals",
        "source": "screener.in",
-       "as_of": "2026-10-23"
+       "as_of": "2026-10-30"
       }
      ]
     },
     "technicals": {
-     "price": 306.45,
+     "price": 324.55,
      "rs_percentile": 99,
-     "pct_below_52w_high": 16.9,
-     "pct_above_52w_low": 575.0,
-     "dma_50": 297.4,
-     "dma_200": 171.56,
-     "up_down_volume_ratio_50d": 1.58,
+     "pct_below_52w_high": 12.0,
+     "pct_above_52w_low": 614.9,
+     "dma_50": 300.6,
+     "dma_200": 177.31,
+     "up_down_volume_ratio_50d": 1.57,
      "industry_sector": null,
      "industry_group_rs_quartile": null,
      "group_leadership_rank": null,
      "group_leadership_of": null,
-     "rsi": 45.4,
+     "rsi": 53.4,
      "roce": 33.9,
      "fcf_latest_cr": 21.0,
-     "fcf_source": "reported"
-    },
-    "status": "SCORED"
-   }
-  },
-  {
-   "ticker": "SKYGOLD",
-   "name": "Sky Gold & Diam.",
-   "joined_date": "2026-07-05",
-   "last_updated": "2026-10-24",
-   "scorecard": {
-    "ticker": "SKYGOLD",
-    "name": "Sky Gold & Diam.",
-    "as_of": "2026-10-23",
-    "mode": "WEEKLY",
-    "gates": {
-     "trend_template": {
-      "c1": true,
-      "c2": true,
-      "c3": true,
-      "c4": true,
-      "c5": true,
-      "c6": true,
-      "c7": true,
-      "c8": true,
-      "pass": true,
-      "near_miss_notes": ""
-     },
-     "investability": {
-      "liquidity": true,
-      "pledge": true,
-      "governance_flag": false,
-      "governance_note": "",
-      "governance": true,
-      "pass": true
-     }
-    },
-    "llm_checks": {
-     "h3_catalyst_found": false,
-     "h3_citation": "",
-     "governance_flag": false,
-     "governance_note": "",
-     "checked_date": "2026-10-03"
-    },
-    "scores": {
-     "earnings": {
-      "A1": 8,
-      "A2": 5,
-      "A3": 2,
-      "A4": 4,
-      "A5": 2,
-      "subtotal": 21
-     },
-     "revenue": {
-      "B1": 6,
-      "B2": 0,
-      "B3": 3,
-      "B4": 2,
-      "subtotal": 11
-     },
-     "profitability": {
-      "C1": 3,
-      "C2": 3,
-      "C3": 0,
-      "C4": 0,
-      "subtotal": 6
-     },
-     "balance_sheet": {
-      "D1": 1,
-      "D2": 1,
-      "D3": 0,
-      "D4": 1,
-      "subtotal": 3
-     },
-     "sponsorship": {
-      "E1": 2,
-      "E2": 0,
-      "E3": 0,
-      "E4": 1,
-      "subtotal": 3
-     },
-     "rs_trend": {
-      "F1": 7,
-      "F2": 4,
-      "F3": 2,
-      "F4": 2,
-      "subtotal": 15
-     },
-     "base_structure": {
-      "G1": 3,
-      "G2": 2,
-      "G3": 0,
-      "G4": 0,
-      "G5": 0,
-      "G6": 0,
-      "subtotal": 5
-     },
-     "leadership": {
-      "H1": 0,
-      "H2": 0,
-      "H3": 0,
-      "subtotal": 0
-     },
-     "total": 64
-    },
-    "quality_band": "Watchlist B",
-    "action_bucket": "WATCH",
-    "setup_flag": null,
-    "red_flags": [
-     "OTHER_INCOME_DRIVEN",
-     "POOR_CASH_CONVERSION"
-    ],
-    "risk_level": "MEDIUM",
-    "valuation_context": {
-     "pe": 48.4,
-     "peg": null,
-     "vs_own_5yr": "",
-     "note": "Valuation is context only, never a criterion."
-    },
-    "base": {
-     "pattern_label": "",
-     "pivot": 1083.95,
-     "pct_from_pivot": -3.42,
-     "base_count": 3,
-     "depth_pct": 7.8,
-     "weeks": 0.6
-    },
-    "trade_plan": null,
-    "delta": {
-     "score_change": 0,
-     "gate_flips": [],
-     "bucket_change": "",
-     "alerts": []
-    },
-    "violations": {
-     "count": 0,
-     "items": [],
-     "recommendation": ""
-    },
-    "verdict": {
-     "summary": "SKYGOLD (64/100) \u2014 Watchlist B / WATCH.",
-     "strengths": [
-      "RS percentile 98",
-      "Latest EPS YoY >=50%"
-     ],
-     "weaknesses": [
-      "No valid base yet (5/20)",
-      "5 unverified fields scored 0"
-     ],
-     "catalysts": [],
-     "biggest_risk": "OTHER_INCOME_DRIVEN",
-     "conviction_0_10": 4
-    },
-    "data_quality": {
-     "unverified_fields": [
-      "group_leadership_rank",
-      "industry_group_rs",
-      "marquee_institution",
-      "mf_scheme_count",
-      "new_catalyst"
-     ],
-     "proxy_fields": [],
-     "unverified_reasons": {},
-     "sources": [
-      {
-       "field": "technicals",
-       "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-10-23"
-      },
-      {
-       "field": "fundamentals",
-       "source": "screener.in",
-       "as_of": "2026-10-23"
-      }
-     ]
-    },
-    "technicals": {
-     "price": 1046.85,
-     "rs_percentile": 98,
-     "pct_below_52w_high": 3.4,
-     "pct_above_52w_low": 251.4,
-     "dma_50": 845.72,
-     "dma_200": 549.06,
-     "up_down_volume_ratio_50d": 2.14,
-     "industry_sector": null,
-     "industry_group_rs_quartile": null,
-     "group_leadership_rank": null,
-     "group_leadership_of": null,
-     "rsi": 76.4,
-     "roce": 26.9,
-     "fcf_latest_cr": -140.0,
      "fcf_source": "reported"
     },
     "status": "SCORED"
@@ -579,11 +1390,11 @@
    "ticker": "SPECTRUM",
    "name": "Spectrum Electr.",
    "joined_date": "2026-09-19",
-   "last_updated": "2026-10-24",
+   "last_updated": "2026-11-01",
    "scorecard": {
     "ticker": "SPECTRUM",
     "name": "Spectrum Electr.",
-    "as_of": "2026-10-23",
+    "as_of": "2026-10-30",
     "mode": "WEEKLY",
     "gates": {
      "trend_template": {
@@ -683,22 +1494,22 @@
     ],
     "risk_level": "MEDIUM",
     "valuation_context": {
-     "pe": 121.0,
+     "pe": 131.0,
      "peg": null,
      "vs_own_5yr": "",
      "note": "Valuation is context only, never a criterion."
     },
     "base": {
      "pattern_label": "",
-     "pivot": 3988.0,
-     "pct_from_pivot": -7.73,
+     "pivot": 4170.0,
+     "pct_from_pivot": -5.18,
      "base_count": 3,
-     "depth_pct": 13.5,
-     "weeks": 2.4
+     "depth_pct": 7.7,
+     "weeks": 0.2
     },
     "trade_plan": null,
     "delta": {
-     "score_change": -2,
+     "score_change": 0,
      "gate_flips": [],
      "bucket_change": "",
      "alerts": []
@@ -737,28 +1548,28 @@
       {
        "field": "technicals",
        "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-10-23"
+       "as_of": "2026-10-30"
       },
       {
        "field": "fundamentals",
        "source": "screener.in",
-       "as_of": "2026-10-23"
+       "as_of": "2026-10-30"
       }
      ]
     },
     "technicals": {
-     "price": 3679.8,
+     "price": 3954.1,
      "rs_percentile": 99,
-     "pct_below_52w_high": 7.7,
-     "pct_above_52w_low": 250.5,
-     "dma_50": 3001.7,
-     "dma_200": 1895.35,
-     "up_down_volume_ratio_50d": 2.12,
+     "pct_below_52w_high": 5.2,
+     "pct_above_52w_low": 276.6,
+     "dma_50": 3161.84,
+     "dma_200": 1961.45,
+     "up_down_volume_ratio_50d": 2.39,
      "industry_sector": null,
      "industry_group_rs_quartile": null,
      "group_leadership_rank": null,
      "group_leadership_of": null,
-     "rsi": 60.2,
+     "rsi": 68.3,
      "roce": 16.8,
      "fcf_latest_cr": -48.0,
      "fcf_source": "reported"
@@ -767,14 +1578,14 @@
    }
   },
   {
-   "ticker": "COFORGE",
-   "name": "Coforge",
-   "joined_date": "2026-08-02",
-   "last_updated": "2026-10-24",
+   "ticker": "SKYGOLD",
+   "name": "Sky Gold & Diam.",
+   "joined_date": "2026-07-05",
+   "last_updated": "2026-11-01",
    "scorecard": {
-    "ticker": "COFORGE",
-    "name": "Coforge",
-    "as_of": "2026-10-23",
+    "ticker": "SKYGOLD",
+    "name": "Sky Gold & Diam.",
+    "as_of": "2026-10-30",
     "mode": "WEEKLY",
     "gates": {
      "trend_template": {
@@ -807,96 +1618,93 @@
     },
     "scores": {
      "earnings": {
-      "A1": 2,
-      "A2": 0,
-      "A3": 0,
-      "A4": 2,
+      "A1": 6,
+      "A2": 3,
+      "A3": 4,
+      "A4": 4,
       "A5": 4,
-      "subtotal": 8
+      "subtotal": 21
      },
      "revenue": {
       "B1": 6,
-      "B2": 4,
+      "B2": 0,
       "B3": 3,
       "B4": 2,
-      "subtotal": 15
+      "subtotal": 11
      },
      "profitability": {
       "C1": 3,
-      "C2": 0,
-      "C3": 2,
-      "C4": 2,
-      "subtotal": 7
+      "C2": 3,
+      "C3": 0,
+      "C4": 0,
+      "subtotal": 6
      },
      "balance_sheet": {
-      "D1": 2,
+      "D1": 1,
       "D2": 1,
       "D3": 0,
       "D4": 1,
-      "subtotal": 4
+      "subtotal": 3
      },
      "sponsorship": {
-      "E1": 1,
+      "E1": 2,
       "E2": 0,
       "E3": 0,
-      "E4": 0,
-      "subtotal": 1
+      "E4": 1,
+      "subtotal": 3
      },
      "rs_trend": {
       "F1": 7,
-      "F2": 2,
+      "F2": 1,
       "F3": 2,
-      "F4": 0,
-      "subtotal": 11
+      "F4": 2,
+      "subtotal": 12
      },
      "base_structure": {
       "G1": 3,
-      "G2": 4,
-      "G3": 3,
+      "G2": 0,
+      "G3": 0,
       "G4": 0,
       "G5": 0,
       "G6": 0,
-      "subtotal": 10
+      "subtotal": 3
      },
      "leadership": {
-      "H1": 2,
-      "H2": 2,
+      "H1": 0,
+      "H2": 0,
       "H3": 0,
-      "subtotal": 4
+      "subtotal": 0
      },
-     "total": 60
+     "total": 59
     },
-    "quality_band": "Watchlist B",
-    "action_bucket": "WATCH",
+    "quality_band": "Reject",
+    "action_bucket": "AVOID",
     "setup_flag": null,
     "red_flags": [
-     "EPS_DECELERATION"
+     "LATE_STAGE_BASE",
+     "POOR_CASH_CONVERSION"
     ],
-    "risk_level": "LOW",
+    "risk_level": "MEDIUM",
     "valuation_context": {
-     "pe": 38.8,
+     "pe": 34.1,
      "peg": null,
      "vs_own_5yr": "",
      "note": "Valuation is context only, never a criterion."
     },
     "base": {
      "pattern_label": "",
-     "pivot": 1992.4,
-     "pct_from_pivot": -4.61,
-     "base_count": 1,
-     "depth_pct": 15.1,
-     "weeks": 7.4
+     "pivot": 1083.95,
+     "pct_from_pivot": -18.52,
+     "base_count": 4,
+     "depth_pct": 29.6,
+     "weeks": 1.6
     },
     "trade_plan": null,
     "delta": {
-     "score_change": 6,
-     "gate_flips": [
-      "c3: False -> True"
-     ],
-     "bucket_change": "AVOID -> WATCH",
-     "alerts": [
-      "EPS_DECELERATION"
-     ]
+     "score_change": -5,
+     "gate_flips": [],
+     "bucket_change": "WATCH -> AVOID",
+     "alerts": []
     },
     "violations": {
      "count": 0,
@@ -904,58 +1712,57 @@
      "recommendation": ""
     },
     "verdict": {
-     "summary": "COFORGE (60/100) \u2014 Watchlist B / WATCH.",
+     "summary": "SKYGOLD (59/100) \u2014 Reject / AVOID.",
      "strengths": [
-      "RS percentile 93"
+      "RS percentile 98",
+      "Latest EPS YoY >=50%"
      ],
      "weaknesses": [
-      "Earnings block weak (8/25)",
-      "4 unverified fields scored 0"
+      "No valid base yet (3/20)",
+      "5 unverified fields scored 0"
      ],
      "catalysts": [],
-     "biggest_risk": "EPS_DECELERATION",
+     "biggest_risk": "LATE_STAGE_BASE",
      "conviction_0_10": 3
     },
     "data_quality": {
      "unverified_fields": [
+      "group_leadership_rank",
+      "industry_group_rs",
       "marquee_institution",
       "mf_scheme_count",
-      "new_catalyst",
-      "promoter_holding_trend"
+      "new_catalyst"
      ],
-     "proxy_fields": [
-      "group_leadership_rank",
-      "industry_group_rs"
-     ],
+     "proxy_fields": [],
      "unverified_reasons": {},
      "sources": [
       {
        "field": "technicals",
        "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-10-23"
+       "as_of": "2026-10-30"
       },
       {
        "field": "fundamentals",
        "source": "screener.in",
-       "as_of": "2026-10-23"
+       "as_of": "2026-10-30"
       }
      ]
     },
     "technicals": {
-     "price": 1900.5,
-     "rs_percentile": 93,
-     "pct_below_52w_high": 6.0,
-     "pct_above_52w_low": 89.0,
-     "dma_50": 1863.23,
-     "dma_200": 1529.28,
-     "up_down_volume_ratio_50d": 0.92,
-     "industry_sector": "Information Technology",
-     "industry_group_rs_quartile": 1,
-     "group_leadership_rank": 1,
-     "group_leadership_of": 27,
-     "rsi": 54.6,
-     "roce": 23.5,
-     "fcf_latest_cr": 1197.0,
+     "price": 883.2,
+     "rs_percentile": 98,
+     "pct_below_52w_high": 18.5,
+     "pct_above_52w_low": 196.4,
+     "dma_50": 856.52,
+     "dma_200": 563.1,
+     "up_down_volume_ratio_50d": 1.3,
+     "industry_sector": null,
+     "industry_group_rs_quartile": null,
+     "group_leadership_rank": null,
+     "group_leadership_of": null,
+     "rsi": 45.9,
+     "roce": 26.9,
+     "fcf_latest_cr": -140.0,
      "fcf_source": "reported"
     },
     "status": "SCORED"
@@ -965,11 +1772,11 @@
    "ticker": "LOTUSDEV",
    "name": "Sri Lotus",
    "joined_date": "2026-08-02",
-   "last_updated": "2026-10-24",
+   "last_updated": "2026-11-01",
    "scorecard": {
     "ticker": "LOTUSDEV",
     "name": "Sri Lotus",
-    "as_of": "2026-10-23",
+    "as_of": "2026-10-30",
     "mode": "WEEKLY",
     "gates": {
      "trend_template": {
@@ -1039,10 +1846,10 @@
      },
      "rs_trend": {
       "F1": 7,
-      "F2": 2,
+      "F2": 4,
       "F3": 2,
       "F4": 2,
-      "subtotal": 13
+      "subtotal": 15
      },
      "base_structure": {
       "G1": 3,
@@ -1059,7 +1866,7 @@
       "H3": 0,
       "subtotal": 0
      },
-     "total": 56
+     "total": 58
     },
     "quality_band": "Reject",
     "action_bucket": "AVOID",
@@ -1069,22 +1876,22 @@
     ],
     "risk_level": "MEDIUM",
     "valuation_context": {
-     "pe": 37.6,
+     "pe": 41.0,
      "peg": null,
      "vs_own_5yr": "",
      "note": "Valuation is context only, never a criterion."
     },
     "base": {
      "pattern_label": "",
-     "pivot": 248.4,
-     "pct_from_pivot": -9.22,
+     "pivot": 249.7,
+     "pct_from_pivot": -1.49,
      "base_count": 2,
-     "depth_pct": 9.4,
-     "weeks": 1.0
+     "depth_pct": 6.0,
+     "weeks": 0.4
     },
     "trade_plan": null,
     "delta": {
-     "score_change": -2,
+     "score_change": 2,
      "gate_flips": [],
      "bucket_change": "",
      "alerts": []
@@ -1095,9 +1902,9 @@
      "recommendation": ""
     },
     "verdict": {
-     "summary": "LOTUSDEV (56/100) \u2014 Reject / AVOID.",
+     "summary": "LOTUSDEV (58/100) \u2014 Reject / AVOID.",
      "strengths": [
-      "RS percentile 95",
+      "RS percentile 94",
       "Latest EPS YoY >=50%"
      ],
      "weaknesses": [
@@ -1122,28 +1929,28 @@
       {
        "field": "technicals",
        "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-10-23"
+       "as_of": "2026-10-30"
       },
       {
        "field": "fundamentals",
        "source": "screener.in",
-       "as_of": "2026-10-23"
+       "as_of": "2026-10-30"
       }
      ]
     },
     "technicals": {
-     "price": 225.5,
-     "rs_percentile": 95,
-     "pct_below_52w_high": 9.2,
-     "pct_above_52w_low": 121.5,
-     "dma_50": 206.7,
-     "dma_200": 160.07,
-     "up_down_volume_ratio_50d": 2.71,
+     "price": 245.98,
+     "rs_percentile": 94,
+     "pct_below_52w_high": 1.5,
+     "pct_above_52w_low": 141.6,
+     "dma_50": 213.83,
+     "dma_200": 162.07,
+     "up_down_volume_ratio_50d": 3.69,
      "industry_sector": null,
      "industry_group_rs_quartile": null,
      "group_leadership_rank": null,
      "group_leadership_of": null,
-     "rsi": 49.7,
+     "rsi": 60.8,
      "roce": 21.2,
      "fcf_latest_cr": -326.0,
      "fcf_source": "reported"
@@ -1152,14 +1959,14 @@
    }
   },
   {
-   "ticker": "EBGNG",
-   "name": "GNG Electronics",
-   "joined_date": "2026-08-16",
-   "last_updated": "2026-10-24",
+   "ticker": "COFORGE",
+   "name": "Coforge",
+   "joined_date": "2026-08-02",
+   "last_updated": "2026-11-01",
    "scorecard": {
-    "ticker": "EBGNG",
-    "name": "GNG Electronics",
-    "as_of": "2026-10-23",
+    "ticker": "COFORGE",
+    "name": "Coforge",
+    "as_of": "2026-10-30",
     "mode": "WEEKLY",
     "gates": {
      "trend_template": {
@@ -1188,15 +1995,206 @@
      "h3_citation": "",
      "governance_flag": false,
      "governance_note": "",
-     "checked_date": "2026-09-26"
+     "checked_date": "2026-10-03"
     },
     "scores": {
      "earnings": {
-      "A1": 4,
+      "A1": 2,
+      "A2": 0,
+      "A3": 0,
+      "A4": 2,
+      "A5": 4,
+      "subtotal": 8
+     },
+     "revenue": {
+      "B1": 6,
+      "B2": 4,
+      "B3": 3,
+      "B4": 2,
+      "subtotal": 15
+     },
+     "profitability": {
+      "C1": 3,
+      "C2": 0,
+      "C3": 2,
+      "C4": 2,
+      "subtotal": 7
+     },
+     "balance_sheet": {
+      "D1": 2,
+      "D2": 1,
+      "D3": 0,
+      "D4": 1,
+      "subtotal": 4
+     },
+     "sponsorship": {
+      "E1": 1,
+      "E2": 0,
+      "E3": 0,
+      "E4": 0,
+      "subtotal": 1
+     },
+     "rs_trend": {
+      "F1": 5,
+      "F2": 4,
+      "F3": 2,
+      "F4": 2,
+      "subtotal": 13
+     },
+     "base_structure": {
+      "G1": 3,
+      "G2": 4,
+      "G3": 0,
+      "G4": 0,
+      "G5": 0,
+      "G6": 0,
+      "subtotal": 7
+     },
+     "leadership": {
+      "H1": 0,
+      "H2": 2,
+      "H3": 0,
+      "subtotal": 2
+     },
+     "total": 57
+    },
+    "quality_band": "Reject",
+    "action_bucket": "AVOID",
+    "setup_flag": null,
+    "red_flags": [
+     "EPS_DECELERATION"
+    ],
+    "risk_level": "LOW",
+    "valuation_context": {
+     "pe": 41.7,
+     "peg": null,
+     "vs_own_5yr": "",
+     "note": "Valuation is context only, never a criterion."
+    },
+    "base": {
+     "pattern_label": "",
+     "pivot": 2061.8,
+     "pct_from_pivot": -0.81,
+     "base_count": 1,
+     "depth_pct": 4.4,
+     "weeks": 0.2
+    },
+    "trade_plan": null,
+    "delta": {
+     "score_change": -3,
+     "gate_flips": [],
+     "bucket_change": "WATCH -> AVOID",
+     "alerts": []
+    },
+    "violations": {
+     "count": 0,
+     "items": [],
+     "recommendation": ""
+    },
+    "verdict": {
+     "summary": "COFORGE (57/100) \u2014 Reject / AVOID.",
+     "strengths": [
+      "RS percentile 89"
+     ],
+     "weaknesses": [
+      "Earnings block weak (8/25)",
+      "4 unverified fields scored 0"
+     ],
+     "catalysts": [],
+     "biggest_risk": "EPS_DECELERATION",
+     "conviction_0_10": 3
+    },
+    "data_quality": {
+     "unverified_fields": [
+      "marquee_institution",
+      "mf_scheme_count",
+      "new_catalyst",
+      "promoter_holding_trend"
+     ],
+     "proxy_fields": [
+      "group_leadership_rank",
+      "industry_group_rs"
+     ],
+     "unverified_reasons": {},
+     "sources": [
+      {
+       "field": "technicals",
+       "source": "Yahoo Finance OHLCV",
+       "as_of": "2026-10-30"
+      },
+      {
+       "field": "fundamentals",
+       "source": "screener.in",
+       "as_of": "2026-10-30"
+      }
+     ]
+    },
+    "technicals": {
+     "price": 2045.0,
+     "rs_percentile": 89,
+     "pct_below_52w_high": 0.8,
+     "pct_above_52w_low": 103.3,
+     "dma_50": 1881.98,
+     "dma_200": 1537.73,
+     "up_down_volume_ratio_50d": 1.23,
+     "industry_sector": "Information Technology",
+     "industry_group_rs_quartile": 2,
+     "group_leadership_rank": 1,
+     "group_leadership_of": 27,
+     "rsi": 66.7,
+     "roce": 23.5,
+     "fcf_latest_cr": 1197.0,
+     "fcf_source": "reported"
+    },
+    "status": "SCORED"
+   }
+  },
+  {
+   "ticker": "BSE",
+   "name": "BSE",
+   "joined_date": "2026-11-01",
+   "last_updated": "2026-11-01",
+   "scorecard": {
+    "ticker": "BSE",
+    "name": "BSE",
+    "as_of": "2026-10-30",
+    "mode": "FULL",
+    "gates": {
+     "trend_template": {
+      "c1": false,
+      "c2": true,
+      "c3": true,
+      "c4": false,
+      "c5": true,
+      "c6": true,
+      "c7": true,
+      "c8": true,
+      "pass": false,
+      "near_miss_notes": ""
+     },
+     "investability": {
+      "liquidity": true,
+      "pledge": true,
+      "governance_flag": false,
+      "governance_note": "no verifiable governance event in the last 12 months found",
+      "governance": true,
+      "pass": true
+     }
+    },
+    "llm_checks": {
+     "h3_catalyst_found": false,
+     "h3_citation": "",
+     "governance_flag": false,
+     "governance_note": "no verifiable governance event in the last 12 months found",
+     "checked_date": "2026-11-01"
+    },
+    "scores": {
+     "earnings": {
+      "A1": 6,
       "A2": 3,
       "A3": 0,
       "A4": 4,
-      "A5": 4,
+      "A5": 2,
       "subtotal": 15
      },
      "revenue": {
@@ -1208,17 +2206,17 @@
      },
      "profitability": {
       "C1": 3,
-      "C2": 3,
-      "C3": 0,
-      "C4": 0,
-      "subtotal": 6
+      "C2": 1,
+      "C3": 2,
+      "C4": 2,
+      "subtotal": 8
      },
      "balance_sheet": {
-      "D1": 1,
+      "D1": 2,
       "D2": 0,
       "D3": 0,
       "D4": 1,
-      "subtotal": 2
+      "subtotal": 3
      },
      "sponsorship": {
       "E1": 0,
@@ -1228,55 +2226,55 @@
       "subtotal": 0
      },
      "rs_trend": {
-      "F1": 7,
-      "F2": 2,
+      "F1": 3,
+      "F2": 1,
       "F3": 2,
       "F4": 2,
-      "subtotal": 13
+      "subtotal": 8
      },
      "base_structure": {
-      "G1": 3,
+      "G1": 0,
       "G2": 2,
-      "G3": 0,
+      "G3": 1,
       "G4": 0,
-      "G5": 0,
+      "G5": 3,
       "G6": 0,
-      "subtotal": 5
+      "subtotal": 6
      },
      "leadership": {
       "H1": 0,
-      "H2": 0,
+      "H2": 2,
       "H3": 0,
-      "subtotal": 0
+      "subtotal": 2
      },
-     "total": 54
+     "total": 55
     },
     "quality_band": "Reject",
     "action_bucket": "AVOID",
-    "setup_flag": null,
+    "setup_flag": "early",
     "red_flags": [
-     "POOR_CASH_CONVERSION"
+     "OTHER_INCOME_DRIVEN"
     ],
     "risk_level": "MEDIUM",
     "valuation_context": {
-     "pe": 54.6,
+     "pe": 50.6,
      "peg": null,
      "vs_own_5yr": "",
      "note": "Valuation is context only, never a criterion."
     },
     "base": {
      "pattern_label": "",
-     "pivot": 740.4,
-     "pct_from_pivot": -7.82,
+     "pivot": 3537.5,
+     "pct_from_pivot": -0.77,
      "base_count": 3,
-     "depth_pct": 12.4,
-     "weeks": 2.2
+     "depth_pct": 32.4,
+     "weeks": 21.6
     },
     "trade_plan": null,
     "delta": {
-     "score_change": -6,
+     "score_change": 0,
      "gate_flips": [],
-     "bucket_change": "WATCH -> AVOID",
+     "bucket_change": "",
      "alerts": []
     },
     "violations": {
@@ -1285,20 +2283,227 @@
      "recommendation": ""
     },
     "verdict": {
-     "summary": "EBGNG (54/100) \u2014 Reject / AVOID.",
+     "summary": "BSE (55/100) \u2014 Reject / AVOID. Fails the Trend Template (c1: price below the 150 DMA at 3547.4 vs price 3510.4; c4: 50 DMA 3300.28 below the 150 DMA 3547.4), so despite strong earnings/revenue growth (A: 15/25, B: 13/15) and a healthy RS percentile of 79, the setup is not actionable. Base structure is a late-stage 3rd base, 32.4% deep, 21.6 weeks long, with a non-contracting pattern (14.9% \u2192 5.5% \u2192 28.7%) and only 6/20 on structure. No valid entry trigger; price is 0.77% below pivot but the trend gate must be satisfied first. Score is informational only.",
      "strengths": [
-      "RS percentile 98"
+      "Latest quarter EPS YoY growth \u226550% (61.0%)",
+      "Strong 3-yr EPS CAGR (53.7%) and sales CAGR (51.4%)",
+      "ROE 46%, ROCE 60%, debt-free (D/E 0.0)",
+      "Strong cash conversion (3-yr OCF/PAT 1.34) and FCF positive 3/3 years",
+      "RS percentile 79 with up/down volume ratio 1.52"
      ],
      "weaknesses": [
-      "No valid base yet (5/20)",
-      "5 unverified fields scored 0"
+      "Fails Trend Template: c1 (price below 150 DMA) and c4 (50 DMA below 150 DMA)",
+      "Base structure weak (6/20): 3rd base since Stage 2, 32.4% deep, non-contracting (final contraction 28.7%)",
+      "OTHER_INCOME_DRIVEN red flag \u2014 other income >30% of PBT in some quarters of last 8",
+      "No institutional sponsorship points (E: 0/5); institutional holding slipped from 45.47 to 42.99",
+      "Dilution: share count up ~204% over 2 years",
+      "No interest coverage / promoter holding trend verified"
      ],
      "catalysts": [],
-     "biggest_risk": "POOR_CASH_CONVERSION",
-     "conviction_0_10": 2
+     "biggest_risk": "OTHER_INCOME_DRIVEN \u2014 earnings partly propped by non-operating income, combined with a late-stage, deep, non-contracting base and a failed trend gate; any further deterioration in RS or margins would compound downside.",
+     "conviction_0_10": 0
     },
     "data_quality": {
      "unverified_fields": [
+      "interest_coverage",
+      "marquee_institution",
+      "mf_scheme_count",
+      "new_catalyst",
+      "promoter_holding_trend"
+     ],
+     "proxy_fields": [
+      "group_leadership_rank",
+      "industry_group_rs"
+     ],
+     "unverified_reasons": {},
+     "sources": [
+      {
+       "field": "technicals",
+       "source": "Yahoo Finance OHLCV",
+       "as_of": "2026-10-30"
+      },
+      {
+       "field": "fundamentals",
+       "source": "screener.in",
+       "as_of": "2026-10-30"
+      }
+     ]
+    },
+    "technicals": {
+     "price": 3510.4,
+     "rs_percentile": 79,
+     "pct_below_52w_high": 20.8,
+     "pct_above_52w_low": 51.3,
+     "dma_50": 3300.28,
+     "dma_200": 3363.23,
+     "up_down_volume_ratio_50d": 1.52,
+     "industry_sector": "Financial Services",
+     "industry_group_rs_quartile": 3,
+     "group_leadership_rank": 10,
+     "group_leadership_of": 100,
+     "rsi": 61.3,
+     "roce": 60.0,
+     "fcf_latest_cr": 2589.0,
+     "fcf_source": "reported"
+    },
+    "status": "SCORED_NO_TREND"
+   }
+  },
+  {
+   "ticker": "RUBICON",
+   "name": "Rubicon Research",
+   "joined_date": "2026-11-01",
+   "last_updated": "2026-11-01",
+   "scorecard": {
+    "ticker": "RUBICON",
+    "name": "Rubicon Research",
+    "as_of": "2026-10-30",
+    "mode": "FULL",
+    "gates": {
+     "trend_template": {
+      "c1": true,
+      "c2": true,
+      "c3": true,
+      "c4": true,
+      "c5": false,
+      "c6": true,
+      "c7": true,
+      "c8": true,
+      "pass": false,
+      "near_miss_notes": ""
+     },
+     "investability": {
+      "liquidity": true,
+      "pledge": true,
+      "governance_flag": false,
+      "governance_note": "No governance red flag identified from any concrete, dateable source within the trailing 12 months (auditor resignation, SEBI action, fraud investigation, or major governance event). The scorecard's governance_events field is listed as unverified, so this is an absence of evidence, not a positive verification.",
+      "governance": true,
+      "pass": true
+     }
+    },
+    "llm_checks": {
+     "h3_catalyst_found": false,
+     "h3_citation": "",
+     "governance_flag": false,
+     "governance_note": "No governance red flag identified from any concrete, dateable source within the trailing 12 months (auditor resignation, SEBI action, fraud investigation, or major governance event). The scorecard's governance_events field is listed as unverified, so this is an absence of evidence, not a positive verification.",
+     "checked_date": "2026-11-01"
+    },
+    "scores": {
+     "earnings": {
+      "A1": 6,
+      "A2": 3,
+      "A3": 2,
+      "A4": 4,
+      "A5": 4,
+      "subtotal": 19
+     },
+     "revenue": {
+      "B1": 6,
+      "B2": 2,
+      "B3": 3,
+      "B4": 2,
+      "subtotal": 13
+     },
+     "profitability": {
+      "C1": 3,
+      "C2": 3,
+      "C3": 2,
+      "C4": 0,
+      "subtotal": 8
+     },
+     "balance_sheet": {
+      "D1": 2,
+      "D2": 1,
+      "D3": 0,
+      "D4": 1,
+      "subtotal": 4
+     },
+     "sponsorship": {
+      "E1": 1,
+      "E2": 0,
+      "E3": 0,
+      "E4": 0,
+      "subtotal": 1
+     },
+     "rs_trend": {
+      "F1": 7,
+      "F2": 1,
+      "F3": 0,
+      "F4": 0,
+      "subtotal": 8
+     },
+     "base_structure": {
+      "G1": 0,
+      "G2": 0,
+      "G3": 1,
+      "G4": 0,
+      "G5": 1,
+      "G6": 0,
+      "subtotal": 2
+     },
+     "leadership": {
+      "H1": 0,
+      "H2": 0,
+      "H3": 0,
+      "subtotal": 0
+     },
+     "total": 55
+    },
+    "quality_band": "Reject",
+    "action_bucket": "AVOID",
+    "setup_flag": null,
+    "red_flags": [],
+    "risk_level": "LOW",
+    "valuation_context": {
+     "pe": 92.5,
+     "peg": null,
+     "vs_own_5yr": "",
+     "note": "Valuation is context only, never a criterion."
+    },
+    "base": {
+     "pattern_label": "",
+     "pivot": 1834.9,
+     "pct_from_pivot": -12.23,
+     "base_count": null,
+     "depth_pct": 26.8,
+     "weeks": 8.6
+    },
+    "trade_plan": null,
+    "delta": {
+     "score_change": 0,
+     "gate_flips": [],
+     "bucket_change": "",
+     "alerts": []
+    },
+    "violations": {
+     "count": 0,
+     "items": [],
+     "recommendation": ""
+    },
+    "verdict": {
+     "summary": "Rubicon Research (55/100, as of 2026-10-30) is a Superperformance-profile earnings story that is currently disqualified on price: it fails Trend Template criterion 5 (close 1,610.50 below the 50 DMA of 1,665.12, and the 50 DMA is not rising), which forces status SCORED_NO_TREND and action bucket AVOID. The growth evidence itself is genuinely strong (EPS YoY +53.7% latest quarter, sales +39.2%, 3-yr EPS CAGR 43.6%, 3-yr sales CAGR 31.4%, ROE 27%, ROCE 28.4%, D/E 0.24, RS percentile 97, only 15.2% below the 52-week high), but the stock sits 12.23% below its 1,834.90 pivot with a loose, deteriorating base (depth 26.8%, weekly close tightness 11.56%, latest contraction 24.2% after four 5-9% contractions) and a 50-day up/down volume ratio of 0.95. The score is informational only: the name is a watchlist candidate to be re-gated if and when price reclaims a rising 50 DMA and a proper VCP forms closer to the pivot. Conviction 0/10 \u2014 not buyable under the rules at this time.",
+     "strengths": [
+      "Earnings power: latest-quarter EPS YoY +53.7%, prior three quarters +76.8%, +97.9%, +82.6% (A1 6/8, A2 3/5, A4 4/4)",
+      "Revenue-led growth: latest-quarter sales YoY +39.2%, 3-yr sales CAGR 31.4% (B1 6/6, B3 3/3)",
+      "Profitability and balance sheet: ROE 27%, ROCE 28.4%, D/E 0.24, interest coverage ~11.0x, net margin up ~370 bps YoY, cumulative 3-yr OCF/PAT 0.82 (C1, C2, C3, D1, D2 full marks)",
+      "Relative strength: RS percentile 97, only 15.2% below the 52-week high and 182.4% above the 52-week low, well above a rising 200 DMA",
+      "Clean structural checks: promoter pledge 0%, median 50-day traded value ~Rs 34.2 cr, D/E and interest coverage comfortable"
+     ],
+     "weaknesses": [
+      "Fails Trend Template c5: close 1,610.50 vs 50 DMA 1,665.12 (below by ~3.3%), and the 50 DMA is not rising \u2014 hard gate, therefore not actionable",
+      "Base structure is poor (G subtotal 2/20): depth 26.8%, contractions expanding rather than contracting (5.9, 5.4, 6.0, 9.0, 24.2), weekly close tightness 11.56%, no Stage 2 confirmation scored (G1 0)",
+      "Demand/volume quality weak: up/down volume ratio 50d 0.95 and F3 0 for price above a rising 50 DMA",
+      "Institutional sponsorship thin/ambiguous (E subtotal 1/5): MF scheme count and marquee-holder checks unverified; promoter holding fell from 59.99% to 51.25% over the last four readings",
+      "Dilution (D3 0) \u2014 share count +13.3% over two years; FCF negative in the latest year (Rs -24 cr, only 1 of 3 years positive, C4 0)",
+      "Seven fields unverified and scored 0 (base_count, governance_events, group leadership rank, industry group RS, marquee institution, MF scheme count, new catalyst) \u2014 the 55 is a floor, not a ceiling, but also not yet a case"
+     ],
+     "catalysts": [],
+     "biggest_risk": "Setup risk, not business risk: with price under a flat-to-falling 50 DMA, a 26.8% base with expanding contractions, and a pivot 12.2% above the market, any entry here is anticipation rather than a Minervini entry point; a failed reclaim of the 50 DMA likely targets the 150 DMA (~1,355) area.",
+     "conviction_0_10": 0
+    },
+    "data_quality": {
+     "unverified_fields": [
+      "base_count",
       "group_leadership_rank",
       "industry_group_rs",
       "marquee_institution",
@@ -1311,45 +2516,439 @@
       {
        "field": "technicals",
        "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-10-23"
+       "as_of": "2026-10-30"
       },
       {
        "field": "fundamentals",
        "source": "screener.in",
-       "as_of": "2026-10-23"
+       "as_of": "2026-10-30"
       }
      ]
     },
     "technicals": {
-     "price": 682.5,
-     "rs_percentile": 98,
-     "pct_below_52w_high": 7.8,
-     "pct_above_52w_low": 185.6,
-     "dma_50": 654.56,
-     "dma_200": 478.83,
-     "up_down_volume_ratio_50d": 1.63,
+     "price": 1610.5,
+     "rs_percentile": 97,
+     "pct_below_52w_high": 15.2,
+     "pct_above_52w_low": 182.4,
+     "dma_50": 1665.12,
+     "dma_200": 1201.18,
+     "up_down_volume_ratio_50d": 0.95,
      "industry_sector": null,
      "industry_group_rs_quartile": null,
      "group_leadership_rank": null,
      "group_leadership_of": null,
-     "rsi": 50.4,
-     "roce": 20.2,
-     "fcf_latest_cr": -238.0,
+     "rsi": 56.2,
+     "roce": 28.4,
+     "fcf_latest_cr": -24.0,
      "fcf_source": "reported"
     },
-    "status": "SCORED"
+    "status": "SCORED_NO_TREND"
    }
   },
   {
-   "ticker": "ANANDRATHI",
-   "name": "Anand Rathi Wea.",
-   "joined_date": "2026-10-17",
-   "last_updated": "2026-10-24",
+   "ticker": "DIACABS",
+   "name": "Diamond Power",
+   "joined_date": "2026-11-01",
+   "last_updated": "2026-11-01",
    "scorecard": {
-    "ticker": "ANANDRATHI",
-    "name": "Anand Rathi Wea.",
-    "as_of": "2026-10-23",
+    "ticker": "DIACABS",
+    "name": "Diamond Power",
+    "as_of": "2026-10-30",
+    "mode": "FULL",
+    "gates": {
+     "trend_template": {
+      "c1": true,
+      "c2": true,
+      "c3": true,
+      "c4": true,
+      "c5": false,
+      "c6": true,
+      "c7": true,
+      "c8": true,
+      "pass": false,
+      "near_miss_notes": ""
+     },
+     "investability": {
+      "liquidity": true,
+      "pledge": true,
+      "governance_flag": false,
+      "governance_note": "No auditor resignation, SEBI action, fraud investigation, or major governance event in the last 12 months is identified in the supplied data or from a citable source as of this scoring run; governance events field remains unverified \u2014 treat as no flag detected rather than cleared.",
+      "governance": true,
+      "pass": true
+     }
+    },
+    "llm_checks": {
+     "h3_catalyst_found": false,
+     "h3_citation": "",
+     "governance_flag": false,
+     "governance_note": "No auditor resignation, SEBI action, fraud investigation, or major governance event in the last 12 months is identified in the supplied data or from a citable source as of this scoring run; governance events field remains unverified \u2014 treat as no flag detected rather than cleared.",
+     "checked_date": "2026-11-01"
+    },
+    "scores": {
+     "earnings": {
+      "A1": 8,
+      "A2": 0,
+      "A3": 2,
+      "A4": 4,
+      "A5": 4,
+      "subtotal": 18
+     },
+     "revenue": {
+      "B1": 6,
+      "B2": 2,
+      "B3": 3,
+      "B4": 2,
+      "subtotal": 13
+     },
+     "profitability": {
+      "C1": 0,
+      "C2": 3,
+      "C3": 0,
+      "C4": 0,
+      "subtotal": 3
+     },
+     "balance_sheet": {
+      "D1": 0,
+      "D2": 1,
+      "D3": 1,
+      "D4": 1,
+      "subtotal": 3
+     },
+     "sponsorship": {
+      "E1": 2,
+      "E2": 0,
+      "E3": 0,
+      "E4": 0,
+      "subtotal": 2
+     },
+     "rs_trend": {
+      "F1": 7,
+      "F2": 2,
+      "F3": 0,
+      "F4": 0,
+      "subtotal": 9
+     },
+     "base_structure": {
+      "G1": 0,
+      "G2": 2,
+      "G3": 3,
+      "G4": 0,
+      "G5": 0,
+      "G6": 0,
+      "subtotal": 5
+     },
+     "leadership": {
+      "H1": 0,
+      "H2": 0,
+      "H3": 0,
+      "subtotal": 0
+     },
+     "total": 53
+    },
+    "quality_band": "Reject",
+    "action_bucket": "AVOID",
+    "setup_flag": null,
+    "red_flags": [
+     "EPS_DECELERATION"
+    ],
+    "risk_level": "LOW",
+    "valuation_context": {
+     "pe": 105.0,
+     "peg": null,
+     "vs_own_5yr": "",
+     "note": "Valuation is context only, never a criterion."
+    },
+    "base": {
+     "pattern_label": "",
+     "pivot": 398.0,
+     "pct_from_pivot": -13.47,
+     "base_count": 3,
+     "depth_pct": 25.0,
+     "weeks": 6.2
+    },
+    "trade_plan": null,
+    "delta": {
+     "score_change": 0,
+     "gate_flips": [],
+     "bucket_change": "",
+     "alerts": []
+    },
+    "violations": {
+     "count": 0,
+     "items": [],
+     "recommendation": ""
+    },
+    "verdict": {
+     "summary": "DIACABS (53/100) \u2014 Reject / AVOID. Despite an elite 97th-percentile RS and explosive earnings/revenue growth (latest EPS +562% YoY), the stock fails the Trend Template \u2014 price (344.4) sits below its 50-DMA (353.02), which is itself flat-to-falling \u2014 and shows EPS deceleration, weak cash conversion (OCF/PAT 0.62, FCF -45cr), negative ROE/ROCE (11.8%), a 3rd-stage 25%-deep base, and no valid tight pivot. Gate failure forces AVOID regardless of score.",
+     "strengths": [
+      "RS percentile 97 \u2014 top-decile relative strength",
+      "Latest quarter EPS YoY +562.5%, sales +75.2% YoY",
+      "3-yr EPS CAGR 125% / sales CAGR 89%; 8 consecutive positive EPS quarters",
+      "Promoter pledge 0%, zero dilution, institutional holding jumped to 15.35%"
+     ],
+     "weaknesses": [
+      "Fails Trend Template c5: price below the 50-DMA (353.02), which is not rising",
+      "EPS decelerating (A2 = 0) \u2014 growth rate falling across last quarters \u2192 EPS_DECELERATION flag",
+      "Weak quality: OCF/PAT 0.62, FCF -45cr (only 1 of 3 years positive), ROCE 11.8%",
+      "Base structure weak: 3rd base since Stage 2, 25% deep, loose 13% weekly-close tightness, 13.5% below pivot",
+      "P/E 105 with no PEG / no forward anchor \u2014 speculative extension risk"
+     ],
+     "catalysts": [],
+     "biggest_risk": "Trend-Template failure (below 50-DMA) plus EPS deceleration and negative FCF \u2014 momentum may be rolling over before a valid pivot forms.",
+     "conviction_0_10": 0
+    },
+    "data_quality": {
+     "unverified_fields": [
+      "debt_to_equity",
+      "group_leadership_rank",
+      "industry_group_rs",
+      "marquee_institution",
+      "mf_scheme_count",
+      "new_catalyst",
+      "roe"
+     ],
+     "proxy_fields": [],
+     "unverified_reasons": {},
+     "sources": [
+      {
+       "field": "technicals",
+       "source": "Yahoo Finance OHLCV",
+       "as_of": "2026-10-30"
+      },
+      {
+       "field": "fundamentals",
+       "source": "screener.in",
+       "as_of": "2026-10-30"
+      }
+     ]
+    },
+    "technicals": {
+     "price": 344.4,
+     "rs_percentile": 97,
+     "pct_below_52w_high": 14.8,
+     "pct_above_52w_low": 198.0,
+     "dma_50": 353.02,
+     "dma_200": 228.12,
+     "up_down_volume_ratio_50d": 1.06,
+     "industry_sector": null,
+     "industry_group_rs_quartile": null,
+     "group_leadership_rank": null,
+     "group_leadership_of": null,
+     "rsi": 48.3,
+     "roce": 11.8,
+     "fcf_latest_cr": -45.0,
+     "fcf_source": "reported"
+    },
+    "status": "SCORED_NO_TREND"
+   }
+  },
+  {
+   "ticker": "MILKYMIST",
+   "name": "Milky Mist Dairy",
+   "joined_date": "2026-10-03",
+   "last_updated": "2026-11-01",
+   "scorecard": {
+    "ticker": "MILKYMIST",
+    "name": "Milky Mist Dairy",
+    "as_of": "2026-10-30",
     "mode": "WEEKLY",
+    "gates": {
+     "trend_template": {
+      "c1": true,
+      "c2": false,
+      "c3": false,
+      "c4": true,
+      "c5": true,
+      "c6": true,
+      "c7": true,
+      "c8": false,
+      "pass": false,
+      "near_miss_notes": ""
+     },
+     "investability": {
+      "liquidity": true,
+      "pledge": true,
+      "governance_flag": false,
+      "governance_note": "",
+      "governance": true,
+      "pass": true
+     }
+    },
+    "llm_checks": {
+     "h3_catalyst_found": false,
+     "h3_citation": "",
+     "governance_flag": false,
+     "governance_note": "",
+     "checked_date": "2026-10-03"
+    },
+    "scores": {
+     "earnings": {
+      "A1": 8,
+      "A2": 0,
+      "A3": 4,
+      "A4": 4,
+      "A5": 2,
+      "subtotal": 18
+     },
+     "revenue": {
+      "B1": 6,
+      "B2": 0,
+      "B3": 3,
+      "B4": 2,
+      "subtotal": 11
+     },
+     "profitability": {
+      "C1": 3,
+      "C2": 3,
+      "C3": 2,
+      "C4": 0,
+      "subtotal": 8
+     },
+     "balance_sheet": {
+      "D1": 0,
+      "D2": 0,
+      "D3": 0,
+      "D4": 1,
+      "subtotal": 1
+     },
+     "sponsorship": {
+      "E1": 0,
+      "E2": 0,
+      "E3": 0,
+      "E4": 0,
+      "subtotal": 0
+     },
+     "rs_trend": {
+      "F1": 0,
+      "F2": 2,
+      "F3": 0,
+      "F4": 2,
+      "subtotal": 4
+     },
+     "base_structure": {
+      "G1": 0,
+      "G2": 0,
+      "G3": 3,
+      "G4": 4,
+      "G5": 3,
+      "G6": 0,
+      "subtotal": 10
+     },
+     "leadership": {
+      "H1": 0,
+      "H2": 0,
+      "H3": 0,
+      "subtotal": 0
+     },
+     "total": 52
+    },
+    "quality_band": "Reject",
+    "action_bucket": "AVOID",
+    "setup_flag": "early",
+    "red_flags": [],
+    "risk_level": "MEDIUM",
+    "valuation_context": {
+     "pe": 134.0,
+     "peg": null,
+     "vs_own_5yr": "",
+     "note": "Valuation is context only, never a criterion."
+    },
+    "base": {
+     "pattern_label": "",
+     "pivot": 342.4,
+     "pct_from_pivot": -10.62,
+     "base_count": null,
+     "depth_pct": 24.3,
+     "weeks": 3.2
+    },
+    "trade_plan": null,
+    "delta": {
+     "score_change": 30,
+     "gate_flips": [
+      "c1: False -> True",
+      "c4: False -> True",
+      "c5: False -> True"
+     ],
+     "bucket_change": "",
+     "alerts": []
+    },
+    "violations": {
+     "count": 0,
+     "items": [],
+     "recommendation": ""
+    },
+    "verdict": {
+     "summary": "MILKYMIST (52/100) \u2014 Reject / AVOID. Score is informational only \u2014 gate not confirmed, so not an actionable setup yet.",
+     "strengths": [
+      "Latest EPS YoY >=50%"
+     ],
+     "weaknesses": [
+      "Fails Trend Template: c2, c3, c8",
+      "11 unverified fields scored 0"
+     ],
+     "catalysts": [],
+     "biggest_risk": "None flagged",
+     "conviction_0_10": 0
+    },
+    "data_quality": {
+     "unverified_fields": [
+      "base_count",
+      "eps_acceleration",
+      "group_leadership_rank",
+      "industry_group_rs",
+      "institutional_holding",
+      "marquee_institution",
+      "mf_scheme_count",
+      "new_catalyst",
+      "promoter_holding_trend",
+      "rs_percentile",
+      "sales_acceleration"
+     ],
+     "proxy_fields": [],
+     "unverified_reasons": {},
+     "sources": [
+      {
+       "field": "technicals",
+       "source": "Yahoo Finance OHLCV",
+       "as_of": "2026-10-30"
+      },
+      {
+       "field": "fundamentals",
+       "source": "screener.in",
+       "as_of": "2026-10-30"
+      }
+     ]
+    },
+    "technicals": {
+     "price": 306.05,
+     "rs_percentile": null,
+     "pct_below_52w_high": 10.6,
+     "pct_above_52w_low": 85.5,
+     "dma_50": 277.4,
+     "dma_200": 275.52,
+     "up_down_volume_ratio_50d": 1.38,
+     "industry_sector": null,
+     "industry_group_rs_quartile": null,
+     "group_leadership_rank": null,
+     "group_leadership_of": null,
+     "rsi": 58.8,
+     "roce": 13.7,
+     "fcf_latest_cr": -163.0,
+     "fcf_source": "reported"
+    },
+    "status": "SCORED_NO_TREND"
+   }
+  },
+  {
+   "ticker": "ETERNAL",
+   "name": "Eternal",
+   "joined_date": "2026-11-01",
+   "last_updated": "2026-11-01",
+   "scorecard": {
+    "ticker": "ETERNAL",
+    "name": "Eternal",
+    "as_of": "2026-10-30",
+    "mode": "FULL",
     "gates": {
      "trend_template": {
       "c1": true,
@@ -1367,7 +2966,7 @@
       "liquidity": true,
       "pledge": true,
       "governance_flag": false,
-      "governance_note": "No auditor resignation, SEBI action, fraud investigation, or major governance event identified in the last 12 months from available knowledge; however this is not positively verified against a dated primary source, so treat as unconfirmed rather than cleared.",
+      "governance_note": "No auditor resignation, SEBI action, fraud investigation, or major governance event in the ~12 months to 2026-10-30 can be cited from a concrete, dateable source in my knowledge; the app's own governance field is also unverified. Pledge is 0% and promoter/institutional holding trend is unverified \u2014 absence of a citable red flag is not a positive attestation of clean governance.",
       "governance": true,
       "pass": true
      }
@@ -1376,61 +2975,61 @@
      "h3_catalyst_found": false,
      "h3_citation": "",
      "governance_flag": false,
-     "governance_note": "No auditor resignation, SEBI action, fraud investigation, or major governance event identified in the last 12 months from available knowledge; however this is not positively verified against a dated primary source, so treat as unconfirmed rather than cleared.",
-     "checked_date": "2026-10-17"
+     "governance_note": "No auditor resignation, SEBI action, fraud investigation, or major governance event in the ~12 months to 2026-10-30 can be cited from a concrete, dateable source in my knowledge; the app's own governance field is also unverified. Pledge is 0% and promoter/institutional holding trend is unverified \u2014 absence of a citable red flag is not a positive attestation of clean governance.",
+     "checked_date": "2026-11-01"
     },
     "scores": {
      "earnings": {
-      "A1": 0,
-      "A2": 3,
-      "A3": 0,
-      "A4": 4,
+      "A1": 6,
+      "A2": 0,
+      "A3": 4,
+      "A4": 0,
       "A5": 2,
-      "subtotal": 9
+      "subtotal": 12
      },
      "revenue": {
-      "B1": 2,
+      "B1": 6,
       "B2": 0,
-      "B3": 1,
+      "B3": 3,
       "B4": 0,
-      "subtotal": 3
+      "subtotal": 9
      },
      "profitability": {
-      "C1": 3,
-      "C2": 0,
+      "C1": 0,
+      "C2": 1,
       "C3": 2,
-      "C4": 2,
-      "subtotal": 7
+      "C4": 0,
+      "subtotal": 3
      },
      "balance_sheet": {
       "D1": 2,
-      "D2": 1,
-      "D3": 0,
+      "D2": 0,
+      "D3": 1,
       "D4": 1,
       "subtotal": 4
      },
      "sponsorship": {
-      "E1": 2,
+      "E1": 1,
       "E2": 0,
       "E3": 0,
       "E4": 0,
-      "subtotal": 2
+      "subtotal": 1
      },
      "rs_trend": {
-      "F1": 7,
+      "F1": 5,
       "F2": 4,
       "F3": 2,
       "F4": 2,
-      "subtotal": 15
+      "subtotal": 13
      },
      "base_structure": {
       "G1": 3,
-      "G2": 2,
-      "G3": 4,
+      "G2": 4,
+      "G3": 0,
       "G4": 0,
       "G5": 0,
       "G6": 0,
-      "subtotal": 9
+      "subtotal": 7
      },
      "leadership": {
       "H1": 0,
@@ -1444,29 +3043,28 @@
     "action_bucket": "AVOID",
     "setup_flag": "momentum",
     "red_flags": [
+     "EPS_DECELERATION",
      "OTHER_INCOME_DRIVEN"
     ],
     "risk_level": "MEDIUM",
     "valuation_context": {
-     "pe": 81.6,
+     "pe": 673.0,
      "peg": null,
      "vs_own_5yr": "",
      "note": "Valuation is context only, never a criterion."
     },
     "base": {
      "pattern_label": "",
-     "pivot": 2264.11,
-     "pct_from_pivot": -1.29,
-     "base_count": 3,
-     "depth_pct": 11.5,
-     "weeks": 4.8
+     "pivot": 346.5,
+     "pct_from_pivot": -0.82,
+     "base_count": 1,
+     "depth_pct": 3.3,
+     "weeks": 0.2
     },
     "trade_plan": null,
     "delta": {
-     "score_change": 7,
-     "gate_flips": [
-      "c5: False -> True"
-     ],
+     "score_change": 0,
+     "gate_flips": [],
      "bucket_change": "",
      "alerts": []
     },
@@ -1476,23 +3074,35 @@
      "recommendation": ""
     },
     "verdict": {
-     "summary": "ANANDRATHI (51/100) \u2014 Reject / AVOID.",
+     "summary": "ETERNAL (51/100) \u2014 Reject / AVOID. Trend Template and investability gates both pass, and price action is genuinely strong (RS 82, 0.8% below 52w high, +61.6% off lows, up/down volume 1.45, Stage 2 with a 1st base 3.3% deep). But this is a momentum-only story: FY EPS CAGR of 9.1%, ROE 0.38%, ROCE 2.48%, NEGATIVE \u20b91,114 cr FCF with only 1 of 3 years FCF-positive, interest coverage below 5x, other income exceeding 100% of PBT in the latest quarter, and EPS decelerating in the latest quarter (83% vs 350%/233% prior). Score sits 29 points below the 80-point ACTIONABLE_NOW threshold, so no trade plan is generated regardless of the tight price structure. Minerivini rule violated: earnings quality and accrual-free growth \u2014 the price is superperformance-grade, the earnings are not.",
      "strengths": [
-      "RS percentile 92"
+      "Trend Template 8/8 pass; price above rising 50/150/200 DMA, 200 DMA rising 2 months",
+      "RS percentile 82 with price 0.8% from 52-week high and +61.6% above 52-week low",
+      "Up/down volume ratio 1.45 and 50-day traded value ~\u20b97,296 cr \u2014 deep liquidity",
+      "Revenue step-change: sales YoY +78%/+182%/+196%/+202% last four quarters; 3-yr sales CAGR 86%",
+      "Pledge 0%, D/E 0.18, share count up only 1.5% in 2 years, cumulative OCF/PAT 1.27",
+      "Tight, shallow 1st base (3.3% deep) just below pivot 346.5"
      ],
      "weaknesses": [
-      "Earnings block weak (9/25)",
-      "3 unverified fields scored 0"
+      "Total score 51/100 \u2014 29 points below the \u226580 actionable threshold; quality band 'Reject'",
+      "ROE 0.38%, ROCE 2.48% \u2014 profitability far below the C1 and D2 thresholds",
+      "FCF \u2212\u20b91,114 cr latest year; only 1 of 3 years FCF-positive (C4 = 0)",
+      "Other income >100% of PBT in latest quarter \u2014 earnings not yet self-funding (OTHER_INCOME_DRIVEN)",
+      "EPS deceleration flagged: latest YoY 83% vs 350% and 233% two quarters prior (EPS_DECELERATION)",
+      "Absolute EPS level tiny (\u20b90.13 latest) \u2014 rounding noise dominates YoY percentages",
+      "Interest coverage 4.04x below the 5x D2 gate",
+      "Group RS quartile 2 and group rank 5/29 \u2014 not leadership (H1 = 0); PE 673 with no earnings base to anchor it"
      ],
      "catalysts": [],
-     "biggest_risk": "OTHER_INCOME_DRIVEN",
+     "biggest_risk": "EPS_DECELERATION with sub-1% net margins and negative FCF \u2014 a single soft quarter could break both the growth narrative and the current tight base, and the stock is already at 52-week highs with PE 673, leaving no valuation cushion for a miss.",
      "conviction_0_10": 2
     },
     "data_quality": {
      "unverified_fields": [
       "marquee_institution",
       "mf_scheme_count",
-      "new_catalyst"
+      "new_catalyst",
+      "promoter_holding_trend"
      ],
      "proxy_fields": [
       "group_leadership_rank",
@@ -1503,30 +3113,30 @@
       {
        "field": "technicals",
        "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-10-23"
+       "as_of": "2026-10-30"
       },
       {
        "field": "fundamentals",
        "source": "screener.in",
-       "as_of": "2026-10-23"
+       "as_of": "2026-10-30"
       }
      ]
     },
     "technicals": {
-     "price": 2235.0,
-     "rs_percentile": 92,
-     "pct_below_52w_high": 1.3,
-     "pct_above_52w_low": 65.7,
-     "dma_50": 2168.99,
-     "dma_200": 1842.2,
-     "up_down_volume_ratio_50d": 1.9,
-     "industry_sector": "Financial Services",
+     "price": 343.65,
+     "rs_percentile": 82,
+     "pct_below_52w_high": 0.8,
+     "pct_above_52w_low": 61.6,
+     "dma_50": 325.37,
+     "dma_200": 280.52,
+     "up_down_volume_ratio_50d": 1.45,
+     "industry_sector": "Consumer Services",
      "industry_group_rs_quartile": 2,
-     "group_leadership_rank": 1,
-     "group_leadership_of": 101,
-     "rsi": 63.9,
-     "roce": 59.2,
-     "fcf_latest_cr": 268.0,
+     "group_leadership_rank": 5,
+     "group_leadership_of": 29,
+     "rsi": 62.2,
+     "roce": 2.48,
+     "fcf_latest_cr": -1114.0,
      "fcf_source": "reported"
     },
     "status": "SCORED"
@@ -1536,11 +3146,11 @@
    "ticker": "OMNI",
    "name": "Omnitech Engg.",
    "joined_date": "2026-10-03",
-   "last_updated": "2026-10-24",
+   "last_updated": "2026-11-01",
    "scorecard": {
     "ticker": "OMNI",
     "name": "Omnitech Engg.",
-    "as_of": "2026-10-23",
+    "as_of": "2026-10-30",
     "mode": "WEEKLY",
     "gates": {
      "trend_template": {
@@ -1610,10 +3220,10 @@
      },
      "rs_trend": {
       "F1": 7,
-      "F2": 1,
+      "F2": 2,
       "F3": 2,
       "F4": 2,
-      "subtotal": 12
+      "subtotal": 13
      },
      "base_structure": {
       "G1": 0,
@@ -1630,7 +3240,7 @@
       "H3": 0,
       "subtotal": 0
      },
-     "total": 49
+     "total": 50
     },
     "quality_band": "Reject",
     "action_bucket": "AVOID",
@@ -1641,22 +3251,22 @@
     ],
     "risk_level": "MEDIUM",
     "valuation_context": {
-     "pe": 75.6,
+     "pe": 79.4,
      "peg": null,
      "vs_own_5yr": "",
      "note": "Valuation is context only, never a criterion."
     },
     "base": {
      "pattern_label": "",
-     "pivot": 704.4,
+     "pivot": 739.85,
      "pct_from_pivot": -9.77,
      "base_count": null,
      "depth_pct": 32.9,
-     "weeks": 10.8
+     "weeks": 11.8
     },
     "trade_plan": null,
     "delta": {
-     "score_change": -5,
+     "score_change": 1,
      "gate_flips": [],
      "bucket_change": "",
      "alerts": []
@@ -1667,9 +3277,9 @@
      "recommendation": ""
     },
     "verdict": {
-     "summary": "OMNI (49/100) \u2014 Reject / AVOID. Score is informational only \u2014 gate not confirmed, so not an actionable setup yet.",
+     "summary": "OMNI (50/100) \u2014 Reject / AVOID. Score is informational only \u2014 gate not confirmed, so not an actionable setup yet.",
      "strengths": [
-      "RS percentile 96",
+      "RS percentile 94",
       "Latest EPS YoY >=50%"
      ],
      "weaknesses": [
@@ -1698,30 +3308,423 @@
       {
        "field": "technicals",
        "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-10-23"
+       "as_of": "2026-10-30"
       },
       {
        "field": "fundamentals",
        "source": "screener.in",
-       "as_of": "2026-10-23"
+       "as_of": "2026-10-30"
       }
      ]
     },
     "technicals": {
-     "price": 635.6,
-     "rs_percentile": 96,
-     "pct_below_52w_high": 16.9,
-     "pct_above_52w_low": 260.6,
-     "dma_50": 580.24,
-     "dma_200": 480.15,
-     "up_down_volume_ratio_50d": 1.57,
+     "price": 667.55,
+     "rs_percentile": 94,
+     "pct_below_52w_high": 12.7,
+     "pct_above_52w_low": 278.8,
+     "dma_50": 591.06,
+     "dma_200": 486.48,
+     "up_down_volume_ratio_50d": 1.73,
      "industry_sector": null,
      "industry_group_rs_quartile": null,
      "group_leadership_rank": null,
      "group_leadership_of": null,
-     "rsi": 54.9,
+     "rsi": 55.8,
      "roce": 17.6,
      "fcf_latest_cr": -129.0,
+     "fcf_source": "reported"
+    },
+    "status": "SCORED_NO_TREND"
+   }
+  },
+  {
+   "ticker": "ANANDRATHI",
+   "name": "Anand Rathi Wea.",
+   "joined_date": "2026-10-17",
+   "last_updated": "2026-11-01",
+   "scorecard": {
+    "ticker": "ANANDRATHI",
+    "name": "Anand Rathi Wea.",
+    "as_of": "2026-10-30",
+    "mode": "WEEKLY",
+    "gates": {
+     "trend_template": {
+      "c1": true,
+      "c2": true,
+      "c3": true,
+      "c4": true,
+      "c5": true,
+      "c6": true,
+      "c7": true,
+      "c8": true,
+      "pass": true,
+      "near_miss_notes": ""
+     },
+     "investability": {
+      "liquidity": true,
+      "pledge": true,
+      "governance_flag": false,
+      "governance_note": "No auditor resignation, SEBI action, fraud investigation, or major governance event identified in the last 12 months from available knowledge; however this is not positively verified against a dated primary source, so treat as unconfirmed rather than cleared.",
+      "governance": true,
+      "pass": true
+     }
+    },
+    "llm_checks": {
+     "h3_catalyst_found": false,
+     "h3_citation": "",
+     "governance_flag": false,
+     "governance_note": "No auditor resignation, SEBI action, fraud investigation, or major governance event identified in the last 12 months from available knowledge; however this is not positively verified against a dated primary source, so treat as unconfirmed rather than cleared.",
+     "checked_date": "2026-10-17"
+    },
+    "scores": {
+     "earnings": {
+      "A1": 0,
+      "A2": 3,
+      "A3": 0,
+      "A4": 4,
+      "A5": 2,
+      "subtotal": 9
+     },
+     "revenue": {
+      "B1": 2,
+      "B2": 0,
+      "B3": 1,
+      "B4": 0,
+      "subtotal": 3
+     },
+     "profitability": {
+      "C1": 3,
+      "C2": 0,
+      "C3": 2,
+      "C4": 2,
+      "subtotal": 7
+     },
+     "balance_sheet": {
+      "D1": 2,
+      "D2": 1,
+      "D3": 0,
+      "D4": 1,
+      "subtotal": 4
+     },
+     "sponsorship": {
+      "E1": 2,
+      "E2": 0,
+      "E3": 0,
+      "E4": 0,
+      "subtotal": 2
+     },
+     "rs_trend": {
+      "F1": 5,
+      "F2": 4,
+      "F3": 2,
+      "F4": 2,
+      "subtotal": 13
+     },
+     "base_structure": {
+      "G1": 3,
+      "G2": 2,
+      "G3": 0,
+      "G4": 0,
+      "G5": 0,
+      "G6": 0,
+      "subtotal": 5
+     },
+     "leadership": {
+      "H1": 0,
+      "H2": 2,
+      "H3": 0,
+      "subtotal": 2
+     },
+     "total": 45
+    },
+    "quality_band": "Reject",
+    "action_bucket": "AVOID",
+    "setup_flag": "momentum",
+    "red_flags": [
+     "OTHER_INCOME_DRIVEN"
+    ],
+    "risk_level": "MEDIUM",
+    "valuation_context": {
+     "pe": 82.3,
+     "peg": null,
+     "vs_own_5yr": "",
+     "note": "Valuation is context only, never a criterion."
+    },
+    "base": {
+     "pattern_label": "",
+     "pivot": 2290.0,
+     "pct_from_pivot": -1.66,
+     "base_count": 3,
+     "depth_pct": 1.9,
+     "weeks": 0.6
+    },
+    "trade_plan": null,
+    "delta": {
+     "score_change": -6,
+     "gate_flips": [],
+     "bucket_change": "",
+     "alerts": []
+    },
+    "violations": {
+     "count": 0,
+     "items": [],
+     "recommendation": ""
+    },
+    "verdict": {
+     "summary": "ANANDRATHI (45/100) \u2014 Reject / AVOID.",
+     "strengths": [
+      "RS percentile 89"
+     ],
+     "weaknesses": [
+      "Earnings block weak (9/25)",
+      "No valid base yet (5/20)",
+      "3 unverified fields scored 0"
+     ],
+     "catalysts": [],
+     "biggest_risk": "OTHER_INCOME_DRIVEN",
+     "conviction_0_10": 1
+    },
+    "data_quality": {
+     "unverified_fields": [
+      "marquee_institution",
+      "mf_scheme_count",
+      "new_catalyst"
+     ],
+     "proxy_fields": [
+      "group_leadership_rank",
+      "industry_group_rs"
+     ],
+     "unverified_reasons": {},
+     "sources": [
+      {
+       "field": "technicals",
+       "source": "Yahoo Finance OHLCV",
+       "as_of": "2026-10-30"
+      },
+      {
+       "field": "fundamentals",
+       "source": "screener.in",
+       "as_of": "2026-10-30"
+      }
+     ]
+    },
+    "technicals": {
+     "price": 2252.0,
+     "rs_percentile": 89,
+     "pct_below_52w_high": 1.7,
+     "pct_above_52w_low": 67.0,
+     "dma_50": 2176.25,
+     "dma_200": 1859.7,
+     "up_down_volume_ratio_50d": 1.78,
+     "industry_sector": "Financial Services",
+     "industry_group_rs_quartile": 3,
+     "group_leadership_rank": 2,
+     "group_leadership_of": 100,
+     "rsi": 63.2,
+     "roce": 59.2,
+     "fcf_latest_cr": 268.0,
+     "fcf_source": "reported"
+    },
+    "status": "SCORED"
+   }
+  },
+  {
+   "ticker": "NUVAMA",
+   "name": "Nuvama Wealth",
+   "joined_date": "2026-11-01",
+   "last_updated": "2026-11-01",
+   "scorecard": {
+    "ticker": "NUVAMA",
+    "name": "Nuvama Wealth",
+    "as_of": "2026-10-30",
+    "mode": "FULL",
+    "gates": {
+     "trend_template": {
+      "c1": true,
+      "c2": true,
+      "c3": true,
+      "c4": true,
+      "c5": false,
+      "c6": true,
+      "c7": true,
+      "c8": true,
+      "pass": false,
+      "near_miss_notes": ""
+     },
+     "investability": {
+      "liquidity": true,
+      "pledge": true,
+      "governance_flag": false,
+      "governance_note": "No auditor resignation, SEBI action, fraud investigation, or major governance event identifiable with a concrete, dateable source in the last 12 months as of 2026-10-30. Promoter pledge 0%; promoter holding drifted only 54.2%\u219253.4% over 4 quarters (mild, not a governance event). Marked unverified in the payload as 'governance_events' \u2014 treated as no flag, but not affirmatively confirmed.",
+      "governance": true,
+      "pass": true
+     }
+    },
+    "llm_checks": {
+     "h3_catalyst_found": false,
+     "h3_citation": "",
+     "governance_flag": false,
+     "governance_note": "No auditor resignation, SEBI action, fraud investigation, or major governance event identifiable with a concrete, dateable source in the last 12 months as of 2026-10-30. Promoter pledge 0%; promoter holding drifted only 54.2%\u219253.4% over 4 quarters (mild, not a governance event). Marked unverified in the payload as 'governance_events' \u2014 treated as no flag, but not affirmatively confirmed.",
+     "checked_date": "2026-11-01"
+    },
+    "scores": {
+     "earnings": {
+      "A1": 0,
+      "A2": 5,
+      "A3": 0,
+      "A4": 2,
+      "A5": 4,
+      "subtotal": 11
+     },
+     "revenue": {
+      "B1": 4,
+      "B2": 2,
+      "B3": 1,
+      "B4": 2,
+      "subtotal": 9
+     },
+     "profitability": {
+      "C1": 3,
+      "C2": 0,
+      "C3": 0,
+      "C4": 0,
+      "subtotal": 3
+     },
+     "balance_sheet": {
+      "D1": 0,
+      "D2": 0,
+      "D3": 1,
+      "D4": 1,
+      "subtotal": 2
+     },
+     "sponsorship": {
+      "E1": 2,
+      "E2": 0,
+      "E3": 0,
+      "E4": 0,
+      "subtotal": 2
+     },
+     "rs_trend": {
+      "F1": 5,
+      "F2": 1,
+      "F3": 0,
+      "F4": 2,
+      "subtotal": 8
+     },
+     "base_structure": {
+      "G1": 0,
+      "G2": 4,
+      "G3": 3,
+      "G4": 0,
+      "G5": 1,
+      "G6": 0,
+      "subtotal": 8
+     },
+     "leadership": {
+      "H1": 0,
+      "H2": 2,
+      "H3": 0,
+      "subtotal": 2
+     },
+     "total": 45
+    },
+    "quality_band": "Reject",
+    "action_bucket": "AVOID",
+    "setup_flag": "momentum",
+    "red_flags": [
+     "POOR_CASH_CONVERSION"
+    ],
+    "risk_level": "MEDIUM",
+    "valuation_context": {
+     "pe": 29.6,
+     "peg": null,
+     "vs_own_5yr": "",
+     "note": "Valuation is context only, never a criterion."
+    },
+    "base": {
+     "pattern_label": "",
+     "pivot": 1886.5,
+     "pct_from_pivot": -7.98,
+     "base_count": 2,
+     "depth_pct": 23.6,
+     "weeks": 13.6
+    },
+    "trade_plan": null,
+    "delta": {
+     "score_change": 0,
+     "gate_flips": [],
+     "bucket_change": "",
+     "alerts": []
+    },
+    "violations": {
+     "count": 0,
+     "items": [],
+     "recommendation": ""
+    },
+    "verdict": {
+     "summary": "NUVAMA (45/100) \u2014 Reject / AVOID. Trend Template is not confirmed (price 1,736 sits below both the 50 DMA at 1,741.27 and, by construction, the 50>150>200 stack condition c5 is failing); the stock is 16% below its 52-week high and 7.98% below its 1,886.5 pivot with no breakout. Score is informational only. Fundamentals show thin/negative EPS YoY growth (\u22122.4% latest quarter), contracting net margins (\u2212127 bps YoY), negative operating cash conversion and reported FCF of \u2212\u20b93,041 cr, and D/E of 2.80 with only 2.47\u00d7 interest coverage \u2014 a levered, cash-hungry financial with no current catalyst. Not an actionable setup at any score.",
+     "strengths": [
+      "RS percentile 80 (F1, above the 70 Trend Template floor)",
+      "Price 59.8% above 52-week low and above the rising 200 DMA (1,548.34, rising 6 months)",
+      "Up/down volume ratio 1.86 \u2014 accumulation present",
+      "2nd base since Stage 2, moderate 23.6% depth, final contraction volume \u221228.3% vs 50d avg (G5)",
+      "Promoter pledge 0%; share count growth only 2.9% over 2 years",
+      "ROE 27.4%"
+     ],
+     "weaknesses": [
+      "Trend Template FAIL (c5) \u2014 not a valid setup",
+      "Latest quarter EPS YoY \u22122.4%; annual EPS growth 4.2%; EPS decelerating in 2 of last 3 quarters",
+      "Latest quarter sales YoY 7.8% \u2014 below Minervini's 20\u201325% bar (B1 4/6 masks deceleration)",
+      "Net margin contracting \u2212127 bps YoY (C2 = 0)",
+      "POOR_CASH_CONVERSION red flag: 3-yr OCF/PAT \u22121.90",
+      "FCF negative in 0 of 3 years (reported \u2212\u20b93,041 cr latest)",
+      "D/E 2.80 and interest coverage 2.47\u00d7 \u2014 levered",
+      "4 unverified fields scored 0 (governance events, marquee institution, MF scheme count, new catalyst)",
+      "Group RS quartile 3, leadership rank 7/100 \u2014 not a group leader"
+     ],
+     "catalysts": [],
+     "biggest_risk": "Cash burn against a levered balance sheet \u2014 3-yr OCF/PAT of \u22121.90 and reported FCF of \u2212\u20b93,041 cr with D/E 2.80 means any earnings miss forces further funding or balance-sheet strain; combined with a failed Trend Template this is a stock to avoid, not accumulate.",
+     "conviction_0_10": 0
+    },
+    "data_quality": {
+     "unverified_fields": [
+      "marquee_institution",
+      "mf_scheme_count",
+      "new_catalyst"
+     ],
+     "proxy_fields": [
+      "group_leadership_rank",
+      "industry_group_rs"
+     ],
+     "unverified_reasons": {},
+     "sources": [
+      {
+       "field": "technicals",
+       "source": "Yahoo Finance OHLCV",
+       "as_of": "2026-10-30"
+      },
+      {
+       "field": "fundamentals",
+       "source": "screener.in",
+       "as_of": "2026-10-30"
+      }
+     ]
+    },
+    "technicals": {
+     "price": 1736.0,
+     "rs_percentile": 80,
+     "pct_below_52w_high": 16.0,
+     "pct_above_52w_low": 59.8,
+     "dma_50": 1741.27,
+     "dma_200": 1548.34,
+     "up_down_volume_ratio_50d": 1.86,
+     "industry_sector": "Financial Services",
+     "industry_group_rs_quartile": 3,
+     "group_leadership_rank": 7,
+     "group_leadership_of": 100,
+     "rsi": 50.9,
+     "roce": 17.5,
+     "fcf_latest_cr": -3041.0,
      "fcf_source": "reported"
     },
     "status": "SCORED_NO_TREND"
@@ -1731,11 +3734,11 @@
    "ticker": "SHADOWFAX",
    "name": "Shadowfax Technologies",
    "joined_date": "2026-07-05",
-   "last_updated": "2026-10-24",
+   "last_updated": "2026-11-01",
    "scorecard": {
     "ticker": "SHADOWFAX",
     "name": "Shadowfax Technologies",
-    "as_of": "2026-10-23",
+    "as_of": "2026-10-30",
     "mode": "WEEKLY",
     "gates": {
      "trend_template": {
@@ -1768,19 +3771,19 @@
     },
     "scores": {
      "earnings": {
-      "A1": 8,
+      "A1": 4,
       "A2": 0,
       "A3": 4,
       "A4": 0,
       "A5": 0,
-      "subtotal": 12
+      "subtotal": 8
      },
      "revenue": {
       "B1": 6,
       "B2": 0,
       "B3": 3,
-      "B4": 0,
-      "subtotal": 9
+      "B4": 2,
+      "subtotal": 11
      },
      "profitability": {
       "C1": 0,
@@ -1825,7 +3828,7 @@
       "H3": 0,
       "subtotal": 0
      },
-     "total": 47
+     "total": 45
     },
     "quality_band": "Reject",
     "action_bucket": "AVOID",
@@ -1835,7 +3838,7 @@
     ],
     "risk_level": "MEDIUM",
     "valuation_context": {
-     "pe": 95.1,
+     "pe": 71.2,
      "peg": null,
      "vs_own_5yr": "",
      "note": "Valuation is context only, never a criterion."
@@ -1843,14 +3846,14 @@
     "base": {
      "pattern_label": "",
      "pivot": 302.35,
-     "pct_from_pivot": -9.36,
+     "pct_from_pivot": -10.09,
      "base_count": null,
      "depth_pct": 13.0,
-     "weeks": 1.8
+     "weeks": 2.8
     },
     "trade_plan": null,
     "delta": {
-     "score_change": -1,
+     "score_change": -2,
      "gate_flips": [],
      "bucket_change": "",
      "alerts": []
@@ -1861,15 +3864,15 @@
      "recommendation": ""
     },
     "verdict": {
-     "summary": "SHADOWFAX (47/100) \u2014 Reject / AVOID. Score is informational only \u2014 gate not confirmed, so not an actionable setup yet.",
+     "summary": "SHADOWFAX (45/100) \u2014 Reject / AVOID. Score is informational only \u2014 gate not confirmed, so not an actionable setup yet.",
      "strengths": [
-      "RS percentile 97",
-      "Latest EPS YoY >=50%"
+      "RS percentile 94"
      ],
      "weaknesses": [
       "Fails Trend Template: c3",
+      "Earnings block weak (8/25)",
       "No valid base yet (0/20)",
-      "9 unverified fields scored 0"
+      "8 unverified fields scored 0"
      ],
      "catalysts": [],
      "biggest_risk": "OTHER_INCOME_DRIVEN",
@@ -1884,8 +3887,7 @@
       "industry_group_rs",
       "marquee_institution",
       "mf_scheme_count",
-      "new_catalyst",
-      "sales_acceleration"
+      "new_catalyst"
      ],
      "proxy_fields": [],
      "unverified_reasons": {},
@@ -1893,30 +3895,426 @@
       {
        "field": "technicals",
        "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-10-23"
+       "as_of": "2026-10-30"
       },
       {
        "field": "fundamentals",
        "source": "screener.in",
-       "as_of": "2026-10-23"
+       "as_of": "2026-10-30"
       }
      ]
     },
     "technicals": {
-     "price": 274.05,
-     "rs_percentile": 97,
-     "pct_below_52w_high": 9.4,
-     "pct_above_52w_low": 178.1,
-     "dma_50": 267.24,
-     "dma_200": 196.48,
-     "up_down_volume_ratio_50d": 1.21,
+     "price": 271.85,
+     "rs_percentile": 94,
+     "pct_below_52w_high": 10.1,
+     "pct_above_52w_low": 175.8,
+     "dma_50": 270.67,
+     "dma_200": 198.9,
+     "up_down_volume_ratio_50d": 1.25,
      "industry_sector": null,
      "industry_group_rs_quartile": null,
      "group_leadership_rank": null,
      "group_leadership_of": null,
-     "rsi": 47.5,
+     "rsi": 45.2,
      "roce": 10.0,
      "fcf_latest_cr": 165.0,
+     "fcf_source": "reported"
+    },
+    "status": "SCORED_NO_TREND"
+   }
+  },
+  {
+   "ticker": "CEMPRO",
+   "name": "Cemindia Project",
+   "joined_date": "2026-11-01",
+   "last_updated": "2026-11-01",
+   "scorecard": {
+    "ticker": "CEMPRO",
+    "name": "Cemindia Project",
+    "as_of": "2026-10-30",
+    "mode": "FULL",
+    "gates": {
+     "trend_template": {
+      "c1": true,
+      "c2": true,
+      "c3": true,
+      "c4": true,
+      "c5": true,
+      "c6": true,
+      "c7": true,
+      "c8": true,
+      "pass": true,
+      "near_miss_notes": ""
+     },
+     "investability": {
+      "liquidity": true,
+      "pledge": true,
+      "governance_flag": false,
+      "governance_note": "No auditor resignation, SEBI action, fraud investigation, or major governance event in the last 12 months identified from a dateable source; promoter pledge is 0%. Note: promoter holding fell from 67.46% to 62.84% in the latest quarter (a ~4.6pp stake sale) \u2014 not a governance red flag per se, but worth monitoring.",
+      "governance": true,
+      "pass": true
+     }
+    },
+    "llm_checks": {
+     "h3_catalyst_found": false,
+     "h3_citation": "",
+     "governance_flag": false,
+     "governance_note": "No auditor resignation, SEBI action, fraud investigation, or major governance event in the last 12 months identified from a dateable source; promoter pledge is 0%. Note: promoter holding fell from 67.46% to 62.84% in the latest quarter (a ~4.6pp stake sale) \u2014 not a governance red flag per se, but worth monitoring.",
+     "checked_date": "2026-11-01"
+    },
+    "scores": {
+     "earnings": {
+      "A1": 0,
+      "A2": 1,
+      "A3": 0,
+      "A4": 4,
+      "A5": 4,
+      "subtotal": 9
+     },
+     "revenue": {
+      "B1": 0,
+      "B2": 0,
+      "B3": 0,
+      "B4": 2,
+      "subtotal": 2
+     },
+     "profitability": {
+      "C1": 3,
+      "C2": 1,
+      "C3": 2,
+      "C4": 2,
+      "subtotal": 8
+     },
+     "balance_sheet": {
+      "D1": 2,
+      "D2": 0,
+      "D3": 1,
+      "D4": 1,
+      "subtotal": 4
+     },
+     "sponsorship": {
+      "E1": 2,
+      "E2": 0,
+      "E3": 0,
+      "E4": 0,
+      "subtotal": 2
+     },
+     "rs_trend": {
+      "F1": 7,
+      "F2": 1,
+      "F3": 0,
+      "F4": 2,
+      "subtotal": 10
+     },
+     "base_structure": {
+      "G1": 3,
+      "G2": 2,
+      "G3": 0,
+      "G4": 0,
+      "G5": 0,
+      "G6": 0,
+      "subtotal": 5
+     },
+     "leadership": {
+      "H1": 0,
+      "H2": 2,
+      "H3": 0,
+      "subtotal": 2
+     },
+     "total": 42
+    },
+    "quality_band": "Reject",
+    "action_bucket": "AVOID",
+    "setup_flag": "momentum",
+    "red_flags": [],
+    "risk_level": "LOW",
+    "valuation_context": {
+     "pe": 38.8,
+     "peg": null,
+     "vs_own_5yr": "",
+     "note": "Valuation is context only, never a criterion."
+    },
+    "base": {
+     "pattern_label": "",
+     "pivot": 1344.6,
+     "pct_from_pivot": -5.92,
+     "base_count": 3,
+     "depth_pct": 35.4,
+     "weeks": 14.2
+    },
+    "trade_plan": null,
+    "delta": {
+     "score_change": 0,
+     "gate_flips": [],
+     "bucket_change": "",
+     "alerts": []
+    },
+    "violations": {
+     "count": 0,
+     "items": [],
+     "recommendation": ""
+    },
+    "verdict": {
+     "summary": "CEMPRO (42/100) is Reject / AVOID. Trend Template and investability gates technically pass, and RS percentile (93) is elite, but the company fails the Minervini earnings engine: latest-quarter EPS YoY is only ~+2.6% (A1=0), revenue growth is single-digit-to-teens with no acceleration (B1=0, B2=0, 3-yr sales CAGR 9.8%), and the price sits 5.9% below a pivot in a 14-week, 35.4%-deep third-stage base with a chaotic contraction structure (5.5% then 35.0%) and no dry-up or tightness. That is a broken, wide, late-stage pattern \u2014 not a VCP. Price is also 23.3% below its 52-week high and below a flat 50 DMA. Until EPS and revenue re-accelerate and a proper, shallower base forms near the highs, there is no Minervini setup here regardless of the RS score.",
+     "strengths": [
+      "RS percentile 93 (elite relative strength)",
+      "ROE 27.8% / ROCE 32.8% with positive FCF in all 3 years and OCF/PAT 1.11x",
+      "Clean balance sheet: D/E 0.42, zero pledge, zero dilution (share count flat 2y)",
+      "Institutional holding rose four straight quarters (9.25% \u2192 17.29%)",
+      "Price +152% above 52-week low with rising 200 DMA (6 months)"
+     ],
+     "weaknesses": [
+      "Latest-quarter EPS YoY only ~+2.6% (A1=0); earnings decelerating sharply off a high base",
+      "Revenue growth weak: latest quarter +10.2%, 3-yr sales CAGR 9.8%, no acceleration (B1/B2/B3 = 0)",
+      "Base structure broken: 3rd base since Stage 2, 35.4% depth, contractions 5.5% then 35.0% (not shallower), no volume dry-up (+41% vs avg), weekly tightness 9.1% (G3\u2013G6 = 0)",
+      "Price 5.9% below pivot and 23.3% below 52-week high; 50 DMA not rising",
+      "Interest coverage 4.9x just misses the 5x threshold (D2=0)",
+      "Other income >26% of PBT in one recent quarter and >23% in two others (quality noise)",
+      "Industry group RS in bottom quartile (4 of 4), so no sector tailwind"
+     ],
+     "catalysts": [],
+     "biggest_risk": "Deep, late-stage (3rd) base with a 35% drawdown and decelerating EPS/revenue \u2014 a failed breakout or stage-3 top formation risk; no identifiable new catalyst to drive a fresh leg.",
+     "conviction_0_10": 1
+    },
+    "data_quality": {
+     "unverified_fields": [
+      "marquee_institution",
+      "mf_scheme_count",
+      "new_catalyst"
+     ],
+     "proxy_fields": [
+      "group_leadership_rank",
+      "industry_group_rs"
+     ],
+     "unverified_reasons": {},
+     "sources": [
+      {
+       "field": "technicals",
+       "source": "Yahoo Finance OHLCV",
+       "as_of": "2026-10-30"
+      },
+      {
+       "field": "fundamentals",
+       "source": "screener.in",
+       "as_of": "2026-10-30"
+      }
+     ]
+    },
+    "technicals": {
+     "price": 1265.0,
+     "rs_percentile": 93,
+     "pct_below_52w_high": 23.3,
+     "pct_above_52w_low": 152.0,
+     "dma_50": 1227.06,
+     "dma_200": 996.3,
+     "up_down_volume_ratio_50d": 1.3,
+     "industry_sector": "Construction",
+     "industry_group_rs_quartile": 4,
+     "group_leadership_rank": 1,
+     "group_leadership_of": 13,
+     "rsi": 58.2,
+     "roce": 32.8,
+     "fcf_latest_cr": 274.0,
+     "fcf_source": "reported"
+    },
+    "status": "SCORED"
+   }
+  },
+  {
+   "ticker": "PAISALO",
+   "name": "Paisalo Digital",
+   "joined_date": "2026-11-01",
+   "last_updated": "2026-11-01",
+   "scorecard": {
+    "ticker": "PAISALO",
+    "name": "Paisalo Digital",
+    "as_of": "2026-10-30",
+    "mode": "FULL",
+    "gates": {
+     "trend_template": {
+      "c1": true,
+      "c2": true,
+      "c3": true,
+      "c4": true,
+      "c5": false,
+      "c6": true,
+      "c7": true,
+      "c8": true,
+      "pass": false,
+      "near_miss_notes": ""
+     },
+     "investability": {
+      "liquidity": true,
+      "pledge": true,
+      "governance_flag": false,
+      "governance_note": "No governance event in the last 12 months can be cited from a concrete, dateable source in this data set (governance_events is listed as unverified). Absence of a citable event is not affirmative clearance; no SEBI action, auditor resignation, or fraud investigation is asserted.",
+      "governance": true,
+      "pass": true
+     }
+    },
+    "llm_checks": {
+     "h3_catalyst_found": false,
+     "h3_citation": "",
+     "governance_flag": false,
+     "governance_note": "No governance event in the last 12 months can be cited from a concrete, dateable source in this data set (governance_events is listed as unverified). Absence of a citable event is not affirmative clearance; no SEBI action, auditor resignation, or fraud investigation is asserted.",
+     "checked_date": "2026-11-01"
+    },
+    "scores": {
+     "earnings": {
+      "A1": 4,
+      "A2": 0,
+      "A3": 0,
+      "A4": 0,
+      "A5": 4,
+      "subtotal": 8
+     },
+     "revenue": {
+      "B1": 4,
+      "B2": 2,
+      "B3": 1,
+      "B4": 2,
+      "subtotal": 9
+     },
+     "profitability": {
+      "C1": 1,
+      "C2": 3,
+      "C3": 0,
+      "C4": 0,
+      "subtotal": 4
+     },
+     "balance_sheet": {
+      "D1": 0,
+      "D2": 0,
+      "D3": 1,
+      "D4": 1,
+      "subtotal": 2
+     },
+     "sponsorship": {
+      "E1": 0,
+      "E2": 0,
+      "E3": 0,
+      "E4": 1,
+      "subtotal": 1
+     },
+     "rs_trend": {
+      "F1": 7,
+      "F2": 1,
+      "F3": 0,
+      "F4": 2,
+      "subtotal": 10
+     },
+     "base_structure": {
+      "G1": 0,
+      "G2": 2,
+      "G3": 1,
+      "G4": 0,
+      "G5": 3,
+      "G6": 0,
+      "subtotal": 6
+     },
+     "leadership": {
+      "H1": 0,
+      "H2": 0,
+      "H3": 0,
+      "subtotal": 0
+     },
+     "total": 40
+    },
+    "quality_band": "Reject",
+    "action_bucket": "AVOID",
+    "setup_flag": "momentum",
+    "red_flags": [
+     "EPS_DECELERATION",
+     "POOR_CASH_CONVERSION"
+    ],
+    "risk_level": "MEDIUM",
+    "valuation_context": {
+     "pe": 27.8,
+     "peg": null,
+     "vs_own_5yr": "",
+     "note": "Valuation is context only, never a criterion."
+    },
+    "base": {
+     "pattern_label": "",
+     "pivot": 94.88,
+     "pct_from_pivot": -17.13,
+     "base_count": 3,
+     "depth_pct": 28.7,
+     "weeks": 5.6
+    },
+    "trade_plan": null,
+    "delta": {
+     "score_change": 0,
+     "gate_flips": [],
+     "bucket_change": "",
+     "alerts": []
+    },
+    "violations": {
+     "count": 0,
+     "items": [],
+     "recommendation": ""
+    },
+    "verdict": {
+     "summary": "PAISALO (40/100) \u2014 Reject / AVOID. Fails Trend Template criterion c5 (price 78.63 below its 50 DMA of 78.83) and sits ~17% below a pivot that is the prior swing high, with the base deteriorating (each contraction deeper: 3% \u2192 5.4% \u2192 5.0% \u2192 11.2% \u2192 16.2%) and a 28.7% base depth \u2014 no valid Minervini setup. Earnings quality is poor: EPS growth decelerated to +4.3% YoY in the latest quarter (from ~55% two quarters prior), 3-yr EPS CAGR only 13.5%, OCF/PAT cumulative -3.56 (negative operating cash flow vs profit), FCF -\u20b9798 cr, and debt metrics unverified. RS of 96 is real but is the only meaningful positive and cannot override a Trend Template failure. Score is informational only \u2014 not actionable.",
+     "strengths": [
+      "RS percentile 96 with price 162% above 52-week low and within 17% of high",
+      "200 DMA rising for 9 months; strong Stage-2-style long-term uptrend",
+      "Liquidity ample (median daily traded value ~\u20b980 cr), no promoter pledge, minimal dilution (share count +1.1% over 2 yrs)",
+      "No other-income distortion (other income ~0% of PBT) and positive EPS in all 8 quarters"
+     ],
+     "weaknesses": [
+      "Fails Trend Template c5: price (78.63) below 50 DMA (78.83)",
+      "Earnings block 8/25 \u2014 EPS_DECELERATION flagged (latest EPS YoY +4.3%)",
+      "Cash conversion poor: 3-yr OCF/PAT -3.56, FCF -\u20b9798 cr, zero positive FCF years (POOR_CASH_CONVERSION)",
+      "Base structure weak (6/20): contractions expanding not contracting, 28.7% depth, 3rd base since Stage 2",
+      "D/E and interest coverage unverified \u2014 cannot assess leverage risk for a lender",
+      "Institutional holding trending down (24.4% \u2192 12.9% over 4 quarters)"
+     ],
+     "catalysts": [],
+     "biggest_risk": "EPS_DECELERATION combined with negative operating cash flow and declining institutional sponsorship \u2014 the growth story is losing both fundamental and sponsorship support even as the stock is already ~17% below its pivot.",
+     "conviction_0_10": 0
+    },
+    "data_quality": {
+     "unverified_fields": [
+      "debt_to_equity",
+      "group_leadership_rank",
+      "industry_group_rs",
+      "interest_coverage",
+      "marquee_institution",
+      "mf_scheme_count",
+      "new_catalyst"
+     ],
+     "proxy_fields": [],
+     "unverified_reasons": {},
+     "sources": [
+      {
+       "field": "technicals",
+       "source": "Yahoo Finance OHLCV",
+       "as_of": "2026-10-30"
+      },
+      {
+       "field": "fundamentals",
+       "source": "screener.in",
+       "as_of": "2026-10-30"
+      }
+     ]
+    },
+    "technicals": {
+     "price": 78.63,
+     "rs_percentile": 96,
+     "pct_below_52w_high": 17.1,
+     "pct_above_52w_low": 162.4,
+     "dma_50": 78.83,
+     "dma_200": 56.4,
+     "up_down_volume_ratio_50d": 1.54,
+     "industry_sector": null,
+     "industry_group_rs_quartile": null,
+     "group_leadership_rank": null,
+     "group_leadership_of": null,
+     "rsi": 46.6,
+     "roce": 12.4,
+     "fcf_latest_cr": -798.0,
      "fcf_source": "reported"
     },
     "status": "SCORED_NO_TREND"
@@ -1926,11 +4324,11 @@
    "ticker": "TIPSMUSIC",
    "name": "Tips Music",
    "joined_date": "2026-10-17",
-   "last_updated": "2026-10-24",
+   "last_updated": "2026-11-01",
    "scorecard": {
     "ticker": "TIPSMUSIC",
     "name": "Tips Music",
-    "as_of": "2026-10-23",
+    "as_of": "2026-10-30",
     "mode": "WEEKLY",
     "gates": {
      "trend_template": {
@@ -2000,10 +4398,10 @@
      },
      "rs_trend": {
       "F1": 7,
-      "F2": 2,
+      "F2": 4,
       "F3": 2,
       "F4": 2,
-      "subtotal": 13
+      "subtotal": 15
      },
      "base_structure": {
       "G1": 3,
@@ -2020,7 +4418,7 @@
       "H3": 0,
       "subtotal": 0
      },
-     "total": 24
+     "total": 26
     },
     "quality_band": "Reject",
     "action_bucket": "AVOID",
@@ -2035,15 +4433,15 @@
     },
     "base": {
      "pattern_label": "",
-     "pivot": 778.18,
-     "pct_from_pivot": -7.86,
+     "pivot": 808.8,
+     "pct_from_pivot": -3.31,
      "base_count": 2,
-     "depth_pct": 9.8,
-     "weeks": 0.8
+     "depth_pct": 4.5,
+     "weeks": 0.4
     },
     "trade_plan": null,
     "delta": {
-     "score_change": 0,
+     "score_change": 2,
      "gate_flips": [],
      "bucket_change": "",
      "alerts": []
@@ -2054,7 +4452,7 @@
      "recommendation": ""
     },
     "verdict": {
-     "summary": "TIPSMUSIC (24/100) \u2014 Reject / AVOID.",
+     "summary": "TIPSMUSIC (26/100) \u2014 Reject / AVOID.",
      "strengths": [
       "RS percentile 90"
      ],
@@ -2099,28 +4497,28 @@
       {
        "field": "technicals",
        "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-10-23"
+       "as_of": "2026-10-30"
       },
       {
        "field": "fundamentals",
        "source": "screener.in",
-       "as_of": "2026-10-23"
+       "as_of": "2026-10-30"
       }
      ]
     },
     "technicals": {
-     "price": 717.05,
+     "price": 782.05,
      "rs_percentile": 90,
-     "pct_below_52w_high": 7.9,
-     "pct_above_52w_low": 51.1,
-     "dma_50": 659.55,
-     "dma_200": 611.3,
-     "up_down_volume_ratio_50d": 1.75,
+     "pct_below_52w_high": 3.3,
+     "pct_above_52w_low": 64.8,
+     "dma_50": 670.07,
+     "dma_200": 617.14,
+     "up_down_volume_ratio_50d": 1.82,
      "industry_sector": null,
      "industry_group_rs_quartile": null,
      "group_leadership_rank": null,
      "group_leadership_of": null,
-     "rsi": 57.7,
+     "rsi": 66.0,
      "roce": null,
      "fcf_latest_cr": null,
      "fcf_source": null
@@ -2129,215 +4527,14 @@
    }
   },
   {
-   "ticker": "AUGMONT",
-   "name": "Augmont Enterpri",
-   "joined_date": "2026-10-17",
-   "last_updated": "2026-10-24",
-   "scorecard": {
-    "ticker": "AUGMONT",
-    "name": "Augmont Enterpri",
-    "as_of": "2026-10-23",
-    "mode": "WEEKLY",
-    "gates": {
-     "trend_template": {
-      "c1": true,
-      "c2": false,
-      "c3": false,
-      "c4": false,
-      "c5": true,
-      "c6": true,
-      "c7": true,
-      "c8": false,
-      "pass": false,
-      "near_miss_notes": ""
-     },
-     "investability": {
-      "liquidity": true,
-      "pledge": true,
-      "governance_flag": false,
-      "governance_note": "No auditor resignation, SEBI action, fraud investigation or major governance event identified in any concrete, dateable source for the trailing 12 months as of 2026-10-16; governance events field is unverified and scored zero per Prime Directive 1.",
-      "governance": true,
-      "pass": true
-     }
-    },
-    "llm_checks": {
-     "h3_catalyst_found": false,
-     "h3_citation": "",
-     "governance_flag": false,
-     "governance_note": "No auditor resignation, SEBI action, fraud investigation or major governance event identified in any concrete, dateable source for the trailing 12 months as of 2026-10-16; governance events field is unverified and scored zero per Prime Directive 1.",
-     "checked_date": "2026-10-17"
-    },
-    "scores": {
-     "earnings": {
-      "A1": 0,
-      "A2": 0,
-      "A3": 4,
-      "A4": 4,
-      "A5": 0,
-      "subtotal": 8
-     },
-     "revenue": {
-      "B1": 0,
-      "B2": 0,
-      "B3": 3,
-      "B4": 0,
-      "subtotal": 3
-     },
-     "profitability": {
-      "C1": 3,
-      "C2": 0,
-      "C3": 0,
-      "C4": 2,
-      "subtotal": 5
-     },
-     "balance_sheet": {
-      "D1": 2,
-      "D2": 1,
-      "D3": 0,
-      "D4": 1,
-      "subtotal": 4
-     },
-     "sponsorship": {
-      "E1": 0,
-      "E2": 0,
-      "E3": 0,
-      "E4": 0,
-      "subtotal": 0
-     },
-     "rs_trend": {
-      "F1": 0,
-      "F2": 1,
-      "F3": 0,
-      "F4": 2,
-      "subtotal": 3
-     },
-     "base_structure": {
-      "G1": 0,
-      "G2": 0,
-      "G3": 0,
-      "G4": 0,
-      "G5": 0,
-      "G6": 0,
-      "subtotal": 0
-     },
-     "leadership": {
-      "H1": 0,
-      "H2": 0,
-      "H3": 0,
-      "subtotal": 0
-     },
-     "total": 23
-    },
-    "quality_band": "Reject",
-    "action_bucket": "AVOID",
-    "setup_flag": null,
-    "red_flags": [
-     "OTHER_INCOME_DRIVEN",
-     "POOR_CASH_CONVERSION"
-    ],
-    "risk_level": "MEDIUM",
-    "valuation_context": {
-     "pe": 31.0,
-     "peg": null,
-     "vs_own_5yr": "",
-     "note": "Valuation is context only, never a criterion."
-    },
-    "base": {
-     "pattern_label": "",
-     "pivot": 1404.6,
-     "pct_from_pivot": -21.95,
-     "base_count": null,
-     "depth_pct": 21.9,
-     "weeks": 1.8
-    },
-    "trade_plan": null,
-    "delta": {
-     "score_change": -3,
-     "gate_flips": [],
-     "bucket_change": "",
-     "alerts": []
-    },
-    "violations": {
-     "count": 0,
-     "items": [],
-     "recommendation": ""
-    },
-    "verdict": {
-     "summary": "AUGMONT (23/100) \u2014 Reject / AVOID. Score is informational only \u2014 gate not confirmed, so not an actionable setup yet.",
-     "strengths": [],
-     "weaknesses": [
-      "Fails Trend Template: c2, c3, c4, c8",
-      "Earnings block weak (8/25)",
-      "No valid base yet (0/20)",
-      "16 unverified fields scored 0"
-     ],
-     "catalysts": [],
-     "biggest_risk": "OTHER_INCOME_DRIVEN",
-     "conviction_0_10": 0
-    },
-    "data_quality": {
-     "unverified_fields": [
-      "base_count",
-      "eps_acceleration",
-      "eps_revenue_support",
-      "eps_yoy_latest",
-      "group_leadership_rank",
-      "industry_group_rs",
-      "institutional_holding",
-      "marquee_institution",
-      "median_daily_traded_value",
-      "mf_scheme_count",
-      "net_margin_trend",
-      "new_catalyst",
-      "promoter_holding_trend",
-      "rs_percentile",
-      "sales_acceleration",
-      "sales_yoy_latest"
-     ],
-     "proxy_fields": [],
-     "unverified_reasons": {},
-     "sources": [
-      {
-       "field": "technicals",
-       "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-10-23"
-      },
-      {
-       "field": "fundamentals",
-       "source": "screener.in",
-       "as_of": "2026-10-23"
-      }
-     ]
-    },
-    "technicals": {
-     "price": 1096.3,
-     "rs_percentile": null,
-     "pct_below_52w_high": 21.9,
-     "pct_above_52w_low": 36.0,
-     "dma_50": 1045.69,
-     "dma_200": 1045.69,
-     "up_down_volume_ratio_50d": 1.65,
-     "industry_sector": null,
-     "industry_group_rs_quartile": null,
-     "group_leadership_rank": null,
-     "group_leadership_of": null,
-     "rsi": 44.0,
-     "roce": 68.5,
-     "fcf_latest_cr": -43.0,
-     "fcf_source": "reported"
-    },
-    "status": "SCORED_NO_TREND"
-   }
-  },
-  {
    "ticker": "KRISHANA",
    "name": "Krishana Phosch.",
    "joined_date": "2026-07-28",
-   "last_updated": "2026-10-24",
+   "last_updated": "2026-11-01",
    "scorecard": {
     "ticker": "KRISHANA",
     "name": "Krishana Phosch.",
-    "as_of": "2026-10-23",
+    "as_of": "2026-10-30",
     "mode": "WEEKLY",
     "gates": {
      "trend_template": {
@@ -2407,10 +4604,10 @@
      },
      "rs_trend": {
       "F1": 7,
-      "F2": 2,
+      "F2": 4,
       "F3": 2,
       "F4": 2,
-      "subtotal": 13
+      "subtotal": 15
      },
      "base_structure": {
       "G1": 3,
@@ -2427,7 +4624,7 @@
       "H3": 0,
       "subtotal": 0
      },
-     "total": 22
+     "total": 24
     },
     "quality_band": "Reject",
     "action_bucket": "AVOID",
@@ -2442,15 +4639,15 @@
     },
     "base": {
      "pattern_label": "",
-     "pivot": 216.0,
-     "pct_from_pivot": -7.56,
+     "pivot": 230.0,
+     "pct_from_pivot": -0.63,
      "base_count": 3,
-     "depth_pct": 11.5,
-     "weeks": 0.6
+     "depth_pct": 3.2,
+     "weeks": 0.2
     },
     "trade_plan": null,
     "delta": {
-     "score_change": -2,
+     "score_change": 2,
      "gate_flips": [],
      "bucket_change": "",
      "alerts": []
@@ -2461,7 +4658,7 @@
      "recommendation": ""
     },
     "verdict": {
-     "summary": "KRISHANA (22/100) \u2014 Reject / AVOID.",
+     "summary": "KRISHANA (24/100) \u2014 Reject / AVOID.",
      "strengths": [
       "RS percentile 97"
      ],
@@ -2507,28 +4704,28 @@
       {
        "field": "technicals",
        "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-10-23"
+       "as_of": "2026-10-30"
       },
       {
        "field": "fundamentals",
        "source": "screener.in",
-       "as_of": "2026-10-23"
+       "as_of": "2026-10-30"
       }
      ]
     },
     "technicals": {
-     "price": 199.66,
+     "price": 228.55,
      "rs_percentile": 97,
-     "pct_below_52w_high": 7.6,
-     "pct_above_52w_low": 119.1,
-     "dma_50": 191.46,
-     "dma_200": 140.08,
-     "up_down_volume_ratio_50d": 1.86,
+     "pct_below_52w_high": 0.6,
+     "pct_above_52w_low": 150.8,
+     "dma_50": 194.31,
+     "dma_200": 142.9,
+     "up_down_volume_ratio_50d": 2.14,
      "industry_sector": null,
      "industry_group_rs_quartile": null,
      "group_leadership_rank": null,
      "group_leadership_of": null,
-     "rsi": 54.0,
+     "rsi": 72.1,
      "roce": null,
      "fcf_latest_cr": null,
      "fcf_source": null
@@ -2537,15 +4734,228 @@
    }
   },
   {
-   "ticker": "MILKYMIST",
-   "name": "Milky Mist Dairy",
-   "joined_date": "2026-10-03",
-   "last_updated": "2026-10-24",
+   "ticker": "SEDEMAC",
+   "name": "Sedemac Mechatro",
+   "joined_date": "2026-11-01",
+   "last_updated": "2026-11-01",
    "scorecard": {
-    "ticker": "MILKYMIST",
-    "name": "Milky Mist Dairy",
-    "as_of": "2026-10-23",
-    "mode": "WEEKLY",
+    "ticker": "SEDEMAC",
+    "name": "Sedemac Mechatro",
+    "as_of": "2026-10-30",
+    "mode": "FULL",
+    "gates": {
+     "trend_template": {
+      "c1": true,
+      "c2": true,
+      "c3": false,
+      "c4": true,
+      "c5": false,
+      "c6": true,
+      "c7": true,
+      "c8": true,
+      "pass": false,
+      "near_miss_notes": ""
+     },
+     "investability": {
+      "liquidity": true,
+      "pledge": true,
+      "governance_flag": false,
+      "governance_note": "No auditor resignation, SEBI action, fraud investigation, or major governance event for Sedemac Mechatro (SEDEMAC) in the 12 months to 2026-10-30 could be verified from a concrete, dateable source; the scorecard's investability gate reports governance as passing (governance_flag false) and no governance events are listed. Absence of a found flag is not proof of cleanliness \u2014 treat as unverified rather than confirmed clear.",
+      "governance": true,
+      "pass": true
+     }
+    },
+    "llm_checks": {
+     "h3_catalyst_found": false,
+     "h3_citation": "",
+     "governance_flag": false,
+     "governance_note": "No auditor resignation, SEBI action, fraud investigation, or major governance event for Sedemac Mechatro (SEDEMAC) in the 12 months to 2026-10-30 could be verified from a concrete, dateable source; the scorecard's investability gate reports governance as passing (governance_flag false) and no governance events are listed. Absence of a found flag is not proof of cleanliness \u2014 treat as unverified rather than confirmed clear.",
+     "checked_date": "2026-11-01"
+    },
+    "scores": {
+     "earnings": {
+      "A1": 0,
+      "A2": 0,
+      "A3": 0,
+      "A4": 0,
+      "A5": 0,
+      "subtotal": 0
+     },
+     "revenue": {
+      "B1": 0,
+      "B2": 0,
+      "B3": 0,
+      "B4": 0,
+      "subtotal": 0
+     },
+     "profitability": {
+      "C1": 0,
+      "C2": 0,
+      "C3": 0,
+      "C4": 0,
+      "subtotal": 0
+     },
+     "balance_sheet": {
+      "D1": 0,
+      "D2": 0,
+      "D3": 0,
+      "D4": 1,
+      "subtotal": 1
+     },
+     "sponsorship": {
+      "E1": 1,
+      "E2": 0,
+      "E3": 0,
+      "E4": 1,
+      "subtotal": 2
+     },
+     "rs_trend": {
+      "F1": 7,
+      "F2": 2,
+      "F3": 0,
+      "F4": 2,
+      "subtotal": 11
+     },
+     "base_structure": {
+      "G1": 0,
+      "G2": 0,
+      "G3": 3,
+      "G4": 0,
+      "G5": 3,
+      "G6": 0,
+      "subtotal": 6
+     },
+     "leadership": {
+      "H1": 0,
+      "H2": 0,
+      "H3": 0,
+      "subtotal": 0
+     },
+     "total": 20
+    },
+    "quality_band": "Reject",
+    "action_bucket": "AVOID",
+    "setup_flag": null,
+    "red_flags": [],
+    "risk_level": "LOW",
+    "valuation_context": {
+     "pe": null,
+     "peg": null,
+     "vs_own_5yr": "",
+     "note": "Valuation is context only, never a criterion."
+    },
+    "base": {
+     "pattern_label": "",
+     "pivot": 3650.0,
+     "pct_from_pivot": -14.55,
+     "base_count": null,
+     "depth_pct": 17.5,
+     "weeks": 3.8
+    },
+    "trade_plan": null,
+    "delta": {
+     "score_change": 0,
+     "gate_flips": [],
+     "bucket_change": "",
+     "alerts": []
+    },
+    "violations": {
+     "count": 0,
+     "items": [],
+     "recommendation": ""
+    },
+    "verdict": {
+     "summary": "SEDEMAC (20/100) \u2014 Reject / AVOID; quality band Reject and action bucket AVOID stand. The stock fails the Trend Template on c3 (200 DMA trend not confirmed rising) and c5 (price 3119.1 is below the 50 DMA of 3142.32), so it is not a Minervini candidate regardless of its strong RS percentile (94) and 120.7% premium to its 52-week low. Price sits 14.55% below the 3650 pivot with only a 3.8-week, 17.5%-deep structure and weekly close tightness of 6.52% \u2014 no valid VCP/entry exists. The score is informational only: the entire earnings and revenue blocks are unverified (0/25 and 0/15), so the quality read is incomplete rather than proven weak.",
+     "strengths": [
+      "RS percentile 94 \u2014 strong relative strength vs the tracking universe",
+      "Price 120.7% above the 52-week low and within 14.5% of the 52-week high",
+      "Volume dry-up in the final contraction (-37.4% vs 50-day average) and up/down volume ratio 1.29",
+      "Zero promoter pledge and stable promoter holding (~26.2% across last readings)"
+     ],
+     "weaknesses": [
+      "Fails Trend Template: c3, c5 \u2014 price below the 50 DMA and 200 DMA trend unconfirmed",
+      "Earnings block 0/25 and revenue block 0/15 \u2014 all inputs unverified, not merely weak",
+      "Price 14.55% below pivot; only 3.8 weeks into a 17.5%-deep base \u2014 no completed setup",
+      "Leadership block 0/5 and industry group RS quartile unverified",
+      "Base count since Stage 2 unverified \u2014 cannot place the base in cycle context"
+     ],
+     "catalysts": [],
+     "biggest_risk": "Fundamentals are almost entirely unverified (24 fields scored 0), so the 20/100 score likely understates or misstates true earnings quality; the actionable risk is that the trend gate failure (price below 50 DMA, 200 DMA slope unconfirmed) means any re-rating must first be proven by price reclaiming the 50 DMA and rebuilding a proper base before the pivot.",
+     "conviction_0_10": 1
+    },
+    "data_quality": {
+     "unverified_fields": [
+      "base_count",
+      "debt_to_equity",
+      "eps_acceleration",
+      "eps_annual_growth",
+      "eps_cagr_3y",
+      "eps_quarterly",
+      "eps_revenue_support",
+      "eps_yoy_latest",
+      "fcf",
+      "group_leadership_rank",
+      "industry_group_rs",
+      "interest_coverage",
+      "marquee_institution",
+      "mf_scheme_count",
+      "net_margin_trend",
+      "new_catalyst",
+      "ocf_to_pat_3y",
+      "other_income_pct_pbt",
+      "roe",
+      "sales_acceleration",
+      "sales_cagr_3y",
+      "sales_yoy_latest",
+      "share_count_growth"
+     ],
+     "proxy_fields": [],
+     "unverified_reasons": {
+      "fcf": "no direct Free Cash Flow row on screener.in, and the estimate also failed: missing Fixed Assets (Balance Sheet) & Depreciation (P&L) & Cash from Operating (Cash Flow)"
+     },
+     "sources": [
+      {
+       "field": "technicals",
+       "source": "Yahoo Finance OHLCV",
+       "as_of": "2026-10-30"
+      },
+      {
+       "field": "fundamentals",
+       "source": "screener.in",
+       "as_of": "2026-10-30"
+      }
+     ]
+    },
+    "technicals": {
+     "price": 3119.1,
+     "rs_percentile": 94,
+     "pct_below_52w_high": 14.5,
+     "pct_above_52w_low": 120.7,
+     "dma_50": 3142.32,
+     "dma_200": 2547.02,
+     "up_down_volume_ratio_50d": 1.29,
+     "industry_sector": null,
+     "industry_group_rs_quartile": null,
+     "group_leadership_rank": null,
+     "group_leadership_of": null,
+     "rsi": 47.0,
+     "roce": null,
+     "fcf_latest_cr": null,
+     "fcf_source": null
+    },
+    "status": "SCORED_NO_TREND"
+   }
+  },
+  {
+   "ticker": "KANOHAR",
+   "name": "Kanohar Elect.",
+   "joined_date": "2026-11-01",
+   "last_updated": "2026-11-01",
+   "scorecard": {
+    "ticker": "KANOHAR",
+    "name": "Kanohar Elect.",
+    "as_of": "2026-10-30",
+    "mode": "FULL",
     "gates": {
      "trend_template": {
       "c1": false,
@@ -2563,7 +4973,7 @@
       "liquidity": true,
       "pledge": true,
       "governance_flag": false,
-      "governance_note": "",
+      "governance_note": "No auditor resignation, SEBI action, fraud investigation or major governance event identified for Kanohar Electricals in the last 12 months from available sources; promoter pledge is 0% and promoter holding 74.65%. This check is not an affirmative due-diligence clearance \u2014 it reflects absence of any concrete, dateable negative event I can cite.",
       "governance": true,
       "pass": true
      }
@@ -2572,31 +4982,31 @@
      "h3_catalyst_found": false,
      "h3_citation": "",
      "governance_flag": false,
-     "governance_note": "",
-     "checked_date": "2026-10-03"
+     "governance_note": "No auditor resignation, SEBI action, fraud investigation or major governance event identified for Kanohar Electricals in the last 12 months from available sources; promoter pledge is 0% and promoter holding 74.65%. This check is not an affirmative due-diligence clearance \u2014 it reflects absence of any concrete, dateable negative event I can cite.",
+     "checked_date": "2026-11-01"
     },
     "scores": {
      "earnings": {
       "A1": 0,
       "A2": 0,
-      "A3": 4,
-      "A4": 4,
-      "A5": 2,
-      "subtotal": 10
+      "A3": 0,
+      "A4": 0,
+      "A5": 0,
+      "subtotal": 0
      },
      "revenue": {
       "B1": 0,
       "B2": 0,
-      "B3": 3,
+      "B3": 0,
       "B4": 0,
-      "subtotal": 3
+      "subtotal": 0
      },
      "profitability": {
-      "C1": 3,
+      "C1": 0,
       "C2": 0,
-      "C3": 2,
+      "C3": 0,
       "C4": 0,
-      "subtotal": 5
+      "subtotal": 0
      },
      "balance_sheet": {
       "D1": 0,
@@ -2622,11 +5032,11 @@
      "base_structure": {
       "G1": 0,
       "G2": 0,
-      "G3": 0,
+      "G3": 1,
       "G4": 0,
       "G5": 0,
       "G6": 0,
-      "subtotal": 0
+      "subtotal": 1
      },
      "leadership": {
       "H1": 0,
@@ -2634,38 +5044,33 @@
       "H3": 0,
       "subtotal": 0
      },
-     "total": 22
+     "total": 5
     },
     "quality_band": "Reject",
     "action_bucket": "AVOID",
     "setup_flag": null,
     "red_flags": [],
-    "risk_level": "MEDIUM",
+    "risk_level": "LOW",
     "valuation_context": {
-     "pe": 114.0,
+     "pe": null,
      "peg": null,
      "vs_own_5yr": "",
      "note": "Valuation is context only, never a criterion."
     },
     "base": {
      "pattern_label": "",
-     "pivot": 342.4,
-     "pct_from_pivot": -20.63,
+     "pivot": 1207.7,
+     "pct_from_pivot": -21.34,
      "base_count": null,
-     "depth_pct": 24.3,
-     "weeks": 2.2
+     "depth_pct": 28.3,
+     "weeks": 3.2
     },
     "trade_plan": null,
     "delta": {
-     "score_change": -1,
-     "gate_flips": [
-      "c1: True -> False",
-      "c5: True -> False"
-     ],
+     "score_change": 0,
+     "gate_flips": [],
      "bucket_change": "",
-     "alerts": [
-      "CLOSED_BELOW_50DMA"
-     ]
+     "alerts": []
     },
     "violations": {
      "count": 0,
@@ -2673,68 +5078,87 @@
      "recommendation": ""
     },
     "verdict": {
-     "summary": "MILKYMIST (22/100) \u2014 Reject / AVOID. Score is informational only \u2014 gate not confirmed, so not an actionable setup yet.",
-     "strengths": [],
+     "summary": "KANOHAR (5/100) \u2014 Reject / AVOID. Fails the Trend Template on six of eight criteria (price below the 50/150/200 DMA, all DMAs flat-to-falling per payload, RS percentile unverifiable), and the price sits 21.3% below the pivot of a wide, deep 28.3% base only 3.2 weeks old with expanding contractions (9.4% then 27.6%). No scoreable earnings, revenue, profitability or sponsorship data was verifiable, so the 5/100 total is informational only and cannot support a trade. Not actionable in any regime.",
+     "strengths": [
+      "Promoter pledge 0% and promoter holding 74.65% (D4 clean)",
+      "Up/down volume ratio 1.85 over 50 sessions \u2014 accumulation bias in the tape",
+      "Price 38.7% above 52-week low and within 21.3% of 52-week high",
+      "No governance flag and LOW risk level per supplied checks"
+     ],
      "weaknesses": [
       "Fails Trend Template: c1, c2, c3, c4, c5, c8",
-      "Earnings block weak (10/25)",
-      "No valid base yet (0/20)",
-      "16 unverified fields scored 0"
+      "Base structure 1/20 \u2014 28.3% deep, only 3.2 weeks, contractions worsening not contracting (9.4% \u2192 27.6%)",
+      "Price 21.34% below pivot with no breakout",
+      "Earnings block 0/25, revenue 0/15, profitability 0/10, sponsorship 0/5 \u2014 28 unverified fields scored 0",
+      "RS percentile unverifiable \u2014 cannot confirm leadership"
      ],
      "catalysts": [],
-     "biggest_risk": "None flagged",
+     "biggest_risk": "No valid base and a failed Trend Template \u2014 the stock is in a correction/consolidation phase, not a Stage 2 advance; entering here would be catching a falling structure, not buying a pivot.",
      "conviction_0_10": 0
     },
     "data_quality": {
      "unverified_fields": [
       "base_count",
+      "debt_to_equity",
       "eps_acceleration",
+      "eps_annual_growth",
+      "eps_cagr_3y",
+      "eps_quarterly",
       "eps_revenue_support",
       "eps_yoy_latest",
+      "fcf",
       "group_leadership_rank",
       "industry_group_rs",
       "institutional_holding",
+      "interest_coverage",
       "marquee_institution",
       "median_daily_traded_value",
       "mf_scheme_count",
       "net_margin_trend",
       "new_catalyst",
+      "ocf_to_pat_3y",
+      "other_income_pct_pbt",
       "promoter_holding_trend",
+      "roe",
       "rs_percentile",
       "sales_acceleration",
-      "sales_yoy_latest"
+      "sales_cagr_3y",
+      "sales_yoy_latest",
+      "share_count_growth"
      ],
      "proxy_fields": [],
-     "unverified_reasons": {},
+     "unverified_reasons": {
+      "fcf": "no direct Free Cash Flow row on screener.in, and the estimate also failed: missing Fixed Assets (Balance Sheet) & Depreciation (P&L) & Cash from Operating (Cash Flow)"
+     },
      "sources": [
       {
        "field": "technicals",
        "source": "Yahoo Finance OHLCV",
-       "as_of": "2026-10-23"
+       "as_of": "2026-10-30"
       },
       {
        "field": "fundamentals",
        "source": "screener.in",
-       "as_of": "2026-10-23"
+       "as_of": "2026-10-30"
       }
      ]
     },
     "technicals": {
-     "price": 271.75,
+     "price": 950.0,
      "rs_percentile": null,
-     "pct_below_52w_high": 20.6,
-     "pct_above_52w_low": 64.7,
-     "dma_50": 272.98,
-     "dma_200": 272.98,
-     "up_down_volume_ratio_50d": 1.37,
+     "pct_below_52w_high": 21.3,
+     "pct_above_52w_low": 38.7,
+     "dma_50": 952.64,
+     "dma_200": 952.64,
+     "up_down_volume_ratio_50d": 1.85,
      "industry_sector": null,
      "industry_group_rs_quartile": null,
      "group_leadership_rank": null,
      "group_leadership_of": null,
-     "rsi": 45.1,
-     "roce": 13.7,
-     "fcf_latest_cr": -163.0,
-     "fcf_source": "reported"
+     "rsi": 57.5,
+     "roce": null,
+     "fcf_latest_cr": null,
+     "fcf_source": null
     },
     "status": "SCORED_NO_TREND"
    }

@@ -1,6 +1,71 @@
 {
  "runs": [
   {
+   "run_date": "2026-11-01",
+   "mode": "WEEKLY",
+   "regime": {
+    "score": 2,
+    "label": "CORRECTION",
+    "checks": {
+     "close_above_50dma": false,
+     "close_above_200dma": false,
+     "50dma_above_200dma": false,
+     "distribution_days_25": 12,
+     "distribution_days_ok": false,
+     "pct_universe_above_200dma": 100.0,
+     "universe_above_200dma_ok": true,
+     "net_new_highs_positive": true
+    },
+    "exposure_guidance": "No new buys; watchlist maintenance and holdings management only."
+   },
+   "counts": {
+    "active": 26,
+    "new": 15,
+    "dropped": 2,
+    "errors": 1
+   },
+   "new_tickers": [
+    "MCX",
+    "BSE",
+    "KANOHAR",
+    "SEDEMAC",
+    "CEMPRO",
+    "ACUTAAS",
+    "RUBICON",
+    "526433",
+    "LUMAXTECH",
+    "NUVAMA",
+    "SYRMA",
+    "PAISALO",
+    "DIACABS",
+    "LENSKART",
+    "ETERNAL"
+   ],
+   "dropped_tickers": [
+    "EBGNG",
+    "AUGMONT"
+   ],
+   "actionable_now": [],
+   "alerts": [],
+   "errors": [
+    {
+     "ticker": "526433",
+     "error": "no OHLCV data on Yahoo Finance"
+    }
+   ],
+   "llm": {
+    "enabled": true,
+    "model": "deepseek-chat",
+    "provider": "deepseek"
+   },
+   "rs_universe": {
+    "source": "Nifty 500",
+    "attempted": 500,
+    "succeeded": 500,
+    "used": true
+   }
+  },
+  {
    "run_date": "2026-10-24",
    "mode": "WEEKLY",
    "regime": {

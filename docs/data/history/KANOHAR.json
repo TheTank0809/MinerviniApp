@@ -1,0 +1,54 @@
+{
+ "ticker": "KANOHAR",
+ "points": [
+  {
+   "date": "2026-09-18",
+   "score": null,
+   "bucket": null,
+   "price": 786.8
+  },
+  {
+   "date": "2026-09-25",
+   "score": null,
+   "bucket": null,
+   "price": 862.55
+  },
+  {
+   "date": "2026-10-02",
+   "score": null,
+   "bucket": null,
+   "price": 906.35
+  },
+  {
+   "date": "2026-10-09",
+   "score": null,
+   "bucket": null,
+   "price": 1137.3
+  },
+  {
+   "date": "2026-10-16",
+   "score": null,
+   "bucket": null,
+   "price": 1019.8
+  },
+  {
+   "date": "2026-10-23",
+   "score": null,
+   "bucket": null,
+   "price": 888.0
+  },
+  {
+   "date": "2026-10-30",
+   "score": null,
+   "bucket": null,
+   "price": 950.0
+  },
+  {
+   "date": "2026-11-01",
+   "score": 5,
+   "bucket": "AVOID",
+   "price": 950.0
+  }
+ ],
+ "price_backfilled": true
+}
