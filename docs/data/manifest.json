@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-01T06:05:21.276135Z",
+ "generated_at": "2026-11-07T15:52:09.432620Z",
  "sample": false,
  "screens": [
   {
@@ -9,14 +9,14 @@
    "short": "MV",
    "universe_label": "India-S",
    "counts": {
-    "active": 26,
-    "new": 15,
-    "dropped": 2,
+    "active": 39,
+    "new": 18,
+    "dropped": 4,
     "errors": 1
    },
    "regime": {
-    "label": "CORRECTION",
-    "score": 2
+    "label": "CAUTION",
+    "score": 4
    }
   },
   {
@@ -26,14 +26,14 @@
    "short": "GR",
    "universe_label": "India-S",
    "counts": {
-    "active": 118,
+    "active": 121,
     "new": 7,
     "dropped": 1,
-    "errors": 5
+    "errors": 4
    },
    "regime": {
-    "label": "CORRECTION",
-    "score": 1
+    "label": "CAUTION",
+    "score": 4
    }
   },
   {

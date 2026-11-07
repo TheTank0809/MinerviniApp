@@ -1,0 +1,60 @@
+{
+ "ticker": "RENTOMOJO",
+ "points": [
+  {
+   "date": "2026-09-18",
+   "score": null,
+   "bucket": null,
+   "price": 512.75
+  },
+  {
+   "date": "2026-09-25",
+   "score": null,
+   "bucket": null,
+   "price": 507.75
+  },
+  {
+   "date": "2026-10-02",
+   "score": null,
+   "bucket": null,
+   "price": 524.6
+  },
+  {
+   "date": "2026-10-09",
+   "score": null,
+   "bucket": null,
+   "price": 590.35
+  },
+  {
+   "date": "2026-10-16",
+   "score": null,
+   "bucket": null,
+   "price": 581.3
+  },
+  {
+   "date": "2026-10-23",
+   "score": null,
+   "bucket": null,
+   "price": 532.85
+  },
+  {
+   "date": "2026-10-30",
+   "score": null,
+   "bucket": null,
+   "price": 542.2
+  },
+  {
+   "date": "2026-11-06",
+   "score": null,
+   "bucket": null,
+   "price": 579.35
+  },
+  {
+   "date": "2026-11-07",
+   "score": 19,
+   "bucket": "AVOID",
+   "price": 579.35
+  }
+ ],
+ "price_backfilled": true
+}

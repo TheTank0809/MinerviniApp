@@ -1,6 +1,210 @@
 {
  "stocks": [
   {
+   "ticker": "MOLBIO",
+   "name": "Molbio Diagnosti",
+   "joined_date": "2026-10-03",
+   "last_updated": "2026-11-01",
+   "scorecard": {
+    "ticker": "MOLBIO",
+    "name": "Molbio Diagnosti",
+    "as_of": "2026-10-30",
+    "mode": "WEEKLY",
+    "gates": {
+     "trend_template": {
+      "c1": false,
+      "c2": false,
+      "c3": false,
+      "c4": true,
+      "c5": false,
+      "c6": true,
+      "c7": true,
+      "c8": false,
+      "pass": false,
+      "near_miss_notes": ""
+     },
+     "investability": {
+      "liquidity": true,
+      "pledge": true,
+      "governance_flag": false,
+      "governance_note": "No concrete, dateable governance event (auditor resignation, SEBI action, fraud investigation, or major governance event) in the last 12 months found in the supplied data or able to be cited from a specific public source. The scorecard's investability gate already shows governance_flag=false; this check adds nothing further and should be treated as unverified, not as a clean bill of health.",
+      "governance": true,
+      "pass": true
+     }
+    },
+    "llm_checks": {
+     "h3_catalyst_found": false,
+     "h3_citation": "",
+     "governance_flag": false,
+     "governance_note": "No concrete, dateable governance event (auditor resignation, SEBI action, fraud investigation, or major governance event) in the last 12 months found in the supplied data or able to be cited from a specific public source. The scorecard's investability gate already shows governance_flag=false; this check adds nothing further and should be treated as unverified, not as a clean bill of health.",
+     "checked_date": "2026-10-03"
+    },
+    "scores": {
+     "earnings": {
+      "A1": 0,
+      "A2": 0,
+      "A3": 0,
+      "A4": 0,
+      "A5": 2,
+      "subtotal": 2
+     },
+     "revenue": {
+      "B1": 0,
+      "B2": 0,
+      "B3": 0,
+      "B4": 0,
+      "subtotal": 0
+     },
+     "profitability": {
+      "C1": 1,
+      "C2": 0,
+      "C3": 2,
+      "C4": 2,
+      "subtotal": 5
+     },
+     "balance_sheet": {
+      "D1": 2,
+      "D2": 1,
+      "D3": 0,
+      "D4": 1,
+      "subtotal": 4
+     },
+     "sponsorship": {
+      "E1": 0,
+      "E2": 0,
+      "E3": 0,
+      "E4": 0,
+      "subtotal": 0
+     },
+     "rs_trend": {
+      "F1": 0,
+      "F2": 1,
+      "F3": 0,
+      "F4": 0,
+      "subtotal": 1
+     },
+     "base_structure": {
+      "G1": 0,
+      "G2": 0,
+      "G3": 1,
+      "G4": 0,
+      "G5": 3,
+      "G6": 0,
+      "subtotal": 4
+     },
+     "leadership": {
+      "H1": 0,
+      "H2": 0,
+      "H3": 0,
+      "subtotal": 0
+     },
+     "total": 16
+    },
+    "quality_band": "Reject",
+    "action_bucket": "AVOID",
+    "setup_flag": null,
+    "red_flags": [],
+    "risk_level": "LOW",
+    "valuation_context": {
+     "pe": 58.8,
+     "peg": null,
+     "vs_own_5yr": "",
+     "note": "Valuation is context only, never a criterion."
+    },
+    "base": {
+     "pattern_label": "",
+     "pivot": 1686.8,
+     "pct_from_pivot": -24.47,
+     "base_count": null,
+     "depth_pct": 29.1,
+     "weeks": 6.6
+    },
+    "trade_plan": null,
+    "delta": {
+     "score_change": 4,
+     "gate_flips": [
+      "c4: False -> True",
+      "c7: False -> True"
+     ],
+     "bucket_change": "",
+     "alerts": []
+    },
+    "violations": {
+     "count": 0,
+     "items": [],
+     "recommendation": ""
+    },
+    "verdict": {
+     "summary": "MOLBIO (16/100) \u2014 Reject / AVOID. Score is informational only \u2014 gate not confirmed, so not an actionable setup yet.",
+     "strengths": [],
+     "weaknesses": [
+      "Fails Trend Template: c1, c2, c3, c5, c8",
+      "Earnings block weak (2/25)",
+      "No valid base yet (4/20)",
+      "17 unverified fields scored 0"
+     ],
+     "catalysts": [],
+     "biggest_risk": "None flagged",
+     "conviction_0_10": 0
+    },
+    "data_quality": {
+     "unverified_fields": [
+      "base_count",
+      "eps_acceleration",
+      "eps_cagr_3y",
+      "eps_revenue_support",
+      "eps_yoy_latest",
+      "group_leadership_rank",
+      "industry_group_rs",
+      "institutional_holding",
+      "marquee_institution",
+      "mf_scheme_count",
+      "net_margin_trend",
+      "new_catalyst",
+      "promoter_holding_trend",
+      "rs_percentile",
+      "sales_acceleration",
+      "sales_cagr_3y",
+      "sales_yoy_latest"
+     ],
+     "proxy_fields": [],
+     "unverified_reasons": {},
+     "sources": [
+      {
+       "field": "technicals",
+       "source": "Yahoo Finance OHLCV",
+       "as_of": "2026-10-30"
+      },
+      {
+       "field": "fundamentals",
+       "source": "screener.in",
+       "as_of": "2026-10-30"
+      }
+     ]
+    },
+    "technicals": {
+     "price": 1274.0,
+     "rs_percentile": null,
+     "pct_below_52w_high": 24.5,
+     "pct_above_52w_low": 37.5,
+     "dma_50": 1288.82,
+     "dma_200": 1280.64,
+     "up_down_volume_ratio_50d": 0.97,
+     "industry_sector": null,
+     "industry_group_rs_quartile": null,
+     "group_leadership_rank": null,
+     "group_leadership_of": null,
+     "rsi": 46.9,
+     "roce": 18.5,
+     "fcf_latest_cr": 1.0,
+     "fcf_source": "reported"
+    },
+    "status": "SCORED_NO_TREND"
+   },
+   "dropped_date": "2026-11-07",
+   "frozen": true
+  },
+  {
    "ticker": "SENCO",
    "name": "Senco Gold",
    "joined_date": "2026-07-14",

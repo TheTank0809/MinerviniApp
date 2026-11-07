@@ -1,6 +1,171 @@
 {
  "runs": [
   {
+   "run_date": "2026-11-07",
+   "mode": "WEEKLY",
+   "regime": {
+    "score": 4,
+    "label": "CAUTION",
+    "checks": {
+     "close_above_50dma": true,
+     "close_above_200dma": true,
+     "50dma_above_200dma": false,
+     "distribution_days_25": 9,
+     "distribution_days_ok": false,
+     "pct_universe_above_200dma": 55.7,
+     "universe_above_200dma_ok": true,
+     "net_new_highs_positive": true
+    },
+    "exposure_guidance": "New buys at half risk; only score >=85 setups."
+   },
+   "counts": {
+    "active": 121,
+    "new": 7,
+    "dropped": 1,
+    "errors": 4
+   },
+   "new_tickers": [
+    "VIKRAMSOLR",
+    "KARAMTARA",
+    "RENTOMOJO",
+    "SENCO",
+    "MONEYVIEW",
+    "VERTIS",
+    "NHIT"
+   ],
+   "dropped_tickers": [
+    "MOLBIO"
+   ],
+   "actionable_now": [],
+   "alerts": [
+    {
+     "ticker": "LLOYDSME",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "LLOYDSME",
+     "alert": "EPS_DECELERATION"
+    },
+    {
+     "ticker": "SYRMA",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "RUBICON",
+     "alert": "EPS_DECELERATION"
+    },
+    {
+     "ticker": "TDPOWERSYS",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "POLYCAB",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "PRICOLLTD",
+     "alert": "EPS_DECELERATION"
+    },
+    {
+     "ticker": "PREMIERENE",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "PREMIERENE",
+     "alert": "EPS_DECELERATION"
+    },
+    {
+     "ticker": "IKS",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "SJS",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "RATEGAIN",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "OMNI",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "CHALET",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "GENUSPOWER",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "V2RETAIL",
+     "alert": "EPS_DECELERATION"
+    },
+    {
+     "ticker": "AZAD",
+     "alert": "EPS_DECELERATION"
+    },
+    {
+     "ticker": "TI",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "NEPHROPLUS",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "HOMEFIRST",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "GVT&D",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "DATAPATTNS",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "NETWEB",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "*",
+     "alert": "REGIME_CHANGE CORRECTION -> CAUTION"
+    }
+   ],
+   "errors": [
+    {
+     "ticker": "526433",
+     "error": "no OHLCV data on Yahoo Finance"
+    },
+    {
+     "ticker": "MONEYVIEW",
+     "error": "no OHLCV data on Yahoo Finance"
+    },
+    {
+     "ticker": "VERTIS",
+     "error": "no OHLCV data on Yahoo Finance"
+    },
+    {
+     "ticker": "NHIT",
+     "error": "no OHLCV data on Yahoo Finance"
+    }
+   ],
+   "llm": {
+    "enabled": true,
+    "model": "deepseek-chat",
+    "provider": "deepseek"
+   },
+   "rs_universe": {
+    "source": "Nifty 500",
+    "attempted": 500,
+    "succeeded": 500,
+    "used": true
+   }
+  },
+  {
    "run_date": "2026-11-01",
    "mode": "WEEKLY",
    "regime": {
