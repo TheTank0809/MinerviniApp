@@ -1,6 +1,167 @@
 {
  "runs": [
   {
+   "run_date": "2026-11-07",
+   "regime": {
+    "score": 2,
+    "label": "CORRECTION",
+    "checks": {
+     "close_above_50dma": false,
+     "close_above_200dma": true,
+     "50dma_above_200dma": true,
+     "distribution_days_25": 7,
+     "distribution_days_ok": false,
+     "pct_universe_above_200dma": 40.5,
+     "universe_above_200dma_ok": false,
+     "net_new_highs_positive": false
+    },
+    "exposure_guidance": "No new buys; watchlist maintenance and holdings management only."
+   },
+   "counts": {
+    "active": 154,
+    "new": 28,
+    "dropped": 5,
+    "errors": 23
+   },
+   "new_tickers": [
+    "MTNN",
+    "COMI",
+    "SQM_A",
+    "688019",
+    "ANET",
+    "EMAARDEV",
+    "IHC",
+    "BPAC3",
+    "DANGCEM",
+    "MODON",
+    "EMAAR",
+    "ALPHADHABI",
+    "VAKBN",
+    "ADPORTS",
+    "ALE",
+    "ALDAR",
+    "TFPM",
+    "MALLPLAZA",
+    "688200",
+    "BUENAVC1",
+    "EQNR",
+    "VAR",
+    "SUNWAY",
+    "KBHL",
+    "PKN",
+    "LYFT",
+    "BUACEMENT",
+    "LTM"
+   ],
+   "dropped_tickers": [
+    "PSK",
+    "BROS",
+    "DOCN",
+    "ALNY",
+    "DUOL"
+   ],
+   "actionable_now": [],
+   "errors": [
+    {
+     "ticker": "IHC",
+     "error": "exchange 'ADX' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "EQNR",
+     "error": "exchange 'OSL' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "PKN",
+     "error": "exchange 'GPW' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "BPAC3",
+     "error": "exchange 'BMFBOVESPA' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "EMAAR",
+     "error": "exchange 'DFM' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "ALPHADHABI",
+     "error": "exchange 'ADX' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "ALDAR",
+     "error": "exchange 'ADX' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "DANGCEM",
+     "error": "exchange 'NSENG' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "SQM_A",
+     "error": "exchange 'BCS' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "EMAARDEV",
+     "error": "exchange 'DFM' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "ALE",
+     "error": "exchange 'GPW' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "VAR",
+     "error": "exchange 'OSL' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "LTM",
+     "error": "exchange 'BCS' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "MODON",
+     "error": "exchange 'ADX' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "MTNN",
+     "error": "exchange 'NSENG' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "ADPORTS",
+     "error": "exchange 'ADX' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "COMI",
+     "error": "exchange 'EGX' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "MALLPLAZA",
+     "error": "exchange 'BCS' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "BUENAVC1",
+     "error": "exchange 'BVL' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "SUNWAY",
+     "error": "exchange 'MYX' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "TRNO",
+     "error": "mapped to 'TRNO' but Yahoo Finance returned no data for it"
+    },
+    {
+     "ticker": "BUACEMENT",
+     "error": "exchange 'NSENG' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "KBHL",
+     "error": "exchange 'OMXCOP' has no Yahoo Finance suffix mapping yet"
+    }
+   ],
+   "llm": {
+    "enabled": true,
+    "model": "deepseek-chat",
+    "provider": "deepseek"
+   }
+  },
+  {
    "run_date": "2026-10-31",
    "regime": {
     "score": 2,
@@ -2187,77 +2348,6 @@
     {
      "ticker": "MVZ.A",
      "error": "exchange 'BVCV' has no Yahoo Finance suffix mapping yet"
-    }
-   ],
-   "llm": {
-    "enabled": true,
-    "model": "deepseek-chat",
-    "provider": "deepseek"
-   }
-  },
-  {
-   "run_date": "2026-08-30",
-   "regime": {
-    "score": 5,
-    "label": "CONFIRMED_UPTREND",
-    "checks": {
-     "close_above_50dma": true,
-     "close_above_200dma": true,
-     "50dma_above_200dma": true,
-     "distribution_days_25": 3,
-     "distribution_days_ok": true,
-     "pct_universe_above_200dma": 80.8,
-     "universe_above_200dma_ok": true,
-     "net_new_highs_positive": false
-    },
-    "exposure_guidance": "New buys allowed; full risk budget."
-   },
-   "counts": {
-    "active": 26,
-    "new": 28,
-    "dropped": 0,
-    "errors": 2
-   },
-   "new_tickers": [
-    "OKTA",
-    "CRDO",
-    "300308",
-    "300394",
-    "2345",
-    "688256",
-    "NVDA",
-    "300502",
-    "6857",
-    "PLTR",
-    "688200",
-    "6446",
-    "ENKAI",
-    "RDDT",
-    "6618",
-    "2059",
-    "INDU_A",
-    "688012",
-    "300661",
-    "TOST",
-    "MDB",
-    "GMED",
-    "AMD",
-    "DELTA",
-    "AEM",
-    "PME",
-    "LUG",
-    "FROG"
-   ],
-   "dropped_tickers": [],
-   "actionable_now": [],
-   "errors": [
-    {
-     "ticker": "OKTA",
-     "error": "no Yahoo Finance mapping/data for exchange 'NASDAQ'"
-    },
-    {
-     "ticker": "INDU_A",
-     "error": "no Yahoo Finance mapping/data for exchange 'OMXSTO'"
     }
    ],
    "llm": {
