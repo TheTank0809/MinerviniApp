@@ -1,0 +1,60 @@
+{
+ "ticker": "SSRETAIL",
+ "points": [
+  {
+   "date": "2026-09-25",
+   "score": null,
+   "bucket": null,
+   "price": 728.2
+  },
+  {
+   "date": "2026-10-02",
+   "score": null,
+   "bucket": null,
+   "price": 714.35
+  },
+  {
+   "date": "2026-10-09",
+   "score": null,
+   "bucket": null,
+   "price": 705.85
+  },
+  {
+   "date": "2026-10-16",
+   "score": null,
+   "bucket": null,
+   "price": 713.8
+  },
+  {
+   "date": "2026-10-23",
+   "score": null,
+   "bucket": null,
+   "price": 649.7
+  },
+  {
+   "date": "2026-10-30",
+   "score": null,
+   "bucket": null,
+   "price": 635.5
+  },
+  {
+   "date": "2026-11-06",
+   "score": null,
+   "bucket": null,
+   "price": 634.75
+  },
+  {
+   "date": "2026-11-13",
+   "score": null,
+   "bucket": null,
+   "price": 739.2
+  },
+  {
+   "date": "2026-11-14",
+   "score": 29,
+   "bucket": "AVOID",
+   "price": 739.2
+  }
+ ],
+ "price_backfilled": true
+}

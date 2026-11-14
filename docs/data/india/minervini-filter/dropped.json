@@ -1,6 +1,207 @@
 {
  "stocks": [
   {
+   "ticker": "CHOICEIN",
+   "name": "Choice Intl.",
+   "joined_date": "2026-11-07",
+   "last_updated": "2026-11-07",
+   "scorecard": {
+    "ticker": "CHOICEIN",
+    "name": "Choice Intl.",
+    "as_of": "2026-11-06",
+    "mode": "FULL",
+    "gates": {
+     "trend_template": {
+      "c1": true,
+      "c2": true,
+      "c3": false,
+      "c4": true,
+      "c5": true,
+      "c6": true,
+      "c7": true,
+      "c8": false,
+      "pass": false,
+      "near_miss_notes": ""
+     },
+     "investability": {
+      "liquidity": true,
+      "pledge": true,
+      "governance_flag": false,
+      "governance_note": "No auditor resignation, SEBI action, fraud investigation, or major governance event identified in the last 12 months from the supplied payload or verifiable public record; the field remains unverified in the scorecard, so this should be treated as no known flag rather than a confirmed clean bill.",
+      "governance": true,
+      "pass": true
+     }
+    },
+    "llm_checks": {
+     "h3_catalyst_found": false,
+     "h3_citation": "",
+     "governance_flag": false,
+     "governance_note": "No auditor resignation, SEBI action, fraud investigation, or major governance event identified in the last 12 months from the supplied payload or verifiable public record; the field remains unverified in the scorecard, so this should be treated as no known flag rather than a confirmed clean bill.",
+     "checked_date": "2026-11-07"
+    },
+    "scores": {
+     "earnings": {
+      "A1": 0,
+      "A2": 1,
+      "A3": 0,
+      "A4": 2,
+      "A5": 4,
+      "subtotal": 7
+     },
+     "revenue": {
+      "B1": 6,
+      "B2": 2,
+      "B3": 1,
+      "B4": 2,
+      "subtotal": 11
+     },
+     "profitability": {
+      "C1": 1,
+      "C2": 0,
+      "C3": 0,
+      "C4": 0,
+      "subtotal": 1
+     },
+     "balance_sheet": {
+      "D1": 1,
+      "D2": 0,
+      "D3": 0,
+      "D4": 1,
+      "subtotal": 2
+     },
+     "sponsorship": {
+      "E1": 0,
+      "E2": 0,
+      "E3": 0,
+      "E4": 1,
+      "subtotal": 1
+     },
+     "rs_trend": {
+      "F1": 0,
+      "F2": 2,
+      "F3": 0,
+      "F4": 2,
+      "subtotal": 4
+     },
+     "base_structure": {
+      "G1": 0,
+      "G2": 4,
+      "G3": 1,
+      "G4": 0,
+      "G5": 0,
+      "G6": 0,
+      "subtotal": 5
+     },
+     "leadership": {
+      "H1": 0,
+      "H2": 0,
+      "H3": 0,
+      "subtotal": 0
+     },
+     "total": 31
+    },
+    "quality_band": "Reject",
+    "action_bucket": "AVOID",
+    "setup_flag": null,
+    "red_flags": [
+     "POOR_CASH_CONVERSION"
+    ],
+    "risk_level": "MEDIUM",
+    "valuation_context": {
+     "pe": 69.5,
+     "peg": null,
+     "vs_own_5yr": "",
+     "note": "Valuation is context only, never a criterion."
+    },
+    "base": {
+     "pattern_label": "",
+     "pivot": 799.0,
+     "pct_from_pivot": -6.36,
+     "base_count": 1,
+     "depth_pct": 33.9,
+     "weeks": 41.6
+    },
+    "trade_plan": null,
+    "delta": {
+     "score_change": 0,
+     "gate_flips": [],
+     "bucket_change": "",
+     "alerts": []
+    },
+    "violations": {
+     "count": 0,
+     "items": [],
+     "recommendation": ""
+    },
+    "verdict": {
+     "summary": "CHOICEIN (31/100) \u2014 Reject / AVOID. Fails the Trend Template on the 200-DMA uptrend (c3) and RS percentile (c8, 42), and the score is structurally weak: earnings block 7/25, profitability 1/10, base structure 5/20 with a 41.6-week base that is 33.9% deep and pivot still 6.36% away. Gate not confirmed and no valid actionable setup \u2014 informational only.",
+     "strengths": [
+      "Revenue block is the one bright spot: 11/15 (B1 6/6 on latest-quarter sales YoY, B4 2/2, matching EPS growth to sales)",
+      "No promoter pledge (0%) and a small, stable promoter stake held flat at 53.66% for four quarters",
+      "Up/down volume ratio 50d = 1.34 (above the 1.2 threshold)",
+      "Positive EPS in all 8 quarters keeps A5 intact (4/4)"
+     ],
+     "weaknesses": [
+      "Fails Trend Template: c3 (200 DMA slope falling, 0 rising months) and c8 (RS percentile 42 vs \u226570)",
+      "Earnings block weak (7/25): A1 0/8 (latest EPS YoY 74% is an anomalous jump from a low base; A2 acceleration only 1/5), A3 0/4 (latest annual EPS growth 10.1%)",
+      "Profitability 1/10: net margin contracting ~194 bps YoY (C2 0), 3-yr OCF/PAT -1.34 (C3 0, POOR_CASH_CONVERSION) and FCF negative in all 3 years, latest FCF -\u20b9364 cr (C4 0)",
+      "Leverage 2/5: D/E 0.67, interest coverage 4.3x (<5x), 11.5% share-count expansion in 2 years",
+      "Institutional sponsorship 1/5: MF+FII holding fell for three straight quarters (12.46 \u2192 10.26)",
+      "No valid, tight base (5/20): 41.6 weeks, 33.9% depth, final contraction volume 72% ABOVE the 50-day average (no dry-up), weekly closes 8.2% apart",
+      "RS percentile 42 and industry group RS only in the 3rd quartile (financials), rank 45/100 in its group",
+      "4 fields unverified (governance events, marquee institution, MF scheme count, new catalyst) scored 0"
+     ],
+     "catalysts": [],
+     "biggest_risk": "POOR_CASH_CONVERSION \u2014 cumulative 3-yr OCF/PAT of -1.34 means earnings are not converting to cash, with FCF negative in all three years despite reported net profit; on top of 0.67 D/E and 11.5% share-count growth this is a funding/quality-of-earnings risk. Secondary: the A1 spike and absence of a tightening base mean any 'setup' lacks the structural evidence Minervini requires.",
+     "conviction_0_10": 0
+    },
+    "data_quality": {
+     "unverified_fields": [
+      "marquee_institution",
+      "mf_scheme_count",
+      "new_catalyst"
+     ],
+     "proxy_fields": [
+      "group_leadership_rank",
+      "industry_group_rs"
+     ],
+     "unverified_reasons": {},
+     "sources": [
+      {
+       "field": "technicals",
+       "source": "Yahoo Finance OHLCV",
+       "as_of": "2026-11-06"
+      },
+      {
+       "field": "fundamentals",
+       "source": "screener.in",
+       "as_of": "2026-11-06"
+      }
+     ]
+    },
+    "technicals": {
+     "price": 748.2,
+     "rs_percentile": 42,
+     "pct_below_52w_high": 13.1,
+     "pct_above_52w_low": 31.6,
+     "dma_50": 743.08,
+     "dma_200": 734.28,
+     "up_down_volume_ratio_50d": 1.34,
+     "industry_sector": "Financial Services",
+     "industry_group_rs_quartile": 3,
+     "group_leadership_rank": 45,
+     "group_leadership_of": 100,
+     "rsi": 55.3,
+     "roce": 17.9,
+     "fcf_latest_cr": -364.0,
+     "fcf_source": "reported"
+    },
+    "status": "SCORED_NO_TREND"
+   },
+   "dropped_date": "2026-11-14",
+   "frozen": true
+  },
+  {
    "ticker": "SEDEMAC",
    "name": "Sedemac Mechatro",
    "joined_date": "2026-11-01",

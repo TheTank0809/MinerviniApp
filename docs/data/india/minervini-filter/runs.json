@@ -1,6 +1,79 @@
 {
  "runs": [
   {
+   "run_date": "2026-11-14",
+   "mode": "WEEKLY",
+   "regime": {
+    "score": 4,
+    "label": "CAUTION",
+    "checks": {
+     "close_above_50dma": true,
+     "close_above_200dma": true,
+     "50dma_above_200dma": false,
+     "distribution_days_25": 7,
+     "distribution_days_ok": false,
+     "pct_universe_above_200dma": 100.0,
+     "universe_above_200dma_ok": true,
+     "net_new_highs_positive": true
+    },
+    "exposure_guidance": "New buys at half risk; only score >=85 setups."
+   },
+   "counts": {
+    "active": 52,
+    "new": 15,
+    "dropped": 1,
+    "errors": 1
+   },
+   "new_tickers": [
+    "GVT&D",
+    "HBLENGINE",
+    "SEDEMAC",
+    "QPOWER",
+    "TRENT",
+    "526433",
+    "DATAPATTNS",
+    "MARINE",
+    "PARAS",
+    "NEPHROPLUS",
+    "VIYASH",
+    "CGCL",
+    "TI",
+    "CHOLAFIN",
+    "AEGISVOPAK"
+   ],
+   "dropped_tickers": [
+    "CHOICEIN"
+   ],
+   "actionable_now": [],
+   "alerts": [
+    {
+     "ticker": "GOKULAGRO",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "ZENTEC",
+     "alert": "RS_DOWNGRADE"
+    }
+   ],
+   "errors": [
+    {
+     "ticker": "526433",
+     "error": "no OHLCV data on Yahoo Finance"
+    }
+   ],
+   "llm": {
+    "enabled": true,
+    "model": "deepseek-chat",
+    "provider": "deepseek"
+   },
+   "rs_universe": {
+    "source": "Nifty 500",
+    "attempted": 500,
+    "succeeded": 500,
+    "used": true
+   }
+  },
+  {
    "run_date": "2026-11-07",
    "mode": "WEEKLY",
    "regime": {

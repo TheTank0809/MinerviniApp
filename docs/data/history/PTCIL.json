@@ -432,6 +432,18 @@
    "score": 72,
    "bucket": "WATCH",
    "price": 24335.0
+  },
+  {
+   "date": "2026-11-13",
+   "score": null,
+   "bucket": null,
+   "price": 24365.0
+  },
+  {
+   "date": "2026-11-14",
+   "score": 72,
+   "bucket": "WATCH",
+   "price": 24365.0
   }
  ],
  "price_backfilled": true

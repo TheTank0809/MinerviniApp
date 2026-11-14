@@ -84,6 +84,18 @@
    "score": 32,
    "bucket": "AVOID",
    "price": 921.5
+  },
+  {
+   "date": "2026-11-13",
+   "score": null,
+   "bucket": null,
+   "price": 956.2
+  },
+  {
+   "date": "2026-11-14",
+   "score": 34,
+   "bucket": "AVOID",
+   "price": 956.2
   }
  ],
  "price_backfilled": true
