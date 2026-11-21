@@ -1,6 +1,92 @@
 {
  "runs": [
   {
+   "run_date": "2026-11-21",
+   "mode": "WEEKLY",
+   "regime": {
+    "score": 5,
+    "label": "CONFIRMED_UPTREND",
+    "checks": {
+     "close_above_50dma": true,
+     "close_above_200dma": true,
+     "50dma_above_200dma": false,
+     "distribution_days_25": 4,
+     "distribution_days_ok": true,
+     "pct_universe_above_200dma": 100.0,
+     "universe_above_200dma_ok": true,
+     "net_new_highs_positive": true
+    },
+    "exposure_guidance": "New buys allowed; full risk budget."
+   },
+   "counts": {
+    "active": 42,
+    "new": 2,
+    "dropped": 12,
+    "errors": 0
+   },
+   "new_tickers": [
+    "SJS",
+    "SGFIN"
+   ],
+   "dropped_tickers": [
+    "SKYGOLD",
+    "MARINE",
+    "CGCL",
+    "PARAS",
+    "PRICOLLTD",
+    "MANORAMA",
+    "GOKULAGRO",
+    "ZENTEC",
+    "HBLENGINE",
+    "VIYASH",
+    "SEDEMAC",
+    "GVT&D"
+   ],
+   "actionable_now": [],
+   "alerts": [
+    {
+     "ticker": "GROWW",
+     "alert": "EPS_DECELERATION"
+    },
+    {
+     "ticker": "KSHINTL",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "KSHINTL",
+     "alert": "EPS_DECELERATION"
+    },
+    {
+     "ticker": "KISSHT",
+     "alert": "CLOSED_BELOW_50DMA"
+    },
+    {
+     "ticker": "DATAPATTNS",
+     "alert": "EPS_DECELERATION"
+    },
+    {
+     "ticker": "AIIL",
+     "alert": "RS_DOWNGRADE"
+    },
+    {
+     "ticker": "*",
+     "alert": "REGIME_CHANGE CAUTION -> CONFIRMED_UPTREND"
+    }
+   ],
+   "errors": [],
+   "llm": {
+    "enabled": true,
+    "model": "deepseek-chat",
+    "provider": "deepseek"
+   },
+   "rs_universe": {
+    "source": "Nifty 500",
+    "attempted": 500,
+    "succeeded": 500,
+    "used": true
+   }
+  },
+  {
    "run_date": "2026-11-14",
    "mode": "WEEKLY",
    "regime": {

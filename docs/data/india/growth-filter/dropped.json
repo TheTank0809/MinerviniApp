@@ -1,6 +1,408 @@
 {
  "stocks": [
   {
+   "ticker": "VIKRAMSOLR",
+   "name": "Vikram Solar",
+   "joined_date": "2026-11-07",
+   "last_updated": "2026-11-14",
+   "scorecard": {
+    "ticker": "VIKRAMSOLR",
+    "name": "Vikram Solar",
+    "as_of": "2026-11-13",
+    "mode": "WEEKLY",
+    "gates": {
+     "trend_template": {
+      "c1": false,
+      "c2": false,
+      "c3": false,
+      "c4": false,
+      "c5": false,
+      "c6": false,
+      "c7": false,
+      "c8": false,
+      "pass": false,
+      "near_miss_notes": ""
+     },
+     "investability": {
+      "liquidity": true,
+      "pledge": true,
+      "governance_flag": false,
+      "governance_note": "No auditor resignation, SEBI action, fraud investigation, or major governance event identified in the supplied data or from verifiable public record within the last 12 months; promoter pledge is 0% and promoter holding is stable. Absence of evidence, not positive confirmation \u2014 governance_events field was unverified in the payload.",
+      "governance": true,
+      "pass": true
+     }
+    },
+    "llm_checks": {
+     "h3_catalyst_found": false,
+     "h3_citation": "",
+     "governance_flag": false,
+     "governance_note": "No auditor resignation, SEBI action, fraud investigation, or major governance event identified in the supplied data or from verifiable public record within the last 12 months; promoter pledge is 0% and promoter holding is stable. Absence of evidence, not positive confirmation \u2014 governance_events field was unverified in the payload.",
+     "checked_date": "2026-11-07"
+    },
+    "scores": {
+     "earnings": {
+      "A1": 0,
+      "A2": 0,
+      "A3": 0,
+      "A4": 4,
+      "A5": 2,
+      "subtotal": 6
+     },
+     "revenue": {
+      "B1": 6,
+      "B2": 2,
+      "B3": 3,
+      "B4": 0,
+      "subtotal": 11
+     },
+     "profitability": {
+      "C1": 3,
+      "C2": 0,
+      "C3": 2,
+      "C4": 2,
+      "subtotal": 7
+     },
+     "balance_sheet": {
+      "D1": 2,
+      "D2": 0,
+      "D3": 0,
+      "D4": 1,
+      "subtotal": 3
+     },
+     "sponsorship": {
+      "E1": 0,
+      "E2": 0,
+      "E3": 0,
+      "E4": 1,
+      "subtotal": 1
+     },
+     "rs_trend": {
+      "F1": 0,
+      "F2": 0,
+      "F3": 0,
+      "F4": 0,
+      "subtotal": 0
+     },
+     "base_structure": {
+      "G1": 0,
+      "G2": 0,
+      "G3": 0,
+      "G4": 0,
+      "G5": 0,
+      "G6": 0,
+      "subtotal": 0
+     },
+     "leadership": {
+      "H1": 0,
+      "H2": 0,
+      "H3": 0,
+      "subtotal": 0
+     },
+     "total": 28
+    },
+    "quality_band": "Reject",
+    "action_bucket": "AVOID",
+    "setup_flag": null,
+    "red_flags": [
+     "EPS_DECELERATION",
+     "OTHER_INCOME_DRIVEN"
+    ],
+    "risk_level": "MEDIUM",
+    "valuation_context": {
+     "pe": 14.4,
+     "peg": null,
+     "vs_own_5yr": "",
+     "note": "Valuation is context only, never a criterion."
+    },
+    "base": {
+     "pattern_label": "",
+     "pivot": 324.15,
+     "pct_from_pivot": -55.62,
+     "base_count": null,
+     "depth_pct": 61.6,
+     "weeks": 50.4
+    },
+    "trade_plan": null,
+    "delta": {
+     "score_change": 0,
+     "gate_flips": [],
+     "bucket_change": "",
+     "alerts": []
+    },
+    "violations": {
+     "count": 0,
+     "items": [],
+     "recommendation": ""
+    },
+    "verdict": {
+     "summary": "VIKRAMSOLR (28/100) \u2014 Reject / AVOID. Score is informational only \u2014 gate not confirmed, so not an actionable setup yet.",
+     "strengths": [],
+     "weaknesses": [
+      "Fails Trend Template: c1, c2, c3, c4, c5, c6, c7, c8",
+      "Earnings block weak (6/25)",
+      "No valid base yet (0/20)",
+      "6 unverified fields scored 0"
+     ],
+     "catalysts": [],
+     "biggest_risk": "EPS_DECELERATION",
+     "conviction_0_10": 0
+    },
+    "data_quality": {
+     "unverified_fields": [
+      "base_count",
+      "group_leadership_rank",
+      "industry_group_rs",
+      "marquee_institution",
+      "mf_scheme_count",
+      "new_catalyst"
+     ],
+     "proxy_fields": [],
+     "unverified_reasons": {},
+     "sources": [
+      {
+       "field": "technicals",
+       "source": "Yahoo Finance OHLCV",
+       "as_of": "2026-11-13"
+      },
+      {
+       "field": "fundamentals",
+       "source": "screener.in",
+       "as_of": "2026-11-13"
+      }
+     ]
+    },
+    "technicals": {
+     "price": 143.85,
+     "rs_percentile": 2,
+     "pct_below_52w_high": 55.6,
+     "pct_above_52w_low": 15.5,
+     "dma_50": 149.74,
+     "dma_200": 184.31,
+     "up_down_volume_ratio_50d": 0.67,
+     "industry_sector": null,
+     "industry_group_rs_quartile": null,
+     "group_leadership_rank": null,
+     "group_leadership_of": null,
+     "rsi": 54.4,
+     "roce": 30.6,
+     "fcf_latest_cr": 384.0,
+     "fcf_source": "reported"
+    },
+    "status": "SCORED_NO_TREND"
+   },
+   "dropped_date": "2026-11-21",
+   "frozen": true
+  },
+  {
+   "ticker": "SSRETAIL",
+   "name": "SS Retail",
+   "joined_date": "2026-11-14",
+   "last_updated": "2026-11-14",
+   "scorecard": {
+    "ticker": "SSRETAIL",
+    "name": "SS Retail",
+    "as_of": "2026-11-13",
+    "mode": "FULL",
+    "gates": {
+     "trend_template": {
+      "c1": true,
+      "c2": false,
+      "c3": false,
+      "c4": false,
+      "c5": true,
+      "c6": false,
+      "c7": true,
+      "c8": false,
+      "pass": false,
+      "near_miss_notes": "c6 near miss: 22.6% above 52w low"
+     },
+     "investability": {
+      "liquidity": true,
+      "pledge": true,
+      "governance_flag": false,
+      "governance_note": "No governance red flag found in the supplied payload (investability.governance = true, no events listed); however 'governance_events' is listed among unverified fields and I have no concrete, dateable external source for SS Retail, so this is an absence of evidence, not positive clearance.",
+      "governance": true,
+      "pass": true
+     }
+    },
+    "llm_checks": {
+     "h3_catalyst_found": false,
+     "h3_citation": "",
+     "governance_flag": false,
+     "governance_note": "No governance red flag found in the supplied payload (investability.governance = true, no events listed); however 'governance_events' is listed among unverified fields and I have no concrete, dateable external source for SS Retail, so this is an absence of evidence, not positive clearance.",
+     "checked_date": "2026-11-14"
+    },
+    "scores": {
+     "earnings": {
+      "A1": 8,
+      "A2": 0,
+      "A3": 0,
+      "A4": 0,
+      "A5": 2,
+      "subtotal": 10
+     },
+     "revenue": {
+      "B1": 6,
+      "B2": 0,
+      "B3": 0,
+      "B4": 2,
+      "subtotal": 8
+     },
+     "profitability": {
+      "C1": 3,
+      "C2": 1,
+      "C3": 0,
+      "C4": 0,
+      "subtotal": 4
+     },
+     "balance_sheet": {
+      "D1": 1,
+      "D2": 1,
+      "D3": 0,
+      "D4": 1,
+      "subtotal": 3
+     },
+     "sponsorship": {
+      "E1": 0,
+      "E2": 0,
+      "E3": 0,
+      "E4": 0,
+      "subtotal": 0
+     },
+     "rs_trend": {
+      "F1": 0,
+      "F2": 1,
+      "F3": 0,
+      "F4": 2,
+      "subtotal": 3
+     },
+     "base_structure": {
+      "G1": 0,
+      "G2": 0,
+      "G3": 1,
+      "G4": 0,
+      "G5": 0,
+      "G6": 0,
+      "subtotal": 1
+     },
+     "leadership": {
+      "H1": 0,
+      "H2": 0,
+      "H3": 0,
+      "subtotal": 0
+     },
+     "total": 29
+    },
+    "quality_band": "Reject",
+    "action_bucket": "AVOID",
+    "setup_flag": null,
+    "red_flags": [],
+    "risk_level": "LOW",
+    "valuation_context": {
+     "pe": 72.5,
+     "peg": null,
+     "vs_own_5yr": "",
+     "note": "Valuation is context only, never a criterion."
+    },
+    "base": {
+     "pattern_label": "",
+     "pivot": 830.0,
+     "pct_from_pivot": -10.94,
+     "base_count": null,
+     "depth_pct": 31.6,
+     "weeks": 6.8
+    },
+    "trade_plan": null,
+    "delta": {
+     "score_change": 0,
+     "gate_flips": [],
+     "bucket_change": "",
+     "alerts": []
+    },
+    "violations": {
+     "count": 0,
+     "items": [],
+     "recommendation": ""
+    },
+    "verdict": {
+     "summary": "SSRETAIL (29/100) \u2014 Reject / AVOID. Trend Template fails on five of eight criteria (150DMA not above 200DMA, 200DMA not rising, 50DMA not above both, only 22.6% above the 52-week low vs the 30% minimum, and RS unverified/failing c8). The base is 31.6% deep with successive contractions of 22.0%, 23.5% and 26.8% \u2014 each contraction is DEEPER than the last, the opposite of a VCP \u2014 and price sits 10.94% below the 830 pivot. RS percentile is unverified and sponsorship scores zero; there is no valid entry here in any regime.",
+     "strengths": [
+      "Latest quarter EPS YoY >=100% (A1 = 8/8); latest quarter sales YoY ~88.8% (B1 = 6/6)",
+      "ROE 26.5% (C1 = 3/3)",
+      "Net profit trend rising for five quarters (15 \u2192 11 \u2192 17 \u2192 24 \u2192 28)",
+      "Zero promoter pledge; interest coverage 7.8x; D/E 0.59",
+      "Up/down volume ratio 50d = 1.21 (F4 = 2)"
+     ],
+     "weaknesses": [
+      "Fails Trend Template c2, c3, c4, c6, c8 \u2014 gate not passed, status SCORED_NO_TREND",
+      "Base structure 1/20: widening contractions (22.0% \u2192 23.5% \u2192 26.8%), no VCP, weekly close tightness 14.1%, 31.6% base depth",
+      "Earnings block only 10/25 \u2014 acceleration, annual growth and 3-yr CAGR all unverified and scored 0",
+      "Profitability 4/10 \u2014 net margin contracting ~3 bps YoY, 3-yr OCF/PAT only 0.56, FCF positive in only 1 year of 1 covered",
+      "Sponsorship 0/5 \u2014 no verified institutional accumulation data",
+      "17 unverified fields scored 0 \u2014 score is a floor, not a ceiling, but the gate failure is decisive regardless",
+      "P/E 72.5 on a 2.98% net margin \u2014 valuation is context only, but leaves no cushion if growth decelerates"
+     ],
+     "catalysts": [],
+     "biggest_risk": "No confirmed Stage 2 uptrend and a structurally invalid (widening, 31.6%-deep) base \u2014 any purchase here is a counter-trend entry against Minervini's rules, with the 830 pivot 10.94% away and no defined stop within the 10% limit.",
+     "conviction_0_10": 0
+    },
+    "data_quality": {
+     "unverified_fields": [
+      "base_count",
+      "eps_acceleration",
+      "eps_annual_growth",
+      "eps_cagr_3y",
+      "group_leadership_rank",
+      "industry_group_rs",
+      "institutional_holding",
+      "marquee_institution",
+      "median_daily_traded_value",
+      "mf_scheme_count",
+      "new_catalyst",
+      "promoter_holding_trend",
+      "rs_percentile",
+      "sales_acceleration",
+      "sales_cagr_3y",
+      "share_count_growth"
+     ],
+     "proxy_fields": [],
+     "unverified_reasons": {},
+     "sources": [
+      {
+       "field": "technicals",
+       "source": "Yahoo Finance OHLCV",
+       "as_of": "2026-11-13"
+      },
+      {
+       "field": "fundamentals",
+       "source": "screener.in",
+       "as_of": "2026-11-13"
+      }
+     ]
+    },
+    "technicals": {
+     "price": 739.2,
+     "rs_percentile": null,
+     "pct_below_52w_high": 16.8,
+     "pct_above_52w_low": 22.6,
+     "dma_50": 692.22,
+     "dma_200": 692.22,
+     "up_down_volume_ratio_50d": 1.21,
+     "industry_sector": null,
+     "industry_group_rs_quartile": null,
+     "group_leadership_rank": null,
+     "group_leadership_of": null,
+     "rsi": 69.4,
+     "roce": null,
+     "fcf_latest_cr": 4.0,
+     "fcf_source": "reported"
+    },
+    "status": "SCORED_NO_TREND"
+   },
+   "dropped_date": "2026-11-21",
+   "frozen": true
+  },
+  {
    "ticker": "MOLBIO",
    "name": "Molbio Diagnosti",
    "joined_date": "2026-10-03",
