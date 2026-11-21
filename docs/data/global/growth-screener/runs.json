@@ -1,6 +1,166 @@
 {
  "runs": [
   {
+   "run_date": "2026-11-21",
+   "regime": {
+    "score": 1,
+    "label": "CORRECTION",
+    "checks": {
+     "close_above_50dma": false,
+     "close_above_200dma": false,
+     "50dma_above_200dma": true,
+     "distribution_days_25": 10,
+     "distribution_days_ok": false,
+     "pct_universe_above_200dma": 27.2,
+     "universe_above_200dma_ok": false,
+     "net_new_highs_positive": false
+    },
+    "exposure_guidance": "No new buys; watchlist maintenance and holdings management only."
+   },
+   "counts": {
+    "active": 152,
+    "new": 27,
+    "dropped": 9,
+    "errors": 22
+   },
+   "new_tickers": [
+    "MODON",
+    "000660",
+    "ALE",
+    "KBHL",
+    "ADPORTS",
+    "SQM_A",
+    "IHC",
+    "BUENAVC1",
+    "BPAC3",
+    "MTNN",
+    "BUACEMENT",
+    "278470",
+    "ALPHADHABI",
+    "VAR",
+    "YMM",
+    "PKN",
+    "196170",
+    "LTM",
+    "603259",
+    "EQNR",
+    "EMAARDEV",
+    "SUNWAY",
+    "3665",
+    "MALLPLAZA",
+    "267250",
+    "ALDAR",
+    "DANGCEM"
+   ],
+   "dropped_tickers": [
+    "2884",
+    "2890",
+    "OGC",
+    "FUTU",
+    "300620",
+    "300475",
+    "TFPM",
+    "AG",
+    "SFR"
+   ],
+   "actionable_now": [],
+   "errors": [
+    {
+     "ticker": "AVGO",
+     "error": "mapped to 'AVGO' but Yahoo Finance returned no data for it"
+    },
+    {
+     "ticker": "IHC",
+     "error": "exchange 'ADX' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "EQNR",
+     "error": "exchange 'OSL' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "PKN",
+     "error": "exchange 'GPW' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "BPAC3",
+     "error": "exchange 'BMFBOVESPA' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "ALPHADHABI",
+     "error": "exchange 'ADX' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "ALDAR",
+     "error": "exchange 'ADX' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "EMAARDEV",
+     "error": "exchange 'DFM' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "ALE",
+     "error": "exchange 'GPW' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "DANGCEM",
+     "error": "exchange 'NSENG' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "SQM_A",
+     "error": "exchange 'BCS' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "LTM",
+     "error": "exchange 'BCS' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "MODON",
+     "error": "exchange 'ADX' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "MTNN",
+     "error": "exchange 'NSENG' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "VAR",
+     "error": "exchange 'OSL' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "196170",
+     "error": "mapped to '196170.KS' but Yahoo Finance returned no data for it"
+    },
+    {
+     "ticker": "ADPORTS",
+     "error": "exchange 'ADX' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "MALLPLAZA",
+     "error": "exchange 'BCS' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "BUACEMENT",
+     "error": "exchange 'NSENG' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "SUNWAY",
+     "error": "exchange 'MYX' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "KBHL",
+     "error": "exchange 'OMXCOP' has no Yahoo Finance suffix mapping yet"
+    },
+    {
+     "ticker": "BUENAVC1",
+     "error": "exchange 'BVL' has no Yahoo Finance suffix mapping yet"
+    }
+   ],
+   "llm": {
+    "enabled": true,
+    "model": "deepseek-chat",
+    "provider": "deepseek"
+   }
+  },
+  {
    "run_date": "2026-11-14",
    "regime": {
     "score": 2,
@@ -2007,183 +2167,6 @@
     {
      "ticker": "MSIN",
      "error": "exchange 'IDX' has no Yahoo Finance suffix mapping yet"
-    }
-   ],
-   "llm": {
-    "enabled": true,
-    "model": "deepseek-chat",
-    "provider": "deepseek"
-   }
-  },
-  {
-   "run_date": "2026-09-05",
-   "regime": {
-    "score": 5,
-    "label": "CONFIRMED_UPTREND",
-    "checks": {
-     "close_above_50dma": true,
-     "close_above_200dma": true,
-     "50dma_above_200dma": true,
-     "distribution_days_25": 3,
-     "distribution_days_ok": true,
-     "pct_universe_above_200dma": 68.9,
-     "universe_above_200dma_ok": true,
-     "net_new_highs_positive": false
-    },
-    "exposure_guidance": "New buys allowed; full risk budget."
-   },
-   "counts": {
-    "active": 185,
-    "new": 34,
-    "dropped": 7,
-    "errors": 25
-   },
-   "new_tickers": [
-    "BPV",
-    "PANI",
-    "SNN",
-    "BCAT",
-    "PATH",
-    "EMSTEEL",
-    "BSTZ",
-    "603163",
-    "PODERC1",
-    "9699",
-    "HBMNG",
-    "CIE/B",
-    "CYL",
-    "MI",
-    "JEGI",
-    "MFPC",
-    "CMRY",
-    "039200",
-    "MVZ.A",
-    "TEL",
-    "ADES",
-    "SLYG",
-    "XTB",
-    "HDBK",
-    "BST",
-    "8313",
-    "H2O",
-    "MSIN",
-    "BROCALC1",
-    "EMAARDEV",
-    "1303",
-    "800",
-    "241",
-    "8230"
-   ],
-   "dropped_tickers": [
-    "301080",
-    "688486",
-    "MDB",
-    "6781",
-    "9636",
-    "300938",
-    "DUOL06"
-   ],
-   "actionable_now": [],
-   "errors": [
-    {
-     "ticker": "H2O",
-     "error": "exchange 'BVB' has no Yahoo Finance suffix mapping yet"
-    },
-    {
-     "ticker": "EMAARDEV",
-     "error": "exchange 'DFM' has no Yahoo Finance suffix mapping yet"
-    },
-    {
-     "ticker": "241",
-     "error": "mapped to '241.HK' but Yahoo Finance returned no data for it"
-    },
-    {
-     "ticker": "PANI",
-     "error": "exchange 'IDX' has no Yahoo Finance suffix mapping yet"
-    },
-    {
-     "ticker": "XTB",
-     "error": "exchange 'GPW' has no Yahoo Finance suffix mapping yet"
-    },
-    {
-     "ticker": "1303",
-     "error": "exchange 'TADAWUL' has no Yahoo Finance suffix mapping yet"
-    },
-    {
-     "ticker": "SNN",
-     "error": "exchange 'BVB' has no Yahoo Finance suffix mapping yet"
-    },
-    {
-     "ticker": "HBMNG",
-     "error": "exchange 'NSENG' has no Yahoo Finance suffix mapping yet"
-    },
-    {
-     "ticker": "8230",
-     "error": "exchange 'TADAWUL' has no Yahoo Finance suffix mapping yet"
-    },
-    {
-     "ticker": "PODERC1",
-     "error": "exchange 'BVL' has no Yahoo Finance suffix mapping yet"
-    },
-    {
-     "ticker": "8313",
-     "error": "exchange 'TADAWUL' has no Yahoo Finance suffix mapping yet"
-    },
-    {
-     "ticker": "MFPC",
-     "error": "exchange 'EGX' has no Yahoo Finance suffix mapping yet"
-    },
-    {
-     "ticker": "HDBK",
-     "error": "exchange 'EGX' has no Yahoo Finance suffix mapping yet"
-    },
-    {
-     "ticker": "EMSTEEL",
-     "error": "exchange 'ADX' has no Yahoo Finance suffix mapping yet"
-    },
-    {
-     "ticker": "CMRY",
-     "error": "exchange 'IDX' has no Yahoo Finance suffix mapping yet"
-    },
-    {
-     "ticker": "800",
-     "error": "mapped to '800.HK' but Yahoo Finance returned no data for it"
-    },
-    {
-     "ticker": "TEL",
-     "error": "exchange 'BVB' has no Yahoo Finance suffix mapping yet"
-    },
-    {
-     "ticker": "BROCALC1",
-     "error": "exchange 'BVL' has no Yahoo Finance suffix mapping yet"
-    },
-    {
-     "ticker": "SLYG",
-     "error": "exchange 'BSESOF' has no Yahoo Finance suffix mapping yet"
-    },
-    {
-     "ticker": "MI",
-     "error": "exchange 'MYX' has no Yahoo Finance suffix mapping yet"
-    },
-    {
-     "ticker": "MVZ.A",
-     "error": "exchange 'BVCV' has no Yahoo Finance suffix mapping yet"
-    },
-    {
-     "ticker": "MSIN",
-     "error": "exchange 'IDX' has no Yahoo Finance suffix mapping yet"
-    },
-    {
-     "ticker": "ADES",
-     "error": "exchange 'IDX' has no Yahoo Finance suffix mapping yet"
-    },
-    {
-     "ticker": "CIE/B",
-     "error": "exchange 'BMV' has no Yahoo Finance suffix mapping yet"
-    },
-    {
-     "ticker": "BPV",
-     "error": "exchange 'BVCV' has no Yahoo Finance suffix mapping yet"
     }
    ],
    "llm": {
